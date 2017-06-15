@@ -1091,7 +1091,8 @@
 	}
 
 	header h4 + p,
-	header h5 + p,
+	
+ h5 + p,
 	header h6 + p {
 		font-size: 0.9em;
 		margin-top: -0.6em;
@@ -1245,7 +1246,7 @@
 			-moz-align-items: center;
 			-webkit-align-items: center;
 			-ms-align-items: center;
-			align-items: center;
+			align-items: cen  ter;
 			display: -ms-flexbox;
 			-ms-flex-align: center;
 			-ms-flex-pack: center;
@@ -1387,13 +1388,18 @@
 
 /* Main */
 
+ /*main의 흰색 배경부분 */
 	#mainbox {
 	font-size:100pt;
-	height:800px;
+	height:1100px;
  	width:2000px;
-	margin-top: 200px;
+ 	margin: 0px auto;
+	margin-top: 300px;
 	margin-bottom: 200px;
 	margin-left:0px;
+	
+	
+	
 	background-color: white;
 	}
 	
