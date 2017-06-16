@@ -371,6 +371,7 @@ pre {
 	padding: 0;
 }
 #container {
+	width: 900px;
 	margin: 170px auto;
 	padding: 30px;
 	overflow: hidden;
@@ -1437,7 +1438,7 @@ a.more {
 	position: absolute;
 	top: 0;
 	right: 820px;
-	height: 159px;
+	height: 50px;
 }
 
 #search input.form-submit {	

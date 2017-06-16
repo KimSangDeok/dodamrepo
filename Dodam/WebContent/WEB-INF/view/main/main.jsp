@@ -122,20 +122,13 @@ $(document).ready(function()
 			
    	 <br style="clear: left" />
     
-    <!-- search-->
+    <!-- search  -->
 	  		<div id="wrapper">
 	
-				<div id="search">
-					<form action="" method="post">
-						<div>
-					
+				<div id="search">											
 						검색 &nbsp;&nbsp; 
 						<input class="form-text" name="search" size="32" maxlength="64" />
-						<input class="form-submit"  type="submit" value="검색하기" />
-						
-						</div>
-					</form>
-												
+						<input class="form-submit"  type="submit" value="검색하기" />																	
 			 	</div>
 			 	
 	 	 	</div>
