@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>stayview</title>
 <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png" />
 <link rel="stylesheet" type="text/css" href="/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/color/red.css" media="all" />
-<link rel="stylesheet" type="text/css" media="screen" href="/Dodam/style/css/prettyPhoto.css"  />
+<link rel="stylesheet" type="text/css" media="screen" href="/style/css/prettyPhoto.css"  />
 <link rel="stylesheet" type="text/css" href="/style/type/museo.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/type/ptsans.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/type/charis.css" media="all" />
@@ -92,10 +92,7 @@ $(document).ready(function()
 <!--   </div> -->
    
   <div class="clear"></div>
-  <div class="login">로그인
-  	<div class="goods"><a href ="goods/goodsShow.dodam">재고관리</a></div>
-  </div>
- 
+  
   <!-- Begin Menu -->
   <div id="menu" class="menu opacity">
   
@@ -143,30 +140,7 @@ $(document).ready(function()
   
   <!-- Begin Container -->
   <div id="container" class="opacity"> 
-    <div>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			
-    </div>
+    
  
   </div>
   <!-- End Container -->
