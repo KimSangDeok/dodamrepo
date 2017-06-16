@@ -122,7 +122,7 @@ $(document).ready(function()
 			
    	 <br style="clear: left" />
     
-    <!-- search ê²ìë¶ë¶ -->
+    <!-- search-->
 	  		<div id="wrapper">
 	
 				<div id="search">
