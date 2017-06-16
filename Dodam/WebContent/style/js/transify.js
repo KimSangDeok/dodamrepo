@@ -45,8 +45,9 @@
 			}
 			$this.css({
 				position:'relative',
-				background:'none',
-				border:'none'})
+				background:'block',
+				border:'none',
+				width:'1300px'})
 				
 			if (settings.opacityNew) {
 				$this.hover(function() {
