@@ -372,7 +372,8 @@ pre {
 }
 #container {
 	width: 900px;
-	margin: 170px auto;
+	margin-left:-150px;
+	margin-top:170px;
 	padding: 30px;
 	overflow: hidden;
 	background-color: #fff;
@@ -1437,7 +1438,7 @@ a.more {
 	line-height: 350px;
 	position: absolute;
 	top: 0;
-	right: 820px;
+	left:300px;
 	height: 50px;
 }
 
@@ -1456,7 +1457,7 @@ a.more {
 	background: #ffffff;
 	border: 1px;
 	padding: 5px 8px 5px 8px;
-	color: #ffffff;
+	color: #000000;
 	border-radius: 4px;
 }
 
@@ -1920,3 +1921,18 @@ ol.commentlist li {
 .comment-form {
 	margin-top: 40px;
 }
+
+.login{
+	padding-top:30px;
+	font-size: 20px;
+	font-style: normal;
+	color:#000000;
+}
+
+.goods{
+	padding-top:30px;
+	font-size: 20px;
+	font-style: normal;
+	color:#000000;
+}
+

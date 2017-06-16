@@ -92,7 +92,10 @@ $(document).ready(function()
 <!--   </div> -->
    
   <div class="clear"></div>
-  
+  <div class="login">로그인
+  	<div class="goods"><a href ="/">재고관리</a></div>
+  </div>
+ 
   <!-- Begin Menu -->
   <div id="menu" class="menu opacity">
   
@@ -140,7 +143,30 @@ $(document).ready(function()
   
   <!-- Begin Container -->
   <div id="container" class="opacity"> 
-    
+    <div>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			<h1>asdfasdfasdf</h1>
+    			
+    </div>
  
   </div>
   <!-- End Container -->
