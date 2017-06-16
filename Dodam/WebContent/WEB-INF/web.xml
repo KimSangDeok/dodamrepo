@@ -16,6 +16,7 @@
          <param-name>contextConfigLocation</param-name>
          <param-value>
          /WEB-INF/springConfig/common-servlet.xml
+         /WEB-INF/springConfig/main-servlet.xml         
          </param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>

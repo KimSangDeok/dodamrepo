@@ -7,8 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>WebContent/WEB-INF/springConfig/main-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>WebContent/WEB-INF/springConfig/common-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
