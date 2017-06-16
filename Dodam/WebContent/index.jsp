@@ -16,19 +16,7 @@
 	
 	
 	<body>
-	<!-- search 검색부분 -->
-	  <div id="wrapper">
 	
-		<div id="search">
-				<form action="" method="post">
-					<div>
-					
-						도담도담 &nbsp;&nbsp; <input class="form-text" name="search" size="32" maxlength="64" />
-						<input class="form-submit"  type="submit" value="상세검색" />
-					</div>
-				</form>
-			</div>
-	  </div>
 	
 		<!-- Header 로그인화면 전 시작화면 -->
 			<header id="header" class='header'>
@@ -71,6 +59,20 @@
 <!-- 				</li> -->
 			</ul>
 			<br class="clear" />
+			
+			<!-- search 검색부분 -->
+	  		<div id="wrapper">
+	
+				<div id="search">
+					<form action="" method="post">
+						<div>
+					
+						도담도담 &nbsp;&nbsp; <input class="form-text" name="search" size="32" maxlength="64" />
+						<input class="form-submit"  type="submit" value="상세검색" />
+						</div>
+					</form>
+				</div>
+	 	 	</div>
 		</div>
 
 
