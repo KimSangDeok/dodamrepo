@@ -29,7 +29,7 @@
 
 
 <!-- 빈생성 -->
-<context:component-scan base-package="myproj.main"/>
+<context:component-scan base-package="myproj.goods"/>
 
 <mvc:annotation-driven>
     <mvc:message-converters>

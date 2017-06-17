@@ -23,6 +23,7 @@
          /WEB-INF/springConfig/payment-servlet.xml   
          /WEB-INF/springConfig/reservation-servlet.xml      
          /WEB-INF/springConfig/stay-servlet.xml  
+         /WEB-INF/springConfig/goods-servlet.xml
          </param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>
