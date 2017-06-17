@@ -15,8 +15,13 @@
       <init-param>
          <param-name>contextConfigLocation</param-name>
          <param-value>
+         /WEB-INF/springConfig/beauty-servlet.xml
          /WEB-INF/springConfig/common-servlet.xml
-         /WEB-INF/springConfig/main-servlet.xml         
+         /WEB-INF/springConfig/counter-servlet.xml
+         /WEB-INF/springConfig/jinryo-servlet.xml
+         /WEB-INF/springConfig/main-servlet.xml
+         /WEB-INF/springConfig/payment-servlet.xml   
+         /WEB-INF/springConfig/reservation-servlet.xml      
          /WEB-INF/springConfig/stay-servlet.xml  
          </param-value>
       </init-param>

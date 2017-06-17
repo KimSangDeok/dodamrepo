@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>beautyView</title>
 <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png" />
 <link rel="stylesheet" type="text/css" href="/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/color/red.css" media="all" />
-<link rel="stylesheet" type="text/css" media="screen" href="/Dodam/style/css/prettyPhoto.css"  />
+<link rel="stylesheet" type="text/css" media="screen" href="/style/css/prettyPhoto.css"  />
 <link rel="stylesheet" type="text/css" href="/style/type/museo.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/type/ptsans.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/style/type/charis.css" media="all" />
@@ -92,34 +92,31 @@ $(document).ready(function()
 <!--   </div> -->
    
   <div class="clear"></div>
-  <div class="login">로그인
-  	<div class="goods"><a href ="goods/goodsShow.dodam">재고관리</a></div>
-  </div>
- 
+  
   <!-- Begin Menu -->
   <div id="menu" class="menu opacity">
   
  			 <ul>
 				<li class="">
-					<a href="/reservation/reserView.dodam">예약</a>
+					<a href="#">예약</a>
 				</li>
 				<li class="">
-					<a href="/counter/counterView.dodam">접수</a>
+					<a href="#">접수</a>
 				</li>
 				<li class="">
-					<a href="/main/main.dodam">홈</a>
+					<a href="#">홈</a>
 				</li>
 				<li class="">
-					<a href="/jinryo/jinryoView.dodam/">진료</a>
+					<a href="#">진료</a>
 				</li>
 				<li class="">
 					<a href="/stay/stayView.dodam">입원/호텔</a>
 				</li>
 				<li class="">
-					<a href="/beauty/beautyView.dodam">미용</a>
+					<a href="#">미용</a>
 				</li>
 				<li class="">
-					<a href="/payment/paymentView.dodam">수납</a>
+					<a href="#">수납</a>
 				</li>						
 			</ul>
 			
@@ -143,30 +140,7 @@ $(document).ready(function()
   
   <!-- Begin Container -->
   <div id="container" class="opacity"> 
-    <div>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			<h1>asdfasdfasdf</h1>
-    			
-    </div>
+    
  
   </div>
   <!-- End Container -->
