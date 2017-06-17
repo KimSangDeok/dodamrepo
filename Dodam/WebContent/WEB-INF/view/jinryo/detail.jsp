@@ -67,44 +67,6 @@ $(document).ready(function()
 
 <!-- Begin myScript -->
 
-<script type="text/javascript">
-
-$(document).ready(function() {
-	
-	$('#listTable tr').each(function(i){
-		
-		if(i != 0){
-			
-			$(this).hover(function(){
-				
-				$(this).css('background','#CEFBC9');
-			},function() {
-				
-				$(this).css('background','');
-			});
-			
-			$(this).click(function() {
-				
-// 				$(location).attr('href', '/jinryo/detail.dodam?num='); 나중에 번호값 넘기기
-				$(location).attr('href', '/jinryo/detail.dodam');
-			});
-		}
-		
-		
-	});
-	
-
-});
-
-</script>
-
-<script type="text/javascript">
-
-function newChart(){
-	
-	alert('준비중입니다');
-}
-</script>
 
 <!-- End myScript --> 
 <body>
@@ -187,91 +149,62 @@ function newChart(){
   
   <!-- Begin Container -->
   <div id="container" class="opacity"> 
-  
-  <div>
-  
-    <div style="width: 800px; float: left;">
-    	<a href="javascript:newChart()" class="button green">차트생성</a>
-    
-	    <table id="listTable">
-	    	<tbody>
-	   	    	<tr>
-	   	    		<th>
-	   	    			<h4>번호</h4>
-	   	    		</th>
-	   	    		<th>
-	   	    			<h4>환자명</h4>
-	   	    		</th>
-	   	    		<th>
-	   	    			<h4>보호자명</h4>
-	   	    		</th>
-		    		<th>
-	   	    			<h4>차트번호</h4>
-	   	    		</th>
-	   	    		<th>
-	   	    			<h4>품종</h4>
-	   	    		</th>
-	   	    		<th>
-	   	    			<h4>담당의</h4>
-	   	    		</th>
-	   	    		<th>
-	   	    			<h4>등록일</h4>
-	   	    		</th>
-		    	</tr>
-		    	<tr>
-		    		<td>2</td>
-		    		<td>순돌이ds</td>
-		    		<td>김예은</td>
-		    		<td>2017062101</td>
-		    		<td>푸들</td>
-		    		<td>황선화</td>
-		    		<td>2017-06-22</td>
-		    	</tr>
-		    	<tr>
-		    		<td>2</td>
-		    		<td>순돌이</td>
-		    		<td>김예은</td>
-		    		<td>2017062101</td>
-		    		<td>푸들</td>
-		    		<td>황선화</td>
-		    		<td>2017-06-22</td>
-		    	</tr>
-	    	</tbody>
-	
-	    </table>			
-    			
-    </div>
- 
- 
-	 	<div style="border: solid 1px black;  float: left; margin-top: 50px; margin-left: 150px;">
-						<div class="sidebar">
-							<div class="sidebar-box">
-								<h3>접수 대기자</h3>
-								<hr>
-								<div class="cat-list">
-									<ul>
-										<li>
-											<a href="#">담당의 : 황선화<br/>환자명 : 순돌이</a>
-										</li>
-										<li>
-											<a href="#">담당의 : 홍길동<br/>환자명 : 순자</a>
-										</li>
-										<li><a href="#">design <span>5</span></a></li>
-										<li><a href="#">inspiration <span>3</span></a></li>
-										<li><a href="#">fun <span>16</span></a></li>
-										<li><a href="#">casual <span>5</span></a></li>
-										<li><a href="#">business <span>9</span></a></li>
-										<li><a href="#">web <span>2</span></a></li>
-										<li><a href="#">color <span>1</span></a></li>
-										<li><a href="#">portfolio <span>7</span></a></li>
-									</ul>
-								</div>
-							</div>
+
+			<div>
+				<div>
+					<div style="width: 800px; float: left;">
+						<h3>진료차트</h3>
+					</div>
+					<div style="width: 400px; float: right;">
+						<div class="buttons" style="float: right;">
+							<a href="/jinryo/jinryoView.dodam" class="button green">목록보기</a>
 						</div>
-	 	</div>
- 	
- 	</div>
-  </div>
+					</div>
+					<div style="clear: both;">
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div style=" width: 400px; height: 500px; float: left;">
+					<div class="one-half">
+				        <div class="info-box">문진표</div>
+				        <div class="info-box">검사기록</div>
+				        <div class="info-box">증상</div>
+				        <div class="info-box">진단명</div>
+				        <div class="info-box">처치/처방</div>
+				        <div class="info-box">결제 내역</div>
+				    </div>
+				</div>
+				
+				<div style=" width: 800px; height: 500px; float: left;">
+					<h2>문진표</h2>
+					<h4>문진 내요오오옹로로로롱</h4>
+					<hr>
+					
+					<h2>검사 기록</h2>
+					<h4>검사 기록 내요오오옹로로로롱</h4>
+					<hr>
+					
+					<h2>증상</h2>
+					<h4>증상 내요오오옹로로로롱</h4>
+					<hr>
+					
+					<h2>진단명</h2>
+					<h4>진단명 내요오오옹로로로롱</h4>
+					<hr>
+					
+					<h2>처치/처방</h2>
+					<h4>처치/처방 내요오오옹로로로롱</h4>
+					<hr>
+					
+					<h2>결제내역</h2>
+					<h4>결제내역 내요오오옹로로로롱</h4>
+					<hr>
+				</div>
+			</div>
+		</div>
+  
   <!-- End Container -->
   
   
