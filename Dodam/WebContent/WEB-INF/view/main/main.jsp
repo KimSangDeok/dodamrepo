@@ -110,7 +110,7 @@ $(document).ready(function()
 					<a href="/main/main.dodam">홈</a>
 				</li>
 				<li class="">
-					<a href="/jinryo/jinryoView.dodam/">진료</a>
+					<a href="/jinryo/jinryoView.dodam">진료</a>
 				</li>
 				<li class="">
 					<a href="/stay/stayView.dodam">입원/호텔</a>
