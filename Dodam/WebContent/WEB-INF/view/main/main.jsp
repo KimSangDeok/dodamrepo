@@ -93,7 +93,7 @@ $(document).ready(function()
    
   <div class="clear"></div>
   <div class="login">로그인
-  	<div class="goods"><a href ="goods/goodsShow.dodam">재고관리</a></div>
+  	<div class="goods"><a href ="/goods/goodsShow.dodam">재고관리</a></div>
   </div>
  
   <!-- Begin Menu -->
