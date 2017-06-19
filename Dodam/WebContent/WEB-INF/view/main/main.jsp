@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<title>Radius by TEMPLATED</title>
+		<title>♡도♡담♡도♡담♡에 오♡신♡것♡을♡환♡영♡합♡니♡다♡</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/maincss/css/main.css" />		
@@ -82,7 +82,7 @@
 			
 			
 			<nav class="cd-stretchy-nav">
-		<a class="cd-nav-trigger" href="#0">
+		<a class="cd-nav-trigger" href="#0" style="background:#ffb700">
 			Menu
 			<span aria-hidden="true"></span>
 		</a>
@@ -93,7 +93,7 @@
 			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>운영관리</span></a></li>
 			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>매출관리</span></a></li>
 		</ul>
-		<span aria-hidden="true" class="stretchy-nav-bg"></span>
+		<span aria-hidden="true" class="stretchy-nav-bg" style="background:#ffb700;"></span>
 	</nav>
 			
 			
@@ -117,18 +117,6 @@
 					<li><a href="/payment/paymentView.dodam"><font size="5em">수납</font></a></li>
 				</ul>
 			</nav>
-			
-			
-			<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
-			<input class='customerInfo' type='text' name='customer_name' value='선민정'/>
-			<input type='text' disabled='disabled' name='customer_tel'/>
-			<select>
-				<option>고객 동물1</option>
-				<option>고객 동물2</option>
-				<option>고객 동물3</option>
-			</select>
-			<input type='text' disabled='disabled' name='pet_type'/>
-			<input type='text' disabled='disabled' name='customer_addr'/>
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
