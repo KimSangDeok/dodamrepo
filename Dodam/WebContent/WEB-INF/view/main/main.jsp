@@ -66,7 +66,7 @@
 		<!-- Main -->
 			<div id="main" style="text-align:center">
 
-
+			<div style="margin-top:35px">
 			<nav id="main-nav" role="navigation">
 				<ul id="main-menu" class="sm sm-mint">
 					<li><a href="/reservation/reserView.dodam">예약</a></li>
