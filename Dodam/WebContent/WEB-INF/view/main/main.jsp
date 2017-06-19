@@ -117,6 +117,18 @@
 					<li><a href="/payment/paymentView.dodam"><font size="5em">수납</font></a></li>
 				</ul>
 			</nav>
+			
+			
+			<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
+			<input class='customerInfo' type='text' name='customer_name' value='선민정'/>
+			<input type='text' disabled='disabled' name='customer_tel'/>
+			<select>
+				<option>고객 동물1</option>
+				<option>고객 동물2</option>
+				<option>고객 동물3</option>
+			</select>
+			<input type='text' disabled='disabled' name='pet_type'/>
+			<input type='text' disabled='disabled' name='customer_addr'/>
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
