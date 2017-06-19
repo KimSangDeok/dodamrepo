@@ -27,8 +27,8 @@ font-family: arial, verdana;
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-<script src="js/jquery-multi-step-form.js" type="text/javascript"></script>
-<link href="css/jquery-multi-step-form.css" media="screen" rel="stylesheet" type="text/css">
+<script src="/register/js/jquery-multi-step-form.js" type="text/javascript"></script>
+<link href="/register/css/jquery-multi-step-form.css" media="screen" rel="stylesheet" type="text/css">
 
 		
 		<!-- 스마트 메뉴 관련 시작 -->
@@ -105,7 +105,7 @@ font-family: arial, verdana;
 			
 			
 			<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-		<div style="border:1px solid red">
+		<div >
 			
 			<h1 style="margin: 150px auto 50px auto" align="center"></h1>
 			<div id="multistepform-example-container">
