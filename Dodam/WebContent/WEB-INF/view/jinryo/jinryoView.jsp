@@ -102,7 +102,7 @@ $(document).ready(function() {
 
 function newChart(){
 	
-	alert('준비중입니다');
+	$(location).attr('href', '/jinryo/chartForm.dodam');
 }
 </script>
 

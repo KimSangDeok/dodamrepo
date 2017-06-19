@@ -3323,9 +3323,9 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-lg,
 .btn-group-lg > .btn {
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.3333333;
+  padding: 10px 9px;
+  font-size: 25px;
+  line-height: 2.3333333;
   border-radius: 6px;
 }
 .btn-sm,
@@ -5307,9 +5307,9 @@ a.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-title {
-  margin-top: 0;
+  margin-top: 5px;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 30px;
   color: inherit;
 }
 .panel-title > a,
