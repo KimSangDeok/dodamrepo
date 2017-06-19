@@ -10,12 +10,12 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
 		<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
-		
+		<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- 미용내역 table css -->
 		
 		<!-- 부트스트랩 공통!! -->
 	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
-		
+
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
@@ -136,11 +136,76 @@
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 			 <div style="border:1px solid red">
-			 	1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.
+			 	<h1>1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.</h1>
+			 	
+			 	  <table id="keywords" cellspacing="0" cellpadding="0">
+				    <thead>
+				      <tr>
+				        <th><span>Keywords</span></th>
+				        <th><span>Impressions</span></th>
+				        <th><span>Clicks</span></th>
+				        <th><span>CTR</span></th>
+				        <th><span>Rank</span></th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <td class="lalign">silly tshirts</td>
+				        <td>6,000</td>
+				        <td>110</td>
+				        <td>1.8%</td>
+				        <td>22.2</td>
+				      </tr>
+				      <tr>
+				        <td class="lalign">desktop workspace photos</td>
+				        <td>2,200</td>
+				        <td>500</td>
+				        <td>22%</td>
+				        <td>8.9</td>
+				      </tr>
+				      <tr>
+				        <td class="lalign">arrested development quotes</td>
+				        <td>13,500</td>
+				        <td>900</td>
+				        <td>6.7%</td>
+				        <td>12.0</td>
+				      </tr>
+				      <tr>
+				        <td class="lalign">popular web series</td>
+				        <td>8,700</td>
+				        <td>350</td>
+				        <td>4%</td>
+				        <td>7.0</td>
+				      </tr>
+				      <tr>
+				        <td class="lalign">2013 webapps</td>
+				        <td>9,900</td>
+				        <td>460</td>
+				        <td>4.6%</td>
+				        <td>11.5</td>
+				      </tr>
+				      <tr>
+				        <td class="lalign">ring bananaphone</td>
+				        <td>10,500</td>
+				        <td>748</td>
+				        <td>7.1%</td>
+				        <td>17.3</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				 </div> 
+			 	
+			 	<!-- 미용 내역 table js -->
+				<script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
+			 	<script type="text/javascript">
+				$(function(){
+				   $('#keywords').tablesorter(); 
+				});
+				</script>
 			 	
 			 	
 			 	
-			 	2. 동물의 예약 미용 내역을 추가하여 저장한다.
+			 	<h1>2. 동물의 예약 미용 내역을 추가하여 저장한다.</h1>
 			 	<div >
 			 	<div class="row">
                 <div class="col-xs-5">
@@ -171,7 +236,7 @@
 			</div>
 
 
-<script type="text/javascript" src="/js/multiselect.js"></script>
+<script type="text/javascript" src="/style/js/multiselect.js"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
