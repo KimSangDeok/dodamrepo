@@ -3,14 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<title>Radius by TEMPLATED</title>
+		<title>beautyView</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/maincss/css/main.css" />		
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
-	<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
-	
+		<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
+		<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
+		
+		
+		<!-- 부트스트랩 공통!! -->
+	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
 		
 		
@@ -133,15 +136,61 @@
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 			 <div style="border:1px solid red">
-			 코딩을 작성하세요~~~
-								 
-			 
+			 	1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.
+			 	
+			 	
+			 	
+			 	2. 동물의 예약 미용 내역을 추가하여 저장한다.
+			 	<div >
+			 	<div class="row">
+                <div class="col-xs-5">
+                    <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
+                        <option value="1">전체미용</option>
+                        <option value="2">부분미용</option>
+                        <option value="3">귀청소</option>
+                        <option value="4">안마</option>
+                        <option value="5">산책서비스</option>
+
+                    </select>
+                </div>
+                
+                <div class="col-xs-2">
+                    <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
+                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">▶▶</button>
+                    <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
+                    <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
+                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">◀◀</button>
+                    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
+                </div>
+                
+                <div class="col-xs-5">
+                    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
+                </div>
+            </div>
 			 </div>
-			 
-				 
-				
-				
 			</div>
+
+
+<script type="text/javascript" src="/js/multiselect.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-39934286-1', 'github.com');
+    ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // make code pre
+
+    $('#undo_redo').multiselect();
+});
+</script>
+
+
 
 		<!-- Footer -->
 			<footer id="footer">
