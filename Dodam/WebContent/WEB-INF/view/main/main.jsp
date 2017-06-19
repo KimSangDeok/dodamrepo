@@ -7,6 +7,47 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
+		
+		
+		<!-- 스마트 메뉴 관련 시작 -->
+		<!-- SmartMenus core CSS (required) -->
+		<link href="/style/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+		
+		<!-- "sm-mint" menu theme (optional, you can use your own CSS, too) -->
+		<link href="/style/css/sm-mint.css" rel="stylesheet" type="text/css" />
+		
+		<!-- #main-menu config - instance specific stuff not covered in the theme -->
+		<!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) -->
+		<style type="text/css">
+			@media (min-width: 768px) {
+				#main-nav {
+					line-height: 0;
+					text-align: center;
+				}
+				#main-menu {
+					display: inline-block;
+				}
+			}
+		</style>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="/style/js/jquery.js"></script>
+		
+		<!-- SmartMenus jQuery plugin -->
+		<script type="text/javascript" src="/style/js/jquery.smartmenus.js"></script>
+		
+		<!-- SmartMenus jQuery init -->
+		<script type="text/javascript">
+			$(function() {
+				$('#main-menu').smartmenus({
+					subMenusSubOffsetX: 6,
+					subMenusSubOffsetY: -8
+				});
+			});
+		</script>
+		<!-- 스마트 메뉴 관련 끝 -->
+		
+		
 	</head>
 	<body>
 
@@ -24,30 +65,32 @@
 			
 		<!-- Main -->
 			<div id="main" style="text-align:center">
+
+
+			<nav id="main-nav" role="navigation">
+				<ul id="main-menu" class="sm sm-mint">
+					<li><a href="/reservation/reserView.dodam">예약</a></li>
+					<li><a href="/counter/counterView.dodam">접수</a></li>
+					<li><a href="/jinryo/jinryoView.dodam">진료</a></li>
+					<li><a href="#">입원/호텔</a>
+						<ul>
+							<li><a href="/stay/stayView.dodam">입원 및 호텔하기</a></li>
+							<li><a href="#">입원 및 호텔 카메라 보여주기</a></li>
+						</ul>
+					</li>	
+					<li><a href="/beauty/beautyView.dodam">미용</a></li>
+					<li><a href="/payment/paymentView.dodam">수납</a></li>
+				</ul>
+			</nav>
+				
 				 
-				 
-				 <div style="line-height:100px">
-				 <a href="/reservation/reserView.dodam">예약</a>
-				 <a href="/counter/counterView.dodam">접수</a>
-				 <a href="/main/main.dodam">홈</a>
-				 <a href="/jinryo/jinryoView.dodam">진료</a>
-				 <a href="/stay/stayView.dodam">입원/호텔</a>
-				 <a href="/beauty/beautyView.dodam">미용</a>
-				 <a href="/payment/paymentView.dodam">수납</a>
-				 </div>
-				 
-				 
-				 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-				 <div style="border:1px solid red">
-				 코딩을 작성하세요~~~
-									 
-				 
-				 </div>
-				 
-				 
-				 
-				 
-				 
+			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+			 <div style="border:1px solid red">
+			 코딩을 작성하세요~~~
+								 
+			 
+			 </div>
+			 
 				 
 				
 				
