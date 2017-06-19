@@ -6,15 +6,20 @@
 		<title>Radius by TEMPLATED</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/maincss/css/main.css" />		
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
+	<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
+	
+		
 		
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
-		<link href="/style/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+		<link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
 		
 		<!-- "sm-mint" menu theme (optional, you can use your own CSS, too) -->
-		<link href="/style/css/sm-mint.css" rel="stylesheet" type="text/css" />
+		<link href="/css/sm-mint.css" rel="stylesheet" type="text/css" />
 		
 		<!-- #main-menu config - instance specific stuff not covered in the theme -->
 		<!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) -->
@@ -31,10 +36,16 @@
 		</style>
 		
 		<!-- jQuery -->
-		<script type="text/javascript" src="/style/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery.js"></script>
 		
 		<!-- SmartMenus jQuery plugin -->
-		<script type="text/javascript" src="/style/js/jquery.smartmenus.js"></script>
+		<script type="text/javascript" src="/js/jquery.smartmenus.js"></script>
+		
+		 <!-- Modernizr -->
+		<script src="/js/modernizr.js"></script>
+<!-- 		<script src="/js/jquery-2.1.4.js"></script> -->
+		<script src="/js/popmenumain.js"></script> <!--Resource jQuery-->
+		
 		
 		<!-- SmartMenus jQuery init -->
 		<script type="text/javascript">
@@ -65,6 +76,30 @@
 			
 		<!-- Main -->
 			<div id="main" style="text-align:center">
+			
+			
+			
+			
+			
+			<nav class="cd-stretchy-nav">
+		<a class="cd-nav-trigger" href="#0">
+			Menu
+			<span aria-hidden="true"></span>
+		</a>
+
+		<ul>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>고객관리</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>재고관리</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>운영관리</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>매출관리</span></a></li>
+		</ul>
+		<span aria-hidden="true" class="stretchy-nav-bg"></span>
+	</nav>
+			
+			
+			
+			
+			
 
 			<div style="margin-top:35px">
 			<nav id="main-nav" role="navigation">
@@ -119,10 +154,10 @@
 
 		<!-- Scripts -->
 			<!-- jquery가 겹쳐서 -->
-			<!-- <script src="/assets/js/jquery.min.js"></script> -->
-			<script src="/assets/js/skel.min.js"></script>
-			<script src="/assets/js/util.js"></script>
-			<script src="/assets/js/main.js"></script>
+<!-- 			<script src="/js/jquery.min.js"></script> -->
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
 
 	</body>
 </html>
