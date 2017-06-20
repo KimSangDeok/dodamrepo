@@ -14,9 +14,7 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 	
 	
-	
-		<!-- 시간대별 접수고객 table css -->
-		<link rel="stylesheet" href="/css/mpay/table1.css"/>
+
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
