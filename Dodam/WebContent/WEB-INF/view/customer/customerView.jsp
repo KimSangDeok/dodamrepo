@@ -1,27 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>고객관리화면</title>
-  
-  <!-- 프로필 link -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-     <link rel="stylesheet" href="/customer-css/profile.css">
-  <!-- end of 프로필 -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/menu-css/style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 
-integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-  
-  
-  <!-- search style -->
+		<title>도담도담에 오신것을 환영합니다</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		
+  		
+		<link rel="stylesheet" href="/maincss/css/main.css" />		
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/customer-css/profile.css">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+		
+		
+		<!-- 스마트 메뉴 관련 시작 -->
+		<!-- SmartMenus core CSS (required) -->
+		<link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+		
+		<!-- "sm-mint" menu theme (optional, you can use your own CSS, too) -->
+		<link href="/css/sm-mint.css" rel="stylesheet" type="text/css" />
+		
+		<!-- #main-menu config - instance specific stuff not covered in the theme -->
+		<!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) -->
+		<style type="text/css">
+			@media (min-width: 768px) {
+				#main-nav {
+					line-height: 0;
+					text-align: center;
+				}
+				#main-menu {
+					display: inline-block;
+				}
+			}
+		</style>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		
+		<!-- SmartMenus jQuery plugin -->
+		<script type="text/javascript" src="/js/jquery.smartmenus.js"></script>
+		
+		 <!-- Modernizr -->
+		<script src="/js/modernizr.js"></script>
+<!-- 		<script src="/js/jquery-2.1.4.js"></script> -->
+		<script src="/js/popmenumain.js"></script> <!--Resource jQuery-->
+		
+		
+		<!-- SmartMenus jQuery init -->
+		<script type="text/javascript">
+			$(function() {
+				$('#main-menu').smartmenus({
+					subMenusSubOffsetX: 6,
+					subMenusSubOffsetY: -8
+				});
+			});
+		</script>
+		<!-- 스마트 메뉴 관련 끝 -->
+		
+		
+		
+		<!-- search style -->
     <style>
-    body { background-color:#F47265; font-family:'Roboto';}
+    body { background-color: white; font-family:'Roboto';}
 /*     .container { margin:150px auto;} */
     input { margin:50px auto;}
     .form-control {
@@ -30,25 +76,82 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 	margin-left: 200px;
 	margin-top: 100px;
 }
-.searchbox{
-width: 200px;
+.line{
+margin-top:-50px;
+
 }
-.container{margin-left:200px;}
+.container{margin-left:200px;
+			margin-right:0px;
+			max-width: 500px;}
+			
+.col-md-6{
+width: 130%;	
+}
 
 	
     </style>
-    
-    
-</head>
-
-<body>
+	</head>
+	<body>
 
 
+		<!-- Header 로그인화면 전 시작화면 -->
+			<header id="header" class='header hide'>
+				<div class="inner">
+					<div class="content">
+						<h1>DodamDodam</h1>
+						<h2>건강하고 예쁘게 자라주렴</h2>
+						<a href="#" class="button big alt"><span>도담도담한 시작</span></a>
+					</div>
+					<a href="#" class="button hidden"><span>start</span></a>
+				</div>
+			</header>
+			
+		<!-- Main -->
+			<div id="main" style="text-align:center">
+			
+			
+			<nav class="cd-stretchy-nav">
+		<a class="cd-nav-trigger" href="#0" style="background:#ffb700">
+			Menu
+			<span aria-hidden="true"></span>
+		</a>
 
-<!-- 검색 table 코딩 -->
+		<ul>
+			<li><a href="/customer/customerView.dodam" style="color: #000000;text-decoration: none;"><span>고객관리</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>재고관리</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>운영관리</span></a></li>
+			<li><a href="/mpay/mpayView.dodam" style="color: #000000;text-decoration: none;"><span>매출관리</span></a></li>
+		</ul>
+		<span aria-hidden="true" class="stretchy-nav-bg" style="background:#ffb700;"></span>
+	</nav>
+			
+
+			<div style="margin-top:100px">
+			<nav id="main-nav" role="navigation">
+				<ul id="main-menu" class="sm sm-mint">
+					<li><a href="/reservation/reserView.dodam"><font size="5em">예약</font></a></li>
+					<li><a href="/counter/counterView.dodam"><font size="5em">접수</font></a></li>
+					<li><a href="/jinryo/jinryoView.dodam"><font size="5em">진료</font></a></li>
+					<li><a href="#"><font size="5em">입원/호텔</font></a>
+						<ul>
+							<li><a href="/stay/stayView.dodam">입원 및 호텔하기</a></li>
+							<li><a href="#">입원 및 호텔 카메라 보여주기</a></li>
+						</ul>
+					</li>	
+					<li><a href="/beauty/beautyView.dodam"><font size="5em">미용</font></a></li>
+					<li><a href="/payment/paymentView.dodam"><font size="5em">수납</font></a></li>
+				</ul>
+			</nav>
+				
+				 
+			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+			 <div style="border:1px solid red">
+			 
+
+<!-- table 코딩 -->
 
 <div class="container">
-<div class="searchbox">
+<div class="line">
 	<input type="text" class="form-control" 
 	placeholder="Search..." id="search_field">
 </div>
@@ -97,152 +200,99 @@ width: 200px;
     </table>
 </div>
   </div>
-  
-  
-  
-  
-  
-  
 </div>
 
 
 <!-- end of table -->
 
-
-
-
-  <nav>
-<!--   <a href="#" id="userPLink"> -->
-<!--     <span class="fa fa-user"></span> -->
-<!--   </a> -->
-
-  <div id="sideMenu">
-    <span class="fa fa-navicon" id="sideMenuClosed"></span>
-    
-  </div>
-</nav>
-
-<div id="sideMenuContainer">
-  <br/><h2>Customer Management</h2>
-  <a href="#" title="고객등록"><span class="fa fa-bolt"></span></a>
-  <a href="#" title="통화목록 검색"><span class="fa fa-exclamation-circle"></span></a>
-  <a href="#" title="SMS 발송"><span class="fa fa-map"></span></a>
-  <a href="#" title="SMS 발송 내역"><span class="fa fa-info-circle"></span></a>
-  <a href="#" title="directory"><span class="fa fa-users"></span></a>
-  <a href="#" title="claims"><span class="fa fa-camera"></span></a>
-  <a href="#" title="summaries"><span class="fa fa-commenting"></span></a>
-<!--   <a href="#" title="requests"><span class="fa fa-heart"></span></a> -->
-<!--   <a href="#" title="unanswered"><span class="fa fa-flag"></span></a> -->
-<!--   <a href="#" title="faq / suggestions"><span class="fa fa-question-circle"></span></a> -->
-<!--   <a href="#" title="chat"><span class="fa fa-glass"></span></a> -->
-</div>
-
-
 <!-- 프로필 코딩 -->
 <div class="containers">
-    <div >
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                    <br/>
-                    <h4>보호자 이름</h4>
-                            <br/>
-                          <br/><br/> 
-                        <small>
-                        </cite></small>
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>email@example.com
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                       <div class="">
-                           
-                           <h4> 반려동물 목록</h4>
-                            <hr style="border-bottom :slide 2px;"></hr>
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>8개월
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i>암컷
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i>염증</p>
-                       </div> 
-                            
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="register">
+      <div class="photo">
+      	 
+      	<div class="customertext">
+      	<section class="section1">
+      	<header>
+      	<br/>
+      	<h2>박보검</h2>
+      	</header>
+      	<a href="#" class="image full">
+      	<img src="/images/보검.jpg" alt=""> </a>
+      	<ul class="contact">
+      	<li><span class="icon fa-home"></span> 
+      	휴대전화 <span><input type="text" value="010-1111-2222"/></span>  </li>
+      	<li><span class="icon fa-home"></span> 
+      	주소 <span><input type="text" value="서울시 구로구 가리봉동"/></span>  </li>
+      	<li><span class="icon fa-home"></span> 
+      	이메일 <span><input type="text" value="bogum@namver.com"/></span>  </li>
+      	
+      	  </ul>
+      	  </section>
+      	  </div>
+      	  
+      	  
+      	  <div class="animaltext" >
+      	  <section class="section2">
+      	<header>
+      	<h2>반려동물 목록</h2>
+		
+      	<caption><h>연이</h></caption>
+      	
+      	</header>
+      	<a href="#" class="image full">
+      	<img src="/images/토이푸들.png" alt=""></a>
+      	<ul class="contact">
+      	<li><span class="icon fa-home"></span> 
+      	나이 <span><input type="text" value="8개월"/></span>  </li>
+      	<li><span class="icon fa-home"></span> 
+      	성별 <span><input type="text" value="암컷"/></span>  </li>
+      	<li><span class="icon fa-home"></span> 
+      	질병 <span><input type="text" value="눈병"/></span>  </li>
+      	
+      	  </ul>
+      	  </section>
+      	  </div>
+      	  
+      	
+      </div>
+      
+<!--     	<hr style="border-bottom: thin; border-bottom-style: dotted;"> -->
+    	
     </div>
 </div>
 <!-- end of profile -->
+			 </div>
+			 
+			</div>
 
+		<!-- Footer -->
+			<footer id="footer">
+				<a href="#" class="info fa fa-info-circle"><span>About</span></a>
+				<div class="inner">
+					<div class="content">
+						<h3>Vestibulum hendrerit tortor id gravida</h3>
+						<p>In tempor porttitor nisl non elementum. Nulla ipsum ipsum, feugiat vitae vehicula vitae, imperdiet sed risus. Fusce sed dictum neque, id auctor felis. Praesent luctus sagittis viverra. Nulla erat nibh, fermentum quis enim ac, ultrices euismod augue. Proin ligula nibh, pretium at enim eget, tempor feugiat nulla.</p>
+					</div>
+					<div class="copyright">
+						<h3>Follow me</h3>
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						</ul>
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+					</div>
+				</div>
+			</footer>
 
+		<!-- Scripts -->
+			<!-- jquery가 겹쳐서 -->
+<!-- 			<script src="/js/jquery.min.js"></script> -->
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+			<script src="/search-js/search.js"></script>
 
-
-
-
-	
-	<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
-    <script src="/search-js/search.js"></script>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
-</script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-  $('#sideMenu').sideToggle({
-    moving: '#sideMenuContainer',
-    direction: 'left'
-  });
-});
-  </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
-<script src='/menu-js/sideToggleExtended.js'></script>
-
-    <script src="/menu-js/menu.js"></script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-<!-- 검색 부분 -->
-
-
-
-
-</body>
+	</body>
 </html>
