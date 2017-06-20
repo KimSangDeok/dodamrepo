@@ -145,8 +145,77 @@ width: 130%;
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-			 <div style="border:1px solid red">
-			 
+			 <div >
+			 <span>
+			<!-- manage화면의 menu 시작-->
+				<link rel="stylesheet" type="text/css" href="/manage/style.css" />
+				      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+				<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
+				<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
+					<section class="main">
+						<div class="wrapper-demo">
+							<div id="dd" class="wrapper-dropdown-3" tabindex="1">
+								<span>Transport</span>
+								<ul class="dropdown">
+									<li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+									<li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+									<li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+								</ul>
+							</div>
+						​</div>
+					</section>			 
+				<script type="text/javascript">
+				
+				function DropDown(el) {
+					this.dd = el;
+					this.placeholder = this.dd.children('span');
+					this.opts = this.dd.find('ul.dropdown > li');
+					this.val = '';
+					this.index = -1;
+					this.initEvents();
+				}
+				DropDown.prototype = {
+					initEvents : function() {
+						var obj = this;
+				
+						obj.dd.on('click', function(event){
+							$(this).toggleClass('active');
+							return false;
+						});
+				
+						obj.opts.on('click',function(){
+							var opt = $(this);
+							obj.val = opt.text();
+							obj.index = opt.index();
+							obj.placeholder.text(obj.val);
+						});
+					},
+					getValue : function() {
+						return this.val;
+					},
+					getIndex : function() {
+						return this.index;
+					}
+				}
+				
+				$(function() {
+				
+					var dd = new DropDown( $('#dd') );
+				
+					$(document).click(function() {
+						// all dropdowns
+						$('.wrapper-dropdown-3').removeClass('active');
+					});
+				
+				});
+				
+				</script>
+				<!-- manage화면의 menu 끝 -->
+				
+				
+				
+</span>
+				
 
 <!-- table 코딩 -->
 
