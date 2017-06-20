@@ -124,7 +124,7 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 	<!-- 로고 글씨 색깔 바뀌는 부분 -->
 	
 	<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
-    <script src="/search-js/index.js"></script>
+    <script src="/search-js/search.js"></script>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -160,7 +160,7 @@ $(document).ready(function(){
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
 <script src='/menu-js/sideToggleExtended.js'></script>
 
-    <script src="/index.js"></script>
+    <script src="/menu-js/menu.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
