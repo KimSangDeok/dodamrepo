@@ -16,6 +16,8 @@
 	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
 
+		<!-- 팝업모달 -->
+		<link rel="stylesheet" href="/beautymodal/rmodal.css" type="text/css" />
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
@@ -57,6 +59,49 @@
 					subMenusSubOffsetX: 6,
 					subMenusSubOffsetY: -8
 				});
+				
+				
+	            var modal = new RModal(document.getElementById('modal'), {
+	                beforeOpen: function(next) {
+	                    console.log('beforeOpen');
+	                    next();
+	                }
+	                , afterOpen: function() {
+	                    console.log('opened');
+	                }
+
+	                , beforeClose: function(next) {
+	                    console.log('beforeClose');
+	                    next();
+	                }
+	                , afterClose: function() {
+	                    console.log('closed');
+	                }
+
+	                // , content: 'Abracadabra'
+
+	                // , bodyClass: 'modal-open'
+	                // , dialogClass: 'modal-dialog-lg'
+	                // , dialogOpenClass: 'fadeIn'
+	                // , dialogCloseClass: 'fadeOut'
+
+	                // , focus: true
+	                // , focusElements: ['input.form-control', 'textarea', 'button.btn-primary']
+
+	                // , escapeClose: true
+	            });
+
+	            document.addEventListener('keydown', function(ev) {
+	                modal.keydown(ev);
+	            }, false);
+
+	            document.getElementById('showModal').addEventListener("click", function(ev) {
+	                ev.preventDefault();
+	                modal.open();
+	            }, false);
+
+	            window.modal = modal;
+				
 			});
 		</script>
 		<!-- 스마트 메뉴 관련 끝 -->
@@ -132,11 +177,54 @@
 			</select>
 			<input type='text' disabled='disabled' name='pet_type'/>
 			<input type='text' disabled='disabled' name='customer_addr'/>
+			
+			<!-- 팝업내용 -->
+<div id="modal" class="modal">
+    <div class="modal-dialog animated">
+        <div class="modal-content">
+            <form class="form-horizontal" method="get">
+                <div class="modal-header">
+                    <strong>미용 옵션 추가</strong>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="dummyText" class="control-label col-xs-4">미용 종류</label>
+                        <div class="input-group col-xs-7">
+                            <input type="text" name="dummyText" id="dummyText" class="form-control" />
+                        </div>
+                        <label for="dummyText" class="control-label col-xs-4">미용 가격</label>
+                        <div class="input-group col-xs-7">
+                            <input type="text" name="dummyText" id="dummyText" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
+                  <button class="btn btn-primary" type="submit" onclick="modal.close();">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>			
+			
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 			 <div style="border:1px solid red">
 			 	<h1>1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.</h1>
+			 	
+			 	
+			 	
+			 		<!-- datepicker, 옵션, 저장 값 가져오자. -->
+			 		<div class="row">
+			 			<div class="col-lg-12">
+			 				<a href="#" id="showModal" class="btn btn-success">미용옵션</a>
+   						</div>
+					</div>
+			 		<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
+			 		
 			 	
 			 	  <table id="keywords" cellspacing="0" cellpadding="0">
 				    <thead>
