@@ -8,6 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>고객관리화면</title>
   
+  <!-- 프로필 link -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+     <link rel="stylesheet" href="/customer-css/profile.css">
+  <!-- end of 프로필 -->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/menu-css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 
@@ -26,6 +30,9 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 	margin-left: 200px;
 	margin-top: 100px;
 }
+.searchbox{
+width: 200px;
+}
 .container{margin-left:200px;}
 
 	
@@ -35,10 +42,13 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 </head>
 
 <body>
-<!-- table 코딩 -->
+
+
+
+<!-- 검색 table 코딩 -->
 
 <div class="container">
-<div class="line">
+<div class="searchbox">
 	<input type="text" class="form-control" 
 	placeholder="Search..." id="search_field">
 </div>
@@ -87,10 +97,17 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
     </table>
 </div>
   </div>
+  
+  
+  
+  
+  
+  
 </div>
 
 
 <!-- end of table -->
+
 
 
 
@@ -120,8 +137,54 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 <!--   <a href="#" title="chat"><span class="fa fa-glass"></span></a> -->
 </div>
 
-<div id="logo" class='colorchange'>
-	<!-- 로고 글씨 색깔 바뀌는 부분 -->
+
+<!-- 프로필 코딩 -->
+<div class="containers">
+    <div >
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                    <br/>
+                    <h4>보호자 이름</h4>
+                            <br/>
+                          <br/><br/> 
+                        <small>
+                        </cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>email@example.com
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
+                       <div class="">
+                           
+                           <h4> 반려동물 목록</h4>
+                            <hr style="border-bottom :slide 2px;"></hr>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>8개월
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i>암컷
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>염증</p>
+                       </div> 
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of profile -->
+
+
+
+
+
+
 	
 	<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
     <script src="/search-js/search.js"></script>
@@ -146,7 +209,7 @@ integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8q
 </script></div>
 </div>
 
-<pre><code id='sourceCode'>
+
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
 
@@ -156,7 +219,7 @@ $(document).ready(function(){
     direction: 'left'
   });
 });
-  </script></code></pre>
+  </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
 <script src='/menu-js/sideToggleExtended.js'></script>
 
