@@ -6,7 +6,7 @@
 		<title>Radius by TEMPLATED</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/maincss/css/main.css" />
 		
 		
 		<!-- 스마트 메뉴 관련 시작 -->
@@ -119,10 +119,10 @@
 
 		<!-- Scripts -->
 			<!-- jquery가 겹쳐서 -->
-			<!-- <script src="/assets/js/jquery.min.js"></script> -->
-			<script src="/assets/js/skel.min.js"></script>
-			<script src="/assets/js/util.js"></script>
-			<script src="/assets/js/main.js"></script>
+			<!-- <script src="//maincss/js/jquery.min.js"></script> -->
+			<script src="/maincss/js/skel.min.js"></script>
+			<script src="/maincss/js/util.js"></script>
+			<script src="/maincss/js/main.js"></script>
 
 	</body>
 </html>
