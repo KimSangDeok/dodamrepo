@@ -112,7 +112,7 @@ samp {
 button,
 input,
 optgroup,
-select,
+/* select, */
 textarea {
   margin: 0;
   font: inherit;
@@ -188,6 +188,11 @@ td,
 th {
   padding: 0;
 }
+
+tr{
+	cursor:pointer;
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
