@@ -4,7 +4,6 @@
 <div class="smallMenu">
 	<nav class="cd-stretchy-nav">
 		<a class="cd-nav-trigger" href="#0" style="background:#ffb700">
-			Menu
 			<span aria-hidden="true"></span>
 		</a>
 
