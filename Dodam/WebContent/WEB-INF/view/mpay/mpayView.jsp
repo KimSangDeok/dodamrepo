@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<link rel="stylesheet" type="text/css" href="/manage/style.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
+<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
+
 
 <div class="body">
-			 <span>
-			         <link rel="stylesheet" type="text/css" href="/manage/style.css" />
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
-		<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
-		<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
 			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
