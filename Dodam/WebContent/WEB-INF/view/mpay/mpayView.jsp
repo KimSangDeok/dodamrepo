@@ -1,10 +1,73 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="body">
+			 <span>
+			         <link rel="stylesheet" type="text/css" href="/manage/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+		<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
+		<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
+			<section class="main">
+				<div class="wrapper-demo">
+					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
+						<span>ë§¤ì¶œê´€ë¦¬</span>
+						<ul class="dropdown">
+						
+							<li><a href="#"><i class="icon-envelope icon-large"></i>ì‹œê°„ëŒ€ë³„ ì ‘ìˆ˜ê³ ê°</a></li>
+							<li><a href="/mpay/done.dodam"><i class="icon-truck icon-large"></i>ë§¤ì¶œ ì•¡ ë° ê±´ìˆ˜</a></li>
+							<li><a href="#"><i class="icon-plane icon-large"></i>ë§¤ì¶œ ë‚´ìš© ë¶„ì„</a></li>
+						</ul>
+					</div>
+				â€‹</div>
+			</section>			 
+			 		<script type="text/javascript">
+			
+			function DropDown(el) {
+				this.dd = el;
+				this.placeholder = this.dd.children('span');
+				this.opts = this.dd.find('ul.dropdown > li');
+				this.val = '';
+				this.index = -1;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
 
-		<!-- mpayView´Â ½Ã°£´ëº° Á¢¼ö°í°´ÀÇ ¼ö¸¦ ÀÇ¹ÌÇÑ´Ù. ±×·¡ÇÁ ÀÛ¼º ³»¿ëÀ» ½ÃÀÛ.... µåµğ¾î!!! -->
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						return false;
+					});
+
+					obj.opts.on('click',function(){
+						var opt = $(this);
+						obj.val = opt.text();
+						obj.index = opt.index();
+						obj.placeholder.text(obj.val);
+					});
+				},
+				getValue : function() {
+					return this.val;
+				},
+				getIndex : function() {
+					return this.index;
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-3').removeClass('active');
+				});
+
+			});
+
+		</script>
+		<!-- mpayViewëŠ” ì‹œê°„ëŒ€ë³„ ì ‘ìˆ˜ê³ ê°ì˜ ìˆ˜ë¥¼ ì˜ë¯¸í•œë‹¤. ê·¸ë˜í”„ ì‘ì„± ë‚´ìš©ì„ ì‹œì‘.... ë“œë””ì–´!!! -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		
@@ -17,14 +80,14 @@
 			        type: 'line'
 			    },
 			    title: {
-			        text: '½Ã°£´ëº° Á¢¼ö °í°´'
+			        text: 'ì‹œê°„ëŒ€ë³„ ì ‘ìˆ˜ ê³ ê°'
 			    },
 			    xAxis: {
-			        categories: ['¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ']
+			        categories: ['ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼']
 			    },
 			    yAxis: {
 			        title: {
-			            text: '¼ö(¸í or ¸¶¸®)'
+			            text: 'ìˆ˜(ëª… or ë§ˆë¦¬)'
 			        }
 			    },
 			    plotOptions: {
@@ -36,10 +99,10 @@
 			        }
 			    },
 			    series: [{
-			        name: '°í°´ ¼ö',
+			        name: 'ê³ ê° ìˆ˜',
 			        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2]
 			    }, {
-			        name: 'µ¿¹° ¼ö',
+			        name: 'ë™ë¬¼ ìˆ˜',
 			        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
 			    }]
 			});
@@ -49,6 +112,6 @@
 		
 		
 		
-		<!-- Á¢¼ö¼Ò°´ chart ³¡ -->
+		<!-- ì ‘ìˆ˜ì†Œê° chart ë -->
 
 </div>
