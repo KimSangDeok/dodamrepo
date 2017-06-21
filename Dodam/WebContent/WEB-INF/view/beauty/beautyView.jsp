@@ -1,199 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-		<title>beautyView</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/maincss/css/main.css" />		
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
-		<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
-		<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- ë¯¸ìš©ë‚´ì—­ table css -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+		<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- ¹Ì¿ë³»¿ª table css -->
 		
-		<!-- ë¶€íŠ¸ìŠ¤íŠ¸ë© ê³µí†µ!! -->
+		<!-- ºÎÆ®½ºÆ®·¦ °øÅë!! -->
 	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
 
-		<!-- íŒì—…ëª¨ë‹¬ -->
+		<!-- ÆË¾÷¸ğ´Ş -->
 		<link rel="stylesheet" href="/beautymodal/rmodal.css" type="text/css" />
-		
-		<!-- ìŠ¤ë§ˆíŠ¸ ë©”ë‰´ ê´€ë ¨ ì‹œì‘ -->
-		<!-- SmartMenus core CSS (required) -->
-		<link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
-		
-		<!-- "sm-mint" menu theme (optional, you can use your own CSS, too) -->
-		<link href="/css/sm-mint.css" rel="stylesheet" type="text/css" />
-		
-		<!-- #main-menu config - instance specific stuff not covered in the theme -->
-		<!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) -->
-		<style type="text/css">
-			@media (min-width: 768px) {
-				#main-nav {
-					line-height: 0;
-					text-align: center;
-				}
-				#main-menu {
-					display: inline-block;
-				}
-			}
-		</style>
-		
-		<!-- jQuery -->
-		<script type="text/javascript" src="/js/jquery.js"></script>
-		
-		<!-- SmartMenus jQuery plugin -->
-		<script type="text/javascript" src="/js/jquery.smartmenus.js"></script>
-		
-		 <!-- Modernizr -->
-		<script src="/js/modernizr.js"></script>
-<!-- 		<script src="/js/jquery-2.1.4.js"></script> -->
-		<script src="/js/popmenumain.js"></script> <!--Resource jQuery-->
-		
-		
-		<!-- SmartMenus jQuery init -->
-		<script type="text/javascript">
-			$(function() {
-				$('#main-menu').smartmenus({
-					subMenusSubOffsetX: 6,
-					subMenusSubOffsetY: -8
-				});
-				
-				
-	            var modal = new RModal(document.getElementById('modal'), {
-	                beforeOpen: function(next) {
-	                    console.log('beforeOpen');
-	                    next();
-	                }
-	                , afterOpen: function() {
-	                    console.log('opened');
-	                }
+		<script src="/js/popmenumain.js"></script>
+<div class="body">
 
-	                , beforeClose: function(next) {
-	                    console.log('beforeClose');
-	                    next();
-	                }
-	                , afterClose: function() {
-	                    console.log('closed');
-	                }
-
-	                // , content: 'Abracadabra'
-
-	                // , bodyClass: 'modal-open'
-	                // , dialogClass: 'modal-dialog-lg'
-	                // , dialogOpenClass: 'fadeIn'
-	                // , dialogCloseClass: 'fadeOut'
-
-	                // , focus: true
-	                // , focusElements: ['input.form-control', 'textarea', 'button.btn-primary']
-
-	                // , escapeClose: true
-	            });
-
-	            document.addEventListener('keydown', function(ev) {
-	                modal.keydown(ev);
-	            }, false);
-
-	            document.getElementById('showModal').addEventListener("click", function(ev) {
-	                ev.preventDefault();
-	                modal.open();
-	            }, false);
-
-	            window.modal = modal;
-				
-			});
-		</script>
-		<!-- ìŠ¤ë§ˆíŠ¸ ë©”ë‰´ ê´€ë ¨ ë -->
-		
-		
-	</head>
-	<body>
-
-		<!-- Header ë¡œê·¸ì¸í™”ë©´ ì „ ì‹œì‘í™”ë©´ -->
-			<header id="header" class='header'>
-				<div class="inner">
-					<div class="content">
-						<h1>DodamDodam</h1>
-						<h2>ê±´ê°•í•˜ê³  ì˜ˆì˜ê²Œ ìë¼ì£¼ë ´</h2>
-						<a href="#" class="button big alt"><span>ë„ë‹´ë„ë‹´í•œ ì‹œì‘</span></a>
-					</div>
-					<a href="#" class="button hidden"><span>start</span></a>
-				</div>
-			</header>
-			
-		<!-- Main -->
-			<div id="main" style="text-align:center">
-			
-			
-			
-			
-			
-			<nav class="cd-stretchy-nav">
-		<a class="cd-nav-trigger" href="#0">
-			Menu
-			<span aria-hidden="true"></span>
-		</a>
-
-		<ul>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ê³ ê°ê´€ë¦¬</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ì¬ê³ ê´€ë¦¬</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ìš´ì˜ê´€ë¦¬</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ë§¤ì¶œê´€ë¦¬</span></a></li>
-		</ul>
-		<span aria-hidden="true" class="stretchy-nav-bg"></span>
-	</nav>
-			
-			
-			
-			
-			
-
-			<div style="margin-top:35px">
-			<nav id="main-nav" role="navigation">
-				<ul id="main-menu" class="sm sm-mint">
-					<li><a href="/reservation/reserView.dodam"><font size="5em">ì˜ˆì•½</font></a></li>
-					<li><a href="/counter/counterView.dodam"><font size="5em">ì ‘ìˆ˜</font></a></li>
-					<li><a href="/jinryo/jinryoView.dodam"><font size="5em">ì§„ë£Œ</font></a></li>
-					<li><a href="#"><font size="5em">ì…ì›/í˜¸í…”</font></a>
-						<ul>
-							<li><a href="/stay/stayView.dodam">ì…ì› ë° í˜¸í…”í•˜ê¸°</a></li>
-							<li><a href="#">ì…ì› ë° í˜¸í…” ì¹´ë©”ë¼ ë³´ì—¬ì£¼ê¸°</a></li>
-						</ul>
-					</li>	
-					<li><a href="/beauty/beautyView.dodam"><font size="5em">ë¯¸ìš©</font></a></li>
-					<li><a href="/payment/paymentView.dodam"><font size="5em">ìˆ˜ë‚©</font></a></li>
-				</ul>
-			</nav>
-			
-			
-			<!-- ì§„ë£Œ, ì…ì› ë“± í˜„ì¬ ì„œë¹„ìŠ¤ë¥¼ ë°›ëŠ” ê³ ê° ë° ë™ë£Œ ì •ë³´ë¥¼ ë³´ëŠ” ê³³ -->
-			<input class='customerInfo' type='text' name='customer_name' value='ì„ ë¯¼ì •'/>
-			<input type='text' disabled='disabled' name='customer_tel'/>
-			<select>
-				<option>ê³ ê° ë™ë¬¼1</option>
-				<option>ê³ ê° ë™ë¬¼2</option>
-				<option>ê³ ê° ë™ë¬¼3</option>
-			</select>
-			<input type='text' disabled='disabled' name='pet_type'/>
-			<input type='text' disabled='disabled' name='customer_addr'/>
-			
-			<!-- íŒì—…ë‚´ìš© -->
+			<!-- ÆË¾÷³»¿ë -->
 <div id="modal" class="modal">
     <div class="modal-dialog animated">
         <div class="modal-content">
             <form class="form-horizontal" method="get">
                 <div class="modal-header">
-                    <strong>ë¯¸ìš© ì˜µì…˜ ì¶”ê°€</strong>
+                    <strong>¹Ì¿ë ¿É¼Ç Ãß°¡</strong>
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="dummyText" class="control-label col-xs-4">ë¯¸ìš© ì¢…ë¥˜</label>
+                        <label for="dummyText" class="control-label col-xs-4">¹Ì¿ë Á¾·ù</label>
                         <div class="input-group col-xs-7">
                             <input type="text" name="dummyText" id="dummyText" class="form-control" />
                         </div>
-                        <label for="dummyText" class="control-label col-xs-4">ë¯¸ìš© ê°€ê²©</label>
+                        <label for="dummyText" class="control-label col-xs-4">¹Ì¿ë °¡°İ</label>
                         <div class="input-group col-xs-7">
                             <input type="text" name="dummyText" id="dummyText" class="form-control" />
                         </div>
@@ -211,16 +45,16 @@
 			
 				
 				 
-			 <!-- ì—¬ê¸° ë¶€ë¶„ì´ ì‹¤ì§ˆì ìœ¼ë¡œ ì½”ë”©í•˜ëŠ” ë¶€ë¶„ì…ë‹ˆë‹¤~~~ divì˜ í…Œë‘ë¦¬ëŠ” ì§€ê¸ˆ ë³´ê¸° í¸í•˜ê¸° ìœ„í•œ ë¶€ë¶„ì´ê³ , ë‚˜ì¤‘ì— ì§€ìš¸ê»ë‹ˆë‹¤~~ -->
+			 <!-- ¿©±â ºÎºĞÀÌ ½ÇÁúÀûÀ¸·Î ÄÚµùÇÏ´Â ºÎºĞÀÔ´Ï´Ù~~~ divÀÇ Å×µÎ¸®´Â Áö±İ º¸±â ÆíÇÏ±â À§ÇÑ ºÎºĞÀÌ°í, ³ªÁß¿¡ Áö¿ï²®´Ï´Ù~~ -->
 			 <div style="border:1px solid red">
-			 	<h1>1. í•´ë‹¹ ë‚ ì§œì˜ ë¯¸ìš©ì‹¤ ì˜ˆì•½ ì¼ì •ì„ ëª¨ë‘ ë³´ì—¬ì¤€ë‹¤.</h1>
+			 	<h1>1. ÇØ´ç ³¯Â¥ÀÇ ¹Ì¿ë½Ç ¿¹¾à ÀÏÁ¤À» ¸ğµÎ º¸¿©ÁØ´Ù.</h1>
 			 	
 			 	
 			 	
-			 		<!-- datepicker, ì˜µì…˜, ì €ì¥ ê°’ ê°€ì ¸ì˜¤ì. -->
+			 		<!-- datepicker, ¿É¼Ç, ÀúÀå °ª °¡Á®¿ÀÀÚ. -->
 			 		<div class="row">
 			 			<div class="col-lg-12">
-			 				<a href="#" id="showModal" class="btn btn-success">ë¯¸ìš©ì˜µì…˜</a>
+			 				<a href="#" id="showModal" class="btn btn-success">¹Ì¿ë¿É¼Ç</a>
    						</div>
 					</div>
 			 		<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
@@ -283,7 +117,7 @@
 				  </table>
 				 </div> 
 			 	
-			 	<!-- ë¯¸ìš© ë‚´ì—­ table js -->
+			 	<!-- ¹Ì¿ë ³»¿ª table js -->
 				<script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
 			 	<script type="text/javascript">
 				$(function(){
@@ -293,26 +127,26 @@
 			 	
 			 	
 			 	
-			 	<h1>2. ë™ë¬¼ì˜ ì˜ˆì•½ ë¯¸ìš© ë‚´ì—­ì„ ì¶”ê°€í•˜ì—¬ ì €ì¥í•œë‹¤.</h1>
+			 	<h1>2. µ¿¹°ÀÇ ¿¹¾à ¹Ì¿ë ³»¿ªÀ» Ãß°¡ÇÏ¿© ÀúÀåÇÑ´Ù.</h1>
 			 	<div >
 			 	<div class="row">
                 <div class="col-xs-5">
                     <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
-                        <option value="1">ì „ì²´ë¯¸ìš©</option>
-                        <option value="2">ë¶€ë¶„ë¯¸ìš©</option>
-                        <option value="3">ê·€ì²­ì†Œ</option>
-                        <option value="4">ì•ˆë§ˆ</option>
-                        <option value="5">ì‚°ì±…ì„œë¹„ìŠ¤</option>
+                        <option value="1">ÀüÃ¼¹Ì¿ë</option>
+                        <option value="2">ºÎºĞ¹Ì¿ë</option>
+                        <option value="3">±ÍÃ»¼Ò</option>
+                        <option value="4">¾È¸¶</option>
+                        <option value="5">»êÃ¥¼­ºñ½º</option>
 
                     </select>
                 </div>
                 
                 <div class="col-xs-2">
                     <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
-                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">â–¶â–¶</button>
+                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">¢º¢º</button>
                     <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
                     <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
-                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">â—€â—€</button>
+                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">¢¸¢¸</button>
                     <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
                 </div>
                 
@@ -339,39 +173,54 @@
 $(document).ready(function() {
     // make code pre
 
+    	            var modal = new RModal(document.getElementById('modal'), {
+	                beforeOpen: function(next) {
+	                    console.log('beforeOpen');
+	                    next();
+	                }
+	                , afterOpen: function() {
+	                    console.log('opened');
+	                }
+
+	                , beforeClose: function(next) {
+	                    console.log('beforeClose');
+	                    next();
+	                }
+	                , afterClose: function() {
+	                    console.log('closed');
+	                }
+
+	                // , content: 'Abracadabra'
+
+	                // , bodyClass: 'modal-open'
+	                // , dialogClass: 'modal-dialog-lg'
+	                // , dialogOpenClass: 'fadeIn'
+	                // , dialogCloseClass: 'fadeOut'
+
+	                // , focus: true
+	                // , focusElements: ['input.form-control', 'textarea', 'button.btn-primary']
+
+	                // , escapeClose: true
+	            });
+
+	            document.addEventListener('keydown', function(ev) {
+	                modal.keydown(ev);
+	            }, false);
+
+	            document.getElementById('showModal').addEventListener("click", function(ev) {
+	                ev.preventDefault();
+	                modal.open();
+	            }, false);
+
+	            window.modal = modal;
+    
+    
     $('#undo_redo').multiselect();
 });
 </script>
 
 
 
-		<!-- Footer -->
-			<footer id="footer">
-				<a href="#" class="info fa fa-info-circle"><span>About</span></a>
-				<div class="inner">
-					<div class="content">
-						<h3>Vestibulum hendrerit tortor id gravida</h3>
-						<p>In tempor porttitor nisl non elementum. Nulla ipsum ipsum, feugiat vitae vehicula vitae, imperdiet sed risus. Fusce sed dictum neque, id auctor felis. Praesent luctus sagittis viverra. Nulla erat nibh, fermentum quis enim ac, ultrices euismod augue. Proin ligula nibh, pretium at enim eget, tempor feugiat nulla.</p>
-					</div>
-					<div class="copyright">
-						<h3>Follow me</h3>
-						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						</ul>
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-					</div>
-				</div>
-			</footer>
 
-		<!-- Scripts -->
-			<!-- jqueryê°€ ê²¹ì³ì„œ -->
-<!-- 			<script src="/js/jquery.min.js"></script> -->
-			<script src="/js/skel.min.js"></script>
-			<script src="/js/util.js"></script>
-			<script src="/js/main.js"></script>
 
-	</body>
-</html>
+</div>
