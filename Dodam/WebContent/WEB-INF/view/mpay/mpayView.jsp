@@ -3,20 +3,32 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+	<style>
+	/* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
+	.main{
+		z-index:2;
+	}
+	.container{
+		z-index:1;
+	}
+	</style>
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
-
-
+<script>
+$(document).ready(function(){
+   
+   $('.header').addClass('hide');
+});
+</script>
 <div class="body">
 			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 						<span>매출관리</span>
-						<ul class="dropdown">
-						
-							<li><a href="#"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
-							<li><a href="/mpay/done.dodam"><i class="icon-truck icon-large"></i>매출 액 및 건수</a></li>
-							<li><a href="#"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
+						<ul class="dropdown">						
+							<li><a href="/mpay/mpayView.dodam"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
+							<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>매출 액 및 건수</a></li>
+							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
 						</ul>
 					</div>
 				​</div>

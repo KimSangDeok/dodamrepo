@@ -3,6 +3,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+	<style>
+	/* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
+	.main{
+		z-index:2;
+	}
+	.container{
+		z-index:1;
+	}
+	</style>
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
 
