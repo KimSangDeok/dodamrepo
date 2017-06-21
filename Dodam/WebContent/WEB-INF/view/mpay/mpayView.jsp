@@ -81,6 +81,26 @@ $(document).ready(function(){
 			});
 
 		</script>
+		
+		
+		<div style="float:left">	
+		datepicker를 넣고 
+		</div>
+		<div style="float:left">	
+		오늘 
+		</div>
+		<div style="float:left">	
+		어제
+		</div>
+		<div style="float:left">	
+		1개월
+		</div>
+		<div style="float:left">	
+		1년
+		</div>
+		
+		
+		
 		<!-- mpayView는 시간대별 접수고객의 수를 의미한다. 그래프 작성 내용을 시작.... 드디어!!! -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
