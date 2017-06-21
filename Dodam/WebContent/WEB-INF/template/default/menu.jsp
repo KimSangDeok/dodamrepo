@@ -4,7 +4,7 @@
 <div class="menu">
 	<nav id="main-nav" role="navigation">
 		<ul id="main-menu" class="sm sm-mint">
-			<li><a href="/reservation/reserView.dodam"><font size="5em">예약</font></a></li>
+			<li><a href="/reservation/reservationView.dodam"><font size="5em">예약</font></a></li>
 			<li><a href="/counter/counterView.dodam"><font size="5em">접수</font></a></li>
 			<li><a href="/jinryo/jinryoView.dodam"><font size="5em">진료</font></a></li>
 			<li><a href="#"><font size="5em">입원/호텔</font></a>

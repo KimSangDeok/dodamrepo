@@ -90,12 +90,51 @@ width: 130%;
 
 	
     </style>
+    
+<!--     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script> -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/register/js/jquery-multi-step-form.js" type="text/javascript"></script>
+<link href="/register/css/jquery-multi-step-form.css" media="screen" rel="stylesheet" type="text/css">
+    <script>
+    $(function(){
+    	
+    	$('#registerDiv').click(function(){
+    			$('#total').show();
+    			$('#total').css('style','{z-index:-10; top:200px; left:200px;}');
+			$.multistepform({
+				container : 'multistepform-example-container',
+				form_method : 'GET'
+			});
+    	});
+    	
+    });
+	
+    </script>
+    
+    <script type="text/javascript">
+				var _gaq = _gaq || [];
+				_gaq.push([ '_setAccount', 'UA-36251023-1' ]);
+				_gaq.push([ '_setDomainName', 'jqueryscript.net' ]);
+				_gaq.push([ '_trackPageview' ]);
+
+				(function() {
+					var ga = document.createElement('script');
+					ga.type = 'text/javascript';
+					ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+							: 'http://www')
+							+ '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(ga, s);
+				})();
+			</script>
 	</head>
+	
 	<body>
 
 
 		<!-- Header 로그인화면 전 시작화면 -->
-			<header id="header" class='header hide'>
+			<header id="header" class='header hide '>
 				<div class="inner">
 					<div class="content">
 						<h1>DodamDodam</h1>
@@ -129,7 +168,7 @@ width: 130%;
 			<div style="margin-top:100px">
 			<nav id="main-nav" role="navigation">
 				<ul id="main-menu" class="sm sm-mint">
-					<li><a href="/reservation/reserView.dodam"><font size="5em">예약</font></a></li>
+					<li><a href="/reservation/reservationView.dodam"><font size="5em">예약</font></a></li>
 					<li><a href="/counter/counterView.dodam"><font size="5em">접수</font></a></li>
 					<li><a href="/jinryo/jinryoView.dodam"><font size="5em">진료</font></a></li>
 					<li><a href="#"><font size="5em">입원/호텔</font></a>
@@ -157,8 +196,8 @@ width: 130%;
 							<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 								<span>Transport</span>
 								<ul class="dropdown">
-									<li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
-									<li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+									<li><a href="#"><i class="icon-envelope icon-large"></i>고객검색</a></li>
+									<li><div id="registerDiv"><a href="#"><i class="icon-truck icon-large"></i>고객등록</a></div></li>
 									<li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
 								</ul>
 							</div>
@@ -362,6 +401,64 @@ width: 130%;
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
 			<script src="/search-js/search.js"></script>
+		
+<!-- 		<div id="total" style="display:none;"> -->
+		<div id="total" style="display:none;">
+		<h1 style="margin: 150px auto 50px auto" align="center"></h1>
+			<div id="multistepform-example-container">
+				<div class="form">
+					<form action="">
+						<h2 class="fs-title">Step 1. 고객 등록</h2>
+						<h3 class="fs-subtitle">Please register your infromation</h3>
+						<input type="text" name="customerNum" placeholder="1077">
+						<input type="text" name="name" placeholder="보호자"> <input
+							type="text" name="address" placeholder="서울 구로구">
+						<textarea name="memo" placeholder="memo"></textarea>
+						<input type="button" name="next" class="next button" value="Next">
+					</form>
+				</div>
+				<div class="form">
+					<form action="">
+						<h2 class="fs-title">Step 2. 동물 등록</h2>
+						<h3 class="fs-subtitle">Please register your animal's picture</h3>
 
+						<input type="text" name="number" placeholder="32571"> <input
+							type="text" name="animalname" placeholder="이름"> <input
+							type="text" name="animaltype" placeholder="품종"> <input
+							type="text" name="color" placeholder="피모색">
+
+						<div>
+
+							<h1>담당자</h1>
+							<select>
+								<option style="display: none">담당자</option>
+								<optgroup label="진료담당자">
+									<option>박보검</option>
+									<option>송중기</option>
+								</optgroup>
+								<optgroup label="미용담당자">
+									<option>현아</option>
+									<option>경리</option>
+								</optgroup>
+							</select>
+						</div>
+						<textarea name="memo" placeholder="memo"></textarea>
+						<input type="button" name="previous" class="previous button"
+							value="Previous"> <input type="button" name="next"
+							class="next button" value="Next">
+					</form>
+				</div>
+				<div class="form">
+					<form action="">
+						<h2 class="fs-title">저장</h2>
+						<h3 class="fs-subtitle">check your information</h3>
+
+						<input type="button" name="previous" class="previous button"
+							value="Previous"> <input type="button" name="submit"
+							class="next button" value="Save">
+					</form>
+				</div>
+			</div>
+			</div>
 	</body>
 </html>
