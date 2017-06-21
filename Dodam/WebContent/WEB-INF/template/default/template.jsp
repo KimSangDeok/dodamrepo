@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <html>
 <head>
-		<title>µµ´ãµµ´ã¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù</title>
+		<title>ë„ë‹´ë„ë‹´ì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/maincss/css/main.css" />		
@@ -14,7 +14,7 @@
 		
 		
 		
-		<!-- ½º¸¶Æ® ¸Þ´º °ü·Ã ½ÃÀÛ -->
+		<!-- ìŠ¤ë§ˆíŠ¸ ë©”ë‰´ ê´€ë ¨ ì‹œìž‘ -->
 		<!-- SmartMenus core CSS (required) -->
 		<link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
 		
@@ -56,7 +56,7 @@
 				});
 			});
 		</script>
-		<!-- ½º¸¶Æ® ¸Þ´º °ü·Ã ³¡ -->
+		<!-- ìŠ¤ë§ˆíŠ¸ ë©”ë‰´ ê´€ë ¨ ë -->
 		
 		
 	</head>
@@ -78,7 +78,7 @@
         </div>
         <tiles:insertAttribute name="footer" />
     <!-- Scripts -->
-			<!-- jquery°¡ °ãÃÄ¼­ -->
+			<!-- jqueryê°€ ê²¹ì³ì„œ -->
 <!-- 			<script src="/js/jquery.min.js"></script> -->
 			<script src="/js/skel.min.js"></script>
 			<script src="/js/util.js"></script>

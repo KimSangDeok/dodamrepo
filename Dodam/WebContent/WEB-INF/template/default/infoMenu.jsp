@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="infoMenu" style="padding-top:20px;">
-	<!-- Áø·á, ÀÔ¿ø µî ÇöÀç ¼­ºñ½º¸¦ ¹Þ´Â °í°´ ¹× µ¿·á Á¤º¸¸¦ º¸´Â °÷ -->
-	<input class='customerInfo' type='text' disabled='disabled' name='customer_name' value='±è¿ì¼®'/>
+	<!-- ì§„ë£Œ, ìž…ì› ë“± í˜„ìž¬ ì„œë¹„ìŠ¤ë¥¼ ë°›ëŠ” ê³ ê° ë° ë™ë£Œ ì •ë³´ë¥¼ ë³´ëŠ” ê³³ -->
+	<input class='customerInfo' type='text' disabled='disabled' name='customer_name' value='ê¹€ìš°ì„'/>
 	<input type='text' disabled='disabled' name='customer_tel'/>
 	<select>
-		<option>¿¬ÀÌ</option>
-		<option>¹ÎÀÌ</option>
-		<option>ÄôÀÌ</option>
+		<option>ì—°ì´</option>
+		<option>ë¯¼ì´</option>
+		<option>ì¿µì´</option>
 	</select>
 	<input type='text' disabled='disabled' name='pet_type'/>
 	<input type='text' disabled='disabled' name='customer_addr'/>

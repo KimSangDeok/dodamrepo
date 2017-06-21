@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="smallMenu">
 	<nav class="cd-stretchy-nav">
@@ -8,10 +8,10 @@
 		</a>
 
 		<ul>
-			<li><a href="/customer/customerView.dodam" style="color: #000000;text-decoration: none;"><span>°í°´°ü¸®</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>Àç°í°ü¸®</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>¿î¿µ°ü¸®</span></a></li>
-			<li><a href="/mpay/mpayView.dodam" style="color: #000000;text-decoration: none;"><span>¸ÅÃâ°ü¸®</span></a></li>
+			<li><a href="/customer/customerView.dodam" style="color: #000000;text-decoration: none;"><span>ê³ ê°ê´€ë¦¬</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ìž¬ê³ ê´€ë¦¬</span></a></li>
+			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>ìš´ì˜ê´€ë¦¬</span></a></li>
+			<li><a href="/mpay/mpayView.dodam" style="color: #000000;text-decoration: none;"><span>ë§¤ì¶œê´€ë¦¬</span></a></li>
 		</ul>
 		<span aria-hidden="true" class="stretchy-nav-bg" style="background:#ffb700;"></span>
 	</nav>

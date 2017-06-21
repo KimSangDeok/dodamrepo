@@ -46,6 +46,8 @@
 						obj.val = opt.text();
 						obj.index = opt.index();
 						obj.placeholder.text(obj.val);
+						// ****페이지 이동 소스
+						location.href = $(this).find('a').attr('href');
 					});
 				},
 				getValue : function() {

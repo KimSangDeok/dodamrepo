@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="menu">
 	<nav id="main-nav" role="navigation">
 		<ul id="main-menu" class="sm sm-mint">
-			<li><a href="/reservation/reservationView.dodam"><font size="5em">©╧╬Ю</font></a></li>
-			<li><a href="/counter/counterView.dodam"><font size="5em">а╒╪Ж</font></a></li>
-			<li><a href="/jinryo/jinryoView.dodam"><font size="5em">аЬ╥А</font></a></li>
-			<li><a href="#"><font size="5em">ют©Ь/хёез</font></a>
+			<li><a href="/reservation/reservationView.dodam"><font size="5em">Л≤┬Л∙╫</font></a></li>
+			<li><a href="/counter/counterView.dodam"><font size="5em">Л═▒Л┬≤</font></a></li>
+			<li><a href="/jinryo/jinryoView.dodam"><font size="5em">Л╖└Кё▄</font></a></li>
+			<li><a href="#"><font size="5em">Л·┘Л⌡░/М≤╦М┘■</font></a>
 				<ul>
-					<li><a href="/stay/stayView.dodam">ют©Ь ╧в хёезго╠Б</a></li>
-					<li><a href="#">ют©Ь ╧в хёез д╚╦ч╤С ╨╦©╘аж╠Б</a></li>
+					<li><a href="/stay/stayView.dodam">Л·┘Л⌡░ К╟▐ М≤╦М┘■М∙≤Й╦╟</a></li>
+					<li><a href="#">Л·┘Л⌡░ К╟▐ М≤╦М┘■ Л╧╢К╘■К²╪ КЁ╢Л≈╛Лё╪Й╦╟</a></li>
 				</ul>
 			</li>	
-			<li><a href="/beauty/beautyView.dodam"><font size="5em">╧л©К</font></a></li>
-			<li><a href="/payment/paymentView.dodam"><font size="5em">╪ЖЁЁ</font></a></li>
+			<li><a href="/beauty/beautyView.dodam"><font size="5em">К╞╦Л ╘</font></a></li>
+			<li><a href="/payment/paymentView.dodam"><font size="5em">Л┬≤К┌╘</font></a></li>
 		</ul>
 	</nav>
 </div>

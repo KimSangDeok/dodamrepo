@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div class="headerTile">
-	<!-- Header ·Î±×ÀÎÈ­¸é Àü ½ÃÀÛÈ­¸é -->
+	<!-- Header ë¡œê·¸ì¸í™”ë©´ ì „ ì‹œìž‘í™”ë©´ -->
 	<header id="header" class='header'>
 		<div class="inner">
 			<div class="content">
 				<h1>DodamDodam</h1>
-				<h2>°Ç°­ÇÏ°í ¿¹»Ú°Ô ÀÚ¶óÁÖ·Å</h2>
-				<a href="#" class="button big alt"><span>µµ´ãµµ´ãÇÑ ½ÃÀÛ</span></a>
+				<h2>ê±´ê°•í•˜ê³  ì˜ˆì˜ê²Œ ìžë¼ì£¼ë ´</h2>
+				<a href="#" class="button big alt"><span>ë„ë‹´ë„ë‹´í•œ ì‹œìž‘</span></a>
 			</div>
 			<a href="#" class="button hidden"><span>start</span></a>
 		</div>
