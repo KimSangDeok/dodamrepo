@@ -3,21 +3,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<title>도담도담에 오신것을 환영합니다</title>
+		<title>매출관리 화면입니다</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		
-  		
 		<link rel="stylesheet" href="/maincss/css/main.css" />		
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/css/reset.css"> <!--CSS reset-->
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/customer-css/profile.css">
+	<link rel="stylesheet" href="/css/style.css"> <!--Resource style  -->
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
-		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-		
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+	
+	
+
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
@@ -64,38 +61,11 @@
 		<!-- 스마트 메뉴 관련 끝 -->
 		
 		
-		
-		<!-- search style -->
-    <style>
-    body { background-color: white; font-family:'Roboto';}
-/*     .container { margin:150px auto;} */
-    input { margin:50px auto;}
-    .form-control {
-	height: 30px;
-	width: 250px;
-	margin-left: 200px;
-	margin-top: 100px;
-}
-.line{
-margin-top:-50px;
-
-}
-.container{margin-left:200px;
-			margin-right:0px;
-			max-width: 500px;}
-			
-.col-md-6{
-width: 130%;	
-}
-
-	
-    </style>
 	</head>
 	<body>
 
-
 		<!-- Header 로그인화면 전 시작화면 -->
-			<header id="header" class='header hide'>
+			<header id="header" class='header'>
 				<div class="inner">
 					<div class="content">
 						<h1>DodamDodam</h1>
@@ -108,6 +78,9 @@ width: 130%;
 			
 		<!-- Main -->
 			<div id="main" style="text-align:center">
+			
+			
+			
 			
 			
 			<nav class="cd-stretchy-nav">
@@ -125,8 +98,12 @@ width: 130%;
 		<span aria-hidden="true" class="stretchy-nav-bg" style="background:#ffb700;"></span>
 	</nav>
 			
+			
+			
+			
+			
 
-			<div style="margin-top:100px">
+			<div style="margin-top:35px">
 			<nav id="main-nav" role="navigation">
 				<ul id="main-menu" class="sm sm-mint">
 					<li><a href="/reservation/reserView.dodam"><font size="5em">예약</font></a></li>
@@ -145,8 +122,8 @@ width: 130%;
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-			 <div >
-			 <span>
+			 <div>
+<span>
 			<!-- manage화면의 menu 시작-->
 				<link rel="stylesheet" type="text/css" href="/manage/style.css" />
 				      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -157,9 +134,9 @@ width: 130%;
 							<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 								<span>Transport</span>
 								<ul class="dropdown">
-									<li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
-									<li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
-									<li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+									<li><a href="/mpay/mpayView"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
+									<li><a href="/mpay/mpayView2"><i class="icon-truck icon-large"></i>매출 액 및 매출 건수</a></li>
+									<li><a href="/mpay/mpayView3"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
 								</ul>
 							</div>
 						​</div>
@@ -217,121 +194,14 @@ width: 130%;
 </span>
 				
 
-<!-- table 코딩 -->
-
-<div class="container">
-<div class="line">
-	<input type="text" class="form-control" 
-	placeholder="Search..." id="search_field">
-</div>
-  <div class="row">
-    <div class="col-md-6">
-
-    <table id="myTable" class="table table-inverse">
-      <thead>
-        <tr class="myHead">
-          <th>고객명</th>
-          <th>주소</th>
-          <th>전화번호</th>
-        </tr>
-      </thead>
-      <tr>
-        <td>박보검</td>
-        <td>서울시 </td>
-        <td>010-1111-2222</td>
-      </tr>
-      <tr>
-        <td>지창욱</td>
-        <td>인천 광역시</td>
-         <td>010-1111-2223</td>
-      </tr>
-      <tr>
-        <td>송중기</td>
-        <td>미국</td>
-         <td>010-1111-2224</td>
-      </tr>
-      <tr>
-        <td>이민호</td>
-        <td>뉴질랜드</td>
-         <td></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Dalton</td>
-         <td></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Bobby</td>
-         <td></td>
-      </tr>
-
-    </table>
-</div>
-  </div>
-</div>
-
-
-<!-- end of table -->
-
-<!-- 프로필 코딩 -->
-<div class="containers">
-    <div class="register">
-      <div class="photo">
-      	 
-      	<div class="customertext">
-      	<section class="section1">
-      	<header>
-      	<br/>
-      	<h2>박보검</h2>
-      	</header>
-      	<a href="#" class="image full">
-      	<img src="/images/보검.jpg" alt=""> </a>
-      	<ul class="contact">
-      	<li><span class="icon fa-home"></span> 
-      	휴대전화 <span><input type="text" value="010-1111-2222"/></span>  </li>
-      	<li><span class="icon fa-home"></span> 
-      	주소 <span><input type="text" value="서울시 구로구 가리봉동"/></span>  </li>
-      	<li><span class="icon fa-home"></span> 
-      	이메일 <span><input type="text" value="bogum@namver.com"/></span>  </li>
-      	
-      	  </ul>
-      	  </section>
-      	  </div>
-      	  
-      	  
-      	  <div class="animaltext" >
-      	  <section class="section2">
-      	<header>
-      	<h2>반려동물 목록</h2>
-		
-      	<caption><h>연이</h></caption>
-      	
-      	</header>
-      	<a href="#" class="image full">
-      	<img src="/images/토이푸들.png" alt=""></a>
-      	<ul class="contact">
-      	<li><span class="icon fa-home"></span> 
-      	나이 <span><input type="text" value="8개월"/></span>  </li>
-      	<li><span class="icon fa-home"></span> 
-      	성별 <span><input type="text" value="암컷"/></span>  </li>
-      	<li><span class="icon fa-home"></span> 
-      	질병 <span><input type="text" value="눈병"/></span>  </li>
-      	
-      	  </ul>
-      	  </section>
-      	  </div>
-      	  
-      	
-      </div>
-      
-<!--     	<hr style="border-bottom: thin; border-bottom-style: dotted;"> -->
-    	
-    </div>
-</div>
-<!-- end of profile -->
-			 </div>
 			 
+				 
+				 
+				 
+				 
+				 
+				
+				
 			</div>
 
 		<!-- Footer -->
@@ -361,7 +231,6 @@ width: 130%;
 			<script src="/js/skel.min.js"></script>
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
-			<script src="/search-js/search.js"></script>
 
 	</body>
 </html>

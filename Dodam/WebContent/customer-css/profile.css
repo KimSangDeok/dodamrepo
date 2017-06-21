@@ -15,23 +15,71 @@
 				color: #000000;
 			}
 			.containers{
-			margin-top:-400px;
-			margin-left:800px;
+			margin-top:-480px;
+			margin-left:900px;
+			}
+			.customertext{
+			height: 200px;
+			width: 300px;
+			
+			}
+			.animaltext{
+			height: 200px;
+			width: 300px;
+			margin-top:250px;
+			
 			}
 			
+			.contact li {
+				height: 50px;
+				text-align: center;
+				color: black;
+			}
 			
+			.section1{
+			width:500px;
+			margin-left: 50px;
+			}
+			
+			.section2{
+			width:300px;
+			margin-left: 150px;
+			}
+			
+			.section2 li{
+			
+			margin-left: 10px;
+			}
+			
+		.register
+		{
+		height:960px;
+		width:700px;
+		background-color: #fefed6;
+		}
+		.photo
+		{
+		height:280px;
+		width:480px;
+		margin-top:-100px;
+		margin-left:10px;
+		margin-right:10px;
+		margin-bottom:10px;
+		
+		}
 			
 		/* 고객 동물 등록 박스 css*/
 	.well-sm {
-	
-	background-color: #fee2e0;
+	background-color: white;
 	left:200px;
 	margin-top:-95px;
+	position: fixed;
 		}
 		
 				
 	.well-sm p {
-    margin-left: -110px;
+    margin-left: -180px;
+    position: fiex;
 }
 bootstrap.min.css:5
 .well-sm {

@@ -14,9 +14,7 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 	
 	
-	
-		<!-- 시간대별 접수고객 table css -->
-		<link rel="stylesheet" href="/css/mpay/table1.css"/>
+
 		
 		<!-- 스마트 메뉴 관련 시작 -->
 		<!-- SmartMenus core CSS (required) -->
@@ -136,9 +134,9 @@
 							<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 								<span>Transport</span>
 								<ul class="dropdown">
-									<li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
-									<li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
-									<li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+									<li><a href="/mpay/mpayView"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
+									<li><a href="/mpay/mpayView2"><i class="icon-truck icon-large"></i>매출 액 및 매출 건수</a></li>
+									<li><a href="/mpay/mpayView3"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
 								</ul>
 							</div>
 						​</div>
@@ -196,7 +194,52 @@
 </span>
 				
 
-			 
+			 		<!-- mpayView는 시간대별 접수고객의 수를 의미한다. 그래프 작성 내용을 시작.... 드디어!!! -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		
+		<script type="text/javascript">
+		$(function(){
+			Highcharts.chart('container', {
+			    chart: {
+			        type: 'line'
+			    },
+			    title: {
+			        text: '시간대별 접수 고객'
+			    },
+			    xAxis: {
+			        categories: ['월', '화', '수', '목', '금', '토', '일']
+			    },
+			    yAxis: {
+			        title: {
+			            text: '수(명 or 마리)'
+			        }
+			    },
+			    plotOptions: {
+			        line: {
+			            dataLabels: {
+			                enabled: true
+			            },
+			            enableMouseTracking: false
+			        }
+			    },
+			    series: [{
+			        name: '고객 수',
+			        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2]
+			    }, {
+			        name: '동물 수',
+			        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+			    }]
+			});
+		})
+		</script>
+		
+		
+		
+		
+		<!-- 접수소객 chart 끝 -->
 				 
 				 
 				 
