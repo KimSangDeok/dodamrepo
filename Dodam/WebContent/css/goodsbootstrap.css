@@ -2260,6 +2260,7 @@ th {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
+  text-align: center;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -2271,7 +2272,7 @@ th {
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
-  border-top: 0;
+/*   border-top: 0; */
 }
 .table > tbody + tbody {
   border-top: 2px solid #ddd;

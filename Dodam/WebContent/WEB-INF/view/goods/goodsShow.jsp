@@ -4,14 +4,23 @@
 
 <!-- 테이블부분-->
 <link rel="stylesheet" href="/css/goodsbootstrap.css">
+<script src="/css/goodsexcel/src/jquery.table2excel.js"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
 	rel="stylesheet" type="text/css">
-<script src="/goodsexcel/src/jquery.table2excel.js"></script>
 <!-- 테이블부분 끝-->
+<!-- 팝업 시작-->
+<script src="/js/jquery.popitup.js"></script>
+<!-- 팝업끝-->
+<!-- 왼쪽 사이드바부분 -->
+<link rel="stylesheet" type="text/css" href="/css/goods/leftsidestyle.css" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/css/goods/modernizr.custom.79639.js"></script>
+<noscript><link rel="stylesheet" type="text/css" href="/css/goods/noJS.css" /></noscript> 
+<!-- 왼쪽 사이드바부분 끝 -->
 
 <!-- 스타일 -->
 <style type="text/css">
-@media ( min-width : 768px) {
+@media ( min-width:768px) {
 	#main-nav {
 		line-height: 0;
 		text-align: center;
@@ -77,20 +86,14 @@
 	display: inline-block;
 }
 </style>
-<!-- 팝업 시작-->
-<script src="/js/jquery.popitup.js"></script>
-<!-- 팝업끝-->
-<link rel="stylesheet" type="text/css" href="/manage/style.css" />
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
-<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
-<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
+
 
 <!-- 바디 시작 -->
 <div class="body">
 		
 			
 
-			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 <div >
 <!-- 가운데 구분 줄 -->    	
     	<div class="hr1"  style="margin-top:50px"></div>
@@ -104,8 +107,8 @@
 							<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 								<span>재고현황</span>
 								<ul class="dropdown">
-									<li><a href="#">재고현황</a></li>
-									<li><a href="#">입출고내역</a></li>
+									<li><a href="/goods/goodsShow.dodam">재고현황</a></li>
+									<li><a href="/goods/goodsHistory.dodam">입출고내역</a></li>
 								</ul>
 							</div>
 						​</div>
@@ -134,6 +137,10 @@
 							obj.val = opt.text();
 							obj.index = opt.index();
 							obj.placeholder.text(obj.val);
+//////////////////////////////////왼쪽 사이드바 페이지 전환 부분/////////////////////////
+							location.href = $(this).find('a').attr('href');
+							
+							
 						});
 					},
 					getValue : function() {
@@ -259,7 +266,7 @@
             			<input type="text"/>
             		</div>
             	</div> 
-<!--2번줄 -->
+<!--3번줄 -->
             	<div class="goodsitem">
             		<div style="float:left">
             			<label>용도</label>
@@ -447,7 +454,7 @@
 				}); 
 				 });
 				
-// 			상품추가 제이쿼리
+// 			상품추가 제이쿼리(팝업열리는 쿼리)
 				 $('.btn-sm').bind('click', function(){
 				        
 				        if($(this).hasClass('btn-chase')){
