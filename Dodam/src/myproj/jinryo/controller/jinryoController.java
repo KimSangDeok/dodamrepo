@@ -12,4 +12,9 @@ public class jinryoController {
 	public String show(@PathVariable String url){
 		return "/jinryo/"+url;
 	}
+	
+	@RequestMapping("/monjinType.dodam")
+	public String monjinType(){
+		return "/jinryo/monjinTile.monjinTile";
+	}
 }
