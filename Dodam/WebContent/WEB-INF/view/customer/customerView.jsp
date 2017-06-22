@@ -133,7 +133,7 @@ $(document).ready(function(){
 			</script>
 
 <div class="body">
-			<section class="main">
+
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 						<span>고객관리</span>
@@ -144,7 +144,7 @@ $(document).ready(function(){
 						</ul>
 					</div>
 				​</div>
-			</section>			 
+		 
 			 		<script type="text/javascript">
 			
 			function DropDown(el) {
