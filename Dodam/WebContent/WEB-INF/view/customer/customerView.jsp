@@ -8,6 +8,77 @@
 <!-- 멀티스텝 링크 -->
 <link href="/register/css/jquery-multi-step-form.css" media="screen"
 	rel="stylesheet" type="text/css">
+	
+<!-- 팝업 css -->
+<style type="text/css">
+@media ( min-width:768px) {
+	#main-nav {
+		line-height: 0;
+		text-align: center;
+	}
+	#main-menu {
+		display: inline-block;
+	}
+}
+
+.popit-wrapper {
+	height: 90%;
+	width: 50%;
+	display: none;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 6px 2px #ccc;
+}
+
+.popit-content1 {
+	padding: 20px;
+}
+.popit-content2 {
+	padding: 20px;
+}
+.popit-content {
+	padding: 20px;
+}
+
+.popit-header {
+	border-bottom: 1px solid #ccc;
+}
+
+.popit-body {
+	padding: 20px 0;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.popitup-overlay {
+	background: #000;
+/* 	background: #F47265; */
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0.5;
+}
+.margin-top-40 {
+	margin-top: 40px;
+}
+
+.list-group-item {
+	border: 0;
+}
+
+#popupCloseBtn{
+	height: 0.85em;
+}
+
+/*모달창 스크립트*/
+</style>	
+	
 	<style>
 /* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
 .main {
@@ -68,7 +139,7 @@
 		}
 		
 		.tablecontainer {
-			margin-left: 250px;
+			margin-left: 10px;
 			margin-right: 0px;
 			max-width: 500px;
 		}
@@ -82,6 +153,9 @@
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
 
+
+<!-- 팝업js -->
+<script src="/js/jquery.popitup.js"></script>
 <!-- 고객동물 모달창 스크립트 -->
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"
 	type="text/javascript"></script>
@@ -95,57 +169,73 @@ $(document).ready(function(){
    
    $('.header').addClass('hide');
 });
-</script>
 
-<script>
-    $(function(){
-    	
-    	
-    	$('#registerDiv').click(function(){
-    			$('#step').show();
-    			$('#step').css('style','{z-index:-10; top:500px; left:200px;}');
-			$.multistepform({
-				container : 'multistepform-example-container',
-				form_method : 'GET'
+
+//문진표 오픈
+
+function monjinOpen() {
+			var byensu = window.innerWidth/2;
+//			alert(window.innerWidth/2);
+			$('.popit-wrapper-chase').popitup({
+				widthSet : window.innerWidth*0.8+'',
+				chase : false
 			});
-    	});
-    	
-    });
+}
+</script>
+<script>
 	
-    </script>
+  /* 고객등록 페이지 전환코딩 */
+  $(function(){
+  	
+  	$('#firstpopup').show();
+		$('.popit-content1').hide();
+		$('.popit-content2').hide();
+		
+  	$('.button1').click(function(){
+  		$('#firstpopup').hide();
+  		$('.popit-content1').show();
+  		$('.popit-content2').hide();
+  	});
+  	
+  	$('#previous1').click(function(){
+  		$('#firstpopup').show();
+  		$('.popit-content1').hide();
+  		$('.popit-content2').hide();
+  	});
+  	
+  	$('.button2').click(function(){
+  		$('#firstpopup').hide();
+  		$('.popit-content1').hide();
+  		$('.popit-content2').show();
+  	})
+  	
+  	$('#previous2').click(function(){
+  		$('#firstpopup').hide();
+  		$('.popit-content1').show();
+  		$('.popit-content2').hide();
+  	});
+  	
+  	$('#save').click(function(){
+  	});
+  });
+  
+  </script>
 
-<script type="text/javascript">
-				var _gaq = _gaq || [];
-				_gaq.push([ '_setAccount', 'UA-36251023-1' ]);
-				_gaq.push([ '_setDomainName', 'jqueryscript.net' ]);
-				_gaq.push([ '_trackPageview' ]);
 
-				(function() {
-					var ga = document.createElement('script');
-					ga.type = 'text/javascript';
-					ga.async = true;
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl'
-							: 'http://www')
-							+ '.google-analytics.com/ga.js';
-					var s = document.getElementsByTagName('script')[0];
-					s.parentNode.insertBefore(ga, s);
-				})();
-			</script>
 
 <div class="body">
-
+			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 						<span>고객관리</span>
 						<ul class="dropdown">						
-							<li><div id="registerDiv"><a href="#"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
+							<li><div id="registerDiv"><a href="javascript:monjinOpen()"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
 							<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
 							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>고객검색</a></li>
-							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>sms 전송</a></li>
 						</ul>
 					</div>
 				​</div>
-		 
+			</section>			 
 			 		<script type="text/javascript">
 			
 			function DropDown(el) {
@@ -332,29 +422,44 @@ $(document).ready(function(){
 </div>
 		</div>
 		
-		<div id="step" style="display: none;">
+		
+		<!-- Begin popup content -->
+	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0; max-width: 500px; ">
+	
+		<div class="popit-content" style=" width:100%; height:5%;">
+			<button id="popupCloseBtn" type="button" class="popitup-close close">
+				<span class="glyphicon glyphicon-remove-circle"></span>
+			</button>
+		</div>
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+		
+		<div id="step" >
 		<h1 style="margin: 150px auto 50px auto" align="center"></h1>
 		<div id="multistepform-example-container">
-			<div class="form">
-				<form action="">
+			<div id="firstpopup" class="form" >
+				<form id="firstform">
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
 					<h3 class="fs-subtitle">Please register your infromation</h3>
-					<input type="text" name="customerNum" placeholder="1077"> <input
-						type="text" name="name" placeholder="보호자"> <input
-						type="text" name="address" placeholder="서울 구로구">
-					<textarea name="memo" placeholder="memo"></textarea>
-					<input type="button" name="next" class="next button" value="Next">
+					<input type="text" name="customerNum" placeholder="1077"><br/> 
+					<input type="text" name="name" placeholder="보호자"> <br/>
+					<input type="text" name="address" placeholder="서울 구로구"><br/>
+					<textarea name="memo" placeholder="memo"></textarea><br/>
+					<input type="button" name="next" class="next button1" value="Next">
 				</form>
 			</div>
-			<div class="form">
-				<form action="">
+			
+			</div>
+			<div class="popit-content1" style=" margin-left:50px; width:80%; height:65%; ">
+			
+			<div id="secondpopup" class="form">
+				<form id="secondform">
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
 
-					<input type="text" name="number" placeholder="32571"> <input
-						type="text" name="animalname" placeholder="이름"> <input
-						type="text" name="animaltype" placeholder="품종"> <input
-						type="text" name="color" placeholder="피모색">
+					<input type="text" name="number" placeholder="32571"><br/>
+					<input type="text" name="animalname" placeholder="이름"><br/>
+					<input type="text" name="animaltype" placeholder="품종"><br/>
+					<input type="text" name="color" placeholder="피모색"><br/>
 
 					<div>
 
@@ -371,26 +476,33 @@ $(document).ready(function(){
 							</optgroup>
 						</select>
 					</div>
-					<textarea name="memo" placeholder="memo"></textarea>
-					<input type="button" name="previous" class="previous button"
+					<textarea name="memo" placeholder="memo"></textarea><br/>
+					<input id="previous1" type="button" name="previous" class="previous button"
 						value="Previous"> <input type="button" name="next"
-						class="next button" value="Next">
+						class="next button2" value="Next">
 				</form>
 			</div>
-			<div class="form">
-				<form action="">
+			</div>
+			
+			<div class="popit-content2" style="; width:80%; height:65%; margin-left: 50px;">
+			<div id="lastpopup" class="form">
+				<form id="lastform">
 					<h2 class="fs-title">저장</h2>
 					<h3 class="fs-subtitle">check your information</h3>
 
-					<input type="button" name="previous" class="previous button"
-						value="Previous"> <input type="button" name="submit"
-						class="next button" value="Save">
+					<input id="previous2" type="button" name="previous" class="previous button"
+						value="Previous"> 
+					<input id="save" type="button" name="submit" class="next button" value="Save">
 				</form>
 			</div>
+			</div>
+			
 		</div>
 	</div>
-		
-		
+		<!-- ------------------------------------------------------------------------------------------------------- -->
+	<!-- End popup content -->
+	
+	
 		<!-- table 코딩 -->
 		<div class="tablecontainer">
 			<div class="line">
