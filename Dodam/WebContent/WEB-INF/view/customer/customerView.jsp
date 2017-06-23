@@ -23,23 +23,13 @@
 
 .popit-wrapper {
  	max-width:500px; 
-	height: 90%;
+	height: 400px;
 	width: 50%;
 	display: none;
 	border: 1px solid #ccc;
 	background: #fff;
 	border-radius: 5px;
 	box-shadow: 0px 0px 6px 2px #ccc;
-}
-
-.popit-content1 {
-	padding: 20px;
-}
-.popit-content2 {
-	padding: 20px;
-}
-.popit-content {
-	padding: 20px;
 }
 
 .popit-header {
@@ -135,12 +125,13 @@
 			margin-top: -400px;
 		}
 		
+		
 		.line {
 			margin-top: -50px;
 		}
 		
 		.tablecontainer {
-			margin-left: 250px;
+			margin-left: 10px;
 			margin-right: 0px;
 			max-width: 500px;
 		}
@@ -149,8 +140,6 @@
 			width: 130%;
 		}
 		</style> 
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"
-	type="text/javascript"></script>		
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
 
@@ -162,6 +151,8 @@
 	type="text/javascript"></script>
 <script src="/register/js/jquery-multi-step-form.js"
 	type="text/javascript"></script>
+<!-- 검색창 js -->
+<script src="/search-js/search.js"></script>
 
 	
 	
@@ -183,6 +174,8 @@ function monjinOpen() {
 			});
 }
 </script>
+
+
 <script>
 	
   /* 고객등록 페이지 전환코딩 */
@@ -230,17 +223,18 @@ function monjinOpen() {
 
 
 <div class="body">
+			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 						<span>고객관리</span>
 						<ul class="dropdown">						
-							<li><div id="registerDiv"><a href="#"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
-							<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
+							<li><div id="registerDiv"><a href="javascript:monjinOpen()"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
+							<li><a href="/customer/editCustomer.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
 							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>고객검색</a></li>
-							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>sms 전송</a></li>
 						</ul>
 					</div>
-				​</div>			 
+				​</div>
+			</section>			 
 			 		<script type="text/javascript">
 			
 			function DropDown(el) {
@@ -310,7 +304,7 @@ function monjinOpen() {
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user2">
-                    <img class="avatar" src="/images/토이푸들.png"></img>
+                    <img id="avatar" class="avatar" src="/images/토이푸들.png"></img>
                     <p class="name">
                         연이
                     </p>
@@ -429,7 +423,7 @@ function monjinOpen() {
 		
 		
 		<!-- Begin popup content -->
-	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0; max-width: 500px; ">
+	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
 	
 		<div class="popit-content" style=" width:100%; height:5%;">
 			<button id="popupCloseBtn" type="button" class="popitup-close close">
@@ -439,10 +433,9 @@ function monjinOpen() {
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 		
 		<div id="step" >
-		<h1 style="margin: 150px auto 50px auto" align="center"></h1>
-		<div id="multistepform-example-container">
-			<div id="firstpopup" class="form" >
-				<form id="firstform">
+		<div id="multistepform-example-container"  >
+			<div id="firstpopup" style=" margin-left:50px; width:80%; height:65%; ">
+				<form id="firstform" >
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
 					<h3 class="fs-subtitle">Please register your infromation</h3>
 					<input type="text" name="customerNum" placeholder="1077"><br/> 
@@ -456,7 +449,7 @@ function monjinOpen() {
 			</div>
 			<div class="popit-content1" style=" margin-left:50px; width:80%; height:65%; ">
 			
-			<div id="secondpopup" class="form">
+			<div id="secondpopup">
 				<form id="secondform">
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
@@ -490,7 +483,7 @@ function monjinOpen() {
 			</div>
 			
 			<div class="popit-content2" style="; width:80%; height:65%; margin-left: 50px;">
-			<div id="lastpopup" class="form">
+			<div id="lastpopup" >
 				<form id="lastform">
 					<h2 class="fs-title">저장</h2>
 					<h3 class="fs-subtitle">check your information</h3>
