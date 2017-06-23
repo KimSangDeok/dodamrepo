@@ -119,7 +119,7 @@ function monjinOpen() {
 							</div>
 						</div>
 						<br/>
-						<a href="#" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span>진료완료ss</a>
+						<a href="#" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span>진료완료</a>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="headerTile">
 	<!-- Header 로그인화면 전 시작화면 -->
-	<header id="header" class='header'>
+	<header id="header" class='header hide'>
 		<div class="inner">
 			<div class="content">
 				<h1>DodamDodam</h1>
