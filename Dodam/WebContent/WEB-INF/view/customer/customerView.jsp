@@ -140,7 +140,7 @@
 		}
 		
 		.tablecontainer {
-			margin-left: 10px;
+			margin-left: 250px;
 			margin-right: 0px;
 			max-width: 500px;
 		}
@@ -230,18 +230,17 @@ function monjinOpen() {
 
 
 <div class="body">
-			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 						<span>고객관리</span>
 						<ul class="dropdown">						
-							<li><div id="registerDiv"><a href="javascript:monjinOpen()"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
+							<li><div id="registerDiv"><a href="#"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
 							<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
 							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>고객검색</a></li>
+							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>sms 전송</a></li>
 						</ul>
 					</div>
-				​</div>
-			</section>			 
+				​</div>			 
 			 		<script type="text/javascript">
 			
 			function DropDown(el) {
