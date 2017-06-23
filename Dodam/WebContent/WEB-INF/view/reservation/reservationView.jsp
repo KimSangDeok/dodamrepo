@@ -123,6 +123,10 @@
     background-color: #fff;
 }
 
+	.fc-rigid{
+	height:100px;
+	}
+
 </style>
 <!-- 달력끝 -->
 
@@ -202,11 +206,11 @@ body {
 	<div style="padding-top:50px;margin-bottom:100px;">
 			<!--달력시작 -->
 		<div style="float:left;padding-left:30px;padding-bottom:150px">
-				<div id='calendar' style="float:left"></div>
+				<div id='calendar' style="float:left;width:50%"></div>
 			<!--달력 끝 -->	
 			<!-- 테이블 리스트 코딩 부분 -->
 
-			<div class="row" style="float: right">
+			<div class="row" style="float:left;width:50%">
 				<div id="firstTable" class="col-sm-6 col-sm-offset-3"></div>
 
 				<div class="col-xs-6 col-xs-offset-3">
