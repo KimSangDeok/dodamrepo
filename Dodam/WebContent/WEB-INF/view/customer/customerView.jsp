@@ -22,6 +22,7 @@
 }
 
 .popit-wrapper {
+ 	max-width:500px; 
 	height: 90%;
 	width: 50%;
 	display: none;
@@ -208,7 +209,7 @@ function monjinOpen() {
   		$('.popit-content1').hide();
   		$('.popit-content2').show();
   	})
-  	
+  
   	$('#previous2').click(function(){
   		$('#firstpopup').hide();
   		$('.popit-content1').show();
@@ -216,6 +217,11 @@ function monjinOpen() {
   	});
   	
   	$('#save').click(function(){
+  		$('.popitup-overlay').css('display','none');
+  		$('.popit-wrapper-chase').hide();
+  	  	$('#firstpopup').show();
+		$('.popit-content1').hide();
+		$('.popit-content2').hide();
   	});
   });
   
@@ -428,7 +434,7 @@ function monjinOpen() {
 	
 		<div class="popit-content" style=" width:100%; height:5%;">
 			<button id="popupCloseBtn" type="button" class="popitup-close close">
-				<span class="glyphicon glyphicon-remove-circle"></span>
+				<span class="">X</span>
 			</button>
 		</div>
 		<!-- ------------------------------------------------------------------------------------------------------- -->
