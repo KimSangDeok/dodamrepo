@@ -36,7 +36,7 @@
 		</style>
 		
 		<!-- jQuery -->
-		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
 		
 		<!-- SmartMenus jQuery plugin -->
 		<script type="text/javascript" src="/js/jquery.smartmenus.js"></script>
