@@ -26,7 +26,7 @@
 }
 
 .popit-content {
-	padding: 20px;
+/* 	padding: 20px; */
 }
 
 .popit-header {
@@ -77,17 +77,18 @@ $(document).ready(function(){
 
 //문진표 오픈
 
-function monjinOpen() {
+function popupOpen(divId) {
 			var byensu = window.innerWidth/2;
 // 			alert(window.innerWidth/2);
-			$('.popit-wrapper-chase').popitup({
+
+			$('#'+divId).popitup({
 				widthSet : window.innerWidth*0.8+'',
 				chase : false
 			});
 }
 </script>
 
-<div class="body">
+<div class="body" style="padding-top: 5%;">
 	<!-- Begin btn Group -->
 	<div class="container">
 		<div class="row">
@@ -101,8 +102,8 @@ function monjinOpen() {
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-xs-12 col-md-12">
-								<a href="javascript:monjinOpen()" class="btn btn-default btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-list-alt"></span> <br />문진표</a> 
-								<a href="#" class="btn btn-primary btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-bookmark"></span> <br />증상</a> 
+								<a href="javascript:popupOpen('monjinPopup')" class="btn btn-default btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-list-alt"></span> <br />문진표</a> 
+								<a href="javascript:popupOpen('symptomPopup')" class="btn btn-primary btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-bookmark"></span> <br />증상</a> 
 								<a href="#" class="btn btn-success btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-signal"></span> <br />진단명</a> 
 								<a href="#" class="btn btn-info btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-comment"></span> <br />처치/처방</a> 
 								<a href="#" class="btn btn-danger btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-comment"></span> <br />추가 진료</a>
@@ -127,25 +128,25 @@ function monjinOpen() {
 	</div>
 	<!-- End btn Group -->
 	
-	<!-- Begin popup content -->
-	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+	<!-- Begin monjin popup content -->
+	<div id="monjinPopup" class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
 	
-		<div class="popit-content" style="border: 1px solid pink; width:100%; height:5%;">
+		<div class="popit-content" style=" width:70%; height:5%; float: right;">
 			<button id="popupCloseBtn" type="button" class="popitup-close close">
 				<span class="glyphicon glyphicon-remove-circle"></span>
 			</button>
 		</div>
 		<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div class="popit-content" style="border: 1px solid blue; width:30%; height:80%; float: left;">
+		<div class="popit-content" style="border-right: 1px solid #ccc; width:30%; height:100%; float: left; padding-top:2.8%">
 			<div class="popit-header">
 				
 				<h4 class="popit-title">분류</h4>
 			</div>
 			<!-- 팝업창 바디부분 -->
-			<iframe src="/jinryo/monjinType.dodam" width="100%" height="100%"></iframe>
+			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe>
 		</div>
 		<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div class="popit-content" style="border: 1px solid black; width:70%; height:80%; float: left;">
+		<div class="popit-content" style="border-bottom: 1px solid #ccc; width:70%; height:80%; float: left;">
 			<div class="popit-header">
 				
 				<h4 class="popit-title">질문</h4>
@@ -169,7 +170,7 @@ function monjinOpen() {
 			
 		</div>
 		<!-- ------------------------------------------------------------------------------------------------------- -->
-		<div class="popit-content" style="border: 1px solid green; width:100%; height:15%; float: left;">
+		<div class="popit-content" style=" width:70%; height:15%; float: right;">
 			<div class="popit-footer" style="float: right">
 				<button type="button" class="btn btn-default popitup-close">취소</button>
 				<button type="button" class="btn btn-primary">등록</button>
@@ -177,6 +178,7 @@ function monjinOpen() {
 			
 		</div>
 	</div>
-	<!-- End popup content -->
+	<!-- End monjin popup content -->
+	
 </div>
 <!-- End body -->
