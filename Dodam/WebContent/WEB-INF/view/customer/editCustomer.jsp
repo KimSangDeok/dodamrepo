@@ -87,14 +87,17 @@
     outline: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
     box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    width:500px;
-    height:450px;
+    width:600px;
+    height:400px;
     margin-bottom: 50px;
+}
+.modal-content a{
+ 	font-size: 12pt;
 }
 #block2{
  position: absolute;
  margin-bottom: 50px;
- top:800px;
+ top:700px;
  left:730px;
 }
 .avatar
@@ -268,7 +271,8 @@ $(document).ready(function(){
 	<div id="block1" class="modal-content" >
 	<table>
 		<tr>
-			<td><a class="title">보호자 목록 <input class="saveBtn" style="float:right; width:10px ; " type="button" src="url(/images/저장.png)" /></a>
+			<td><a class="title">보호자 목록 <button type="button"  style="float: right; background-color: white; ">
+ 					<img src="/images/저장.png" align="absmiddle"> </button></a>
     		</td>
 		</tr>
 	</table>
@@ -280,10 +284,12 @@ $(document).ready(function(){
 
 				<div class="container" >
 					<div>
-						<p>please click here and upload your picture</p>
+						<p style="float: left;">please click here and upload your picture</p>
+						<br/><br/>
 
 						<div class="file-upload" data-input-name="input1"></div>
 
+					</div>
 					</div>
 					<!-- 고객정보div -->
 								<div class="cusinfo" style="margin-left: 20px;">
@@ -324,6 +330,8 @@ $(document).ready(function(){
             <a class="modal-user-link group" >
                 <div class="user">
 				<div class="container" >
+				<p style="float: left;">please click here and upload animal picture</p>
+						<br/><br/>
 			        <div class="file-upload" data-input-name="input1">
 			
 			        </div>
@@ -332,10 +340,9 @@ $(document).ready(function(){
                     <!-- 고객정보div -->
                 <div class="cusinfo" style="margin-left: 20px;">
                 	<a class="name" style="float: left; margin-left:110px;">
-                       <br/> 
                         콩이
                     </a> 
-                    <br/><br/><br/>
+                    <br/>
                     <a >
                         나이 &nbsp; <input style="background-color: #DBDBDB" type="text" value="8개월"/>
                     </a><br/>
@@ -343,7 +350,7 @@ $(document).ready(function(){
                         성별 &nbsp; <input style="background-color: #DBDBDB" type="text" value="암컷"/>
                     </a><br/>
                     <a>
-                        특이사항 &nbsp;  <input style="background-color: #DBDBDB" type="text" value=""/>
+                        특이사항 &nbsp; <textarea style="background-color: #DBDBDB" placeholder="memo"></textarea><br/>
                     </a>
                     <br/>
                 </div>

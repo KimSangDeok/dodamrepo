@@ -106,8 +106,42 @@
 .title {
 	font-size: 15pt;
 }
+
+
 </style>
+	<!-- image upload -->
+ 	<link rel="stylesheet" type="text/css" href="/upload/UnoDropZone.css">
+    <script src="/upload/UnoDropZone.js"></script>
+    <script>
+        var MyObject = {
+            foo: function (uplaodCont) {
+                console.log('calling foo');
+                console.log('uplaodCont:');
+                console.log(uplaodCont);
+                $('#callbackmsg').html('Call MyObject.foo() function at:' + new Date())
+            }
+        };
+
+        $(document).ready(function () {
+            UnoDropZone.init();
+        });
+    </script>
+	<script type="text/javascript">
 	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-36251023-1']);
+	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+	
+<!--end image upload -->
 	
 		<!-- search style -->
 		<style>
@@ -317,6 +351,7 @@ function monjinOpen() {
                     <a>
                         성별 <input type="text" value="암컷"/>
                     </a>
+                    <br/>
                 </div>
             </a>
         </li>
@@ -336,6 +371,7 @@ function monjinOpen() {
                     <a>
                         성별 <input type="text" value="암컷"/>
                     </a>
+                    <br/>
                 </div>
             </a>
         </li>
@@ -355,6 +391,7 @@ function monjinOpen() {
                     <a>
                         성별 <input type="text" value="수컷"/>
                     </a>
+                    <br/>
                 </div>
             </a>
         </li>
@@ -383,13 +420,14 @@ function monjinOpen() {
                     </p>
                 </div>
                 <!-- 고객정보div -->
-                <div style="margin-left: 20px;">
+                <div class="p" style="margin-left: 20px;">
                		<a >
-                        휴대전화 <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
+                        휴대전화  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
                     </a><br/>
                     <a>
-                        우편번호 <input style="background-color: #fda699"type="text" value="서울시 강남구"/>
+                        우편번호  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
                     </a>
+                    <br/>
                 </div>
             </a>
         </li>
@@ -438,11 +476,18 @@ function monjinOpen() {
 				<form id="firstform" >
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
 					<h3 class="fs-subtitle">Please register your infromation</h3>
+					
+					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
 					<input type="text" name="customerNum" placeholder="1077"><br/> 
 					<input type="text" name="name" placeholder="보호자"> <br/>
-					<input type="text" name="address" placeholder="서울 구로구"><br/>
+					<input type="text" name="address" placeholder="서울 구로구"><br/><br/>
 					<textarea name="memo" placeholder="memo"></textarea><br/>
 					<input type="button" name="next" class="next button1" value="Next">
+					</div>
+
+					
+					
+					
 				</form>
 			</div>
 			
@@ -453,7 +498,8 @@ function monjinOpen() {
 				<form id="secondform">
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
-
+	
+					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
 					<input type="text" name="number" placeholder="32571"><br/>
 					<input type="text" name="animalname" placeholder="이름"><br/>
 					<input type="text" name="animaltype" placeholder="품종"><br/>
@@ -461,8 +507,7 @@ function monjinOpen() {
 
 					<div>
 
-						<h1>담당자</h1>
-						<select>
+						<select style="margin-left: 35px;">
 							<option style="display: none">담당자</option>
 							<optgroup label="진료담당자">
 								<option>박보검</option>
@@ -474,7 +519,7 @@ function monjinOpen() {
 							</optgroup>
 						</select>
 					</div>
-					<textarea name="memo" placeholder="memo"></textarea><br/>
+					<textarea style="margin-left: 100px;" name="memo" placeholder="memo"></textarea><br/><br/>
 					<input id="previous1" type="button" name="previous" class="previous button"
 						value="Previous"> <input type="button" name="next"
 						class="next button2" value="Next">
