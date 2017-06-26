@@ -4,20 +4,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import myproj.beauty.dao.beautyDAO;
-import myproj.beauty.dto.beautyVO;
+import myproj.beauty.dao.BeautyDAO;
+import myproj.beauty.dto.BeautyVO;
 
 @Controller
 @RequestMapping("/beauty")
-public class beautyController {
+public class BeautyController {
 
 	@Autowired
-	beautyDAO beautyDAO;
+	BeautyDAO beautyDAO;
 	
 	
 	@RequestMapping("/{url}.dodam")
@@ -30,7 +30,7 @@ public class beautyController {
 	@RequestMapping("/beautyView.dodam")
 	public ModelAndView showBeautyView(){
 
-		List<beautyVO> beautyOptionList;
+		List<BeautyVO> beautyOptionList;
 		
 		// 1. 미용 옵션을 가져온다.
 		beautyOptionList = beautyDAO.searchBeautyOptionList();
@@ -42,13 +42,12 @@ public class beautyController {
 		return mv;
 	}
 	
-	
-	@RequestMapping("/registerBeautyOption.dodam")
-	public String registerBeautyOption(beautyVO beautyVO){
-		// ajax로 미용 옵션을 추가하는 method
-		
-		int result = beautyDAO.registerBeautyOption(beautyVO);
-		
+	// ajax로 미용 옵션을 추가하는 method
+	// **** produces는 ajax에서 view로 넘기는 값을 한글 처리 하기 위해! 추가함~~~~
+	@RequestMapping(value="/registerBeautyOption.dodam", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String registerBeautyOption(BeautyVO beautyVO){
+		beautyDAO.registerBeautyOption(beautyVO);
 		return beautyVO.getBtm_type();
 		
 		

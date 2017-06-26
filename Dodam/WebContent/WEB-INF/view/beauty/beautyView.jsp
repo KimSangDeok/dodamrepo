@@ -173,7 +173,7 @@
 			 	
 			 	
 			 	
-			 	<div class="row">
+			 	<div class="rowOption">
                 <div class="col-xs-5">
                     <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
                         
@@ -262,7 +262,7 @@ function layer_open(el){
 $(document).ready(function() {
 
 	// 미용 옵션 버튼 이벤트
-	 $('.btn-sm').bind('click', function(){        
+	 $('.btn-sm').bind('click', function(){    
 	        if($(this).hasClass('btn-chase')){
 	          $('.popit-wrapper-chase').popitup({
 	            chase: false
@@ -272,16 +272,21 @@ $(document).ready(function() {
     
 	// 미용 옵션 선택 제어 이벤트
     $('#undo_redo').multiselect();
+	
     
 	// 미용 옵션 팝업에서, 등록 버튼을 누르면 ajax를 이용하여 DB에 등록되고, 불러지게 한다.    
     $('.popitup-register').bind('click', function(){    	
     	$.ajax({
     		url : "/beauty/registerBeautyOption.dodam",
     		type : 'get',
-    		data : {'btm_type' : $('.btm_type').val(), 'btm_price':$('.btm_price').val()},
+    		async: true,
+    		data : {'btm_type' : $('.btm_type').val(), 'btm_price':$('.btm_price').val()},							
     		dataType : "text",
     		success : function(data){
-    			alert(data+"값 넣기 성공");
+    			$("#undo_redo").append("<option>"+data+"</option>");
+    		},
+    		error:function(request, status,error){
+    			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
     		}
     	})
     	

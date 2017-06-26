@@ -1,7 +1,7 @@
 package myproj.beauty.dto;
 
 // 미용 옵션을 다루는 VO (테이블 이름 : beauty_management)
-public class beautyVO {
+public class BeautyVO {
 	
 	private String btm_type;	// 미용 옵션
 	private int btm_price;		// 미용 옵션 별 가격

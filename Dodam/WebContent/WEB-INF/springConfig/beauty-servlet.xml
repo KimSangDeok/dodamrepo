@@ -20,10 +20,10 @@
 <bean id='factoryBeanBeauty' class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSourceBeauty"></property>
 	<property name="mapperLocations"
-			value ="classpath*:myproj/beauty/mybatis/*.xml"/>
+			value ="classpath*:/myproj/beauty/mybatis/*.xml"/>
 </bean>
 
-<bean id='mm' class="org.mybatis.spring.SqlSessionTemplate">
+<bean id='beauty' class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="factoryBeanBeauty"></constructor-arg>
 </bean>
 
