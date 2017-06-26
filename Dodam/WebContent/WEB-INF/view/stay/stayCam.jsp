@@ -16,6 +16,7 @@
 		<option value="AZ">Arizona</option>
 		<option value="AR">Arkansas</option>
 	</select><br/><br/><br/>
+	
 	<!-- start : 콤보박스 관련 script -->
 	<script>
 	$(document).ready(function(){
@@ -34,6 +35,9 @@
 	})();
 	</script>
 	<!-- end : 콤보박스 관련 script -->
+
+
+
 
 	<!-- 라즈베리로 입원장을 보여주는 화면을 설계합시다~~~~~~~~ -->
 

@@ -3,6 +3,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 		<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- 미용내역 table css -->
 		
+		<!-- start : table의 헤더 중앙정렬 -->
+		<style>
+		.header{
+			text-align:center;
+		}
+		</style>
+		<!-- end : table의 헤더 중앙정렬 -->
+		
+		
 		<!-- 부트스트랩 공통!! -->
 	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
@@ -46,7 +55,7 @@
 				
 				 
 			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-			 <div style="border:1px solid red">
+			 <div style="border:1px solid red; float:left">
 			 	<h1>1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.</h1>
 			 	
 			 	
@@ -63,51 +72,53 @@
 			 	  <table id="keywords" cellspacing="0" cellpadding="0">
 				    <thead>
 				      <tr>
-				        <th><span>Keywords</span></th>
-				        <th><span>Impressions</span></th>
-				        <th><span>Clicks</span></th>
-				        <th><span>CTR</span></th>
-				        <th><span>Rank</span></th>
+				        <th><span>예약일자</span></th>
+				        <th><span>동물명</span></th>
+				        <th><span>종</span></th>
+				        <th><span>고객명</span></th>
+				        <th><span>핸드폰번호</span></th>
+				        <th><span>미용내역</span></th>
+				        <th><span>미용완료여부</span></th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				      <tr>
-				        <td class="lalign">silly tshirts</td>
+				        <td>silly tshirts</td>
 				        <td>6,000</td>
 				        <td>110</td>
 				        <td>1.8%</td>
 				        <td>22.2</td>
 				      </tr>
 				      <tr>
-				        <td class="lalign">desktop workspace photos</td>
+				        <td>desktop workspace photos</td>
 				        <td>2,200</td>
 				        <td>500</td>
 				        <td>22%</td>
 				        <td>8.9</td>
 				      </tr>
 				      <tr>
-				        <td class="lalign">arrested development quotes</td>
+				        <td>arrested development quotes</td>
 				        <td>13,500</td>
 				        <td>900</td>
 				        <td>6.7%</td>
 				        <td>12.0</td>
 				      </tr>
 				      <tr>
-				        <td class="lalign">popular web series</td>
+				        <td>popular web series</td>
 				        <td>8,700</td>
 				        <td>350</td>
 				        <td>4%</td>
 				        <td>7.0</td>
 				      </tr>
 				      <tr>
-				        <td class="lalign">2013 webapps</td>
+				        <td>2013 webapps</td>
 				        <td>9,900</td>
 				        <td>460</td>
 				        <td>4.6%</td>
 				        <td>11.5</td>
 				      </tr>
 				      <tr>
-				        <td class="lalign">ring bananaphone</td>
+				        <td>ring bananaphone</td>
 				        <td>10,500</td>
 				        <td>748</td>
 				        <td>7.1%</td>
@@ -127,8 +138,9 @@
 			 	
 			 	
 			 	
+			 	
+			 	<div style="border:1px solid blue; float:left">
 			 	<h1>2. 동물의 예약 미용 내역을 추가하여 저장한다.</h1>
-			 	<div >
 			 	<div class="row">
                 <div class="col-xs-5">
                     <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
@@ -155,7 +167,10 @@
                 </div>
             </div>
 			 </div>
-			</div>
+
+
+			 
+</div> <!-- end of div(body) -->
 
 
 <script type="text/javascript" src="/style/js/multiselect.js"></script>
