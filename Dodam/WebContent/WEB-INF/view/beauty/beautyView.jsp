@@ -1,69 +1,107 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-		<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- ¹Ì¿ë³»¿ª table css -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- cíƒœê·¸ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ taglibë¥¼ ì ì–´ì•¼ í•œë‹¤. -->
+<link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- ë¯¸ìš©ë‚´ì—­ table css -->
+
+		<!-- ë¶€íŠ¸ìŠ¤íŠ¸ë© ê³µí†µ!! -->
+	    <link rel="stylesheet" href="/css/bootstrap.css" />
 		
-		<!-- start : tableÀÇ Çì´õ Áß¾ÓÁ¤·Ä -->
+		<!-- begin : tableì˜ í—¤ë” ì¤‘ì•™ì •ë ¬ -->
 		<style>
 		.header{
 			text-align:center;
 		}
 		</style>
-		<!-- end : tableÀÇ Çì´õ Áß¾ÓÁ¤·Ä -->
+		<!-- end : tableì˜ í—¤ë” ì¤‘ì•™ì •ë ¬ -->
 		
+		<!-- begin : íŒì—… styleê³¼ script!! -->
+		<style>
+		.popit-wrapper {
+			display: none;
+			border: 1px solid #ccc;
+			background: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 6px 2px #ccc;
+			height:250px;
+		}
 		
-		<!-- ºÎÆ®½ºÆ®·¦ °øÅë!! -->
-	    <link rel="stylesheet" href="/css/bootstrap.css" />
+		.popit-content {
+			padding: 20px;
+		}
 		
+		.popit-header {
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.popit-body {
+			padding: 20px 0;
+			width: 300px;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.popitup-overlay {
+			background: #000;
+			position: fixed;
+			z-index: 9999;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0.5;
+		}
+		</style>
+		<script src="/js/jquery.popitup.js"></script>
+		<!-- begin : íŒì—… -->
 
-		<!-- ÆË¾÷¸ğ´Ş -->
-		<link rel="stylesheet" href="/beautymodal/rmodal.css" type="text/css" />
-		<script src="/js/popmenumain.js"></script>
-<div class="body">
 
-			<!-- ÆË¾÷³»¿ë -->
-<div id="modal" class="modal">
-    <div class="modal-dialog animated">
-        <div class="modal-content">
-            <form class="form-horizontal" method="get">
-                <div class="modal-header">
-                    <strong>¹Ì¿ë ¿É¼Ç Ãß°¡</strong>
-                </div>
 
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="dummyText" class="control-label col-xs-4">¹Ì¿ë Á¾·ù</label>
-                        <div class="input-group col-xs-7">
-                            <input type="text" name="dummyText" id="dummyText" class="form-control" />
-                        </div>
-                        <label for="dummyText" class="control-label col-xs-4">¹Ì¿ë °¡°İ</label>
-                        <div class="input-group col-xs-7">
-                            <input type="text" name="dummyText" id="dummyText" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-default" type="button" onclick="modal.close();">Cancel</button>
-                  <button class="btn btn-primary" type="submit" onclick="modal.close();">Save</button>
-                </div>
-            </form>
+<!-- start of div(body) -->
+<div class="body"><br/><br/>
+			
+			<!-- íŒì—…ë‚´ìš© -->
+<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+        <div class="popit-content">
+          <div class="popit-header">
+            <h4 class="popit-title">ë¯¸ìš© ì˜µì…˜ ì¶”ê°€</h4>
+          </div><br/>
+<!-- íŒì—…ì°½ ë°”ë””ë¶€ë¶„ -->
+          <div class="popit-body" id="bodycontainer">
+            <div class="content-wrapper">
+            
+            	<div>
+            	<label>ì¢…ë¥˜</label>
+            	<input type="text" class="btm_type"/>
+            	</div>
+      
+                <div>
+            	<label>ê°€ê²©</label>
+            	<input type="text" class="btm_price"/>
+            	</div>      
+                     	            	
+            </div>
+          </div><br/>
+<!-- íŒì—…ì°½ ë°”ë”” ë -->
+          <div class="popit-footer" style="float:right">
+            <button type="button" class="btn btn-default popitup-close">ì·¨ì†Œ</button>
+            <button type="button" class="btn btn-primary popitup-register">ë“±ë¡</button>
+          </div>
         </div>
-    </div>
-</div>			
+</div>
+
+<!-- íŒì—…ì—´ë¦¬ëŠ” ë¶€ë¶„ ë-->
 			
 				
 				 
-			 <!-- ¿©±â ºÎºĞÀÌ ½ÇÁúÀûÀ¸·Î ÄÚµùÇÏ´Â ºÎºĞÀÔ´Ï´Ù~~~ divÀÇ Å×µÎ¸®´Â Áö±İ º¸±â ÆíÇÏ±â À§ÇÑ ºÎºĞÀÌ°í, ³ªÁß¿¡ Áö¿ï²®´Ï´Ù~~ -->
-			 <div style="border:1px solid red; float:left">
-			 	<h1>1. ÇØ´ç ³¯Â¥ÀÇ ¹Ì¿ë½Ç ¿¹¾à ÀÏÁ¤À» ¸ğµÎ º¸¿©ÁØ´Ù.</h1>
+			 <!-- ì—¬ê¸° ë¶€ë¶„ì´ ì‹¤ì§ˆì ìœ¼ë¡œ ì½”ë”©í•˜ëŠ” ë¶€ë¶„ì…ë‹ˆë‹¤~~~ divì˜ í…Œë‘ë¦¬ëŠ” ì§€ê¸ˆ ë³´ê¸° í¸í•˜ê¸° ìœ„í•œ ë¶€ë¶„ì´ê³ , ë‚˜ì¤‘ì— ì§€ìš¸ê»ë‹ˆë‹¤~~ -->
+			 <div style="border:1px solid red; float:left; width:60%">
+			 	<h1>1. í•´ë‹¹ ë‚ ì§œì˜ ë¯¸ìš©ì‹¤ ì˜ˆì•½ ì¼ì •ì„ ëª¨ë‘ ë³´ì—¬ì¤€ë‹¤.</h1>
 			 	
 			 	
 			 	
-			 		<!-- datepicker, ¿É¼Ç, ÀúÀå °ª °¡Á®¿ÀÀÚ. -->
+			 		<!-- datepicker, ì˜µì…˜, ì €ì¥ ê°’ ê°€ì ¸ì˜¤ì. -->
 			 		<div class="row">
 			 			<div class="col-lg-12">
-			 				<a href="#" id="showModal" class="btn btn-success">¹Ì¿ë¿É¼Ç</a>
+							<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">ì˜µì…˜ì¶”ê°€</a> 
    						</div>
 					</div>
 			 		<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
@@ -72,63 +110,48 @@
 			 	  <table id="keywords" cellspacing="0" cellpadding="0">
 				    <thead>
 				      <tr>
-				        <th><span>¿¹¾àÀÏÀÚ</span></th>
-				        <th><span>µ¿¹°¸í</span></th>
-				        <th><span>Á¾</span></th>
-				        <th><span>°í°´¸í</span></th>
-				        <th><span>ÇÚµåÆù¹øÈ£</span></th>
-				        <th><span>¹Ì¿ë³»¿ª</span></th>
-				        <th><span>¹Ì¿ë¿Ï·á¿©ºÎ</span></th>
+				        <th><span>ì˜ˆì•½ì¼ì</span></th>
+				        <th><span>ë™ë¬¼ëª…</span></th>
+				        <th><span>ì¢…</span></th>
+				        <th><span>ê³ ê°ëª…</span></th>
+				        <th><span>í•¸ë“œí°ë²ˆí˜¸</span></th>
+				        <th><span>ë¯¸ìš©ë‚´ì—­</span></th>
+				        <th><span>ë¯¸ìš©ì™„ë£Œì—¬ë¶€</span></th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				      <tr>
-				        <td>silly tshirts</td>
-				        <td>6,000</td>
-				        <td>110</td>
-				        <td>1.8%</td>
-				        <td>22.2</td>
+				        <td>2017/06/26</td>
+				        <td>ì—°ì´</td>
+				        <td>í† ì´í‘¸ë“¤</td>
+				        <td>ê¹€ìš°ì„</td>
+				        <td>010-1111-1111</td>
+				        <td>ê·€ì²­ì†Œ</td>
+				        <td>ì˜ˆì •</td>
 				      </tr>
 				      <tr>
-				        <td>desktop workspace photos</td>
-				        <td>2,200</td>
-				        <td>500</td>
-				        <td>22%</td>
-				        <td>8.9</td>
+				        <td>2017/06/22</td>
+				        <td>ì—°ì´</td>
+				        <td>í† ì´í‘¸ë“¤</td>
+				        <td>ê¹€ìš°ì„</td>
+				        <td>010-1111-1111</td>
+				        <td>ì•ˆë§ˆ</td>
+				        <td>ì™„ë£Œ</td>
 				      </tr>
 				      <tr>
-				        <td>arrested development quotes</td>
-				        <td>13,500</td>
-				        <td>900</td>
-				        <td>6.7%</td>
-				        <td>12.0</td>
-				      </tr>
-				      <tr>
-				        <td>popular web series</td>
-				        <td>8,700</td>
-				        <td>350</td>
-				        <td>4%</td>
-				        <td>7.0</td>
-				      </tr>
-				      <tr>
-				        <td>2013 webapps</td>
-				        <td>9,900</td>
-				        <td>460</td>
-				        <td>4.6%</td>
-				        <td>11.5</td>
-				      </tr>
-				      <tr>
-				        <td>ring bananaphone</td>
-				        <td>10,500</td>
-				        <td>748</td>
-				        <td>7.1%</td>
-				        <td>17.3</td>
+				        <td>2017/06/26</td>
+				        <td>ìˆœëŒì´</td>
+				        <td>í‘¸ë“¤</td>
+				        <td>ê¹€ì˜ˆì€</td>
+				        <td>010-2222-1111</td>		      
+				        <td>ì „ì²´ë¯¸ìš©</td>
+				        <td>ì˜ˆì •</td>
 				      </tr>
 				    </tbody>
 				  </table>
 				 </div> 
 			 	
-			 	<!-- ¹Ì¿ë ³»¿ª table js -->
+			 	<!-- ë¯¸ìš© ë‚´ì—­ table js -->
 				<script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
 			 	<script type="text/javascript">
 				$(function(){
@@ -139,26 +162,35 @@
 			 	
 			 	
 			 	
-			 	<div style="border:1px solid blue; float:left">
-			 	<h1>2. µ¿¹°ÀÇ ¿¹¾à ¹Ì¿ë ³»¿ªÀ» Ãß°¡ÇÏ¿© ÀúÀåÇÑ´Ù.</h1>
+			 	<div style="border:1px solid blue; float:left; width:40%">
+			 	<h1>2. ë™ë¬¼ì˜ ì˜ˆì•½ ë¯¸ìš© ë‚´ì—­ì„ ì¶”ê°€í•˜ì—¬ ì €ì¥í•œë‹¤.</h1>
+
+
+
+
+                		
+                		
+			 	
+			 	
+			 	
 			 	<div class="row">
                 <div class="col-xs-5">
                     <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
-                        <option value="1">ÀüÃ¼¹Ì¿ë</option>
-                        <option value="2">ºÎºĞ¹Ì¿ë</option>
-                        <option value="3">±ÍÃ»¼Ò</option>
-                        <option value="4">¾È¸¶</option>
-                        <option value="5">»êÃ¥¼­ºñ½º</option>
+                        
+                        <!-- dbì—ì„œ BeautyOptionì„ ë¶ˆëŸ¬ì™€ì„œ ë¿Œë ¤ì¤˜ì•¼ í•œë‹¤. -->              		
+						<c:forEach var='option' items="${beautyOption}" >
+							<option>${option.btm_type}</option>
+						</c:forEach>
 
                     </select>
                 </div>
                 
                 <div class="col-xs-2">
                     <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
-                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">¢º¢º</button>
+                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">â–¶â–¶</button>
                     <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
                     <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
-                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">¢¸¢¸</button>
+                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">â—€â—€</button>
                     <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
                 </div>
                 
@@ -173,6 +205,8 @@
 </div> <!-- end of div(body) -->
 
 
+
+<!-- begin : ë¯¸ìš©ì˜µì…˜ ì˜®ê¸°ëŠ” script -->
 <script type="text/javascript" src="/style/js/multiselect.js"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -183,54 +217,76 @@
     ga('create', 'UA-39934286-1', 'github.com');
     ga('send', 'pageview');
 </script>
+<!-- end : ë¯¸ìš©ì˜µì…˜ ì˜®ê¸°ëŠ” script -->
+
+
+
+<script>
+function layer_open(el){
+
+	var temp = $('#' + el);
+	var bg = temp.prev().hasClass('bg');	//dimmed ë ˆì´ì–´ë¥¼ ê°ì§€í•˜ê¸° ìœ„í•œ boolean ë³€ìˆ˜
+
+	if(bg){
+		$('.layer').fadeIn();	//'bg' í´ë˜ìŠ¤ê°€ ì¡´ì¬í•˜ë©´ ë ˆì´ì–´ê°€ ë‚˜íƒ€ë‚˜ê³  ë°°ê²½ì€ dimmed ëœë‹¤. 
+	}else{
+		temp.fadeIn();
+	}
+
+	// í™”ë©´ì˜ ì¤‘ì•™ì— ë ˆì´ì–´ë¥¼ ë„ìš´ë‹¤.
+	if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
+	else temp.css('top', '0px');
+	if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
+	else temp.css('left', '0px');
+
+	temp.find('a.cbtn').click(function(e){
+		if(bg){
+			$('.layer').fadeOut(); //'bg' í´ë˜ìŠ¤ê°€ ì¡´ì¬í•˜ë©´ ë ˆì´ì–´ë¥¼ ì‚¬ë¼ì§€ê²Œ í•œë‹¤. 
+		}else{
+			temp.fadeOut();
+		}
+		e.preventDefault();
+	});
+
+	$('.layer .bg').click(function(e){	//ë°°ê²½ì„ í´ë¦­í•˜ë©´ ë ˆì´ì–´ë¥¼ ì‚¬ë¼ì§€ê²Œ í•˜ëŠ” ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬
+		$('.layer').fadeOut();
+		e.preventDefault();
+	});
+
+}				
+</script>
+
+
 
 <script type="text/javascript">
 $(document).ready(function() {
-    // make code pre
 
-    	            var modal = new RModal(document.getElementById('modal'), {
-	                beforeOpen: function(next) {
-	                    console.log('beforeOpen');
-	                    next();
-	                }
-	                , afterOpen: function() {
-	                    console.log('opened');
-	                }
-
-	                , beforeClose: function(next) {
-	                    console.log('beforeClose');
-	                    next();
-	                }
-	                , afterClose: function() {
-	                    console.log('closed');
-	                }
-
-	                // , content: 'Abracadabra'
-
-	                // , bodyClass: 'modal-open'
-	                // , dialogClass: 'modal-dialog-lg'
-	                // , dialogOpenClass: 'fadeIn'
-	                // , dialogCloseClass: 'fadeOut'
-
-	                // , focus: true
-	                // , focusElements: ['input.form-control', 'textarea', 'button.btn-primary']
-
-	                // , escapeClose: true
-	            });
-
-	            document.addEventListener('keydown', function(ev) {
-	                modal.keydown(ev);
-	            }, false);
-
-	            document.getElementById('showModal').addEventListener("click", function(ev) {
-	                ev.preventDefault();
-	                modal.open();
-	            }, false);
-
-	            window.modal = modal;
+	// ë¯¸ìš© ì˜µì…˜ ë²„íŠ¼ ì´ë²¤íŠ¸
+	 $('.btn-sm').bind('click', function(){        
+	        if($(this).hasClass('btn-chase')){
+	          $('.popit-wrapper-chase').popitup({
+	            chase: false
+	          });
+	        }				        
+	      });	
     
-    
+	// ë¯¸ìš© ì˜µì…˜ ì„ íƒ ì œì–´ ì´ë²¤íŠ¸
     $('#undo_redo').multiselect();
+    
+	// ë¯¸ìš© ì˜µì…˜ íŒì—…ì—ì„œ, ë“±ë¡ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ajaxë¥¼ ì´ìš©í•˜ì—¬ DBì— ë“±ë¡ë˜ê³ , ë¶ˆëŸ¬ì§€ê²Œ í•œë‹¤.    
+    $('.popitup-register').bind('click', function(){    	
+    	$.ajax({
+    		url : "/beauty/registerBeautyOption.dodam",
+    		type : 'get',
+    		data : {'btm_type' : $('.btm_type').val(), 'btm_price':$('.btm_price').val()},
+    		dataType : "text",
+    		success : function(data){
+    			alert(data+"ê°’ ë„£ê¸° ì„±ê³µ");
+    		}
+    	})
+    	
+    	
+    })
 });
 </script>
 
