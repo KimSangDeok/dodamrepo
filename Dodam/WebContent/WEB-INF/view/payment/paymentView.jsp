@@ -1,154 +1,126 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>paymentView</title>
-<link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="/style.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/color/red.css" media="all" />
-<link rel="stylesheet" type="text/css" media="screen" href="/style/css/prettyPhoto.css"  />
-<link rel="stylesheet" type="text/css" href="/style/type/museo.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/type/ptsans.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/type/charis.css" media="all" />
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
-<![endif]-->
-<!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
-<![endif]-->
-<!--[if IE 9]>
-<link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
-<![endif]-->
-<script type="text/javascript" src="/style/js/jquery-1.6.2.min.js"></script>
-<script type="text/javascript" src="/style/js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="/style/js/transify.js"></script>
-<script type="text/javascript" src="/style/js/jquery.aw-showcase.js"></script>
-<script type="text/javascript" src="/style/js/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="/style/js/carousel.js"></script>
-<script type="text/javascript" src="/style/js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="/style/js/jquery.superbgimage.min.js"></script>
-<script type="text/javascript" src="/style/js/jquery.slickforms.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($){
-	$('.forms').dcSlickForms();
-});
-</script>
-<script type="text/javascript">
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-$(document).ready(function()
-{
-	$("#showcase").awShowcase(
-	{
-		content_width:			900,
-		content_height:			400,
-		auto:					true,
-		interval:				3000,
-		continuous:				false,
-		arrows:					true,
-		buttons:				true,
-		btn_numbers:			true,
-		keybord_keys:			true,
-		mousetrace:				false, /* Trace x and y coordinates for the mouse */
-		pauseonover:			true,
-		stoponclick:			false,
-		transition:				'fade', /* hslide/vslide/fade */
-		transition_delay:		0,
-		transition_speed:		500,
-		show_caption:			'onload' /* onload/onhover/show */
-	});
-});
+<!-- 부트스트랩 공통!! -->
+<link rel="stylesheet" href="/css/bootstrap.css" />
 
-</script>
+<!-- 수납화면css -->
+<link rel="stylesheet" href="/paymentcss/payment.css">
 
-</head>
-<body>
+<!-- 바디 시작 -->
+<div class="body">
 
 
 
+	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+	<div>
+		<!-- 가운데 구분 줄 -->
+		<div class="hr1" style="margin-top: 50px"></div>
 
+		<!-- 수납대기/수납목록 -->
+		<div class="paygroup">
 
-<!-- Fullscreen backgrounds -->
-<div id="thumbs">
-<!-- <a href="style/images/art/bg1.jpg">1</a> -->
-<!-- <a href="style/images/art/bg2.jpg">2</a> -->
-<!-- <a href="style/images/art/bg3.jpg">3</a> -->
-<!-- <a href="style/images/art/bg4.jpg">4</a> -->
-<!-- <a href="style/images/art/bg5.jpg">5</a> -->
-<a href="/style/images/art/bg6.jpg">6</a>
-</div>
+			<!-- 수납대기 -->
+			<div class="payleft">
+				<h1 class="title">수납대기</h1>
+				<table id="listTable">
+					<tbody>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td><small>2017/06/21<br/>12:43:27</small></td>
+							<td>김우석, 연이(Toy Poodle)</td>
+							<td>200,000</td>
+							<td><button class="paydelbtn btn-sm">삭제</button></td>
 
-<div id="superbgimage">
-	<div class="scanlines"></div>
-</div>
-<!-- End Fullscreen backgrounds -->
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td><small>2017/06/21<br/>12:43:27</small></td>
+							<td>김우석, 연이(Toy Poodle)</td>
+							<td>200,000</td>
+							<td><button class="paydelbtn btn-sm">삭제</button></td>
 
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td><small>2017/06/21<br/>12:43:27</small></td>
+							<td>김우석, 연이(Toy Poodle)</td>
+							<td>200,000</td>
+							<td><button class="paydelbtn btn-sm">삭제</button></td>
 
-<!-- Begin Wrapper -->
-<div id="wrapper">
-
-<!--   <div id="header"> -->
-<!--   </div> -->
-   
-  <div class="clear"></div>
-  
-  <!-- Begin Menu -->
-  <div id="menu" class="menu opacity">
-  
- 			 <ul>
-				<li class="">
-					<a href="#">예약</a>
-				</li>
-				<li class="">
-					<a href="#">접수</a>
-				</li>
-				<li class="">
-					<a href="#">홈</a>
-				</li>
-				<li class="">
-					<a href="#">진료</a>
-				</li>
-				<li class="">
-					<a href="/stay/stayView.dodam">입원/호텔</a>
-				</li>
-				<li class="">
-					<a href="#">미용</a>
-				</li>
-				<li class="">
-					<a href="#">수납</a>
-				</li>						
-			</ul>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 수납대기end -->
 			
-   	 <br style="clear: left" />
-    
-    <!-- search  -->
-	  		<div id="wrapper">
-	
-				<div id="search">											
-						검색 &nbsp;&nbsp; 
-						<input class="form-text" name="search" size="32" maxlength="64" />
-						<input class="form-submit"  type="submit" value="검색하기" />																	
-			 	</div>
-			 	
-	 	 	</div>
-	 	 				
-  </div>
-  <!-- End Menu --> 
-  
-  
-  
-  <!-- Begin Container -->
-  <div id="container" class="opacity"> 
-    
- 
-  </div>
-  <!-- End Container -->
-  
-  
-</div>
-<!-- End Wrapper --> 
+			<!-- 수납목록 -->
+			<div class="payright">
+				<h1 class="title">수납목록</h1>
+				<div class="tablediv">
+					<table id="payTable">
+						<tbody>
+							<tr>
+								<th>구분</th>
+								<th>내용</th>
+								<th>수량</th>
+								<th>금액</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>주사</td>
+								<td>3</td>
+								<td>150,000</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>주사</td>
+								<td>3</td>
+								<td>150,000</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>주사</td>
+								<td>3</td>
+								<td>150,000</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>주사</td>
+								<td>3</td>
+								<td>150,000</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="rowgruop">
+					<h3 class="totalm">총액 : 600,000</h3>
+					<hr>
+					<button class="paybtn">결제</button>
+				</div>
+			</div>
+			<!-- 수납목록end -->
 
-<script type="text/javascript" src="/style/js/scripts.js"></script>
-</body>
-</html>
+		</div>
+		<!-- 수납대기/수납목록end -->
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	</div>
+</div>
