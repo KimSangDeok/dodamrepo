@@ -1,154 +1,303 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>beautyView</title>
-<link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="/style.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/color/red.css" media="all" />
-<link rel="stylesheet" type="text/css" media="screen" href="/style/css/prettyPhoto.css"  />
-<link rel="stylesheet" type="text/css" href="/style/type/museo.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/type/ptsans.css" media="all" />
-<link rel="stylesheet" type="text/css" href="/style/type/charis.css" media="all" />
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all" />
-<![endif]-->
-<!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
-<![endif]-->
-<!--[if IE 9]>
-<link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
-<![endif]-->
-<script type="text/javascript" src="/style/js/jquery-1.6.2.min.js"></script>
-<script type="text/javascript" src="/style/js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="/style/js/transify.js"></script>
-<script type="text/javascript" src="/style/js/jquery.aw-showcase.js"></script>
-<script type="text/javascript" src="/style/js/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="/style/js/carousel.js"></script>
-<script type="text/javascript" src="/style/js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="/style/js/jquery.superbgimage.min.js"></script>
-<script type="text/javascript" src="/style/js/jquery.slickforms.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($){
-	$('.forms').dcSlickForms();
-});
-</script>
-<script type="text/javascript">
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-$(document).ready(function()
-{
-	$("#showcase").awShowcase(
-	{
-		content_width:			900,
-		content_height:			400,
-		auto:					true,
-		interval:				3000,
-		continuous:				false,
-		arrows:					true,
-		buttons:				true,
-		btn_numbers:			true,
-		keybord_keys:			true,
-		mousetrace:				false, /* Trace x and y coordinates for the mouse */
-		pauseonover:			true,
-		stoponclick:			false,
-		transition:				'fade', /* hslide/vslide/fade */
-		transition_delay:		0,
-		transition_speed:		500,
-		show_caption:			'onload' /* onload/onhover/show */
-	});
-});
+<!-- 부트스트랩 공통!! -->
+<link rel="stylesheet" href="/css/bootstrap.css" />
 
-</script>
+<!-- 접수화면css -->
+<link rel="stylesheet" href="/countercss/counter.css" />
 
-</head>
-<body>
+<!-- navAccordion플러그인 -->
+<script src="/countercss/navAccordion.min.js"></script>
+
+<!-- 팝업 -->
+<script src="/js/jquery.popitup.js"></script>
+
+<!-- 바디 시작 -->
+<div class="body">
 
 
 
+	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+	<div>
+		<!-- 가운데 구분 줄 -->
+		<div class="hr1" style="margin-top: 50px"></div>
 
+		<h1
+			style="font-weight: bolder; margin-left: 5%; margin-top: 0.5%; font-size: 200%; text-align: left;">접수</h1>
 
-<!-- Fullscreen backgrounds -->
-<div id="thumbs">
-<!-- <a href="style/images/art/bg1.jpg">1</a> -->
-<!-- <a href="style/images/art/bg2.jpg">2</a> -->
-<!-- <a href="style/images/art/bg3.jpg">3</a> -->
-<!-- <a href="style/images/art/bg4.jpg">4</a> -->
-<!-- <a href="style/images/art/bg5.jpg">5</a> -->
-<a href="/style/images/art/bg6.jpg">6</a>
-</div>
+		<!-- 전체접수창 -->
+		<div class="outer-wrap">
 
-<div id="superbgimage">
-	<div class="scanlines"></div>
-</div>
-<!-- End Fullscreen backgrounds -->
+			<!-- 접수메뉴 -->
+			<div class="demenu">
+				<a class="add addpop" href="javascript:void(0);" role="button">
+				<img class="addimg" alt="접수추가" src="/countercss/add.png"></a>
+					<a href=""><img class="re" alt="새로고침" src="/countercss/refresh.png"></a>
+			</div>
 
-
-<!-- Begin Wrapper -->
-<div id="wrapper">
-
-<!--   <div id="header"> -->
-<!--   </div> -->
-   
-  <div class="clear"></div>
-  
-  <!-- Begin Menu -->
-  <div id="menu" class="menu opacity">
-  
- 			 <ul>
-				<li class="">
-					<a href="#">예약</a>
-				</li>
-				<li class="">
-					<a href="#">접수</a>
-				</li>
-				<li class="">
-					<a href="#">홈</a>
-				</li>
-				<li class="">
-					<a href="#">진료</a>
-				</li>
-				<li class="">
-					<a href="/stay/stayView.dodam">입원/호텔</a>
-				</li>
-				<li class="">
-					<a href="#">미용</a>
-				</li>
-				<li class="">
-					<a href="#">수납</a>
-				</li>						
-			</ul>
+			<!-- Navigation -->
+			<nav class="mainNav">
 			
-   	 <br style="clear: left" />
-    
-    <!-- search  -->
-	  		<div id="wrapper">
-	
-				<div id="search">											
-						검색 &nbsp;&nbsp; 
-						<input class="form-text" name="search" size="32" maxlength="64" />
-						<input class="form-submit"  type="submit" value="검색하기" />																	
-			 	</div>
-			 	
-	 	 	</div>
-	 	 				
-  </div>
-  <!-- End Menu --> 
-  
-  
-  
-  <!-- Begin Container -->
-  <div id="container" class="opacity"> 
-    
- 
-  </div>
-  <!-- End Container -->
-  
-  
-</div>
-<!-- End Wrapper --> 
+				<!-- 진료접수목록 -->
+				<ul style="text-align: left;">
+					<li><a>원장실<input type="text" value="2" disabled="disabled"></a>
+						<ul>
+							<li>
+								<!-- 접수정보 -->
+								<div class="rcvdiv">
+									<div class="ldiv">
+										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
+											귀진료</label>
+									</div>
+									<div class="cdiv">
+										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
+									</div>
+									<div class="rdiv">
+										<a class="add addpop edit" href="javascript:void(0);" role="button">
+										<img alt="수정" src="/countercss/red_edit.png">
+										</a>
+										<a class="del" href="" role="button">
+										<img alt="삭제" src="/countercss/red_del.png">
+										</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="rcvdiv">
+									<div class="ldiv">
+										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
+											귀진료</label>
+									</div>
+									<div class="cdiv">
+										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
+									</div>
+									<div class="rdiv">
+										<a class="add addpop edit" href="javascript:void(0);" role="button">
+										<img alt="수정" src="/countercss/red_edit.png">
+										</a>
+										<a class="del" href="" role="button">
+										<img alt="삭제" src="/countercss/red_del.png">
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul></li>
+					
+					<li><a>태블릿<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>진료실<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>진료실2<input type="text" value="1"
+							disabled="disabled"></a>
+						<ul>
+							<li>
+								<div class="rcvdiv">
+									<div class="ldiv">
+										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
+											귀진료</label>
+									</div>
+									<div class="cdiv">
+										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
+									</div>
+									<div class="rdiv">
+										<a class="add addpop edit" href="javascript:void(0);" role="button">
+										<img alt="수정" src="/countercss/red_edit.png">
+										</a>
+										<a class="del" href="" role="button">
+										<img alt="삭제" src="/countercss/red_del.png">
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul></li>
+					<li><a>회의실<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>수술실<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>입원실<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>검사실<input type="text" value="0" disabled="disabled"></a></li>
+					<li><a>접수실<input type="text" value="1" disabled="disabled"></a>
+						<ul>
+							<li>
+								<div class="rcvdiv">
+									<div class="ldiv">
+										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
+											귀진료</label>
+									</div>
+									<div class="cdiv">
+										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
+									</div>
+									<div class="rdiv">
+										<a class="add addpop edit" href="javascript:void(0);" role="button">
+										<img alt="수정" src="/countercss/red_edit.png">
+										</a>
+										<a class="del" href="" role="button">
+										<img alt="삭제" src="/countercss/red_del.png">
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul></li>
+					<li><a>미용실<input type="text" value="1" disabled="disabled"></a>
+						<ul>
+							<li>
+								<div class="rcvdiv">
+									<div class="ldiv">
+										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
+											귀진료</label>
+									</div>
+									<div class="cdiv">
+										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
+									</div>
+									<div class="rdiv">
+										<a class="add addpop edit" href="javascript:void(0);" role="button">
+										<img alt="수정" src="/countercss/red_edit.png">
+										</a>
+										<a class="del" href="" role="button">
+										<img alt="삭제" src="/countercss/red_del.png">
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul></li>
+				</ul>
+			</nav>
 
-<script type="text/javascript" src="/style/js/scripts.js"></script>
-</body>
-</html>
+			<!-- 팝업열리는 부분 -->
+			<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+				<div class="popit-content">
+					<div class="popit-header">
+<!-- 						<button type="button" class="popitup-close close"> -->
+<!-- 							<span class="glyphicon glyphicon-remove-circle"></span> -->
+<!-- 						</button> -->
+						<h4 class="popit-title">도담도담-접수추가/편집</h4>
+					</div>
+
+					<!-- 팝업창 바디부분 -->
+					<div class="popit-body" id="bodycontainer">
+						<div class="content-wrapper">
+							<!--1번줄 -->
+								<div style="float: left">
+									<label>진료실</label>
+								</div>
+								<div style="float: right; padding-left: 20px;">
+									<select style="width: 222px;">
+										<option>원장실</option>
+										<option>태블릿</option>
+										<option>진료실</option>
+										<option>진료실2</option>
+										<option>회의실</option>
+										<option>수술실</option>
+										<option>입원실</option>
+										<option>검사실</option>
+										<option>접수실</option>
+										<option>미용실</option>
+									</select>
+								</div><br/>
+
+							<!-- 2번줄 -->
+
+								<div style="float: left">
+									<label>우선순위</label>
+								</div>
+								<div style="float: right; padding-left: 20px;">
+									<select style="width: 222px;">
+										<option>일반</option>
+										<option>응급</option>
+									</select>
+								</div>
+
+							<!--3번줄 -->
+
+								<div style="float: left">
+									<label>접수메모</label>
+								</div>
+								<div style="float: right; padding-left: 20px">
+									<textarea rows="8" cols="25"></textarea>
+								</div>
+							
+						</div>
+					</div>
+					<!-- 팝업창 바디 end -->
+					
+					<!-- 팝업창 접수/취소버튼 -->
+					<div class="popit-footer" style="float: center">
+						<button type="button" class="btn btn-default cancel popitup-close">취소</button>
+						<button type="button" class="btn btn-primary receive">접수</button>
+					</div>
+				</div>
+			</div>
+			<!-- 팝업열리는 부분 end-->
+
+		</div>
+		<!-- 전체접수창 end -->
+		
+		<!-- 접수대기자 화면 -->
+		<div class="sidebargroup">
+			<div class="sidebar">
+				<div class="sidebar-box">
+					<h3>접수 대기자</h3>
+					<hr>
+					<div class="cat-list">
+						<ul>
+							<li><a href="#">담당의 : 황선화<br />환자명 : 순돌이
+							</a></li>
+							<li><a href="#">담당의 : 홍길동<br />환자명 : 순자
+							</a></li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 접수대기자 화면 end -->
+
+
+
+
+
+
+
+<!-- 상품추가 스크립트 -->
+<script>			
+	jQuery(document).ready(function() {
+
+	//Accordion Nav
+	jQuery('.mainNav').navAccordion({
+		expandButtonText : '<i class="fa fa-plus"></i>', //Text inside of buttons can be HTML
+		collapseButtonText : '<i class="fa fa-minus"></i>',
+		buttonPosition : 'left',
+		buttonWidth : '5%',
+	}, function() {
+		console.log('Callback')
+	});
+	
+	//접수추가
+	$('.add').bind('click', function() {
+
+		if ($(this).hasClass('addpop')) {
+			$('.popit-wrapper-chase').popitup({
+				chase : false
+			});
+		}
+	});
+
+});
+
+</script>
+
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-36251023-1']);
+	_gaq.push(['_setDomainName', 'jqueryscript.net']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	});
+
+</script>
+
+	</div>
+</div>
