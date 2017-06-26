@@ -1,15 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="/reservationCss/bootstrap.css">
-<link rel="stylesheet" href="/customer-css/profile.css">
-<!-- 멀티스텝 링크 -->
+<!-- <link rel="stylesheet" href="/customer-css/profile.css"> -->
+
+<!-- Begin 멀티스텝 링크 -->
 <link href="/register/css/jquery-multi-step-form.css" media="screen"
 	rel="stylesheet" type="text/css">
+<!--  End 멀티스텝 링크 -->
 	
-<!-- 팝업 css -->
+	
+<!-- Begin 고객등록팝업 css -->
 <style type="text/css">
 @media ( min-width:768px) {
 	#main-nav {
@@ -46,7 +52,6 @@
 
 .popitup-overlay {
 	background: #000;
-/* 	background: #F47265; */
 	position: fixed;
 	z-index: 9999;
 	top: 0;
@@ -67,9 +72,11 @@
 	height: 0.85em;
 }
 
-/*모달창 스크립트*/
 </style>	
-	
+<!-- End 고객등록팝업 css -->	
+
+
+<!-- Begin 메인 스타일 -->
 	<style>
 /* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
 .main {
@@ -107,9 +114,10 @@
 	font-size: 15pt;
 }
 
-
 </style>
-	<!-- image upload -->
+<!--End 메인 스타일 -->
+
+	<!-- Begin 이미지 업로드 -->
  	<link rel="stylesheet" type="text/css" href="/upload/UnoDropZone.css">
     <script src="/upload/UnoDropZone.js"></script>
     <script>
@@ -126,32 +134,16 @@
             UnoDropZone.init();
         });
     </script>
-	<script type="text/javascript">
-	
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	
-	</script>
-	
-<!--end image upload -->
-	
-		<!-- search style -->
+<!-- End 이미지 업로드 -->    
+
+
+
+		<!-- Begin 검색 스타일 -->
 		<style>
 		body {
 			background-color: white;
 			font-family: 'Roboto';
 		}
-/* 		input { */
-/* 			margin: 50px auto; */
-/* 		} */
 		.form-control {
 			height: 30px;
 			width: 250px;
@@ -174,6 +166,9 @@
 			width: 130%;
 		}
 		</style> 
+<!--  End 검색 스타일  -->
+
+<!-- 왼쪽메뉴스크립트 -->
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
 
@@ -186,7 +181,7 @@
 <script src="/register/js/jquery-multi-step-form.js"
 	type="text/javascript"></script>
 <!-- 검색창 js -->
-<script src="/search-js/search.js"></script>
+<!-- <script src="/search-js/search.js"></script> -->
 
 	
 	
@@ -197,22 +192,22 @@ $(document).ready(function(){
 });
 
 
-//문진표 오픈
+//Begin 고객등록 모달팝업 
 
 function monjinOpen() {
 			var byensu = window.innerWidth/2;
-//			alert(window.innerWidth/2);
 			$('.popit-wrapper-chase').popitup({
 				widthSet : window.innerWidth*0.8+'',
 				chase : false
 			});
 }
+//End 모달팝업
 </script>
 
 
 <script>
 	
-  /* 고객등록 페이지 전환코딩 */
+  /*Begin 고객등록 페이지 전환코딩 */
   $(function(){
   	
   	$('#firstpopup').show();
@@ -251,12 +246,32 @@ function monjinOpen() {
 		$('.popit-content2').hide();
   	});
   });
-  
+  //End 모달 팝업 페이지 전환
   </script>
 
+<!-- Begin 특정 번호로 검색하여 정보를 가져오는 함수 -->
+<script>
 
+function showList(cus_tel){
+	
+	$.ajax({
+		url : "/customer/infoSearchbyTel.dodam",
+		type : 'get',
+		data : {"cus_tel":cus_tel},
+		dataType : "json",
+		success : function(data){
+// 			alert('data :'+data);
+			$('#gender').val(data[0].animal_gender)
+		},
+		 error:function(request, status,error){
+             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+         }
+	})
+}
+</script>
 
 <div class="body">
+<!-- Begin  왼쪽 메뉴바 -->
 			<section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
@@ -317,19 +332,18 @@ function monjinOpen() {
 			});
 
 		</script>
+<!-- End  왼쪽 메뉴바 -->
 
-<!--  메인부분 -->		
+<!-- Begin 메인부분 -->		
 		<div id="containers" style="min-width: 310px; height: 400px; margin: 0 auto">
-		<!-- 프로필 부분 -->
 		
+		<!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
 <div id="block2" class="modal-content" style="margin-left: 30px;" >
 	<table>
 		<tr>
 			<td><a class="title">반려 동물 목록</a>
-<!-- 			<input class="filter-box" type="text" data-filter-options='{ "filterTarget":"#block2 .user2  p.name ", "filterHide":"#block2 .user2 ", "shouldHide": true }'> -->
-<!-- 		    </input> -->
 		    </td>
 		</tr>
 	</table>
@@ -346,10 +360,10 @@ function monjinOpen() {
                 <!-- 동물정보div -->
                 <div style="margin-left: 20px;">
                		<a >
-                        나이 <input type="text" value="4개월"/>
+                        나이 <input id="age" type="text" value="4개월"/>
                     </a><br/>
                     <a>
-                        성별 <input type="text" value="암컷"/>
+                        성별 <input id="gender" type="text" value=""/>
                     </a>
                     <br/>
                 </div>
@@ -408,29 +422,8 @@ function monjinOpen() {
 	</table>
     <br/>
     <ul class="modal-user-index group">
-        <li class="group">
-            <a class="modal-user-link group">
-                <div class="user">
-                    <img class="avatar" src="/images/보검이.jpg" alt="Medium"></img>
-                    <p class="name">
-                        보검오빠
-                    </p>
-                    <p>
-                       bou@gmail.com
-                    </p>
-                </div>
-                <!-- 고객정보div -->
-                <div class="p" style="margin-left: 20px;">
-               		<a >
-                        휴대전화  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
-                    </a><br/>
-                    <a>
-                        우편번호  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
-                    </a>
-                    <br/>
-                </div>
-            </a>
-        </li>
+       
+
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user">
@@ -438,17 +431,22 @@ function monjinOpen() {
                     <p class="name">
                         박보검
                     </p>
-                    <p>
-                       bogum@gmail.com
-                    </p>
                 </div>
                  <!-- 고객정보div -->
                 <div class="p" style="margin-left: 20px;">
                		<a >
-                        휴대전화  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
+                        휴대전화  <input style="background-color: #fda699" type="text" value=""/>
                     </a><br/>
                     <a>
-                        우편번호  <input style="background-color: #fda699" type="text" value="010-1111-2222"/>
+                        우편번호  <input style="background-color: #fda699" type="text" value=""/>
+                    </a>
+                    <br/>
+                    <a>
+                        주소 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="background-color: #fda699" type="text" value=""/>
+                    </a>
+                    <br/>
+                    <a >
+                         첫 방문일   <input style="background-color: #fda699" type="text" value=""/>
                     </a>
                     <br/>
                 </div>
@@ -460,7 +458,7 @@ function monjinOpen() {
 		</div>
 		
 		
-		<!-- Begin popup content -->
+<!-- Begin 팝업 내용 -->
 	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
 	
 		<div class="popit-content" style=" width:100%; height:5%;">
@@ -542,11 +540,10 @@ function monjinOpen() {
 			
 		</div>
 	</div>
-		<!-- ------------------------------------------------------------------------------------------------------- -->
-	<!-- End popup content -->
+	<!-- End 팝업 내용  -->
 	
 	
-		<!-- table 코딩 -->
+		<!--Begin table 코딩 -->
 		<div class="tablecontainer">
 			<div class="line">
 				<input type="text" class="form-control" placeholder="Search..."
@@ -559,48 +556,57 @@ function monjinOpen() {
 						<thead>
 							<tr class="myHead">
 								<th>고객명</th>
-								<th>주소</th>
 								<th>전화번호</th>
+								<th>주소</th>
+								<th>첫방문일</th>
 							</tr>
 						</thead>
-						<tr>
-							<td>박보검</td>
-							<td>서울시</td>
-							<td>010-1111-2222</td>
-						</tr>
-						<tr>
-							<td>지창욱</td>
-							<td>인천 광역시</td>
-							<td>010-1111-2223</td>
-						</tr>
-						<tr>
-							<td>송중기</td>
-							<td>미국</td>
-							<td>010-1111-2224</td>
-						</tr>
-						<tr>
-							<td>이민호</td>
-							<td>뉴질랜드</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Dalton</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Bobby</td>
-							<td></td>
-						</tr>
-
+					<c:choose>
+						<c:when test="${listModel == null}">
+							<tr><td colspan='7'>등록된 고객이 없습니다.</td></tr>
+						</c:when>
+						
+						<c:otherwise>
+						<c:forEach items="${listModel}" var ="a">
+						<tr ondblclick="javascript:showList('${a.cus_tel}')"  height="25" 
+							onMouseOver="this.style.background='pink'"
+							onMouseOut="this.style.background='white'" >
+							
+							<td>${a.cus_name}</td>
+							<td>${a.cus_tel}</td>
+							<td>${a.cus_addr}</td>
+							<td>${a.cus_firstdate}</td>
+<%-- 							<td>${a.cus_tel}</td> --%>
+							
+						</c:forEach>
+					  </c:otherwise>	
+					 </c:choose> 
 					</table>
 				</div>
 			</div>
 		</div>
 
+		<!-- End 테이블 코딩  -->
+		
+		<!--Begin 검색 테이블  -->
+  <script src="/search-js/search.js"></script>
+  
+    <script type="text/javascript">
 
-		<!-- end of table -->
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	
+<!-- End 검색 테이블 -->	
 		
 		
 

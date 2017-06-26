@@ -4,10 +4,12 @@
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 
  
-<!-- 왼쪽 메뉴바 스크립트 -->
+<!-- Begin 왼쪽 메뉴바 스크립트 -->
 <script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
 <noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
-<!-- image upload -->
+<!-- End 왼쪽 메뉴바 스크립트 -->
+
+<!-- Begin 이미지 업로드 -->
  	<link rel="stylesheet" type="text/css" href="/upload/UnoDropZone.css">
     <script src="/upload/UnoDropZone.js"></script>
     <script>
@@ -24,6 +26,9 @@
             UnoDropZone.init();
         });
     </script>
+  <!--  End 이미지 업로드 -->  
+  
+  <!-- Begin 검색 스크립트 -->
 	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
@@ -39,8 +44,9 @@
 	
 	</script>
 	
-<!--end image upload -->	
-<!--  search 스타일 -->
+<!-- End 검색 스크립트 -->	
+	
+<!-- Begin 스타일 -->
     <style>
     .container{
     top:10px;
@@ -58,7 +64,6 @@
     
     /*사진 수정 스타일*/
     .cusinfo{
-/*     background-color: #fda699; */
     position: absolute;
     top:220px;
     left: -10px;
@@ -107,7 +112,7 @@ margin-left: 70px;
 }
 
 
-/* file upload */
+/* 이미지 파일 업로드 */
 .custom-drop-zone{
             width: 600px;
             height: 480px;
@@ -115,20 +120,20 @@ margin-left: 70px;
         }
     </style>
 
+<!--  End 스타일 -->
 
-
-
+<!-- Begin 헤더 숨기기 스크립트 -->
 <script>
 $(document).ready(function(){
    
    $('.header').addClass('hide');
 });
 </script>
-
+<!-- End 헤더 스크립트 -->
 
 <div class="body">
 
-<!-- 왼쪽 메뉴바 -->
+<!-- Begin 왼쪽 메뉴바 -->
 <section class="main">
 				<div class="wrapper-demo">
 					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
@@ -190,9 +195,9 @@ $(document).ready(function(){
 
 		</script>
 
-<!-- end of menubar -->
+<!-- End 왼쪽 메뉴바 -->
 
-<!-- search & table  -->
+<!-- Begin 검색&테이블 -->
 
 <div class="container" style="float:left ;">
 <div class="line">
@@ -245,9 +250,9 @@ $(document).ready(function(){
 </div>
   </div>
 </div>
-
+<!-- End 검색& 테이블 -->
   
-  <!-- 검색 테이블 js -->
+  <!--Begin 검색 테이블  -->
   <script src="/search-js/search.js"></script>
   
     <script type="text/javascript">
@@ -264,9 +269,9 @@ $(document).ready(function(){
   })();
 
 </script>
-    <!--  end of search main -->
+    <!--  End 검색테이블 -->
     
-    <!-- 고객수정 -->
+    <!-- Begin 고객&동물 수정 코딩 -->
   <div  style=" margin-left:100px;   float: left ;"  >
 	<div id="block1" class="modal-content" >
 	<table>
@@ -315,7 +320,7 @@ $(document).ready(function(){
 </div>
 		
     
-        <!-- 동물수정 -->
+        <!-- Begin 동물수정 -->
   <div  style=" margin-left:100px;   float: left ;"  >
 	<div id="block2" class="modal-content" >
 	<table>
@@ -361,4 +366,6 @@ $(document).ready(function(){
     </ul>
 </div>
 </div>
+
+<!-- End 고객 & 동물 등록 코딩 -->
 </div>
