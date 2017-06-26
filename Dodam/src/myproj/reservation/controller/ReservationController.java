@@ -1,20 +1,16 @@
-package myproj.jinryo.controller;
+package myproj.reservation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/jinryo")
-public class jinryoController {
+@RequestMapping("/reservation")
+public class ReservationController {
 
 	@RequestMapping("/{url}.dodam")
 	public String show(@PathVariable String url){
-		return "/jinryo/"+url;
+		return "/reservation/"+url;
 	}
 	
-	@RequestMapping("/monjinType.dodam")
-	public String monjinType(){
-		return "/jinryo/monjinTile.monjinTile";
-	}
 }

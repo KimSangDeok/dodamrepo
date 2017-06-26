@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/customer")
-public class customerController {
+public class CustomerController {
 
 	@RequestMapping("/{url}.dodam")
 	public String showList(@PathVariable String url){
