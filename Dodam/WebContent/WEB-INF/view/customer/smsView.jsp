@@ -107,8 +107,8 @@
 				</table>
 			</div><!-- /.container -->
 		</section>
-		<script src="/js/demo.js"></script>
-		<script src="/js/livesearch.js"></script>		
+		<script src="/sms/demo.js"></script>
+		<script src="/sms/livesearch.js"></script>		
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-36251023-1']);
