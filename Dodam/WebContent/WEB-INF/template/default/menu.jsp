@@ -17,8 +17,13 @@
 					<li><a href="/stay/stayView.dodam">입원 및 호텔하기</a></li>
 					<li><a href="/stay/stayCam.dodam">입원 및 호텔 카메라 보여주기</a></li>
 				</ul>
-			</li>	
-			<li><a href="/beauty/beautyView.dodam"><font size="5em">미용</font></a></li>
+			</li>
+			<li><a href="#"><font size="5em">미용</font></a>
+				<ul>
+					<li><a href="/beauty/beautyView.dodam">미용 스케쥴</a></li>
+					<li><a href="/beauty/beautyCam.dodam">미용 하기</a></li>
+				</ul>
+			</li>
 			<li><a href="/payment/paymentView.dodam"><font size="5em">수납</font></a></li>
 		</ul>
 	</nav>
