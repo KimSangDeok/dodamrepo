@@ -312,7 +312,9 @@
     $('*').each(function(){
 
       $varClose = $(this).hasClass('popitup-close');
-      if($varClose){
+      $varRegister = $(this).hasClass('popitup-register');
+      
+      if($varClose||$varRegister){
         $(this).bind('click', function(){
 
           if( opts.modalPosition.length > 0 ){

@@ -97,7 +97,6 @@
 			 	<h1>1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.</h1>
 			 	
 			 	
-			 	
 			 		<!-- datepicker, 옵션, 저장 값 가져오자. -->
 			 		<div class="row">
 			 			<div class="col-lg-12">
@@ -119,34 +118,20 @@
 				        <th><span>미용완료여부</span></th>
 				      </tr>
 				    </thead>
-				    <tbody>
-				      <tr>
-				        <td>2017/06/26</td>
-				        <td>연이</td>
-				        <td>토이푸들</td>
-				        <td>김우석</td>
-				        <td>010-1111-1111</td>
-				        <td>귀청소</td>
-				        <td>예정</td>
-				      </tr>
-				      <tr>
-				        <td>2017/06/22</td>
-				        <td>연이</td>
-				        <td>토이푸들</td>
-				        <td>김우석</td>
-				        <td>010-1111-1111</td>
-				        <td>안마</td>
-				        <td>완료</td>
-				      </tr>
-				      <tr>
-				        <td>2017/06/26</td>
-				        <td>순돌이</td>
-				        <td>푸들</td>
-				        <td>김예은</td>
-				        <td>010-2222-1111</td>		      
-				        <td>전체미용</td>
-				        <td>예정</td>
-				      </tr>
+				    <tbody>     
+					        <!-- db에서 BeautyService을 불러와서 뿌려줘야 한다. mapping한 key값이 대문자여서 대문자로!!-->              		
+							<c:forEach var='service' items="${beautyService}" >
+								<tr ondblclick="javascript:showList('${service.CUS_TEL}')">
+							        <td>${service.BTY_DT}</td>
+							        <td>${service.ANIMAL_NAME}</td>
+							        <td>${service.ANIMAL_BREED}</td>
+							        <td>${service.CUS_NAME}</td>
+							        <td>${service.CUS_TEL}</td>
+							        <td>${service.BTM_TYPE}</td>
+							        <td>${service.BTY_OX}</td>
+							        <td style="display:none">${service.CUS_ADDR}</td>
+
+							</c:forEach>
 				    </tbody>
 				  </table>
 				 </div> 
@@ -222,6 +207,35 @@
 
 
 <script>
+// 테이블을 클릭했을 때
+function showList(cus_tel){
+	
+	var result = new Array();
+	
+	<c:forEach items="${beautyService}" var="service">
+	
+		var json = new Object();
+		json.cus_name="${service.CUS_NAME}";
+		json.cus_tel="${service.CUS_TEL}";
+		json.animal_name="${service.ANIMAL_NAME}";
+		json.animal_breed="${service.ANIMAL_BREED}";
+		json.cus_addr="${service.CUS_ADDR}"
+		
+		if(cus_tel=="${service.CUS_TEL}"){
+			result.push(json);
+		}
+		
+	</c:forEach>
+	
+	$('#cusname').val(result[0].cus_name);
+	$('#custel').val(result[0].cus_tel);
+	$('#animalname').val(result[0].animal_name);
+	$('#animalbreed').val(result[0].animal_breed);
+	$('#cusaddr').val(result[0].cus_addr);
+	
+	
+}
+
 function layer_open(el){
 
 	var temp = $('#' + el);
@@ -288,10 +302,27 @@ $(document).ready(function() {
     		error:function(request, status,error){
     			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
     		}
-    	})
-    	
-    	
+    	})	
     })
+    
+    // 미용 스케쥴 테이블에서 표 내용을 클릭하면 그 해당 내용을 옆에 뿌려야주...
+
+    
+    
+/*     $('#keywords tr td').bind('click', function(){
+				
+    	var table = $('#keywords');
+    	
+    		alert($(this).text());
+			alert($(this).parent().index('tr'));
+			
+			alert($('#keywords:eq(1):eq(1)'));
+			
+			
+    }) */	
+    
+    
+
 });
 </script>
 

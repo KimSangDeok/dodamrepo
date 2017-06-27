@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </insert>
 
 <select id="beautyServiceSelect" resultType="hashmap">
-SELECT b.bty_dt bty_dt, a.animal_name animal_name, a.animal_breed animal_breed, c.cus_name cus_name, c.cus_tel cus_tel, b.btm_type btm_type, b.bty_ox bty_ox
+SELECT b.bty_dt bty_dt, a.animal_name animal_name, a.animal_breed animal_breed, c.cus_addr cus_addr, c.cus_name cus_name, c.cus_tel cus_tel, b.btm_type btm_type, b.bty_ox bty_ox
 FROM beauty b, animal a, customer c
 WHERE bty_dt LIKE '17/06/27%'
 AND b.animal_num = a.animal_num
