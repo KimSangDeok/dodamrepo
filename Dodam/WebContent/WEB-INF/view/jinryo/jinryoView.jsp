@@ -7,14 +7,81 @@
 .panel-body{
 	padding: 0;
 }
+
+.infoList>li:hover, .wait-box:hover {
+	background-color: #FAE0D4; 
+}
 </style>
+
 <script type="text/javascript">
 
 function goChartForm(){
 	
 	$(location).attr('href', '/jinryo/chartForm.dodam');
 }
+
+$(document).ready(function(){
+	
+	$('#readyListDiv li').each(function(){
+		
+		$(this).click(function(){
+			
+			var cnt = 0;
+			
+			var animal_num = $(this).find('input[name=animal_num]').val();
+			$.ajax({
+				url : "/jinryo/selectByAnimalNum.dodam",
+				type : 'get',
+				data : {"animal_num":animal_num},
+				dataType : "json",
+				success : function(data){
+					
+					for(var i in data){
+						
+						 if (data.hasOwnProperty(i)) {
+						        cnt++;
+					    }
+					}
+					var text='';
+					for(var i = 0; i<cnt; i++){
+						
+						text+=''+
+						'<li class="media">'+
+							'<div class="media-body">'+
+								'<div class="media">'+
+									'<a class="pull-left" href="#">'+
+										'<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">'+
+									'</a>'+
+									'<div class="media-body">'+
+										'<table class="table-condensed">'+
+											'<tbody><tr>'+
+												'<td><small class="text-muted">보호자명</small><br>'+data[i].CUS_NAME+'</td>'+
+												'<td><small class="text-muted">환자명</small><br>'+data[i].ANIMAL_NAME+'</td>'+
+												'<td><small class="text-muted">품종</small><br>'+data[i].ANIMAL_BREED+'</td>'+
+												'<td><small class="text-muted">담당의</small><br>'+data[i].PER_NAME+'</td>'+
+												'<td><small class="text-muted">차트번호</small><br>'+data[i].JRYO_NUM+'</td>'+
+												'<td><small class="text-muted">등록일</small><br>'+data[i].JRYO_DT+'</td>'+
+											'</tr>'+
+										'</tbody></table>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</li>';
+					}
+					$('#chartHistoryListUl').text('');
+					$('#chartHistoryListUl').append(text);
+				},
+				 error:function(request, status,error){
+		             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		         }
+			});
+		});
+	});
+});
+
 </script>
+
+
 <div class="body" style="width: 100%; height: 100%;">
 	
 	<div class="container">
@@ -41,13 +108,7 @@ function goChartForm(){
 				<div class="panel panel-info  chartDiv">
 					<div class="panel-heading">Information</div>
 					<div class="panel-body">
-						<ul class="media-list infoList">
-
-							<style>
-							.infoList>li:hover, .wait-box:hover {
-								background-color: #FAE0D4; 
-							}
-							</style>
+						<ul id="chartHistoryListUl" class="media-list infoList">
 							<li class="media">
 
 								<div class="media-body">
@@ -191,7 +252,7 @@ function goChartForm(){
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4" id="readyListDiv">
 				<div class="panel panel-primary">
 					<div class="panel-heading">Wait list</div>
 					<div class="panel-body">
@@ -202,7 +263,8 @@ function goChartForm(){
 										<div class="media-body" >
 											<div class="wait-box" style="width: 98%; margin-top: 15px; margin-bottom: 15px;">
 												<h3><small class="text-muted">담당의</small>&nbsp;황선화</h3>
-												<h3><small class="text-muted">환자명</small>&nbsp;순돌이</h3>
+												<h3><small class="text-muted">환자명</small>&nbsp;콩이</h3>
+												<input type="hidden" name="animal_num" value="3"/>
 											</div>
 										</div>
 									</div>
@@ -215,6 +277,7 @@ function goChartForm(){
 											<div class="wait-box" style="width: 98%; margin-top: 15px; margin-bottom: 15px;">
 												<h3><small class="text-muted">담당의</small>&nbsp;선민정</h3>
 												<h3><small class="text-muted">환자명</small>&nbsp;치즈</h3>
+												<input type="hidden" name="animal_num" value="2"/>
 											</div>
 										</div>
 									</div>

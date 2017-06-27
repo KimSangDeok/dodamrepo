@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jrmapper">
+
+<select id="selectByAnimalNum" parameterType="String" resultType="hashmap">
+select ani.ANIMAL_NAME ANIMAL_NAME, 
+		ani.ANIMAL_BREED ANIMAL_BREED, 
+		pers.PER_NAME PER_NAME, 
+		jry.JRYO_NUM JRYO_NUM, 
+		jry.JRYO_DT JRYO_DT, 
+		cus.CUS_NAME CUS_NAME
+from ANIMAL ani, JINRYO jry, PERSON pers, CUSTOMER cus
+where ani.ANIMAL_NUM = #{animalNum} and jry.PER_ID = pers.PER_ID and jry.ANIMAL_NUM = ani.ANIMAL_NUM and ani.CUS_TEL = cus.CUS_TEL
+</select>
+
+</mapper>
