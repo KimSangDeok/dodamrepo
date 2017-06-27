@@ -12,6 +12,6 @@
 <a href="/main/main.dodam">main.jps로 들어가라.</a>
 <a href="/goods/goodsShow.dodam">goodsShow.jps로 들어가라.</a>
 <a href="/goods/goodsHistory.dodam">goodsHistory.jps로 들어가라.</a>
-
+<a href="/customer/smsView.dodam">smsView.jps로 들어가라.</a>
 </body>
 </html>

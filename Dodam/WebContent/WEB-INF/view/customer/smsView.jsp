@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- c태그를 사용하기 위해 taglib를 적어야 한다. -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -95,15 +96,17 @@
 						<th class="hidden-xs">동물 이름</th>
 						<th class="hidden-xs">고객 핸드폰번호</th>
 					</tr>
-					<tr>
-						<td>김우석</td><td>연이</td><td>010-1234-5678</td>
-					</tr>
-					<tr>
-						<td>김우석</td><td>꿍이</td><td>010-9999-9999</td>
-					</tr>
-					<tr>
-						<td>김우석</td><td>밍ㄴ이</td><td>010-1111-8888</td>
-					</tr>
+					
+					<!-- db에서 전체 동물의 목록을 가져오세요~~ -->
+					<c:forEach var="animal" items="${animalList}">
+						<tr>
+							<td>${animal.CUS_NAME}</td>
+							<td>${animal.ANIMAL_NAME}</td>						
+							<td>${animal.CUS_TEL}</td>						
+											
+						</tr>
+					</c:forEach>
+
 				</table>
 			</div><!-- /.container -->
 		</section>
