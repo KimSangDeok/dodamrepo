@@ -1,11 +1,13 @@
 package myproj.beauty.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import myproj.beauty.dto.BeautyServiceVO;
 import myproj.beauty.dto.BeautyVO;
 
 
@@ -26,6 +28,12 @@ public class BeautyDAOImpl implements BeautyDAO {
 	public int registerBeautyOption(BeautyVO beautyVO) {
 		return beauty.insert("beauty.beautyOptionInsert", beautyVO);
 		
+	}
+
+	// 오늘의 미용 내역 목록 가져오기
+	@Override
+	public List<Map<String, String>>  searchBeautyServiceList() {
+		return beauty.selectList("beauty.beautyServiceSelect");
 	}
 
 }

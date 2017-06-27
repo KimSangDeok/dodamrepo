@@ -1,6 +1,7 @@
 package myproj.beauty.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import myproj.beauty.dao.BeautyDAO;
+import myproj.beauty.dto.BeautyServiceVO;
 import myproj.beauty.dto.BeautyVO;
 
 @Controller
@@ -31,12 +33,17 @@ public class BeautyController {
 	public ModelAndView showBeautyView(){
 
 		List<BeautyVO> beautyOptionList;
+		List<Map<String, String>> beautyServiceList;		// 얘는 resultType을 hashmap으로 받아서 다음과 같이 mapping을 해준다.
 		
 		// 1. 미용 옵션을 가져온다.
 		beautyOptionList = beautyDAO.searchBeautyOptionList();
 		
+		// 2. 오늘의 미용 내역을 가져온다.
+		beautyServiceList = beautyDAO.searchBeautyServiceList();
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("beautyOption", beautyOptionList);
+		mv.addObject("beautyService", beautyServiceList);
 		mv.setViewName("/beauty/beautyView");
 		
 		return mv;
