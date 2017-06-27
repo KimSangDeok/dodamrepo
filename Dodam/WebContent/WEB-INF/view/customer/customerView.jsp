@@ -286,7 +286,6 @@ function showList(cus_tel){
 	                  '<a >생일 <input id="birth" type="text" value='+ data[i].animal_birth+' /> </a><br/>'+
 	                  '<a> 첫 방문일 <input id="firstdate" type="text" value='+ data[i].animal_firstdate+' /></a><br/>'+
 	               '</div>');
-				
 			}
 			
 		},
