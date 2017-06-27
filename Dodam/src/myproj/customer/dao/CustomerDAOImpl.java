@@ -26,10 +26,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public List<AnimalVO> clicklist(AnimalVO animalVO) {
-		System.out.println(">>cus_tel : "+animalVO.getCus_tel());
 		List<AnimalVO> list = customer.selectList("customer.animalList", animalVO);
-		System.out.println(">>>>>animal이름"+list.get(0).getAnimal_name());
-		
 		return list;
 	}
 

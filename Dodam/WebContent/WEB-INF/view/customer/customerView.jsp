@@ -253,21 +253,83 @@ function monjinOpen() {
 <script>
 
 function showList(cus_tel){
+	var count = 0;
 	
 	$.ajax({
 		url : "/customer/infoSearchbyTel.dodam",
 		type : 'get',
-		data : {"cus_tel":cus_tel},
+		data : { "cus_tel" : cus_tel},
 		dataType : "json",
 		success : function(data){
-// 			alert('data :'+data);
-			$('#gender').val(data[0].animal_gender)
+			
+			var i;
+
+			for (i in data) {
+			    if (data.hasOwnProperty(i)) {
+			        count++;
+			    }
+			}
+			
+			$('#animalUl').text(''); //div를 클리어함
+			
+			//data의 개수 만큼 (count) append로 li를 그려준다 
+			for(var i = 0; i<count; i++){
+				
+				$('#animalUl').append('<li class="group">' +
+			        '<a class="modal-user-link group" >'+
+					 '<div class="user2">'+
+				       '<img class="avatar" src="/images/강아지1.jpg" alt="Medium"></img>' +
+				         '<p id="animalname" class="name">'+ data[i].animal_name +'</p> </div> '+
+				    '<div style="margin-left: 20px;">'+
+				      '<a >품종 <input id="type" type="text" value='+ data[i].animal_type+' /> </a><br/>'+
+				      '<a >성별 <input id="gender" type="text" value='+ data[i].animal_gender+' /></a><br/>'+
+	                  '<a >생일 <input id="birth" type="text" value='+ data[i].animal_birth+' /> </a><br/>'+
+	                  '<a> 첫 방문일 <input id="firstdate" type="text" value='+ data[i].animal_firstdate+' /></a><br/>'+
+	               '</div>');
+			}
+			
 		},
+		
 		 error:function(request, status,error){
              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
          }
-	})
+	});
+	
+	//스크립트 내에서 값 받기
+	var result = new Array();
+	
+	<c:forEach items="${listModel}" var="info">
+	
+		var json = new Object();
+		
+		json.cus_tel="${info.cus_tel}";
+		json.cus_name="${info.cus_name}";
+		json.cus_addr="${info.cus_addr}";
+		json.cus_firstdate="${info.cus_firstdate}";
+		json.cus_memo="${info.cus_memo}";
+		
+		if(cus_tel=="${info.cus_tel}"){
+			
+			result.push(json);
+			
+		}
+		
+	</c:forEach>
+	
+
+	
+	$('#cusname').text(result[0].cus_name);
+	$('#custel').val(result[0].cus_tel);
+	$('#cusaddr').val(result[0].cus_addr);
+	$('#cusfirstdate').val(result[0].cus_firstdate);
+	$('#cusmemo').text(result[0].cus_memo);
+
 }
+
+
+
+
+
 </script>
 
 <div class="body">
@@ -348,67 +410,34 @@ function showList(cus_tel){
 		</tr>
 	</table>
     <br/>
-    <ul class="modal-user-index group">
-        <li class="group">
-            <a class="modal-user-link group" >
-                <div class="user2">
-                    <img id="avatar" class="avatar" src="/images/토이푸들.png"></img>
-                    <p class="name">
-                        연이
-                    </p>
-                </div>
-                <!-- 동물정보div -->
-                <div style="margin-left: 20px;">
-               		<a >
-                        나이 <input id="age" type="text" value="4개월"/>
-                    </a><br/>
-                    <a>
-                        성별 <input id="gender" type="text" value=""/>
-                    </a>
-                    <br/>
-                </div>
-            </a>
-        </li>
+    <ul id="animalUl" class="modal-user-index group">
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user2">
                     <img class="avatar" src="/images/강아지1.jpg" alt="Medium"></img>
-                    <p class="name">
-                        콩이
+                    <p id="animalname" class="name">
                     </p>
                 </div>
                 <!-- 동물정보div -->
                 <div style="margin-left: 20px;">
-               		<a >
-                        나이 <input type="text" value="8개월"/>
+                    <a >
+                        품종 <input id="type" type="text" />
+                    </a><br/>
+                    <a >
+                        성별 <input id="gender" type="text" />
+                    </a><br/>
+                    <a >
+                        생일 <input id="birth" type="text" />
                     </a><br/>
                     <a>
-                        성별 <input type="text" value="암컷"/>
+                        첫 방문일 <input id="firstdate" type="text" />
                     </a>
                     <br/>
                 </div>
             </a>
         </li>
-        <li class="group">
-            <a class="modal-user-link group" >
-                <div class="user2">
-                    <img class="avatar" src="/images/강아지2.jpg" alt="Missing"></img>
-                    <p class="name">
-                        땅이
-                    </p>
-                </div>
-                <!-- 동물정보div -->
-                <div style="margin-left: 20px;">
-               		<a>
-                        나이 <input  type="text" value="12개월"/>
-                    </a><br/>
-                    <a>
-                        성별 <input type="text" value="수컷"/>
-                    </a>
-                    <br/>
-                </div>
-            </a>
-        </li>
+        
+        
     </ul>
  </div>
  </div>
@@ -428,26 +457,25 @@ function showList(cus_tel){
             <a class="modal-user-link group" >
                 <div class="user">
                     <img class="avatar" src="/images/보검.jpg" alt="Medium"></img>
-                    <p class="name">
-                        박보검
+                    <p id="cusname"class="name">
                     </p>
                 </div>
                  <!-- 고객정보div -->
                 <div class="p" style="margin-left: 20px;">
                		<a >
-                        휴대전화  <input style="background-color: #fda699" type="text" value=""/>
+                        휴대전화  <input id="custel" style="background-color: #fda699" type="text" value=""/>
                     </a><br/>
                     <a>
-                        우편번호  <input style="background-color: #fda699" type="text" value=""/>
+                        주소   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="cusaddr" style="background-color: #fda699" type="text" value=""/>
                     </a>
                     <br/>
                     <a>
-                        주소 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="background-color: #fda699" type="text" value=""/>
+                        첫 방문일 <input id="cusfirstdate" style="background-color: #fda699" type="text" />
                     </a>
                     <br/>
-                    <a >
-                         첫 방문일   <input style="background-color: #fda699" type="text" value=""/>
-                    </a>
+                        메모  &nbsp;&nbsp;&nbsp;&nbsp;
+                    <textarea id="cusmemo" style="background-color: #fda699" type="text"  >
+                    </textarea>
                     <br/>
                 </div>
             </a>
@@ -499,7 +527,7 @@ function showList(cus_tel){
 	
 					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
 					<input type="text" name="number" placeholder="32571"><br/>
-					<input type="text" name="animalname" placeholder="이름"><br/>
+					<input type="text" name="animalName" placeholder="이름"><br/>
 					<input type="text" name="animaltype" placeholder="품종"><br/>
 					<input type="text" name="color" placeholder="피모색"><br/>
 
@@ -576,7 +604,6 @@ function showList(cus_tel){
 							<td>${a.cus_tel}</td>
 							<td>${a.cus_addr}</td>
 							<td>${a.cus_firstdate}</td>
-<%-- 							<td>${a.cus_tel}</td> --%>
 							
 						</c:forEach>
 					  </c:otherwise>	

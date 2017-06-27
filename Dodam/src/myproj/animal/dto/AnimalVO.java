@@ -7,7 +7,7 @@ public class AnimalVO {
 	private String  animal_name;
 	private String  animal_gender;
 	private String  animal_color;
-	private String  animal_brith;
+	private String  animal_birth;
 	private String  animal_firstdate;
 	private String  animal_memo;
 	private String  animal_keycheck;
@@ -49,11 +49,11 @@ public class AnimalVO {
 	public void setAnimal_color(String animal_color) {
 		this.animal_color = animal_color;
 	}
-	public String getAnimal_brith() {
-		return animal_brith;
+	public String getAnimal_birth() {
+		return animal_birth;
 	}
-	public void setAnimal_brith(String animal_brith) {
-		this.animal_brith = animal_brith;
+	public void setAnimal_birth(String animal_birth) {
+		this.animal_birth = animal_birth;
 	}
 	public String getAnimal_firstdate() {
 		return animal_firstdate;
@@ -85,6 +85,11 @@ public class AnimalVO {
 	public void setCus_tel(String cus_tel) {
 		this.cus_tel = cus_tel;
 	}
+	
+	
+	
+	
+	
 	
 	
 	

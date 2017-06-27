@@ -2,6 +2,7 @@ package myproj.customer.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,15 +44,11 @@ public class CustomerController {
 			return mv;
 			
 		}
-	//부분 고객 검색 
+	//부분 고객&동물 검색 
 		@RequestMapping("/infoSearchbyTel.dodam")
 		@ResponseBody
 		public List<AnimalVO> clickList(AnimalVO animalVO){
-			
-			System.out.println(">>검색하려는 고객 핸드폰"+animalVO.getCus_tel());
-			
 			List<AnimalVO> result = customerDAO.clicklist(animalVO);
-			System.out.println("resultssss :"+result.get(0).getAnimal_name());
 			return result;
 		}
 		
