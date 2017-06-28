@@ -4,7 +4,7 @@
 
 <!-- 테이블부분-->
 <link rel="stylesheet" href="/css/goodsbootstrap.css">
-<script src="/css/goodsexcel/src/jquery.table2excel.js"></script>
+<script src="/goodsexcel/src/jquery.table2excel.js"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
 	rel="stylesheet" type="text/css">
 <!-- 테이블부분 끝-->
