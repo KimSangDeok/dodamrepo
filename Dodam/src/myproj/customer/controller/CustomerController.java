@@ -1,6 +1,7 @@
 package myproj.customer.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,4 +81,15 @@ public class CustomerController {
 			
 		}
 		
+		// smsView.jsp에서 동물 전체 검색~~~~
+		@RequestMapping("/smsView.dodam")
+		public ModelAndView showSMSView(){
+			
+			// 전체 동물 검색 (+ 해당하는 동물의 고객명, 고객핸드폰번호도 검색!!)
+			List<Map<String, String>> animalList = customerDAO.showAnimalList();
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("animalList", animalList);
+			mv.setViewName("/customer/smsView");
+			return mv;
+		}
 }

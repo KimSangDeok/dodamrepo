@@ -1,6 +1,7 @@
 package myproj.customer.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import myproj.animal.dto.AnimalVO;
 import myproj.customer.dto.CustomerVO;
@@ -18,4 +19,7 @@ public interface CustomerDAO {
 	
 	//고객 정보 DB에 등록하기 
 	int cusInsert(CustomerVO customerVO);
+	
+	// smsView.jsp에서 동물 전체 검색~~~~
+	List<Map<String, String>> showAnimalList();
 }

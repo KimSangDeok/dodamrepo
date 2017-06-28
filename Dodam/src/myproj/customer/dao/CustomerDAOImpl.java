@@ -1,6 +1,7 @@
 package myproj.customer.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
+	// smsView.jsp에서 동물 전체 검색~~~~
+	@Override
+	public List<Map<String, String>> showAnimalList() {
+		return customer.selectList("customer.animalSMSList");
+	}
 
 
 	public int cusInsert(CustomerVO customerVO) {

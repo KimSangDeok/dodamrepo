@@ -21,4 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  INSERT INTO customer VALUES( #{cus_tel} , #{cus_name} ,#{cus_addr} ,#{cus_firstdate} ,#{cus_memo} ,#{cus_hospital})
  </insert>
 
+
+<!-- smsView에서 전체 동물과 그에 해당하는 각 핸드폰번호, 고객명 가져오기 -->
+<select id="animalSMSList" resultType="hashmap">
+	SELECT c.cus_name cus_name, c.cus_tel cus_tel, a.animal_name animal_name
+	FROM animal a, customer c
+	WHERE a.cus_tel = c.cus_tel
+</select>
 </mapper>

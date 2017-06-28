@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900');
+.scroll {
+display: inline-block;
+max-width: 90%;
+height: 80px;
+max-height: 100px;
+font-size:17px;
+color:#595959 ;
+border: 1px solid #b1b1b1;
+border-radius: 4px;
+padding: 4px 8px;
+overflow: auto;
+text-align: left;
+width : 90%;
+}
+
+
