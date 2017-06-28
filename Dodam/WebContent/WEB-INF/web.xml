@@ -15,6 +15,7 @@
       <init-param>
          <param-name>contextConfigLocation</param-name>
          <param-value>
+         /WEB-INF/springConfig/animal-servlet.xml
          /WEB-INF/springConfig/beauty-servlet.xml
          /WEB-INF/springConfig/common-servlet.xml
          /WEB-INF/springConfig/counter-servlet.xml

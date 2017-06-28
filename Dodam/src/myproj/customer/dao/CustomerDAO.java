@@ -15,4 +15,7 @@ public interface CustomerDAO {
 	
 	/*클릭한 고객의 동물목록*/
 	List<AnimalVO> clicklist(AnimalVO animalVO);
+	
+	//고객 정보 DB에 등록하기 
+	int cusInsert(CustomerVO customerVO);
 }

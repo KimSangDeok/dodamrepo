@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="animal">
+
+<!-- 동물정보를 DB에 Insert하는 SQL 문장 -->
+ <insert id="infoanimalInsert" parameterType="myproj.animal.dto.AnimalVO">
+ INSERT INTO animal (animal_num, cus_tel , animal_type ,animal_breed, animal_name,animal_gender, animal_color
+ 	 ,animal_birth, animal_firstdate, animal_memo)
+ 	 VALUES( seq_animal.nextval , #{cus_tel} ,#{animal_type} ,#{animal_breed} ,#{animal_name},
+ 	 #{animal_gender} ,#{animal_color},#{animal_birth},sysdate,#{animal_memo} )
+ </insert>
+
+</mapper>

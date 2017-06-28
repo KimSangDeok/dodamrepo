@@ -71,6 +71,7 @@
 #popupCloseBtn{
 	height: 0.85em;
 }
+#firstform a{text-align: right;}
 
 </style>	
 <!-- End 고객등록팝업 css -->	
@@ -244,6 +245,8 @@ function monjinOpen() {
   	  	$('#firstpopup').show();
 		$('.popit-content1').hide();
 		$('.popit-content2').hide();
+		
+		
   	});
   });
   //End 모달 팝업 페이지 전환
@@ -326,11 +329,18 @@ function showList(cus_tel){
 
 }
 
+</script>
 
+<!-- 정보등록 하는 스크립트  -->
+<!-- <script>
 
-
+ function infoInsert(){
+	 
+	 location.href="/customer/infoInsert.dodam";
+ }
 
 </script>
+ -->
 
 <div class="body">
 <!-- Begin  왼쪽 메뉴바 -->
@@ -497,75 +507,85 @@ function showList(cus_tel){
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 		
 		<div id="step" >
+		<form id="firstform" method="post" action="/customer/infoInsert.dodam" >
 		<div id="multistepform-example-container"  >
+		
 			<div id="firstpopup" style=" margin-left:50px; width:80%; height:65%; ">
-				<form id="firstform" >
+				
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
-					<h3 class="fs-subtitle">Please register your infromation</h3>
+					<h3 class="fs-subtitle">Please register your information</h3>
 					
 					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
-					<input type="text" name="customerNum" placeholder="1077"><br/> 
-					<input type="text" name="name" placeholder="보호자"> <br/>
-					<input type="text" name="address" placeholder="서울 구로구"><br/><br/>
-					<textarea name="memo" placeholder="memo"></textarea><br/>
+					<a>  이름 <input type="text" name="cus_name" placeholder="이름"></a><br/> 
+					<a>전화번호<input type="text" name="cus_tel" placeholder="010-1111-1111"></a> <br/>
+					<a>  주소 <input type="text" name="cus_addr" placeholder="서울 구로구"></a><br/>
+					<a>병원<input type="text" name="cus_hospital" placeholder="보검병원"></a><br/>
+					<a>첫 방문일<input type="text" name="cus_firstdate" placeholder="2017.08.04"></a><br/>
+					<a> 메모<textarea  placeholder="memo" name="cus_memo"></textarea></a><br/>
+					
 					<input type="button" name="next" class="next button1" value="Next">
-					</div>
+									
+
 
 					
 					
 					
-				</form>
+
 			</div>
 			
 			</div>
 			<div class="popit-content1" style=" margin-left:50px; width:80%; height:65%; ">
 			
 			<div id="secondpopup">
-				<form id="secondform">
+
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
 	
 					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
-					<input type="text" name="number" placeholder="32571"><br/>
-					<input type="text" name="animalName" placeholder="이름"><br/>
-					<input type="text" name="animaltype" placeholder="품종"><br/>
-					<input type="text" name="color" placeholder="피모색"><br/>
+					<!-- <a>보호자번호<input type="text" name="cus_tel" placeholder="32571"></a><br/> -->
+					<a>이름<input type="text" name="animal_name" placeholder="이름"></a><br/>
+					<a>타입<input type="text" name="animal_type" placeholder="강아지"></a><br/>
+					<a>품종<input type="text" name="animal_breed" placeholder="시츄"></a><br/>
+					<a>성별<input type="text" name="animal_gender" placeholder="암컷"></a><br/>
+					<a>피모색<input type="text" name="animal_color" placeholder="brown"></a><br/>
+					<a>생일<input type="text" name="animal_birth" placeholder="2017.04.05"></a><br/>
+					<a>메모<textarea type="text" name="animal_memo" placeholder="메모"></textarea></a><br/>
+					
 
-					<div>
+<!-- 					<div> -->
 
-						<select style="margin-left: 35px;">
-							<option style="display: none">담당자</option>
-							<optgroup label="진료담당자">
-								<option>박보검</option>
-								<option>송중기</option>
-							</optgroup>
-							<optgroup label="미용담당자">
-								<option>현아</option>
-								<option>경리</option>
-							</optgroup>
-						</select>
-					</div>
-					<textarea style="margin-left: 100px;" name="memo" placeholder="memo"></textarea><br/><br/>
+<!-- 						<select style="margin-left: 35px;"> -->
+<!-- 							<option style="display: none">담당자</option> -->
+<!-- 							<optgroup label="진료담당자"> -->
+<!-- 								<option>박보검</option> -->
+<!-- 								<option>송중기</option> -->
+<!-- 							</optgroup> -->
+<!-- 							<optgroup label="미용담당자"> -->
+<!-- 								<option>현아</option> -->
+<!-- 								<option>경리</option> -->
+<!-- 							</optgroup> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
 					<input id="previous1" type="button" name="previous" class="previous button"
 						value="Previous"> <input type="button" name="next"
 						class="next button2" value="Next">
-				</form>
+
 			</div>
 			</div>
 			
 			<div class="popit-content2" style="; width:80%; height:65%; margin-left: 50px;">
 			<div id="lastpopup" >
-				<form id="lastform">
+
 					<h2 class="fs-title">저장</h2>
 					<h3 class="fs-subtitle">check your information</h3>
 
 					<input id="previous2" type="button" name="previous" class="previous button"
 						value="Previous"> 
-					<input id="save" type="button" name="submit" class="next button" value="Save">
-				</form>
-			</div>
-			</div>
+					<input id="save" type="submit" name="submit" class="next button" value="Save">
 			
+			</div>
+			</div>
+			</form>
 		</div>
 	</div>
 	<!-- End 팝업 내용  -->

@@ -16,4 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from animal where cus_tel=#{cus_tel}
 </select>
 
+<!-- 고객정보를 DB에 Insert하는 SQL 문장 -->
+ <insert id="infocusInsert" parameterType="myproj.customer.dto.CustomerVO">
+ INSERT INTO customer VALUES( #{cus_tel} , #{cus_name} ,#{cus_addr} ,#{cus_firstdate} ,#{cus_memo} ,#{cus_hospital})
+ </insert>
+
 </mapper>

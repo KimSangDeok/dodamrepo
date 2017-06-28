@@ -30,4 +30,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
+
+
+	public int cusInsert(CustomerVO customerVO) {
+		
+		
+		return customer.insert("customer.infocusInsert",customerVO);
+	}
+
+	
 }
