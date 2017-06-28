@@ -6,8 +6,8 @@
 	<definition name="noTemplate" template="/WEB-INF/template/default/noTiles.jsp">
 		<put-attribute name="noTemplate" value=""/>	
 	</definition>
-	<definition name="*.notile" extends="noTemplate">
-		<put-attribute name="noTemplate" value="/WEB-INF/view/{1}.jsp" />
+	<definition name="/*/*.notile" extends="noTemplate">
+		<put-attribute name="noTemplate" value="/WEB-INF/view/{1}/{2}.jsp" />
 	</definition>
 	
 	<definition name="monjinTemplate" template="/WEB-INF/template/jinryo/chart/monjinTile.jsp">
@@ -30,6 +30,6 @@
 		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp"/>
 	</definition>
 	
-	
+		
 
 </tiles-definitions>

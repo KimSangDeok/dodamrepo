@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main">
+
+<select id="idCheck" parameterType="myproj.main.dto.MainVO" resultType="myproj.main.dto.MainVO"> 
+	select * from person where per_id=#{per_id}
+	<if test="per_pass !=null">
+		AND per_pass=#{per_pass}
+	</if>	
+</select>
+
+</mapper>
