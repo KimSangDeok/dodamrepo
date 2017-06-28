@@ -321,9 +321,9 @@ function showList(cus_tel){
 	
 
 	
-	$('#cusname').text(result[0].cus_name);
-	$('#custel').val(result[0].cus_tel);
-	$('#cusaddr').val(result[0].cus_addr);
+	$('#customername').text(result[0].cus_name);
+	$('#cusphone').val(result[0].cus_tel);
+	$('#cusaddress').val(result[0].cus_addr);
 	$('#cusfirstdate').val(result[0].cus_firstdate);
 	$('#cusmemo').text(result[0].cus_memo);
 
@@ -467,16 +467,16 @@ function showList(cus_tel){
             <a class="modal-user-link group" >
                 <div class="user">
                     <img class="avatar" src="/images/보검.jpg" alt="Medium"></img>
-                    <p id="cusname"class="name">
+                    <p id="customername"class="name">
                     </p>
                 </div>
                  <!-- 고객정보div -->
                 <div class="p" style="margin-left: 20px;">
                		<a >
-                        휴대전화  <input id="custel" style="background-color: #fda699" type="text" value=""/>
+                        휴대전화  <input id="cusphone" style="background-color: #fda699" type="text" value=""/>
                     </a><br/>
                     <a>
-                        주소   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="cusaddr" style="background-color: #fda699" type="text" value=""/>
+                        주소   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="cusaddress" style="background-color: #fda699" type="text" value=""/>
                     </a>
                     <br/>
                     <a>
@@ -526,11 +526,6 @@ function showList(cus_tel){
 					<input type="button" name="next" class="next button1" value="Next">
 									
 
-
-					
-					
-					
-
 			</div>
 			
 			</div>
@@ -542,7 +537,7 @@ function showList(cus_tel){
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
 	
 					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
-					<!-- <a>보호자번호<input type="text" name="cus_tel" placeholder="32571"></a><br/> -->
+					
 					<a>이름<input type="text" name="animal_name" placeholder="이름"></a><br/>
 					<a>타입<input type="text" name="animal_type" placeholder="강아지"></a><br/>
 					<a>품종<input type="text" name="animal_breed" placeholder="시츄"></a><br/>
@@ -551,7 +546,6 @@ function showList(cus_tel){
 					<a>생일<input type="text" name="animal_birth" placeholder="2017.04.05"></a><br/>
 					<a>메모<textarea type="text" name="animal_memo" placeholder="메모"></textarea></a><br/>
 					
-
 <!-- 					<div> -->
 
 <!-- 						<select style="margin-left: 35px;"> -->
@@ -566,11 +560,12 @@ function showList(cus_tel){
 <!-- 							</optgroup> -->
 <!-- 						</select> -->
 <!-- 					</div> -->
+
 					<input id="previous1" type="button" name="previous" class="previous button"
 						value="Previous"> <input type="button" name="next"
 						class="next button2" value="Next">
 
-			</div>
+				</div>
 			</div>
 			
 			<div class="popit-content2" style="; width:80%; height:65%; margin-left: 50px;">

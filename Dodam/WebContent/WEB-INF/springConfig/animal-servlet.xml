@@ -24,7 +24,7 @@
 </bean>
 
 
-<bean id='animal' class="org.mybatis.spring.SqlSessionTemplate">
+<bean id='animalSstp' class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="factoryBeanAnimal"></constructor-arg>
 </bean>
 

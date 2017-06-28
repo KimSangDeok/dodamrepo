@@ -12,11 +12,11 @@ public class AnimalDAOImpl implements AnimalDAO {
 
 
 	@Autowired
-	SqlSessionTemplate animal;
+	SqlSessionTemplate animalSstp;
 	
 	@Override
 	public int animalInsert(AnimalVO animalVO) {
-		return animal.insert("animal.infoanimalInsert",animalVO) ;
+		return animalSstp.insert("animal.infoanimalInsert",animalVO) ;
 		
 	}
 
