@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- 테이블부분-->
 <link rel="stylesheet" href="/css/goodsbootstrap.css">
-<script src="/css/goodsexcel/src/jquery.table2excel.js"></script>
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
-	rel="stylesheet" type="text/css">
+<script src="/goodsexcel/src/jquery.table2excel.js"></script>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"rel="stylesheet" type="text/css">
 <!-- 테이블부분 끝-->
 <!-- 팝업 시작-->
 <script src="/js/jquery.popitup.js"></script>
@@ -65,8 +65,8 @@
 	opacity: 0.5;
 }
 
-.margin-top-40 {
-	margin-top: 40px;
+.margin-top-20 {
+	margin-top: 20px;
 }
 
 .list-group-item {
@@ -79,12 +79,13 @@
 	vertical-align: middle;
 	/*       	background-color:yellow; */
 	margin: 5px;
-	top: 5px;
+	margin-top: 15px;
 	font-family: Arial;
-	float: none;
+	float: left;
 	padding-left: 20px;
-	display: inline-block;
+/* 	display: inline-block; */
 }
+
 </style>
 
 
@@ -113,7 +114,7 @@
 							</div>
 						​</div>
 					</section>			 
-				<script type="text/javascript">
+<script type="text/javascript">
 				
 				function DropDown(el) {
 					this.dd = el;
@@ -160,74 +161,26 @@
 				
 				});
 				
-				</script>				
-<!-- </span> -->
+</script>				
 <!-- goods화면의 sidemenu 끝 -->	
 </div>		
 
 <!-- 테이블 div-->
 <div style="float:left;padding-left:50px;">
     <h1>재고현황</h1>
-	     
-<!-- 상품구분 셀렉트 박스 -->   	
-    	<div style="float:left;width:1000px;">
-    	<div style="float:left;padding-right:30px;padding-top:20px;">
-    		<div style="float:left;">
-    		<label style="font-size:15px;padding-right:10px;">상품구분</label>
-    		</div>
-    		<div style="float:left;">
-    		<select>
-    			<option></option>
-    			<option>전체</option>
-    			<option>용품</option>
-    		</select>
-    		</div>
-    	</div>
-<!-- 재고 상태 셀렉트 박스 -->    		
-    		<div style="float:left;padding-right:30px;padding-top:20px;">
-    		<div style="float:left;">
-    		<label style="font-size:15px;padding-right:10px;padding-top:5px;padding-left:20px;">재고상태</label>
-    		</div>
-    		<div style="float:left;">
-    		<select>
-    			<option></option>
-    			<option>전체</option>
-    			<option>용품</option>
-    		</select>
-    		</div>
-    		</div>
- <!-- 유효기간 셀렉트 박스 -->   		
-    		<div style="float:left;padding-top:20px;">
-    		<div style="float:left; width: 33%;">
-    		<label style="font-size:15px;padding-right:10px;padding-top:5px;padding-left:20px;">유효기간</label>
-		    </div>		
-		    		<div style="float:left; width: 33%;">
-		    		<select style="text-align:center">
-		    			<option></option>
-		    			<%for(int i=0; i<31; i++) {%>
-		    			<option><%=i%></option>
-		    			<%} %>
-		    		</select> 
-		    		</div>
-		    		<div style="float:left; width: 33%;">
-		    		<label style="font-size:15px;padding-right:10px;padding-top:5px;padding-left:10px;">일 미만</label>  		
-    				</div>
-    		</div>
-    		
-    		    		
-<!-- 재고 검색 텍스트 및 버튼 -->
-    		<div style="float:left;padding-top:20px;padding-right:20px">
-				<form class="forms" method="get">
-					<div style="float:left;padding-top:10px;padding-right:10px">
-	        		<input type="text" name="name" value="" class="goods-input">
+	     <form class="forms" method="get" action="#">
+<!-- 재고 검색 텍스트 및 버튼  begin-->
+    		<div style="float:left;padding-top:20px;padding-right:20px">				
+					<div style="float:left;padding-right:10px">
+	        		<input type="text" id="goodsSearch" name="goods_name" value="" class="goods-input">
 	        		</div>
 	        		<div style="float:left">
-	       			<button type="submit" class="btn btn-danger">검색</button>
+	       			<button type="button" id ="btnsearch"class="btn btn-danger">검색</button>
 	       			</div>
-	       		</form>
+	       </form>
     		</div>
 <!-- 상품추가버튼-->
-	 <div class="row margin-top-40" style="float:right; padding-right:20px">        
+	 <div class="row margin-top-20" style="float:right; padding-right:20px;padding-bottom:15px">        
             <a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">상품추가</a>            
       </div>
 <!-- 상품추가버튼 끝 -->
@@ -252,8 +205,9 @@
             		<div style="float:left; padding-left:20px">
             			<select>
 			    			<option></option>
-			    			<option>전체</option>
-			    			<option>용품</option>
+			    			<option>의약품</option>
+			    			<option>식품</option>
+			    			<option>물품</option>
 			    		</select>
             		</div>
             	</div>
@@ -263,7 +217,7 @@
             			<label>품목명</label>
             		</div>
             		<div style="float:left; padding-left:34px">
-            			<input type="text"/>
+            			<input type="text" style="width:150px;"/>
             		</div>
             	</div> 
 <!--3번줄 -->
@@ -274,8 +228,8 @@
             		<div style="float:left; padding-left:48px">
             			<select>
 			    			<option></option>
-			    			<option>전체</option>
-			    			<option>용품</option>
+		    				<option>동물의약품</option>
+		    				<option>의약외품</option>
 			    		</select>
             		</div>
             	</div>            	
@@ -284,8 +238,8 @@
             		<div style="float:left">
             			<label>가격</label>
             		</div>
-            		<div style="float:left; padding-left:34px">
-            			<input type="text"/>
+            		<div style="float:left; padding-left:48px">
+            			<input type="text" style="width:150px;"/>
             		</div>
             	</div>
 <!-- 5번줄 -->
@@ -293,8 +247,8 @@
             		<div style="float:left">
             			<label>입고날짜</label>
             		</div>
-            		<div style="float:left; padding-left:34px">
-            			<input type="text"/>
+            		<div style="float:left; padding-left:18px">
+            			<input type="text" style="width:150px;"/>
             		</div>
             	</div> 
 <!-- 6번줄 -->
@@ -302,8 +256,8 @@
             		<div style="float:left">
             			<label>수량</label>
             		</div>
-            		<div style="float:left; padding-left:34px">
-            			<input type="text"/>
+            		<div style="float:left; padding-left:48px">
+            			<input type="text" style="width:150px;"/>
             		</div>
             	</div>             	             	
             	           	            	
@@ -323,115 +277,38 @@
 <!-- 가운데 구분 줄 -->    	
     	<div class="hr1"></div>
 
-
+<!-- 테이블 시작 -->
 	<table class="table" id="table2excel">
       <thead>
         <tr class="noExl">
-       	  <th>
-       	   #
-          </th>
-          <th>
-          	구분
-          </th>
-          <th>
-          	품목명
-          </th>
-          <th>
-          	용도
-          </th>
-          <th>
-          	가격
-          </th>
-          <th>
-          	입고날짜
-          </th>
-          <th>
-          	수량
-          </th>
+          <th>구분</th>
+          <th>품목명</th>
+          <th>용도</th>
+          <th>가격</th>
+          <th>입고날짜</th>
+          <th>수량</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="active">
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>         
-        </tr>
-        <tr class="success">
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr class="info">
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-        </tr>
-        <tr class="warning">
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-        </tr>
-        <tr class="danger">
-          <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-        </tr>
+      <tbody id="tbody">  
+   <c:choose>
+   	<c:when test="${goodslist eq null}">
+   		<tr>
+   			<td colspan="6">등록된 재고가 없습니다.</td>
+   		</tr>
+   	</c:when>
+    <c:otherwise>    	
+    	<c:forEach items="${goodslist}" var="a">
+    		<tr class="danger">     			   			    						
+    			<td>${a.goods_type}</td>
+    			<td>${a.goods_name}</td>
+    			<td>${a.goods_use}</td>
+    			<td>${a.goods_price}</td>
+    			<td>${a.goods_date}</td>
+    			<td>${a.goods_count}</td>   			
+    		</tr>
+    	</c:forEach>   	
+    </c:otherwise>
+   </c:choose>   
       </tbody>
     </table>
     	<div style="float:right">
@@ -443,7 +320,7 @@
 </div>		
 
 
-<!-- 상품추가 스크립트 -->
+<!-- 이벤트 스크립트 -->
 <script>			
 			$(function() {
 // 		엑셀로 export부분		
@@ -463,6 +340,37 @@
 				          });
 				        }				        
 				      });	
+				      
+//			상품 검색 부분				      
+			$('#btnsearch').click(function(){
+				var count = 0;
+				$.ajax({
+					type:'get',
+					async:true,
+					url:'/goods/goodsSearch.dodam',
+					contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+					data:"goodsSearch="+$('#goodsSearch').val(),
+					dataType : "json",
+					success:function(list){
+						
+ 					$("#tbody").text('');
+					$("#table2excel").append(
+						"<tr class='danger'>"
+						+"<td>"+(list[0]).goods_type+"</td>"
+						+"<td>"+ (list[0]).goods_name +"</td>" 
+						+ "<td>"+(list[0]).goods_use +"</td>"
+						+ "<td>"+ (list[0]).goods_price +"</td>"
+						+ "<td>"+(list[0]).goods_date +"</td>"
+						+ "<td>"+ (list[0]).goods_count +"</td>"			    							
+					);							
+					},
+					error:function(request, status,error){
+			             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			         }
+			    
+				});
+			});	      
+    
 				});
 </script>
 		

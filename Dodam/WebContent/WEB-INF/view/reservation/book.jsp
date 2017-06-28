@@ -25,7 +25,7 @@
 <div class="body">
 <div id="contents" style="padding-top:10px">      
 	<h1>스케줄 현황</h1>
-		<div style="float:left;margin-left:300px;margin-bottom:20px">
+		<div style="float:left;margin-left:500px;margin-bottom:20px">
 			<!-- 작은달력 화면 -->
 				<div class="form-row">
 				<label for="singleDateRange">Single mode</label>
@@ -38,7 +38,7 @@
 				<img src="/css/book/bookimage/x.gif"> 예약가능
 				
 		</p>    
-      <div id="c_contact" style="margin-top:20px">
+      <div id="c_contact" style="margin-top:30px">
 		<div style="width: 1000px;overflow-x: auto;margin: auto;">
 			<table class="table_booking" style="width: 1680px;">				
 						<tbody>
