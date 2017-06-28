@@ -5,8 +5,8 @@
 <context>
 	<Resource name="jdbc/myora" auth="Container" type="javax.sql.DataSource"
 	driverClassName="oracle.jdbc.driver.OracleDriver" 
-	url="jdbc:oracle:thin:@192.168.0.121:1521:orcl"
-	username="mydodam" password="mydodam"/>
+	url="jdbc:oracle:thin:@192.168.0.125:1521:orcl"
+	username="mymy" password="mymy"/>
 </context>
 
 
