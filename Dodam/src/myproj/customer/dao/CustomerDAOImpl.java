@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import myproj.animal.dto.AnimalVO;
 import myproj.customer.dto.CustomerVO;
+import myproj.customer.dto.SmsVO;
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
@@ -31,18 +32,32 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
+
+
+	public int cusInsert(CustomerVO customerVO) {
+
+		return customer.insert("customer.infocusInsert",customerVO);
+	}
+
+	
+	
+	
 	// smsView.jsp에서 동물 전체 검색~~~~
 	@Override
 	public List<Map<String, String>> showAnimalList() {
 		return customer.selectList("customer.animalSMSList");
 	}
 
-
-	public int cusInsert(CustomerVO customerVO) {
+	// smsView.jsp에서 즐겨찾는 메세지 내용 등록
+	public int registerFavoriteSMS(SmsVO smsVO) {
+		return customer.insert("customer.registerSMS", smsVO);
 		
-		
-		return customer.insert("customer.infocusInsert",customerVO);
 	}
 
-	
+	// smsView.jsp에서 즐겨찾기 메세지 전체 검색~~~~
+	@Override
+	public List<Map<String, String>> showFavoriteList() {
+		List<Map<String, String>> list = customer.selectList("customer.favoriteSMSList");
+		return list;
+	}
 }

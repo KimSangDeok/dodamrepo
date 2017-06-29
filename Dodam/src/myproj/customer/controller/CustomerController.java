@@ -14,6 +14,7 @@ import myproj.animal.dao.AnimalDAOImpl;
 import myproj.animal.dto.AnimalVO;
 import myproj.customer.dao.CustomerDAOImpl;
 import myproj.customer.dto.CustomerVO;
+import myproj.customer.dto.SmsVO;
 
 
 
@@ -81,15 +82,38 @@ public class CustomerController {
 			
 		}
 		
+		
 		// smsView.jsp에서 동물 전체 검색~~~~
 		@RequestMapping("/smsView.dodam")
 		public ModelAndView showSMSView(){
 			
-			// 전체 동물 검색 (+ 해당하는 동물의 고객명, 고객핸드폰번호도 검색!!)
+			// 1. 전체 동물 검색 (+ 해당하는 동물의 고객명, 고객핸드폰번호도 검색!!)
 			List<Map<String, String>> animalList = customerDAO.showAnimalList();
+			
+			// 2. 전체 favorite list, 즉 sms 테이블의 즐겨찾기 내역 가져오기
+			List<Map<String, String>> favoriteList = customerDAO.showFavoriteList();
+
+			
+			
+			
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("animalList", animalList);
+			mv.addObject("favoriteList", favoriteList);
 			mv.setViewName("/customer/smsView");
 			return mv;
+		}
+		
+		// smsView.jsp에서 즐겨찾기 메세지 등록
+		@RequestMapping("/favoriteSMS.dodam")
+		@ResponseBody
+		public List<Map<String, String>> RegisterFavoriteSMS(SmsVO smsVO){
+			int result = customerDAO.registerFavoriteSMS(smsVO);
+			
+			List<Map<String, String>> favoriteList = null;
+			if(result==1){
+				favoriteList = customerDAO.showFavoriteList();				
+			}
+			
+			return favoriteList;
 		}
 }

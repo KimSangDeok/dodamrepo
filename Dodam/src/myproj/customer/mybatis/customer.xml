@@ -29,4 +29,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM animal a, customer c
 	WHERE a.cus_tel = c.cus_tel
 </select>
+
+
+<!-- smsView.jsp에서 즐겨찾는 메세지 내용 등록 -->
+ <insert id="registerSMS" parameterType="myproj.customer.dto.SmsVO">
+INSERT INTO SMS VALUES (#{message_name}, #{message_content}, smsseq.nextval)
+ </insert>
+
+<select id="favoriteSMSList" resultType="hashmap">
+	SELECT * FROM sms
+</select>
 </mapper>

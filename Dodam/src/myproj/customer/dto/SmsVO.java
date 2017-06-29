@@ -4,11 +4,19 @@ public class SmsVO {
 	
 	// 즐겨찾기로 저장 할 메세지내역 (테이블 : SMS)
 	
+	static String message_id;			// 즐겨찾기 sequence
 	static String message_name;			// 즐겨찾기 명
 	static String message_content;		// 즐겨찾기 해당 내용
 	
 
+	
 	// 위 변수의 getter, setter
+	public static String getMessage_id() {
+		return message_id;
+	}
+	public static void setMessage_id(String message_id) {
+		SmsVO.message_id = message_id;
+	}
 	public static String getMessage_name() {
 		return message_name;
 	}
