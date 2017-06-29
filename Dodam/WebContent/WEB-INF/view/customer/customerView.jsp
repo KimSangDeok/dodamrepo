@@ -281,7 +281,7 @@ function showList(cus_tel){
 				$('#animalUl').append('<li class="group">' +
 			        '<a class="modal-user-link group" >'+
 					 '<div class="user2">'+
-				       '<img class="avatar" src="/images/강아지1.jpg" alt="Medium"></img>' +
+				       '<img class="avatar" src="/imageupload/'+data[i].animalfile_name+'" alt="Medium"></img>' +
 				         '<p id="animalname" class="name">'+ data[i].animal_name +'</p> </div> '+
 				    '<div style="margin-left: 20px;">'+
 				      '<a >품종 <input id="type" type="text" value='+ data[i].animal_type+' /> </a><br/>'+
@@ -305,11 +305,13 @@ function showList(cus_tel){
 	
 		var json = new Object();
 		
+		
 		json.cus_tel="${info.cus_tel}";
 		json.cus_name="${info.cus_name}";
 		json.cus_addr="${info.cus_addr}";
 		json.cus_firstdate="${info.cus_firstdate}";
 		json.cus_memo="${info.cus_memo}";
+		json.cusfile_name="${info.cusfile_name}";
 		
 		if(cus_tel=="${info.cus_tel}"){
 			
@@ -319,14 +321,14 @@ function showList(cus_tel){
 		
 	</c:forEach>
 	
-
-	
-	$('#customername').text(result[0].cus_name);
+	$('#showimage').text("");
+	$('#showimage').append('<img id="showimage" class="avatar" src="/imageupload/'+ result[0].cusfile_name +' " alt="Medium">'+
+	'<p id="customername" class="name">'+result[0].cus_name +'</p> </img>');
 	$('#cusphone').val(result[0].cus_tel);
 	$('#cusaddress').val(result[0].cus_addr);
 	$('#cusfirstdate').val(result[0].cus_firstdate);
 	$('#cusmemo').text(result[0].cus_memo);
-
+	
 }
 
 </script>
@@ -424,7 +426,7 @@ function showList(cus_tel){
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user2">
-                    <img class="avatar" src="/images/강아지1.jpg" alt="Medium"></img>
+                    <img class="avatar" src="/imageupload/바탕화면.PNG" alt="Medium"></img>
                     <p id="animalname" class="name">
                     </p>
                 </div>
@@ -465,8 +467,8 @@ function showList(cus_tel){
 
         <li class="group">
             <a class="modal-user-link group" >
-                <div class="user">
-                    <img class="avatar" src="/images/보검.jpg" alt="Medium"></img>
+                <div id ="showimage" class="user">
+                    <img id="showimage" class="avatar" src="/imageupload/바탕화면.PNG" alt="Medium"></img>
                     <p id="customername"class="name">
                     </p>
                 </div>
