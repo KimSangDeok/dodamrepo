@@ -1,5 +1,10 @@
 package myproj.animal.dto;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class AnimalVO {
 	private String  animal_num;
 	private String  animal_type;
@@ -13,6 +18,30 @@ public class AnimalVO {
 	private String  animal_keycheck;
 	private String  animal_duedate;
 	private String  cus_tel;
+	private String  animalfile_name;
+	
+	MultipartFile file2;
+	
+	public MultipartFile getFile2() {
+		return file2;
+	}
+	
+	public void setFile2(MultipartFile file2) {
+		
+		this.animalfile_name = file2.getOriginalFilename();
+		
+		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+animalfile_name);
+		
+		try{
+			file2.transferTo(f);
+			
+		} catch (IllegalStateException e) {				
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
 	public String getAnimal_num() {
 		return animal_num;
 	}
@@ -85,12 +114,12 @@ public class AnimalVO {
 	public void setCus_tel(String cus_tel) {
 		this.cus_tel = cus_tel;
 	}
-	
-	
-	
-	
-	
-	
+	public String getAnimalfile_name() {
+		return animalfile_name;
+	}
+	public void setAnimalfile_name(String animalfile_name) {
+		this.animalfile_name = animalfile_name;
+	}
 	
 	
 }

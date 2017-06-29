@@ -409,7 +409,7 @@ function showList(cus_tel){
 <!-- Begin 메인부분 -->		
 		<div id="containers" style="min-width: 310px; height: 400px; margin: 0 auto">
 		
-		<!--Begin 고객 & 동물 부분 -->
+<!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
 <div id="block2" class="modal-content" style="margin-left: 30px;" >
@@ -507,7 +507,7 @@ function showList(cus_tel){
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 		
 		<div id="step" >
-		<form id="firstform" method="post" action="/customer/infoInsert.dodam" >
+		<form id="firstform" method="post" action="/customer/infoInsert.dodam" 	enctype="multipart/form-data">
 		<div id="multistepform-example-container"  >
 		
 			<div id="firstpopup" style=" margin-left:50px; width:80%; height:65%; ">
@@ -515,7 +515,7 @@ function showList(cus_tel){
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
 					<h3 class="fs-subtitle">Please register your information</h3>
 					
-					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
+					<div class="file-upload" data-input-name="file" name="file" style="float: left;"></div>
 					<a>  이름 <input type="text" name="cus_name" placeholder="이름"></a><br/> 
 					<a>전화번호<input type="text" name="cus_tel" placeholder="010-1111-1111"></a> <br/>
 					<a>  주소 <input type="text" name="cus_addr" placeholder="서울 구로구"></a><br/>
@@ -536,7 +536,7 @@ function showList(cus_tel){
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
 	
-					<div class="file-upload" data-input-name="input1" style="float: left;"></div>
+					<div class="file-upload" data-input-name="file2" name="file2"  style="float: left;"></div>
 					
 					<a>이름<input type="text" name="animal_name" placeholder="이름"></a><br/>
 					<a>타입<input type="text" name="animal_type" placeholder="강아지"></a><br/>

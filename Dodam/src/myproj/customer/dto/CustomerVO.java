@@ -1,5 +1,10 @@
 package myproj.customer.dto;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class CustomerVO {
 	
 	private String cus_tel;
@@ -8,8 +13,39 @@ public class CustomerVO {
 	private String cus_firstdate;
 	private String cus_memo;
 	private String cus_hospital;
+	private String cusfile_name;
+
+	MultipartFile file; //file 변수명과 view에서의 파일 name이 같아야함 (name='file')
+	
+	
+	//file getter & setter 생성자 생성
+	public MultipartFile getFile() {
+		return file;
+	}
+	
+	public void setFile(MultipartFile file){
+		//파일 업로드 코딩
+		
+		this.cusfile_name = file.getOriginalFilename();
+		
+		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+cusfile_name); 
+		
+		//파일을 저장할 경로를 설정
+		
+		try {
+			file.transferTo(f);
+			
+		} catch (IllegalStateException e) {				
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
 	
 	//getter & setter 생성자 생성
+	
 	public String getCus_tel() {
 		return cus_tel;
 	}
@@ -46,7 +82,12 @@ public class CustomerVO {
 	public void setCus_hospital(String cus_hospital) {
 		this.cus_hospital = cus_hospital;
 	}
-	
-	
-	
+	public String getCusfile_name() {
+		return cusfile_name;
+	}
+
+	public void setCusfile_name(String cusfile_name) {
+		this.cusfile_name = cusfile_name;
+	}
+
 }

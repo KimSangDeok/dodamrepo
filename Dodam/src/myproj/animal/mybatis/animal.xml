@@ -8,9 +8,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 동물정보를 DB에 Insert하는 SQL 문장 -->
  <insert id="infoanimalInsert" parameterType="myproj.animal.dto.AnimalVO">
  INSERT INTO animal (animal_num, cus_tel , animal_type ,animal_breed, animal_name,animal_gender, animal_color
- 	 ,animal_birth, animal_firstdate, animal_memo)
+ 	 ,animal_birth, animal_firstdate, animal_memo, animalfile_name)
  	 VALUES( seq_animal.nextval , #{cus_tel} ,#{animal_type} ,#{animal_breed} ,#{animal_name},
- 	 #{animal_gender} ,#{animal_color},#{animal_birth},sysdate,#{animal_memo} )
+ 	 #{animal_gender} ,#{animal_color},#{animal_birth},sysdate,#{animal_memo},#{animalfile_name} )
  </insert>
 
 </mapper>
