@@ -2,17 +2,31 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<link href="/css/bootstrap.css" rel="stylesheet" />
+<link href="/css/jinryo/jinryoView/bootstrap.css" rel="stylesheet" />
 <style>
-.panel-body{
-	padding: 0;
+/* Begin div 테두리 */
+ .divBorder, .jinryoUl>li{
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
+			
+.jinryoUl>li:HOVER {
+	background: #F6F6F6;
+}
+/* End div 테두리 */
 
-.infoList>li:hover, .wait-box:hover {
-	background-color: #FAE0D4; 
+/* 테이블 */
+table tbody tr {
+    border-color: white;
 }
 </style>
-
 <script type="text/javascript">
 
 function goChartForm(){
@@ -32,44 +46,46 @@ $(document).ready(function(){
 			$.ajax({
 				url : "/jinryo/selectByAnimalNum.dodam",
 				type : 'get',
-				data : {"animal_num":animal_num},
+				data : "animal_num=" + animal_num,
 				dataType : "json",
 				success : function(data){
 					
+					console.log(data);
 					for(var i in data){
 						
 						 if (data.hasOwnProperty(i)) {
 						        cnt++;
 					    }
 					}
+					
+					// 고객 정보
+					$('#cusName').text(data[0].CUS_NAME);
+					$('#aniName').text(data[0].ANIMAL_NAME);
+					$('#aniBreed').text(data[0].ANIMAL_BREED);
+					
 					var text='';
 					for(var i = 0; i<cnt; i++){
 						
 						text+=''+
-						'<li class="media">'+
-							'<div class="media-body">'+
-								'<div class="media">'+
-									'<a class="pull-left" href="#">'+
-										'<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">'+
-									'</a>'+
-									'<div class="media-body">'+
-										'<table class="table-condensed">'+
-											'<tbody><tr>'+
-												'<td><small class="text-muted">보호자명</small><br>'+data[i].CUS_NAME+'</td>'+
-												'<td><small class="text-muted">환자명</small><br>'+data[i].ANIMAL_NAME+'</td>'+
-												'<td><small class="text-muted">품종</small><br>'+data[i].ANIMAL_BREED+'</td>'+
-												'<td><small class="text-muted">담당의</small><br>'+data[i].PER_NAME+'</td>'+
-												'<td><small class="text-muted">차트번호</small><br>'+data[i].JRYO_NUM+'</td>'+
-												'<td><small class="text-muted">등록일</small><br>'+data[i].JRYO_DT+'</td>'+
-											'</tr>'+
-										'</tbody></table>'+
-									'</div>'+
-								'</div>'+
+						'<li style="width:90%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" >'+
+							'<div style="width:30%; height:100%; display: inline-block;">'+
+								'<span>차트번호</span>'+
+								'<h3  style="display: inline;">'+data[i].JRYO_NUM+'</h3>'+
+							'</div>'+
+							'<div style="width:30%; height:100%; display: inline-block;">'+
+								'<span>담당의</span>'+
+								'<h3  style="display: inline;">'+data[i].PER_NAME+'</h3>'+
+							'</div>'+
+							'<div style="width:30%; height:100%; display: inline-block;">'+
+								'<span>진료일자</span>'+
+								'<h3  style="display: inline;">'+data[i].JRYO_DT+'</h3>'+
 							'</div>'+
 						'</li>';
 					}
-					$('#chartHistoryListUl').text('');
-					$('#chartHistoryListUl').append(text);
+					
+					//	진료 내역
+					$('#jinroyHistoryListUl').text('');
+					$('#jinroyHistoryListUl').append(text);
 				},
 				 error:function(request, status,error){
 		             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -80,227 +96,80 @@ $(document).ready(function(){
 });
 
 </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-<div class="body" style="width: 100%; height: 100%;">
+<div class="body" style="width: 100%; height: 100%; ">
+	<br/>
 	
-	<div class="container">
-		<!-- top -->
-		<div style="padding-top: 15px;">
+	<!-- Begin 전체 내용 테두리 -->
+	<div style=" width: 80%; height: 100%; margin-left: auto; margin-right: auto;">
+	
+		<!-- Begin 상단 차트생성 롱버튼 테두리-->
+		<div style=" width: 100%; height: 5%;">
 			<button type="button" class="btn btn-danger btn-block" onclick="javascript:goChartForm()">차트생성</button>
 		</div>
-		<div class="row " style="padding-top: 40px;">
-			<style>
-		    .chartDiv, .panel-primary, .wait-box{
-			    position: relative;
-			    background-color: #fff;
-			    -webkit-background-clip: padding-box;
-			    background-clip: padding-box;
-			    border: 1px solid #999;
-/* 			    border: 1px solid rgba(248, 14, 14, 0.2); */
-			    border-radius: 6px;
-			    outline: 0;
-			    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-			    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-			}
-			</style>
-			<div class="col-md-8">
-				<div class="panel panel-info  chartDiv">
-					<div class="panel-heading">Information</div>
-					<div class="panel-body">
-						<ul id="chartHistoryListUl" class="media-list infoList">
-							<li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>김예은</td>
-													<td><small class="text-muted">환자명</small><br/>순돌이</td>
-													<td><small class="text-muted">품종</small><br/>푸들</td>
-													<td><small class="text-muted">담당의</small><br/>황선화</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>김예은</td>
-													<td><small class="text-muted">환자명</small><br/>순돌이</td>
-													<td><small class="text-muted">품종</small><br/>푸들</td>
-													<td><small class="text-muted">담당의</small><br/>황선화</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</li><li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog05.jpg" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>김우석</td>
-													<td><small class="text-muted">환자명</small><br/>연이</td>
-													<td><small class="text-muted">품종</small><br/>푸들</td>
-													<td><small class="text-muted">담당의</small><br/>선민정</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</li><li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog04.jpg" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>백선미</td>
-													<td><small class="text-muted">환자명</small><br/>치즈</td>
-													<td><small class="text-muted">품종</small><br/>고양이</td>
-													<td><small class="text-muted">담당의</small><br/>김상덕</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</li><li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog03.jpg" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>김예은</td>
-													<td><small class="text-muted">환자명</small><br/>순돌이</td>
-													<td><small class="text-muted">품종</small><br/>푸들</td>
-													<td><small class="text-muted">담당의</small><br/>황선화</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</li><li class="media">
-
-								<div class="media-body">
-
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle " src="/images/jinryo/dog02.png" width="70px" height="70px">
-										</a>
-										<div class="media-body">
-											<table class="table-condensed">
-												<tr>
-													<td><small class="text-muted">보호자명</small><br/>김예은</td>
-													<td><small class="text-muted">환자명</small><br/>순돌이</td>
-													<td><small class="text-muted">품종</small><br/>푸들</td>
-													<td><small class="text-muted">담당의</small><br/>황선화</td>
-													<td><small class="text-muted">차트번호</small><br/>2017061213</td>
-													<td><small class="text-muted">등록일</small><br/>2017-06-12</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</li>
-						</ul>
+		<!-- End 상단 차트생성 롱버튼 테두리-->
+		
+		<br/>
+		<!-- Begin 고객정보, 이전 진료내역 전체테두리 -->
+		<div style=" width: 78%; height: 95%; float:left;">
+			
+			<!-- Begin 고객정보 전체테두리 -->
+			<div class="divBorder" style=" width: 100%; height: 20%;">
+			
+				<!-- Begin 내용 넓이 테두리 -->
+				<div class="col-md-12">	
+					
+					<!-- Begin 고객 이미지 테두리 -->
+					<div style="width: 20%; height:100%; float: left;  padding-top: 1%  ">
+						<img class=" img-circle" src="/images/jinryo/dog01.jpg" alt="" width="70%" height="90%" />
 					</div>
+					<!-- End 고객 이미지정보 테두리 -->
+					
+					<!-- Begin 고객  정보 테두리-->
+					<div style="width: 80%; height:100%; float: left; padding-top: 1%;">	
+						<table style="width: 80%; margin-left: auto; margin-right: auto; background-color: white;">
+							<tr style=" background-color: white;">
+								<td>보호자명</td><td>환자명</td><td>품종</td>
+							</tr>
+							<tr>
+								<td><h1 id="cusName"></h1></td><td><h1 id="aniName"></h1></td><td><h1 id="aniBreed"></h1></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End 고객  정보 테두리-->
 				</div>
+				<!-- End 내용 넓이 테두리 -->
+		    </div>
+		    <!-- End 고객정보 전체테두리 -->
+		    
+		    <!-- 간격 맞추기위한 ...div -->
+		    <div style="height: 3%"></div>
+		    
+		    <!-- 이전 진료내역 전체 테두리 -->
+		    <div class="divBorder" style="  width: 100%; height: 77%;">
+		    		<ul id="jinroyHistoryListUl" class="jinryoUl" style="padding-top: 15px;"></ul>
+		    </div>
+		</div>
+		<!-- End 고객정보, 이전 진료내역 전체테두리 -->
+		
+		<!-- Begin 나의 대기환자 전체 테두리 -->
+		<div class="divBorder" style=" width: 20%; height: 95%; float: right; ">
+		
+			<!-- 해더 -->
+			<div style="width: 100%; height: 10%; border-bottom: 2px solid gray; background-color: #FF7171">
+				<h2 style="margin-top: 0; padding-top:10px; ">나의 대기환자</h2>
 			</div>
-			<div class="col-md-4" id="readyListDiv">
-				<div class="panel panel-primary">
-					<div class="panel-heading">Wait list</div>
-					<div class="panel-body">
-						<ul class="media-list">
-							<li class="media">
-								<div class="media-body">
-									<div class="media">
-										<div class="media-body" >
-											<div class="wait-box" style="width: 98%; margin-top: 15px; margin-bottom: 15px;">
-												<h3><small class="text-muted">담당의</small>&nbsp;황선화</h3>
-												<h3><small class="text-muted">환자명</small>&nbsp;콩이</h3>
-												<input type="hidden" name="animal_num" value="3"/>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="media">
-								<div class="media-body">
-									<div class="media">
-										<div class="media-body" >
-											<div class="wait-box" style="width: 98%; margin-top: 15px; margin-bottom: 15px;">
-												<h3><small class="text-muted">담당의</small>&nbsp;선민정</h3>
-												<h3><small class="text-muted">환자명</small>&nbsp;치즈</h3>
-												<input type="hidden" name="animal_num" value="2"/>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="media">
-								<div class="media-body">
-									<div class="media">
-										<div class="media-body" >
-											<div class="wait-box" style="width: 98%;">
-												<h3><small class="text-muted">담당의</small>&nbsp;김우석</h3>
-												<h3><small class="text-muted">환자명</small>&nbsp;연이</h3>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-
+			
+			<!-- 대기환자 리스트 -->
+			<div style="width: 100%; height: 90%; " id="readyListDiv">
+				<ul class="jinryoUl">
+					<li style="height: 10%; padding: 10px;" ppp="">치즈<input type="hidden" name="animal_num" value="2"/></li>
+				</ul>
 			</div>
 		</div>
+		<!-- End 나의 대기환자 전체 테두리 -->
 	</div>
+	<!-- End 전체 내용 테두리 -->
 </div>
 <!-- End body -->
