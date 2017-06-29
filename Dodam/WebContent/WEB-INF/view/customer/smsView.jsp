@@ -13,6 +13,10 @@
    	<link rel="stylesheet" type="text/css" href="/sms/scroll.css">
    	<!-- end : sms를 보낼 고객 핸드폰을 놓는 scroll -->
  
+ 	<!-- sms 전송하는 css -->
+ 	<link rel="stylesheet" type="text/css" href="/sms/message.css">
+ 
+ 
     <style>
 	/* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
 	.manage{
@@ -87,7 +91,7 @@
 		<!-- sms화면은 div3개로 관리, 1)고객핸드폰번호검색, 2)메세지 보내는 부분, 3)즐겨찾기로 구성 -->
 
 <!-- start 1) 고객 핸드폰 번호 검색 -->
-		<div style="border:3px solid pink; width:33%; float:left">
+		<div style="border:3px solid pink; width:30%; float:left">
 		<section class="content" style="margin:150px auto;">
 			<div class="container">
             <h1>고객검색</h1>
@@ -162,8 +166,10 @@
 		
 				
 <!-- start 2) 메세지 전송 -->
-		<div style="border:3px solid pink; width:33%; float:left; padding:10px">
-		<h1>미리보기</h1>
+		<div style="border:3px solid pink; width:40%; float:left; padding:10px">
+		
+		
+<!-- 		<h1>미리보기</h1>
 		<div style="border:3px solid #FFBEC3; text-align:center; background:#FFBEC3">오늘은 코코의 미용 예약일입니다. <br/>방문바랍니다. <br/>도담도담동물병원<br/></div>
 		<div style="border:3px solid red; text-align:center; height:10%">
 			<input id='smsContent' type="text" style="width:100%; height:100%">
@@ -178,28 +184,42 @@
 		</div>
 		
 		
-		<!-- begin : 문자를 전송할 핸드폰 추가하는 공간 -->
+		begin : 문자를 전송할 핸드폰 추가하는 공간
 		<h5>문자전송할 핸드폰 번호 리스트</h5>
 		<div class="scroll">
 
 		</div>
-		<script type="text/javascript" src="/sms/prognroll.js"></script>	<!-- scroll 스크립트 -->
-		<!-- end : 문자를 전송할 핸드폰 추가하는 공간 -->
+		<script type="text/javascript" src="/sms/prognroll.js"></script>	scroll 스크립트
+		end : 문자를 전송할 핸드폰 추가하는 공간
 		
+		<input type='button' value='발송' style="width:100%" onclick="javascript:sendMessage()"/>
+ -->		
 		
+<div id="wrap">
+		<h1>Send a message to Dodam Family</h1>
+		<div id='form_wrap'>
+			<form>
+				<p>Message</p>
+				<textarea  class="message_content" ></textarea>
+				
+				<div style="float:left">
+				<input type="button" value="내용지우기"/>
+				<input type="text" class="message_name" style="width:35%; padding:10px" placeholder="즐겨찾기 명" id="subject"/>
+				<input type="button" class="smsSave" value="저장"/>
+				</div>
+				
+
+				<input type="button" value="Now, I send, thanks!" onclick="javascript:sendMessage()" />
+				
+				<div class="scroll">
+				<!-- 문자를 전송할 핸드폰 추가하는 공간 -->				
+				</div> 	
+
+			
+			</form>
+		</div>
+	</div>
 		
-		
-		<div> <!-- start 예약 발송할 datepicker -->
-			<input type="checkbox" name="vehicle1" value="Bike">예약발송
-	        <input type="text" class="mt10px input" id="J-demo-02">
-	    	<script type="text/javascript" src="/sms/date-time-picker.min.js"></script>
-	        <script type="text/javascript">
-	            $('#J-demo-02').dateTimePicker({
-	                mode: 'dateTime'
-	            });
-	        </script>
-		</div> <!-- end 예약 발송할 datepicker -->
-			<input type='button' value='발송' style="width:100%" onclick="javascript:sendMessage()"/>
 		</div>
 		
 		
@@ -209,7 +229,8 @@
 			function sendMessage(){
 				// 문자 발송하는 메소드~~ action이 coolsms에서 제공하는 페이지로 넘어가므로
 				// ajax를 이용해야 한다요~
-
+		
+				alert("dfddfdf");
 				
 				/*
 				url : sms를 제공하는 link 주소
@@ -230,7 +251,7 @@
 					data : {'user' : 'mimdong', 'password' : 'sms1161803', 'to' : '01083081520', 'from' : '01083081520', 'text' : 'sms제발여', 'type' : 'SMS'},
  					*/
 		
-				$.ajax({
+/* 				$.ajax({
 					url : "http://api.coolsms.co.kr/sendmsg",
 					type : "get",
 
@@ -244,7 +265,7 @@
 		    			 //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		    			 //console.log(error);
 		    		}
-				})
+				}) */
 			
  
 				} // end of for문
@@ -261,7 +282,7 @@
 		
 		
 		<!-- 3) 즐겨찾기 -->	
-		<div style="border:3px solid pink; width:33%; float:left">
+		<div style="border:3px solid pink; width:30%; float:left">
 		백신이나 진료 예약 내용 즐겨찾기 해놓음<br/><br/><br/><br/><br/><br/><br/>
 		</div>		
 
@@ -275,29 +296,30 @@
 </div>
 
 <script type="text/javascript">
-/* $(document).ready(function() {
-	$('#smsSave').bind('click', function(){
+$(document).ready(function() {
+	
+	// sms에서 자주 사용하는 메세지 내용을 즐겨찾기 목록에 추가한다. ajax를 이용
+	$('.smsSave').bind('click', function(){
 		alert("저장버튼");
-		alert($('#smsContent').val());
-		alert($('#favorite').val());
+		alert($('.message_name').val());
+		alert($('.message_content').val());
 		
-		// sms에서 자주 사용하는 메세지 내용을 즐겨찾기 목록에 추가한다. ajax를 이용!
-		$.ajax({
-			url : ,
+ 		$.ajax({
+			url : '/customer/favoriteSMS.dodam',
 			type : 'get',
 			async : true,
 			//data : {'message_name' : $('#favorite').val(), 'message_content' : $('#smsContent').val()},
-			data : "message_name=" + $('#favorite').val() +"&message_content=",
+			data : "message_name="+$('.message_name').val()+"&message_content="+$('.message_content').val(),
 			dataType : "text",
 			success : function(data){
-				
+				alert(data);
 			},
     		error:function(request, status,error){
    			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
    			}
-		})
+		}) 
 	})
-}); */
+}); 
 </script>​
 				​
 				​
