@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id='beautyOptionSelect' resultType="myproj.beauty.dto.BeautyVO">
 	SELECT * FROM beauty_management
 </select>
-
+    
 <insert id="beautyOptionInsert" parameterType="myproj.beauty.dto.BeautyVO">
 	INSERT INTO beauty_management VALUES(#{btm_type}, #{btm_price})
 </insert>
