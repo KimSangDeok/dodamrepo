@@ -15,4 +15,10 @@ public interface GoodsDAO {
 //	List<GoodsVO> historylist();
 	List<GoodsVO> goodsSearchList(String goodsSearch);
 	
+	List<GoodsVO> goodsSearchmedi(String medisearchtxt);
+
+	int goodsInsert(GoodsVO goodsVO);
+
+	
+	
 }

@@ -56,57 +56,57 @@
 
 .paper.hidden { border-radius: 100px; overflow: hidden; height: 0; opacity: 0; margin: 0 auto; }
 
-.btn { box-sizing: border-box; cursor: pointer; font-family: 'Roboto', 'Arial', sans-serif; font-weight: 300; display: inline-block; color: #000; background: #ecf0f1; letter-spacing: .5px; font-size: 15px; border-radius: 3px; line-height: 36px; height: 36px; padding: 0 10px; text-decoration: none !important; outline: 0; border: 0; -webkit-tap-highlight-color: transparent; vertical-align: middle; text-transform: uppercase; box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
+/* .btn { box-sizing: border-box; cursor: pointer; font-family: 'Roboto', 'Arial', sans-serif; font-weight: 300; display: inline-block; color: #000; background: #ecf0f1; letter-spacing: .5px; font-size: 15px; border-radius: 3px; line-height: 36px; height: 36px; padding: 0 10px; text-decoration: none !important; outline: 0; border: 0; -webkit-tap-highlight-color: transparent; vertical-align: middle; text-transform: uppercase; box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; } */
 
-.btn:focus { outline: none; }
+/* .btn:focus { outline: none; } */
 
-.btn:hover { background: #f8fcfd; }
+/* .btn:hover { background: #f8fcfd; } */
 
-.btn:active { box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+/* .btn:active { box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); } */
 
-.btn.btn-link { border: none; background: transparent; color: #363D4A; }
+/* .btn.btn-link { border: none; background: transparent; color: #363D4A; } */
 
-.btn.btn-link:hover { background: #fff; }
+/* .btn.btn-link:hover { background: #fff; } */
 
-.btn.btn-round { border-radius: 50%; }
+/* .btn.btn-round { border-radius: 50%; } */
 
-.btn .fa { vertical-align: middle; }
+/* .btn .fa { vertical-align: middle; } */
 
-.btn-red { background: #e74c3c; color: #fff; }
+/* .btn-red { background: #e74c3c; color: #fff; } */
 
-.btn-red:hover { background: #f3503f; }
+/* .btn-red:hover { background: #f3503f; } */
 
-.btn-disable { opacity: 0.5; pointer-events: none; cursor: default; }
+/* .btn-disable { opacity: 0.5; pointer-events: none; cursor: default; } */
 
-.btn-disable * { pointer-events: none; cursor: default; }
+/* .btn-disable * { pointer-events: none; cursor: default; } */
 
-.btn-green { background: #27ae60; color: #fff; }
+/* .btn-green { background: #27ae60; color: #fff; } */
 
-.btn-green:hover, .btn-green:active { background: #29b765; }
+/* .btn-green:hover, .btn-green:active { background: #29b765; } */
 
-.btn-flat { box-shadow: none; }
+/* .btn-flat { box-shadow: none; } */
 
-.btn-round { border-radius: 50%; }
+/* .btn-round { border-radius: 50%; } */
 
-.btn-blue { background: #3498db; color: #fff; }
+/* .btn-blue { background: #3498db; color: #fff; } */
 
-.btn-blue:hover, .btn-blue:active { background: #37a0e6; }
+/* .btn-blue:hover, .btn-blue:active { background: #37a0e6; } */
 
-.btn-yellow { background: #f1c40f; color: #fff; }
+/* .btn-yellow { background: #f1c40f; color: #fff; } */
 
-.btn.btn-disabled { opacity: 0.5; pointer-events: none; }
+/* .btn.btn-disabled { opacity: 0.5; pointer-events: none; } */
 
-.btn-link { background-color: transparent; box-shadow: none; }
+/* .btn-link { background-color: transparent; box-shadow: none; } */
 
-.btn-link:hover { background-color: #ecf0f1; }
+/* .btn-link:hover { background-color: #ecf0f1; } */
 
-.btn-small { font-size: 12px; line-height: 28px; height: 30px; }
+/* .btn-small { font-size: 12px; line-height: 28px; height: 30px; } */
 
-.btn-large { font-size: 22px; line-height: 22px; padding: 10px 20px; height: 50px; }
+/* .btn-large { font-size: 22px; line-height: 22px; padding: 10px 20px; height: 50px; } */
 
-.btn-group { font-size: 0; border-radius: 0; white-space: nowrap; }
+/* .btn-group { font-size: 0; border-radius: 0; white-space: nowrap; } */
 
-.btn-group .btn { box-shadow: none; }
+/* .btn-group .btn { box-shadow: none; } */
 
 table { width: 100%; text-align: left; }
 
@@ -362,7 +362,7 @@ table tbody tr td { padding: 5px 10px; line-height: 20px; vertical-align: middle
 
 .side-nav a:hover { background-color: rgba(0, 0, 0, 0.05); }
 
-.side-nav a.btn, .side-nav a.btn-large, .side-nav a.btn-flat, .side-nav a.btn-floating { margin: 10px 15px; }
+/* .side-nav a.btn, .side-nav a.btn-large, .side-nav a.btn-flat, .side-nav a.btn-floating { margin: 10px 15px; } */
 
 .drag-target { height: 100%; width: 10px; position: fixed; top: 0; z-index: 998; }
 

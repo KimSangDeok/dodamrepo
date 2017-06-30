@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import myproj.customer.dto.CustomerVO;
 import myproj.goods.dto.GoodsVO;
 
 @Repository
@@ -22,12 +23,17 @@ public class GoodsDAOImpl implements GoodsDAO{
 
 	@Override
 	public List<GoodsVO> goodsSearchList(String goodsSearch) {
-		System.out.println(">>>>"+goodsSearch);
 		
 		List<GoodsVO> result =  goods.selectList("goods.searchList",goodsSearch);
-//		System.out.println("result는느느느느는"+result.size());
 		return result;
 		
+	}
+
+	@Override
+	public List<GoodsVO> goodsSearchmedi(String medisearchtxt) {
+		System.out.println(medisearchtxt);
+		List<GoodsVO> result =  goods.selectList("goods.searchmedi",medisearchtxt);
+		return result;
 	}
 	
 //	@Override
@@ -36,7 +42,10 @@ public class GoodsDAOImpl implements GoodsDAO{
 //		return goods.selectList("goods.historylist");
 //	}
 
-
+	public int goodsInsert(GoodsVO goodsVO) {
+				
+		return goods.insert("goods.goodsInsert",goodsVO); 
+	}
 	
 	
 }

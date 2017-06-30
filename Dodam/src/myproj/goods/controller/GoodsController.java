@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import myproj.animal.dto.AnimalVO;
+import myproj.customer.dto.CustomerVO;
 import myproj.goods.dao.GoodsDAO;
 import myproj.goods.dto.GoodsVO;
 
@@ -57,9 +59,27 @@ public class GoodsController {
 	@ResponseBody
 	public List<GoodsVO> goodsSearch(String goodsSearch){
 		List<GoodsVO> list = goodsDAO.goodsSearchList(goodsSearch);
-		System.out.println(list.get(0).getGoods_name());
+		System.out.println(list.get(1).getGoods_name());
 		return list;
 	}
+	
+	//상품추가에서 품목명 검색하는 부분
+	@RequestMapping("/goodsMediSearch.dodam")
+	@ResponseBody
+	public List<GoodsVO> goodsMediSearch(String medisearchtxt){
+		List<GoodsVO> list = goodsDAO.goodsSearchmedi(medisearchtxt);
+		return list;
+	}
+	
+	//상품등록하는 부분 
+	@RequestMapping("/goodsInsert.dodam")
+	public String goodsInsert(GoodsVO goodsVO){
+		int goods = goodsDAO.goodsInsert(goodsVO);
+				
 		
+		
+		return "redirect:goodsShow.dodam";
+		
+	}	
 	
 }

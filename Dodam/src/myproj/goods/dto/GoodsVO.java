@@ -13,12 +13,13 @@ public class GoodsVO {
 	private String goods_name;
 	private String goods_date;
 	private String goods_use;
-	private String goods_price;
+	private String goods_price_in;
+	private String goods_price_out;
 	private String goods_type;
 	private String goods_count;
 	
 	
-	//setter,getter
+	
 	public String getMedi_name() {
 		return medi_name;
 	}
@@ -79,11 +80,17 @@ public class GoodsVO {
 	public void setGoods_use(String goods_use) {
 		this.goods_use = goods_use;
 	}
-	public String getGoods_price() {
-		return goods_price;
+	public String getGoods_price_in() {
+		return goods_price_in;
 	}
-	public void setGoods_price(String goods_price) {
-		this.goods_price = goods_price;
+	public void setGoods_price_in(String goods_price_in) {
+		this.goods_price_in = goods_price_in;
+	}
+	public String getGoods_price_out() {
+		return goods_price_out;
+	}
+	public void setGoods_price_out(String goods_price_out) {
+		this.goods_price_out = goods_price_out;
 	}
 	public String getGoods_type() {
 		return goods_type;
@@ -98,8 +105,5 @@ public class GoodsVO {
 		this.goods_count = goods_count;
 	}
 	
-	
-	
-	
-	
+
 }
