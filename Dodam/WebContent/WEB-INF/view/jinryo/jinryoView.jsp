@@ -65,18 +65,26 @@ $(document).ready(function(){
 					
 					var text='';
 					for(var i = 0; i<cnt; i++){
-						
+
 						text+=''+
 						'<li style="width:90%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" >'+
-							'<div style="width:30%; height:100%; display: inline-block;">'+
+							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>차트번호</span>'+
 								'<h3  style="display: inline;">'+data[i].JRYO_NUM+'</h3>'+
 							'</div>'+
-							'<div style="width:30%; height:100%; display: inline-block;">'+
+							'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  ">'+
+								'<span>차트번호</span>'+
+								'<h3  style="display: inline;">'+data[i].JRYO_DISEASES+'</h3>'+
+							'</div>'+
+						'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">'+
+							'<span>차트번호</span>'+
+							'<h3  style="display: inline; text-overflow: ellipsis;">'+data[i].SYMPTOM+'</h3>'+
+						'</div>'+
+							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>담당의</span>'+
 								'<h3  style="display: inline;">'+data[i].PER_NAME+'</h3>'+
 							'</div>'+
-							'<div style="width:30%; height:100%; display: inline-block;">'+
+							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>진료일자</span>'+
 								'<h3  style="display: inline;">'+data[i].JRYO_DT+'</h3>'+
 							'</div>'+
