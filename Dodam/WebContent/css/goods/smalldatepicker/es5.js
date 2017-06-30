@@ -40,11 +40,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             moment.locale(this.params.locale);
 
+            // datepicker range의 초기값을 무조건 오늘 날짜로 설정하기위함.
+            
             this.viewStartDate = this.params.startDate;
-            this.viewEndDate = this.params.endDate;
+            this.viewEndDate = this.params.startDate;
+//            this.viewEndDate = this.params.endDate;
 
             this.dateStart = this.params.startDate.clone();
-            this.dateEnd = this.params.endDate.clone();
+            this.dateEnd = this.params.startDate.clone();
+//            this.dateEnd = this.params.endDate.clone();
 
             this.render.call(this);
 
@@ -202,6 +206,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function hideCalendar() {
                 this.params.onHide();
                 this.$el.removeClass('show');
+                
+                
+/*                // 날짜를 클릭하여, datepicker가 꺼지면 그 날짜를 검색해 줘야한다. 이것도 ajax를 사용하자.
+                $.ajax({
+                	url : "/beauty/changeDate.dodam",
+                	type : 'get',
+                	data : {'from_to_date' : $('#rangedate').val()},
+                	dataType : 'jason',
+                	success : function(data){
+                		alert("date");
+                	},
+            		error:function(request, status,error){
+           			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            		}                	
+                })*/
+                
+                
+                
+                
+
+                
             }
         }, {
             key: 'renderMonth',
