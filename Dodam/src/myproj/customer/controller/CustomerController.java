@@ -107,10 +107,11 @@ public class CustomerController {
 		@RequestMapping("/favoriteSMS.dodam")
 		@ResponseBody
 		public List<Map<String, String>> RegisterFavoriteSMS(SmsVO smsVO){
+			
 			int result = customerDAO.registerFavoriteSMS(smsVO);
 			
 			List<Map<String, String>> favoriteList = null;
-			if(result==1){
+			if(result==1){	// 등록에 성공했다면, 다시 favoriteList 전체를 불러서 return해 주자.
 				favoriteList = customerDAO.showFavoriteList();				
 			}
 			

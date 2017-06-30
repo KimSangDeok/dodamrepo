@@ -51,7 +51,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	// smsView.jsp에서 즐겨찾는 메세지 내용 등록
 	public int registerFavoriteSMS(SmsVO smsVO) {
 		return customer.insert("customer.registerSMS", smsVO);
-		
 	}
 
 	// smsView.jsp에서 즐겨찾기 메세지 전체 검색~~~~

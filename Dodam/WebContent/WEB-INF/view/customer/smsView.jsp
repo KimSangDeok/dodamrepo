@@ -310,11 +310,6 @@ $(document).ready(function() {
 	// sms에서 자주 사용하는 메세지 내용을 즐겨찾기 목록에 추가한다. ajax를 이용
 	$('.smsSave').bind('click', function(){
 		
-		// sms 저장 했으니 text 비워주기.
-		$('.message_name').val("");
-		$('.message_content').val("");
-		
-		
  		$.ajax({
 			url : '/customer/favoriteSMS.dodam',
 			type : 'get',
@@ -323,6 +318,10 @@ $(document).ready(function() {
 			data : "message_name="+$('.message_name').val()+"&message_content="+$('.message_content').val(),
 			dataType : "json",
 			success : function(data){
+				
+				// sms 저장 했으니 text 비워주기.
+				$('.message_name').val("");
+				$('.message_content').val("");
 				
 				// success 라면, 방금 추가한 메세지 내용을 append 해줘야 합니다.
 				var i;
