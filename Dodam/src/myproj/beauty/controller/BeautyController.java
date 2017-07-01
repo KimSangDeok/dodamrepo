@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import myproj.beauty.dao.BeautyDAO;
 import myproj.beauty.dto.BeautyServiceVO;
 import myproj.beauty.dto.BeautyVO;
-
+   
 @Controller
 @RequestMapping("/beauty")
 public class BeautyController {
