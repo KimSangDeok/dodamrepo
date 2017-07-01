@@ -13,4 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	 #{animal_gender} ,#{animal_color},#{animal_birth},sysdate,#{animal_memo},#{animalfile_name} )
  </insert>
 
+<!--  동물정보를 DB에서 고객번호로 검색해오는 sql문장 -->
+<select id="animalSelect" parameterType="String" resultType="myproj.animal.dto.AnimalVO">
+	select * from animal where cus_tel=#{phoneNum}
+</select>
+
 </mapper>

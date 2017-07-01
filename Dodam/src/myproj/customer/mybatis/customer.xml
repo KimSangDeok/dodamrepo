@@ -22,6 +22,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  ,#{cus_memo} ,#{cus_hospital},#{cusfile_name})
  </insert>
 
+<!-- 고객정보를 검색해오는 sql문장 -->
+<select id="cusSelect" parameterType="myproj.customer.dto.CustomerVO" resultType="myproj.customer.dto.CustomerVO">
+	select * from customer where cus_tel=#{cus_tel}
+</select>
 
 <!-- smsView에서 전체 동물과 그에 해당하는 각 핸드폰번호, 고객명 가져오기 -->
 <select id="animalSMSList" resultType="hashmap">

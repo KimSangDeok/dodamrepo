@@ -99,7 +99,8 @@
 }
 
 .modal-content {
-	left: -100px;
+ position: fixed;
+	left: 800px;
 	width: 300px;
 }
 
@@ -256,6 +257,9 @@ function monjinOpen() {
 <script>
 
 function showList(cus_tel){
+	
+	$('#phoneNum').val(cus_tel);
+	
 	var count = 0;
 	
 	$.ajax({
@@ -331,6 +335,12 @@ function showList(cus_tel){
 	
 }
 
+</script>
+<script>
+
+ $('#editbutton').click(function(){
+	 
+ });
 </script>
 
 <!-- 정보등록 하는 스크립트  -->
@@ -414,7 +424,7 @@ function showList(cus_tel){
 <!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
-<div id="block2" class="modal-content" style="margin-left: 30px;" >
+<div id="block2" class="modal-content" style="margin-left: 320px;" >
 	<table>
 		<tr>
 			<td><a class="title">반려 동물 목록</a>
@@ -457,7 +467,7 @@ function showList(cus_tel){
 	<div id="block1" class="modal-content" >
 	<table>
 		<tr>
-			<td><a class="title">보호자 목록</a>
+			<td><a class="title">보호자 목록 </a>
     		</td>
 		</tr>
 	</table>
@@ -590,11 +600,18 @@ function showList(cus_tel){
 	
 		<!--Begin table 코딩 -->
 		<div class="tablecontainer">
+		
 			<div class="line">
+			
 				<input type="text" class="form-control" placeholder="Search..."
 					id="search_field">
+					
 			</div>
 			<div class="row">
+			<form action="/customer/editCustomer.dodam">
+				
+				<input type="hidden" id="phoneNum" name="phoneNum" value="" />
+			
 				<div class="col-md-6">
 
 					<table id="myTable" class="table table-inverse">
@@ -626,6 +643,8 @@ function showList(cus_tel){
 					  </c:otherwise>	
 					 </c:choose> 
 					</table>
+					<input id="editbutton" style="margin-left:550px" type="submit" value="수정"/>
+					</form>
 				</div>
 			</div>
 		</div>

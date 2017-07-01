@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
+
 
  
 <!-- Begin 왼쪽 메뉴바 스크립트 -->
@@ -28,23 +30,6 @@
     </script>
   <!--  End 이미지 업로드 -->  
   
-  <!-- Begin 검색 스크립트 -->
-	<script type="text/javascript">
-	
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	
-	</script>
-	
-<!-- End 검색 스크립트 -->	
 	
 <!-- Begin 스타일 -->
     <style>
@@ -64,11 +49,22 @@
     
     /*사진 수정 스타일*/
     .cusinfo{
-    position: absolute;
-    top:220px;
-    left: -10px;
-    bottom: 200px;
+ 	margin-top: -100px;
+    max-width: 300px;
+    margin-left: 150px;
+    text-align: right;
+	
     }
+    .animalinfo {
+    margin-top: -100px;
+    max-width: 300px;
+    margin-left: 100px;
+    text-align: right;
+    }
+/*     .animalinfo a{ */
+/*     float: right; */
+/*     margin-bottom: 5px; */
+/*     } */
     .cusinfo input{
     float: right;
     }
@@ -78,6 +74,21 @@
     margin-bottom:5px;
     }
     
+        .animalinfo a{
+    color: black;
+    float: right;
+    margin-bottom:5px;
+    }
+    
+    #cusfile{
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+   
+    }
+    #bigdiv{
+    height: 250px;
+    width: 500px;
+    }
     
     
     /*div 스타일 적용 */
@@ -92,18 +103,20 @@
     outline: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
     box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    width:600px;
-    height:400px;
+    width:500px;
+    height:450px;
     margin-bottom: 50px;
 }
 .modal-content a{
  	font-size: 12pt;
 }
+#block1{
+margin-left:25%;
+}
 #block2{
  position: absolute;
- margin-bottom: 50px;
- top:700px;
- left:730px;
+/*  top:700px; */
+/*  left:730px; */
 }
 .avatar
 {
@@ -125,11 +138,27 @@ margin-left: 70px;
 <!-- Begin 헤더 숨기기 스크립트 -->
 <script>
 $(document).ready(function(){
-   
+
+	
+	$('.filethumbnail').append
+	(
+			//이곳에 기존에 검색해온 고객의 사진을 끌고옴
+// 		'<img class="img" src="/imageupload/' + ${cusInfo.cusfile_name} +'">'	
+// 		'<img class="avatar" src="/imageupload/'+${cusInfo.cusfile_name}+'" alt="Medium"></img>'
+		
+	);
+	
+	
    $('.header').addClass('hide');
 });
 </script>
 <!-- End 헤더 스크립트 -->
+
+<!-- 고객 동물 정보 수정 스크립트 -->
+<script>
+
+
+</script>
 
 <div class="body">
 
@@ -197,87 +226,16 @@ $(document).ready(function(){
 
 <!-- End 왼쪽 메뉴바 -->
 
-<!-- Begin 검색&테이블 -->
-
-<div class="container" style="float:left ;">
-<div class="line">
-	<input type="text" class="form-control" 
-	placeholder="Search..." id="search_field">
-</div>
-  <div class="row">
-    <div class="col-md-6">
-
-    <table id="myTable" class="table table-inverse">
-      <thead>
-        <tr class="myHead">
-          <th>고객명</th>
-          <th>주소</th>
-          <th>전화번호</th>
-        </tr>
-      </thead>
-      <tr>
-        <td>박보검</td>
-        <td>서울시 </td>
-        <td>010-1111-2222</td>
-      </tr>
-      <tr>
-        <td>지창욱</td>
-        <td>인천 광역시</td>
-         <td>010-1111-2223</td>
-      </tr>
-      <tr>
-        <td>송중기</td>
-        <td>미국</td>
-         <td>010-1111-2224</td>
-      </tr>
-      <tr>
-        <td>이민호</td>
-        <td>뉴질랜드</td>
-         <td></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Dalton</td>
-         <td></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Bobby</td>
-         <td></td>
-      </tr>
-
-    </table>
-</div>
-  </div>
-</div>
-<!-- End 검색& 테이블 -->
   
-  <!--Begin 검색 테이블  -->
-  <script src="/search-js/search.js"></script>
-  
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    <!--  End 검색테이블 -->
-    
     <!-- Begin 고객&동물 수정 코딩 -->
   <div  style=" margin-left:100px;   float: left ;"  >
 	<div id="block1" class="modal-content" >
 	<table>
 		<tr>
-			<td><a class="title">보호자 목록 <button type="button"  style="float: right; background-color: white; ">
- 					<img src="/images/저장.png" align="absmiddle"> </button></a>
+			<td>
+			<a class="title">보호자 목록
+			<button type="button"  style="float: right; background-color: white;">
+ 			<img src="/images/저장.png" align="absmiddle"></button></a>
     		</td>
 		</tr>
 	</table>
@@ -289,29 +247,27 @@ $(document).ready(function(){
 
 				<div class="container" >
 					<div>
-						<p style="float: left;">please click here and upload your picture</p>
+						<p style="float: left;">please click here and upload your picture</p><br/><br/>
 						<br/><br/>
 
-						<div class="file-upload" data-input-name="input1"></div>
+						<div id="cusfile" class="file-upload" data-input-name="input1" style="background-image:url(/imageupload/${cusInfo.cusfile_name})  " >
+						</div>
 
 					</div>
 					</div>
 					<!-- 고객정보div -->
-								<div class="cusinfo" style="margin-left: 20px;">
+								<div class="cusinfo" style="margin-left:150px;">
 									<a class="name" style="float: left; margin-left: 110px;"> <br />
-										박보검
+										<p> ${cusInfo.cus_name} </p>
 									</a> <br />
 									<br />
-									<br /> <a> 휴대전화 &nbsp; <input
-										style="background-color: #fda699" type="text"
-										value="010-1111-2222" />
-									</a><br /> <a> 이메일 &nbsp; <input
-										style="background-color: #fda699" type="text"
-										value="bogum@gmail.com" />
-									</a><br /> <a> 우편번호&nbsp; <input
-										style="background-color: #fda699" type="text"
-										value="010-1111-2222" />
+									<br /> <a> 전화번호 &nbsp; <input	id="cusphone" style="background-color: #fda699" type="text" value="${cusInfo.cus_tel}" />
+									</a><br />
+									 <a> 주소 &nbsp; <input style="background-color: #fda699" type="text" value="${cusInfo.cus_addr}" />
+									</a><br /> 
+									<a> 참조병원&nbsp; <input style="background-color: #fda699" type="text" value="${cusInfo.cus_hospital}" />
 									</a> <br />
+									<a> 메모<textarea placeholder="memo" name="cus_memo">${cusInfo.cus_memo}</textarea></a><br/>
 								</div>
 							</div></a>
         </li>
@@ -321,8 +277,8 @@ $(document).ready(function(){
 		
     
         <!-- Begin 동물수정 -->
-  <div  style=" margin-left:100px;   float: left ;"  >
-	<div id="block2" class="modal-content" >
+  <div  style=" margin-left:200px ;   float: left ;"  >
+	<div id="block2" class="modal-content" style="height: 100%;">
 	<table>
 		<tr>
 			<td><a class="title">반려 동물 목록</a>
@@ -334,31 +290,52 @@ $(document).ready(function(){
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user">
+                
 				<div class="container" >
 				<p style="float: left;">please click here and upload animal picture</p>
-						<br/><br/>
-			        <div class="file-upload" data-input-name="input1">
-			
-			        </div>
+				<br/><br/>
+				 
+				  <c:forEach items="${aniInfo}" var="aniInfo">
+				   <div id="bigdiv" style="margin-top:20px; ">
+			        <div id="cusfile" class="file-upload" data-input-name="input1" style="  margin-top:10px; background-image:url(/imageupload/${aniInfo.animalfile_name})  " >
+				 	</div>
+				 	<div class="animalinfo" >
+	                	<a class="name" style="float: left; margin-left:110px;">
+	                       <p> ${aniInfo.animal_name} </p>
+	                    </a> 
+	                    <br/>
+	                    <a ><br/>
+	                        생일 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_birth}"/>
+	                    </a><br/>
+	               		<a >
+	                        품종 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_type}"/>
+	                    </a><br/>
+	                    <a >
+	                        피모색 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_color}"/>
+	                    </a><br/>
+	                    <a>
+	                        특이사항 &nbsp; <textarea style="background-color: #DBDBDB" placeholder="memo">${aniInfo.animal_memo}</textarea><br/>
+	                    </a>
+	                    <br/><br/><br/><br/>
+	                  </div>  
+				 	</div>
+				  </c:forEach>
 			     </div>
+			     
+			     
 
                     <!-- 고객정보div -->
-                <div class="cusinfo" style="margin-left: 20px;">
-                	<a class="name" style="float: left; margin-left:110px;">
-                        콩이
-                    </a> 
-                    <br/>
-                    <a >
-                        나이 &nbsp; <input style="background-color: #DBDBDB" type="text" value="8개월"/>
-                    </a><br/>
-               		<a >
-                        성별 &nbsp; <input style="background-color: #DBDBDB" type="text" value="암컷"/>
-                    </a><br/>
-                    <a>
-                        특이사항 &nbsp; <textarea style="background-color: #DBDBDB" placeholder="memo"></textarea><br/>
-                    </a>
-                    <br/>
-                </div>
+                
+                
+                <!-- 동물의 갯수만큼 정보를 출력하기위한 forEach 반복문 -->
+                 <div class="cusinfo" style="margin-left: 20px;">
+                 <c:forEach items="${aniInfo}" var="aniInfo">
+	                
+	                   
+                </c:forEach> 	                   
+	                </div>
+
+                <br/><br/><br/><br/><br/><br/><br/>
                 </div>
                  
             </a>

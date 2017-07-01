@@ -81,7 +81,22 @@ public class CustomerController {
 			return mv;
 			
 		}
-		
+
+		//고객과 동물 수정하는 코딩
+		@RequestMapping("/editCustomer.dodam")
+		public ModelAndView editView(String phoneNum){
+			System.out.println("phoneNum :"+phoneNum);
+			
+			ModelAndView mv = new ModelAndView();
+			CustomerVO cvo = customerDAO.cusSelect(phoneNum);
+			List<AnimalVO> avo = animalDAO.animalSelect(phoneNum);
+			mv.addObject("cusInfo",cvo); //cusInfo이름으로 view에다가 정보를 뿌려주면 됨
+			mv.addObject("aniInfo",avo);
+			mv.setViewName("/customer/editCustomer");
+			
+			return mv;
+			
+		}
 		
 		// smsView.jsp에서 동물 전체 검색~~~~
 		@RequestMapping("/smsView.dodam")
