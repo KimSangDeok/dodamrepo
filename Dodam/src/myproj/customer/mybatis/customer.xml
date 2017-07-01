@@ -22,6 +22,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  ,#{cus_memo} ,#{cus_hospital},#{cusfile_name})
  </insert>
 
+<!-- 고객정보 수정 DB에 UPDATE하는 SQL 문장 -->
+<update id="cuseditInsert" parameterType="myproj.customer.dto.CustomerVO">
+	UPDATE customer set  cusfile_name=#{cusfile_name}, cus_name = #{cus_name} ,cus_tel=#{cus_tel} , cus_addr = #{cus_addr},
+		cus_hospital = #{cus_hospital}, cus_memo = #{cus_memo} where cus_tel=#{cus_tel} 
+</update>
+
 <!-- 고객정보를 검색해오는 sql문장 -->
 <select id="cusSelect" parameterType="myproj.customer.dto.CustomerVO" resultType="myproj.customer.dto.CustomerVO">
 	select * from customer where cus_tel=#{cus_tel}

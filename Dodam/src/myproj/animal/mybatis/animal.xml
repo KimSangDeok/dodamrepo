@@ -18,4 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from animal where cus_tel=#{phoneNum}
 </select>
 
+<!-- 동물정보 수정 DB에 업데이트 하는 SQL문장 -->
+<update id="animaleditInsert" parameterType="myproj.animal.dto.AnimalVO">
+ 	UPDATE animal set animalfile_name =#{animalfile_name}, animal_name = #{animal_name} , animal_birth=to_date(#{animal_birth}, 'YYYY-MM-DD HH24:MI:SS'), animal_type=#{animal_type},
+ 			 animal_color=#{animal_color} , animal_memo=#{animal_memo} where cus_tel=#{cus_tel}
+</update>
+
+
 </mapper>

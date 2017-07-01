@@ -21,6 +21,9 @@ public interface CustomerDAO {
 	//고객 정보 DB에 등록하기 
 	int cusInsert(CustomerVO customerVO);
 	
+	//고객 정보 수정 업데이트
+	int cuseditInsert(CustomerVO customerVO);
+		
 	// smsView.jsp에서 동물 전체 검색~~~~
 	List<Map<String, String>> showAnimalList();
 	
@@ -29,4 +32,6 @@ public interface CustomerDAO {
 	
 	// smsView.jsp에서 즐겨찾기 메세지 전체 검색~~~~
 	List<Map<String, String>> showFavoriteList();
+
+	
 }

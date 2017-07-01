@@ -138,18 +138,13 @@ margin-left: 70px;
 <!-- Begin 헤더 숨기기 스크립트 -->
 <script>
 $(document).ready(function(){
-
-	
-	$('.filethumbnail').append
-	(
-			//이곳에 기존에 검색해온 고객의 사진을 끌고옴
-// 		'<img class="img" src="/imageupload/' + ${cusInfo.cusfile_name} +'">'	
-// 		'<img class="avatar" src="/imageupload/'+${cusInfo.cusfile_name}+'" alt="Medium"></img>'
-		
-	);
 	
 	
    $('.header').addClass('hide');
+   
+   $('#editsave').click(function(){
+	  alert("확인"); 
+   });
 });
 </script>
 <!-- End 헤더 스크립트 -->
@@ -228,14 +223,16 @@ $(document).ready(function(){
 
   
     <!-- Begin 고객&동물 수정 코딩 -->
+<form  method="post" action="/customer/editInfoInsert.dodam" enctype="multipart/form-data">
   <div  style=" margin-left:100px;   float: left ;"  >
 	<div id="block1" class="modal-content" >
+
 	<table>
 		<tr>
 			<td>
 			<a class="title">보호자 목록
-			<button type="button"  style="float: right; background-color: white;">
- 			<img src="/images/저장.png" align="absmiddle"></button></a>
+			<input id="editsave" type="submit"  style="float: right;  background-color: #fafafa; font-family: 맑은고딕; font-weight: bold;" value="SAVE"/>
+			</a>
     		</td>
 		</tr>
 	</table>
@@ -250,7 +247,7 @@ $(document).ready(function(){
 						<p style="float: left;">please click here and upload your picture</p><br/><br/>
 						<br/><br/>
 
-						<div id="cusfile" class="file-upload" data-input-name="input1" style="background-image:url(/imageupload/${cusInfo.cusfile_name})  " >
+						<div id="cusfile" class="file-upload" name="file" data-input-name="file" style="background-image:url(/imageupload/${cusInfo.cusfile_name})  " >
 						</div>
 
 					</div>
@@ -258,14 +255,14 @@ $(document).ready(function(){
 					<!-- 고객정보div -->
 								<div class="cusinfo" style="margin-left:150px;">
 									<a class="name" style="float: left; margin-left: 110px;"> <br />
-										<p> ${cusInfo.cus_name} </p>
+										<input style="background: none; border: none;"type="text" name="cus_name" value="${cusInfo.cus_name}" />
 									</a> <br />
 									<br />
-									<br /> <a> 전화번호 &nbsp; <input	id="cusphone" style="background-color: #fda699" type="text" value="${cusInfo.cus_tel}" />
+									<br /> <a> 전화번호 &nbsp; <input	id="cusphone" name="cus_tel" style="background-color: #fda699" type="text" value="${cusInfo.cus_tel}" />
 									</a><br />
-									 <a> 주소 &nbsp; <input style="background-color: #fda699" type="text" value="${cusInfo.cus_addr}" />
+									 <a> 주소 &nbsp; <input name="cus_addr" style="background-color: #fda699" type="text" value="${cusInfo.cus_addr}" />
 									</a><br /> 
-									<a> 참조병원&nbsp; <input style="background-color: #fda699" type="text" value="${cusInfo.cus_hospital}" />
+									<a> 참조병원&nbsp; <input name="cus_hospital"style="background-color: #fda699" type="text" value="${cusInfo.cus_hospital}" />
 									</a> <br />
 									<a> 메모<textarea placeholder="memo" name="cus_memo">${cusInfo.cus_memo}</textarea></a><br/>
 								</div>
@@ -297,24 +294,24 @@ $(document).ready(function(){
 				 
 				  <c:forEach items="${aniInfo}" var="aniInfo">
 				   <div id="bigdiv" style="margin-top:20px; ">
-			        <div id="cusfile" class="file-upload" data-input-name="input1" style="  margin-top:10px; background-image:url(/imageupload/${aniInfo.animalfile_name})  " >
+			        <div id="cusfile" class="file-upload" data-input-name="file2" name="file2" style="  margin-top:10px; background-image:url(/imageupload/${aniInfo.animalfile_name})  " >
 				 	</div>
 				 	<div class="animalinfo" >
 	                	<a class="name" style="float: left; margin-left:110px;">
-	                       <p> ${aniInfo.animal_name} </p>
+	                      <input style="background: none; border: none;"type="text" name="animal_name" value=" ${aniInfo.animal_name}" />
 	                    </a> 
 	                    <br/>
 	                    <a ><br/>
-	                        생일 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_birth}"/>
+	                        생일 &nbsp; <input name="animal_birth" style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_birth}"/>
 	                    </a><br/>
 	               		<a >
-	                        품종 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_type}"/>
+	                        품종 &nbsp; <input name="animal_type" style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_type}"/>
 	                    </a><br/>
 	                    <a >
-	                        피모색 &nbsp; <input style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_color}"/>
+	                        피모색 &nbsp; <input name="animal_color" style="background-color: #DBDBDB" type="text" value=" ${aniInfo.animal_color}"/>
 	                    </a><br/>
 	                    <a>
-	                        특이사항 &nbsp; <textarea style="background-color: #DBDBDB" placeholder="memo">${aniInfo.animal_memo}</textarea><br/>
+	                        특이사항 &nbsp; <textarea name="animal_memo" style="background-color: #DBDBDB" placeholder="memo">${aniInfo.animal_memo}</textarea><br/>
 	                    </a>
 	                    <br/><br/><br/><br/>
 	                  </div>  
@@ -343,6 +340,7 @@ $(document).ready(function(){
     </ul>
 </div>
 </div>
+</form>
 
 <!-- End 고객 & 동물 등록 코딩 -->
 </div>

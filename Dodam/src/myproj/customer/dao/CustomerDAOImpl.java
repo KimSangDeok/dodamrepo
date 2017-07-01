@@ -62,4 +62,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		List<Map<String, String>> list = customer.selectList("customer.favoriteSMSList");
 		return list;
 	}
+
+	//고객정보수정 DB에 업데이트
+	@Override
+	public int cuseditInsert(CustomerVO customerVO) {
+		return customer.update("customer.cuseditInsert",customerVO);
+	}
 }

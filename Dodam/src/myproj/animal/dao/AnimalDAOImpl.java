@@ -27,4 +27,10 @@ public class AnimalDAOImpl implements AnimalDAO {
 		return animalSstp.selectList("animal.animalSelect", phoneNum);
 	}
 
+	@Override
+	//고객정보수정 DB에 업데이트
+	public int animaleditInsert(AnimalVO animalVO) {
+		return animalSstp.update("animal.animaleditInsert",animalVO);//보내려는 타입이 AnimalVO 
+	}
+
 }

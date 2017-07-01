@@ -97,6 +97,25 @@ public class CustomerController {
 			return mv;
 			
 		}
+		//고객과 동물의 정보 수정한 것을 DB에 삽입
+				@RequestMapping("/editInfoInsert.dodam")
+				public ModelAndView editinfoInsert(CustomerVO customerVO, AnimalVO animalVO){
+					
+					
+					int customer = customerDAO.cuseditInsert(customerVO);
+					int animal = animalDAO.animaleditInsert(animalVO);
+					
+					ModelAndView mv= new ModelAndView();
+					
+					List<CustomerVO> result = customerDAO.list();
+					mv.addObject("listModel" , result);
+					mv.addObject("customer",customer);
+					mv.addObject("animal",animal);
+					mv.setViewName("/customer/customerView");
+					
+					return mv;
+					
+				}
 		
 		// smsView.jsp에서 동물 전체 검색~~~~
 		@RequestMapping("/smsView.dodam")

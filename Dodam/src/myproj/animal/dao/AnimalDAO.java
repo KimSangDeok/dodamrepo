@@ -11,4 +11,7 @@ public interface AnimalDAO {
 	
 	//동물 정보 검색해오기 
 	List<AnimalVO> animalSelect(String phoneNum);
+
+	//동물 정보 수정 업데이트
+	int animaleditInsert(AnimalVO animalVO);
 }
