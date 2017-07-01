@@ -17,7 +17,7 @@
 		}
 		</style>
 		<!-- end : table의 헤더 중앙정렬 -->
-		
+
 		<!-- begin : 팝업 style과 script!! -->
 		<style>
 		.popit-wrapper {
@@ -61,7 +61,7 @@
 
 
 <!-- start of div(body) -->
-<div class="body"><br/><br/>
+<div class="body"><br/>
 			
 			<!-- 팝업내용 -->
 <div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
@@ -97,207 +97,224 @@
 			
 				
 				 
-			 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-			 <div style="border:1px solid red; float:left; width:60%">
-			 	<h1>1. 해당 날짜의 미용실 예약 일정을 모두 보여준다.</h1>
+<!-- begin : DIV 1) 미용 일정을 보여주는 테이블 -->
+<div style="float:left; width:60%">
+	<div style="background-color:pink">
+	<h1>미 용 목 록</h1>
+	</div>
+
+
+	<!-- begin : 미용 목록 기간을 설정하는 datepicker -->
+	<div class="form-row">
+		<div style="float:left">
+		<input type="text" placeholder="Date range picker" id="rangedate"><div class="dt"><div class="dt__wrapper rangedate"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Tuesday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">20</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__calendar dt__end"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Saturday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">24</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_end"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__ranges"><div class="dt__ranges_item" data-range="0" "="">Yesterday</div><div class="dt__ranges_item" data-range="1" "="">Sunday</div><div class="dt__ranges_item" data-range="2" "="">2 Weeks</div><div class="dt__ranges_item" data-range="3" "="">This Month</div><div class="dt__ranges_item" data-range="4" "="">Last Month</div><div class="dt__ranges_item" data-range="5" "="">This Year</div></div></div></div>
+		</div>
+	</div><br/>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+	
+<!-- begin : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코딩 있음 꼭꼭꼭 봐야함 -->
+	<script src="/css/beauty/daterangepicker.js"></script>
+<!-- end : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코딩 있음 꼭꼭꼭 봐야함 -->
+		
+	<script type="text/javascript">
+	$(function(){
+		 $('#rangedate').DatePicker({
+		        type: 'rangedate',
+		    startDate: moment().subtract(1, 'week'),
+		    endDate: moment(),
+		    ranges: [{
+		        label: "Yesterday",
+		        startDate: moment().subtract(1, 'day'),
+		        endDate: moment().subtract(1, 'day')
+		    }, {
+		        label: 'Sunday',
+		        startDate: moment().startOf('week'),
+		        endDate: moment()
+		    }, {
+		        label: '2 Weeks',
+		        startDate: moment().startOf('week').subtract(1, 'week'),
+		        endDate: moment()
+		    }, {
+		        label: 'This Month',
+		        startDate: moment().startOf('month'),
+		        endDate: moment()
+		    }, {
+		        label: 'Last Month',
+		        startDate: moment().startOf('month').subtract(1, 'month'),
+		        endDate: moment().startOf('month')
+		    }, {
+		        label: 'This Year',
+		        startDate: moment().startOf('year'),
+		        endDate: moment().startOf('moth')
+		    }]
+		    });      				      
+		});
+	</script>
+	<!-- end : datepicker -->
+
 			 	
-
-
-
-		<!-- begin : 분석 기간을 설정하는 datepicker -->
-		<div class="form-row">
-			<div style="float:left">
-			<input type="text" placeholder="Date range picker" id="rangedate"><div class="dt"><div class="dt__wrapper rangedate"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Tuesday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">20</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__calendar dt__end"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Saturday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">24</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_end"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__ranges"><div class="dt__ranges_item" data-range="0" "="">Yesterday</div><div class="dt__ranges_item" data-range="1" "="">Sunday</div><div class="dt__ranges_item" data-range="2" "="">2 Weeks</div><div class="dt__ranges_item" data-range="3" "="">This Month</div><div class="dt__ranges_item" data-range="4" "="">Last Month</div><div class="dt__ranges_item" data-range="5" "="">This Year</div></div></div></div>
-			</div>
-		</div><br/>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
-		<script src="/css/goods/smalldatepicker/es5.js"></script>
-		<script type="text/javascript">
+	<table id="keywords" cellspacing="0" cellpadding="0">
+		<thead>
+		<tr>
+			<th><span>예약일자</span></th>
+			<th><span>동물명</span></th>
+			<th><span>종</span></th>
+			<th><span>고객명</span></th>
+			<th><span>핸드폰번호</span></th>
+			<th><span>미용내역</span></th>
+			<th><span>미용완료여부</span></th>
+		</tr>
+		</thead>
+	 	<tbody class="beautyTbody">     
+	     
+		<!-- db에서 BeautyService을 불러와서 뿌려줘야 한다. mapping한 key값이 대문자여서 대문자로!!-->              		
+		<c:forEach var='service' items="${beautyService}" >
+		
+		<tr>
+		<td>${service.BTY_DT}</td>
+		<td>${service.ANIMAL_NAME}</td>
+		<td>${service.ANIMAL_BREED}</td>
+		<td>${service.CUS_NAME}</td>
+		<td>${service.CUS_TEL}</td>
+		<td>${service.BTM_TYPE}</td>
+		<td>${service.BTY_OX}</td>
+		<td style="display:none">${service.CUS_ADDR}</td>
+		
+		</c:forEach>
+		</tbody>
+		</table>
+		
+		<!-- begin : 미용 내역 table js, 기능은, th를 누르면 정렬이 됨 -->
+		<script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
+			<script type="text/javascript">
 		$(function(){
-			 $('#rangedate').DatePicker({
-			        type: 'rangedate',
-			    startDate: moment().subtract(1, 'week'),
-			    endDate: moment(),
-			    ranges: [{
-			        label: "Yesterday",
-			        startDate: moment().subtract(1, 'day'),
-			        endDate: moment().subtract(1, 'day')
-			    }, {
-			        label: 'Sunday',
-			        startDate: moment().startOf('week'),
-			        endDate: moment()
-			    }, {
-			        label: '2 Weeks',
-			        startDate: moment().startOf('week').subtract(1, 'week'),
-			        endDate: moment()
-			    }, {
-			        label: 'This Month',
-			        startDate: moment().startOf('month'),
-			        endDate: moment()
-			    }, {
-			        label: 'Last Month',
-			        startDate: moment().startOf('month').subtract(1, 'month'),
-			        endDate: moment().startOf('month')
-			    }, {
-			        label: 'This Year',
-			        startDate: moment().startOf('year'),
-			        endDate: moment().startOf('moth')
-			    }]
-			    });      				      
-			});
+		   $('#keywords').tablesorter(); 
+		});
 		</script>
-		<!-- end : datepicker -->
+		<!-- end : 미용 내역 table js, 기능은, th를 누르면 정렬이 됨 -->
+		
+		
+		
+</div> 
+<!-- end : DIV 1) 미용 일정을 보여주는 테이블 -->
+	
 
-
-
-
-
-
-
-
-
-
-
-			 	
-			 		<!-- datepicker, 옵션, 저장 값 가져오자. -->
-			 		<div class="row">
-			 			<div class="col-lg-12">
-							<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a> 
-   						</div>
-					</div>
-			 		<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
-			 		
-			 	
-			 	  <table id="keywords" cellspacing="0" cellpadding="0">
-				    <thead>
-				      <tr>
-				        <th><span>예약일자</span></th>
-				        <th><span>동물명</span></th>
-				        <th><span>종</span></th>
-				        <th><span>고객명</span></th>
-				        <th><span>핸드폰번호</span></th>
-				        <th><span>미용내역</span></th>
-				        <th><span>미용완료여부</span></th>
-				      </tr>
-				    </thead>
-				    <tbody>     
-					        <!-- db에서 BeautyService을 불러와서 뿌려줘야 한다. mapping한 key값이 대문자여서 대문자로!!-->              		
-							<c:forEach var='service' items="${beautyService}" >
-								<tr ondblclick="javascript:showList('${service.CUS_TEL}')">
-							        <td>${service.BTY_DT}</td>
-							        <td>${service.ANIMAL_NAME}</td>
-							        <td>${service.ANIMAL_BREED}</td>
-							        <td>${service.CUS_NAME}</td>
-							        <td>${service.CUS_TEL}</td>
-							        <td>${service.BTM_TYPE}</td>
-							        <td>${service.BTY_OX}</td>
-							        <td style="display:none">${service.CUS_ADDR}</td>
-
-							</c:forEach>
-				    </tbody>
-				  </table>
-				 </div> 
-			 	
-			 	<!-- 미용 내역 table js -->
-				<script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
-			 	<script type="text/javascript">
-				$(function(){
-				   $('#keywords').tablesorter(); 
-				});
-				</script>
 			 	
 			 	
 			 	
-			 	
-			 	<div style="border:1px solid blue; float:left; width:40%">
-			 	<h1>2. 동물의 예약 미용 내역을 추가하여 저장한다.</h1>
+<!-- begin : DIV 2) 미용 옵션을 보여주고, 등록하는 DIV -->
+<div style="float:left; width:40%">
+	<div style="background-color:pink">
+	<h1>미 용 등 록</h1>
+	</div>
 
 
-
-
+	<!-- begin : 미용 옵션 추가하는 버튼, script(팝업을 띄운다) -->
+	<div class="row">
+		<div class="col-lg-12">
+		<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
+		<a class="registerbeauty" href="javascript:registerBeauty()">미용예약</a>  
+		</div>
+	</div>
+	<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
+	<!-- end : 미용 옵션 추가하는 버튼, script(팝업을 띄운다) -->
                 		
                 		
-			 	
-			 	
-			 	
-			 	<div class="rowOption">
-                <div class="col-xs-5">
-                    <select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
-                        
-                        <!-- db에서 BeautyOption을 불러와서 뿌려줘야 한다. -->              		
-						<c:forEach var='option' items="${beautyOption}" >
-							<option>${option.btm_type}</option>
-						</c:forEach>
-
-                    </select>
-                </div>
-                
-                <div class="col-xs-2">
-                    <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
-                    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">▶▶</button>
-                    <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
-                    <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
-                    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">◀◀</button>
-                    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
-                </div>
-                
-                <div class="col-xs-5">
-                    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
-                </div>
-            </div>
-			 </div>
-
+	<!-- begin : 미용 옵션 추가 drag -->		 	
+	<div class="rowOption">
+		<div class="col-xs-5">
+			<select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
+				<!-- db에서 BeautyOption을 불러와서 뿌려줘야 한다. -->              		
+				<c:forEach var='option' items="${beautyOption}" >
+				<option>${option.btm_type}</option>
+				</c:forEach>
+			</select>
+		</div>
+	            
+		<div class="col-xs-2">
+		    <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
+		    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">▶▶</button>
+		    <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
+		    <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
+		    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">◀◀</button>
+		    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
+		</div>
+	            
+		<div class="col-xs-5">
+		    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
+		</div>
+		
+		
+		<!-- begin : 미용옵션 옮기는 script -->
+		<script type="text/javascript" src="/style/js/multiselect.js"></script>
+		<script>
+		    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		    
+		    ga('create', 'UA-39934286-1', 'github.com');
+		    ga('send', 'pageview');
+		</script>
+		<!-- end : 미용옵션 옮기는 script -->
+		
+		
+		
+	</div>	<!-- end : 미용 옵션 추가 drag -->	
+</div>	<!-- begin : DIV 2) 미용 옵션을 보여주고, 등록하는 DIV -->
+	
 
 			 
 </div> <!-- end of div(body) -->
 
 
 
-<!-- begin : 미용옵션 옮기는 script -->
-<script type="text/javascript" src="/style/js/multiselect.js"></script>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    
-    ga('create', 'UA-39934286-1', 'github.com');
-    ga('send', 'pageview');
-</script>
-<!-- end : 미용옵션 옮기는 script -->
+
 
 
 
 <script>
-// 테이블을 클릭했을 때
-function showList(cus_tel){
+// 미용 예약 버튼을 클릭했을 때, DB에 예약이 되게 해줘야 해요~
+function registerBeauty(){
+	alert("예약 서지");
 	
-	var result = new Array();
+	// 1) ajax로 등록을하고,,,
+	// 2) table의 전체 내용을 다시 뿌려주는....(오늘날짜라면 에약날짜가~~)
 	
-	<c:forEach items="${beautyService}" var="service">
-	
-		var json = new Object();
-		json.cus_name="${service.CUS_NAME}";
-		json.cus_tel="${service.CUS_TEL}";
-		json.animal_name="${service.ANIMAL_NAME}";
-		json.animal_breed="${service.ANIMAL_BREED}";
-		json.cus_addr="${service.CUS_ADDR}"
+/* 	$.ajax({
+		url : "/beauty/registerBeauty.dodam",
+		type : "get",
+		data : {"btm_type":, "bty_dt":, "animal_num":}
 		
-		if(cus_tel=="${service.CUS_TEL}"){
-			result.push(json);
-		}
 		
-	</c:forEach>
+		
+		
+		
+		
+		
+	}) */
 	
-	$('#cusname').val(result[0].cus_name);
-	$('#custel').val(result[0].cus_tel);
-	$('#animalname').val(result[0].animal_name);
-	$('#animalbreed').val(result[0].animal_breed);
-	$('#cusaddr').val(result[0].cus_addr);
+	
+	
+	
+	
+	
 	
 	
 }
+
+// 테이블을 클릭했을 때
+ function showList(cus_tel, cus_name, animal_name, animal_breed, cus_addr){
+	
+	/* 값들이~, 위의 info에 적히도록!!! */
+	$('#cusname').val(cus_name);
+	$('#custel').val(cus_tel);
+	$('#animalname').val(animal_name);
+	$('#animalbreed').val(animal_breed);
+	$('#cusaddr').val(cus_addr);
+		
+} 
 
 function layer_open(el){
 
@@ -368,22 +385,7 @@ $(document).ready(function() {
     	})	
     })
     
-    // 미용 스케쥴 테이블에서 표 내용을 클릭하면 그 해당 내용을 옆에 뿌려야주...
 
-    
-    
-/*     $('#keywords tr td').bind('click', function(){
-				
-    	var table = $('#keywords');
-    	
-    		alert($(this).text());
-			alert($(this).parent().index('tr'));
-			
-			alert($('#keywords:eq(1):eq(1)'));
-			
-			
-    }) */	
-    
     
 
 });
@@ -391,6 +393,3 @@ $(document).ready(function() {
 
 
 
-
-
-</div>

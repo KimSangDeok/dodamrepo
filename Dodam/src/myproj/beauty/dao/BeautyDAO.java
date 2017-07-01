@@ -1,5 +1,6 @@
 package myproj.beauty.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,9 @@ public interface BeautyDAO {
 
 	// 오늘의 미용 내역 목록 가져오기
 	List<Map<String, String>>  searchBeautyServiceList();
+
+	// datepicker range를 바꾸었을 때, (hide) 이럴 시, 날짜에 해당하는 뷰티내역을 검색
+	List<Map<String, String>> changeDateBeautyList(HashMap<String, String> dateMap);
 
 	
 	
