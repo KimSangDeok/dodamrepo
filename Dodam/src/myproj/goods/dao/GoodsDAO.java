@@ -22,7 +22,7 @@ public interface GoodsDAO {
 	List<GoodsVO> goodsSearchmedi(GoodsVO goodsVO);
 
 	//상품추가하는 부분
-	int goodsInsert(GoodsVO goodsVO);
+	void goodsInsert(GoodsVO goodsVO);
 
 	
 	

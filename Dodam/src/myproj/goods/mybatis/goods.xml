@@ -10,18 +10,21 @@ select g.*, s.STOCK_COUNT
 from goods g, stock s 
 where s.stock_name=g.stock_name and not s.stock_count =0
 </select>
+
 <!-- 상품 검색하는 부분 -->
 <select id="searchList" parameterType="String" resultType="myproj.goods.dto.GoodsVO">
 select g.*, s.STOCK_COUNT 
 from goods g, stock s 
 where s.stock_name=g.stock_name and not s.stock_count =0 and s.stock_name like '%'||#{goodsSearch}||'%'
 </select>
+
 <!-- 상품추가할 때 의약품 검색하는 부분 -->
 <select id="searchmedi" parameterType="myproj.goods.dto.GoodsVO" resultType="myproj.goods.dto.GoodsVO">
 	select *
 	from MEDICINE_TOTAL
 	where medi_name like '%'||#{medi_name}||'%' and medi_use=#{medi_use}
 </select>
+
 <!-- 상품추가버튼 눌렀을 때 상품 등록하는 부분 -->
 <insert id="goodsInsert" parameterType="myproj.goods.dto.GoodsVO">
  insert into goods(goods_num, stock_name, goods_date_in,goods_price_in,goods_price_out,
@@ -29,9 +32,28 @@ where s.stock_name=g.stock_name and not s.stock_count =0 and s.stock_name like '
  values(seq_goods.nextval,#{stock_name},#{goods_date_in},#{goods_price_in},
  		#{goods_price_out},#{goods_count_in},#{goods_use},#{goods_inout_type},#{medi_componentkor},#{medi_componenteng})
 </insert>
+
+<!-- 현재 재고에 있는지 없는지 확인하는 부분 -->
+<select id="goodsexist" parameterType="myproj.goods.dto.GoodsVO" resultType="int">
+   		select count(*) from stock where stock_name=#{stock_name}
+</select>
 <!-- 상품추가버튼 눌렀을 때 재고에 등록하는 부분 -->
 <insert id="stockInsert" parameterType="myproj.goods.dto.GoodsVO">
- INSERT INTO stock VALUES(#{stock_name},#{goods_count_in})
+     INSERT INTO stock VALUES(#{stock_name},#{goods_count_in})
+</insert>
+
+<!-- 상품이 있을 경우 카운트 증가하는 부분  -->
+<insert id="stockUpdate1" parameterType="myproj.goods.dto.GoodsVO">
+     update stock set STOCK_COUNT=STOCK_COUNT+#{goods_count_in} where stock_name=#{stock_name}         
+</insert>
+
+<!-- 상품 있을 경우 가격, 입고수량 증가하는 부분 -->
+<insert id="stockUpdate2" parameterType="myproj.goods.dto.GoodsVO">
+	update goods set 
+	goods_count_in=goods_count_in+#{goods_count_in},
+	goods_price_in=#{goods_price_in},
+	goods_price_out=#{goods_price_out}
+	where stock_name=#{stock_name}
 </insert>
 
 <!-- 입고내역 불러오는 부분 -->

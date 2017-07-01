@@ -172,11 +172,13 @@
         <tr class="noExl">
           <th>입/출고</th>
           <th>품목명</th>
-          <th>날짜</th>
+          <th>입고날짜</th>
+          <th>출고날짜</th>
+          <th>입고가격</th>
+          <th>판매가격</th>
           <th>용도</th>
-          <th>상품구분</th>          
-          <th>수량</th>
-          <th>가격</th>          
+          <th>입고수량</th>          
+          <th>판매수량</th>     
         </tr>
       </thead>
       <tbody>

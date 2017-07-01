@@ -46,13 +46,16 @@ public class GoodsDAOImpl implements GoodsDAO{
 //	}
 	
 	//상품 추가하는 부분
-	public int goodsInsert(GoodsVO goodsVO) {
+	public void goodsInsert(GoodsVO goodsVO) {
 		
+		int exist = goods.selectOne("goods.goodsexist",goodsVO);		
 		int goodsresult = goods.insert("goods.goodsInsert",goodsVO);
-		int stockresult = goods.insert("goods.stockInsert",goodsVO);
-		
-		int result = goodsresult + stockresult;		
-		return goodsresult;
+		if(exist>0){
+			int stockresult1 = goods.insert("goods.stockUpdate1",goodsVO);
+			int stockresult2 = goods.insert("goods.stockUpdate2",goodsVO);
+		}else{
+			int stockresult = goods.insert("goods.stockInsert",goodsVO);
+		}
 	}
 	
 	

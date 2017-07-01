@@ -75,7 +75,7 @@ public class GoodsController {
 	//상품등록하는 부분 
 	@RequestMapping("/goodsInsert.dodam")
 	public String goodsInsert(GoodsVO goodsVO){
-		int goods = goodsDAO.goodsInsert(goodsVO);
+		goodsDAO.goodsInsert(goodsVO);
 		return "redirect:goodsShow.dodam";	
 
 	}	
