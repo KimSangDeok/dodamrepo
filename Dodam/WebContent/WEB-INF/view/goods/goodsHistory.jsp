@@ -131,22 +131,21 @@
     		</div>
     		<div style="float:left;">
     		<select>
-    			<option></option>
     			<option>입고</option>
     			<option>출고</option>
     		</select>
     		</div>
     		</div>
- <!-- 상품구분 셀렉트 박스 -->   		
+ <!-- 용도 셀렉트 박스 -->   		
     	<div style="float:left;padding-top:20px;padding-right:30px;">
     		<div style="float:left;">
-    		<label style="font-size:15px;padding-right:10px;">상품구분</label>
+    		<label style="font-size:15px;padding-right:10px;">용도</label>
     		</div>
     		<div style="float:left;">
     		<select>
     			<option></option>
-    			<option>전체</option>
-    			<option>용품</option>
+    			<option>동물용의약품</option>
+		    	<option>동물용의약외품</option>
     		</select>
     		</div>
     	</div>
@@ -171,135 +170,17 @@
 	<table class="table" id="table2excel">
       <thead>
         <tr class="noExl">
-       	  <th>
-       	   #
-          </th>
-          <th>
-          	날짜
-          </th>
-          <th>
-          	시간
-          </th>
-          <th>
-          	상품구분
-          </th>
-          <th>
-          	상품명
-          </th>
-          <th>
-          	유효기간
-          </th>
-          <th>
-          	수량
-          </th>
-          <th>
-          	금액
-          </th>
-          <th>
-          	입/출고
-          </th>
+          <th>입/출고</th>
+          <th>품목명</th>
+          <th>날짜</th>
+          <th>용도</th>
+          <th>상품구분</th>          
+          <th>수량</th>
+          <th>가격</th>          
         </tr>
       </thead>
       <tbody>
-        <tr class="active">
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>
-          <td>2</td>   
-          <td>2</td>
-          <td>2</td>      
-        </tr>
-        <tr class="success">
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr class="info">
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-          <td>6</td>
-        </tr>
-        <tr class="warning">
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-          <td>7</td>
-           <td>7</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-        </tr>
-        <tr class="danger">
-          <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-         <td>9</td>
-        </tr>
+<!--append해서 들어올부분 -->
       </tbody>
     </table>
     	<div style="float:right">
@@ -351,9 +232,19 @@
 				        startDate: moment().startOf('year'),
 				        endDate: moment().startOf('moth')
 				    }]
-				    });      				      
+				    });  
+
+///////////////////////////////
+
+
+
+
+
 				});
 </script>
+
+
+
 		
 <script type="text/javascript">
 

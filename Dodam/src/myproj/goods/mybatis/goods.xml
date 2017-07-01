@@ -6,25 +6,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="goods">
 <!-- 상품 처음에 모든리스트 불러오는 부분 -->
 <select id="goodslist" resultType="myproj.goods.dto.GoodsVO">
-	select *
-	from goods
-	ORDER BY goods_name
+select g.*, s.STOCK_COUNT 
+from goods g, stock s 
+where s.stock_name=g.stock_name and not s.stock_count =0
 </select>
 <!-- 상품 검색하는 부분 -->
 <select id="searchList" parameterType="String" resultType="myproj.goods.dto.GoodsVO">
-	select *
-	from goods
-	where goods_name like '%'||#{goodsSearch}||'%'
+select g.*, s.STOCK_COUNT 
+from goods g, stock s 
+where s.stock_name=g.stock_name and not s.stock_count =0 and s.stock_name like '%'||#{goodsSearch}||'%'
 </select>
-<!-- 상품추가할 때 의약품 구분하는 부분 -->
-<select id="searchmedi" parameterType="String" resultType="myproj.goods.dto.GoodsVO">
+<!-- 상품추가할 때 의약품 검색하는 부분 -->
+<select id="searchmedi" parameterType="myproj.goods.dto.GoodsVO" resultType="myproj.goods.dto.GoodsVO">
 	select *
 	from MEDICINE_TOTAL
-	where medi_name like '%'||#{medisearchtxt}||'%'
+	where medi_name like '%'||#{medi_name}||'%' and medi_use=#{medi_use}
 </select>
-<!-- 상품 등록하는 부분 -->
+<!-- 상품추가버튼 눌렀을 때 상품 등록하는 부분 -->
 <insert id="goodsInsert" parameterType="myproj.goods.dto.GoodsVO">
- INSERT INTO goods VALUES( #{goods_name} , #{goods_date} ,#{goods_use} ,#{goods_price_in} ,#{goods_type} ,#{goods_count},#{goods_price_out})
+ insert into goods(goods_num, stock_name, goods_date_in,goods_price_in,goods_price_out,
+ 					goods_count_in,goods_use,goods_inout_type,medi_componentkor,medi_componenteng) 
+ values(seq_goods.nextval,#{stock_name},#{goods_date_in},#{goods_price_in},
+ 		#{goods_price_out},#{goods_count_in},#{goods_use},#{goods_inout_type},#{medi_componentkor},#{medi_componenteng})
 </insert>
+<!-- 상품추가버튼 눌렀을 때 재고에 등록하는 부분 -->
+<insert id="stockInsert" parameterType="myproj.goods.dto.GoodsVO">
+ INSERT INTO stock VALUES(#{stock_name},#{goods_count_in})
+</insert>
+
+<!-- 입고내역 불러오는 부분 -->
+<!-- 상품 처음에 모든리스트 불러오는 부분 -->
+<!-- <select id="historylist" resultType="myproj.goods.dto.GoodsVO"> -->
+<!-- 	select * -->
+<!-- 	from goods -->
+<!-- 	ORDER BY goods_name -->
+<!-- </select> -->
 
 </mapper>

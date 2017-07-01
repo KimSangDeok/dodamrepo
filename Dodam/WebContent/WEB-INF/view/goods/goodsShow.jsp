@@ -216,7 +216,7 @@ text-overflow;
             <h4 class="popit-title">도담도담-상품추가/편집</h4>
           </div>
 <!-- 팝업창 바디부분 -->
-		<form id="formgoods" method="post" action="/goods/goodsInsert.dodam">
+		<form id="formgoods" method="post" action="/goods/goodsInsert.dodam">					
           <div class="popit-body" id="bodycontainer">
             <div class="content-wrapper">
 <!--용도 -->
@@ -227,37 +227,21 @@ text-overflow;
             		<div style="float:left; padding-left:48px">
             			<select id="goods_use" name="goods_use">
             				<option></option>
-		    				<option>동물의약품</option>
-		    				<option>의약외품</option>
+		    				<option>동물용의약품</option>
+		    				<option>동물용의약외품</option>
 			    		</select>
             		</div>
             	</div>
 
-
-            	
-<!-- 상품구분 -->
-            	<div class="goodsitem">
-            		<div style="float:left">
-            			<label>상품구분</label>
-            		</div>
-            		<div style="float:left; padding-left:20px">
-            			<select id="goods_type" name="goods_type">
-						<!--옵션이 append되어서 들어올 부분 -->
-			    		</select>
-            		</div>
-            	</div>
-<!--품목명 -->
+<!--팝업창 품목명 검색 창-->
             	 <div class="goodsitem">
             		<div style="float:left">
             			<label>품목명</label>
             		</div>
-            		<div style="float:left; padding-left:34px;display:block" id="goodsnamediv1">
-            			<input type="text" id="medisearchtxt" name="medisearchtxt" style="width:150px;"/>
+            		<div style="float:left; padding-left:34px;" id="goodsnamediv1">
+            			<input type="text" id="medisearchtxt" name="medisearchtxt" style="width:100px;"/>
             		</div>
-            		<div style="float:left; padding-left:34px;display:none" id="goodsnamediv2">
-            			<input type="text" id="goodsnametxt" name="goods_name" style="width:150px;"/>
-            		</div>
-            		<div style="float:left; padding-left:10px;display:block" id="goodsnamediv3">
+            		<div style="float:left; padding-left:10px;" id="goodsnamediv3">
             			<button type="button" id ="mediSearch"class="btn btn-info" style="font-size:10px">검색</button>
             		</div>
             	</div>            	
@@ -267,16 +251,16 @@ text-overflow;
             			<label>입고가격</label>
             		</div>
             		<div style="float:left; padding-left:48px">
-            			<input type="text" id="goods_price_in" name="goods_price_in" style="width:150px;"/>
+            			<input type="text" id="goods_price_in" name="goods_price_in" style="width:100px;"/>
             		</div>
             	</div>
-  <!-- 판매가격 -->          	
+ <!-- 판매가격 -->          	
             	<div class="goodsitem">
             		<div style="float:left">
             			<label>판매가격</label>
             		</div>
-            		<div style="float:left; padding-left:48px">
-            			<input type="text" id="goods_price_out" name="goods_price_out" style="width:150px;"/>
+            		<div style="float:left; padding-left:18px">
+            			<input type="text" id="goods_price_out" name="goods_price_out" style="width:100px;"/>
             		</div>
             	</div>
             	
@@ -286,20 +270,33 @@ text-overflow;
             			<label>입고날짜</label>
             		</div>
             		<!-- 작은달력 화면 -->
-				<div class="form-row">
-				<input type="text" placeholder="Date picker" id="singleDateRange" name="goods_date"><div class="dt"><div class="dt__wrapper"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Sunday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">25</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d ">20</div><div class="dt__calendar_m_d ">21</div><div class="dt__calendar_m_d ">22</div><div class="dt__calendar_m_d ">23</div><div class="dt__calendar_m_d ">24</div><div class="dt__calendar_m_d active">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div></div></div>
+				<div class="form-row" style="width:300px">
+				<input type="text" placeholder="Date picker" id="singleDateRange" name="goods_date_in"><div class="dt"><div class="dt__wrapper"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Sunday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">25</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d ">20</div><div class="dt__calendar_m_d ">21</div><div class="dt__calendar_m_d ">22</div><div class="dt__calendar_m_d ">23</div><div class="dt__calendar_m_d ">24</div><div class="dt__calendar_m_d active">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div></div></div>
 				</div>	        
 			<!-- 작은달력 화면 끝 -->
             	</div> 
-<!-- 수량 -->
+<!-- 입고수량 -->
             	<div class="goodsitem" style="margin-bottom:20px">
             		<div style="float:left">
-            			<label>수량</label>
+            			<label>입고수량</label>
             		</div>
             		<div style="float:left; padding-left:48px">
-            			<input type="text" id="goods_count" name="goods_count" style="width:150px;"/>
+            			<input type="text" id="goods_count" name="goods_count_in" style="width:100px;"/>
             		</div>
-            	</div>             	             	
+            	</div>
+<!-- 입출고 구분 -->
+            	<div class="goodsitem" style="margin-bottom:20px">
+            		<div style="float:left">
+            			<label>입출고구분</label>
+            		</div>
+            		<div style="float:left; padding-left:48px">
+            			<input type="radio" style="float:left;" id="goods_inout_type" name="goods_inout_type" value="입고" checked="checked">
+            			<label style="float:left">입고</label>
+            			<input type="radio" style="float:left;" id="goods_inout_type" name="goods_inout_type" value="출고">            			
+            			<label style="float:left">출고</label>
+            		</div>
+            	</div>            	
+            	             	             	
     <div style="width:100%; height:500px; overflow:scroll">
     <table class="table" id="meditable">
       <thead>
@@ -323,6 +320,10 @@ text-overflow;
             <button type="button" class="btn btn-default popitup-close">취소</button>
             <button type="button" id="btninsert" class="btn btn-primary">등록</button>
           </div>
+<!-- 라디오버튼 누를 때 마다 히든값 주는 부분 -->
+          <input type="hidden" id="hidden_stock_name" name="stock_name">			
+		  <input type="hidden" id="hidden_medi_componentkor" name="medi_componentkor">			
+		  <input type="hidden" id="hidden_medi_componenteng" name="medi_componenteng">	
           </form>
         </div>
 </div>
@@ -337,13 +338,14 @@ text-overflow;
 	<table class="table" id="table2excel">
       <thead>
         <tr class="">
-          <th>구분</th>
+          <th>용도</th>        
           <th>품목명</th>
-          <th>용도</th>
           <th>입고가격</th>
           <th>판매가격</th>
-          <th>입고날짜</th>
-          <th>수량</th>
+          <th>입고날짜</th>          
+          <th>입고수량</th>
+          <th>판매수량</th>
+          <th>남은수량</th>
         </tr>
       </thead>
       <tbody id="tbody">  
@@ -355,14 +357,15 @@ text-overflow;
    	</c:when>
     <c:otherwise>    	
     	<c:forEach items="${goodslist}" var="a">
-    		<tr class="danger">     			   			    						
-    			<td>${a.goods_type}</td>
-    			<td>${a.goods_name}</td>
+    		<tr class="">     			   			    						
     			<td>${a.goods_use}</td>
+    			<td>${a.stock_name}</td>
     			<td>${a.goods_price_in}</td>
     			<td>${a.goods_price_out}</td>
-    			<td>${a.goods_date}</td>
-    			<td>${a.goods_count}</td>   			
+    			<td>${a.goods_date_in}</td>
+    			<td>${a.goods_count_in}</td>
+    			<td>${a.goods_count_out}</td>
+    			<td>${a.stock_count}</td>   			
     		</tr>
     	</c:forEach>   	
     </c:otherwise>
@@ -418,7 +421,6 @@ text-overflow;
 					data:"goodsSearch="+$('#goodsSearch').val(),
 					dataType : "json",
 					success:function(list){
-						alert((list[0]).goods_type);
 						var i;
 
 						for (i in list) {
@@ -428,19 +430,23 @@ text-overflow;
 						}
 						$("#tbody").text('');
 						alert(count);
+// 				var color = ["active","","success","","info","","warning","","danger",""];
+// 				alert(color[1]);
 				for(var i = 0; i<count; i++){						
 					$("#tbody").append(
 						"<tr class='danger'>"
-						+"<td>"+(list[i]).goods_type+"</td>"
-						+"<td>"+ (list[i]).goods_name +"</td>" 
-						+ "<td>"+(list[i]).goods_use +"</td>"
-						+ "<td>"+ (list[i]).goods_price_in +"</td>"
+						+"<td>"+(list[i]).goods_use+"</td>"
+						+"<td>"+ (list[i]).stock_name +"</td>" 
+						+ "<td>"+(list[i]).goods_price_in +"</td>"
 						+ "<td>"+ (list[i]).goods_price_out +"</td>"
-						+ "<td>"+(list[i]).goods_date +"</td>"
-						+ "<td>"+ (list[i]).goods_count +"</td>"
+						+ "<td>"+ (list[i]).goods_date_in +"</td>"
+						+ "<td>"+(list[i]).goods_count_in +"</td>"						
+						+ "<td>"+ (list[i]).goods_count_out +"</td>"
+						+ "<td>"+ (list[i]).stock_count +"</td>"
 						+ "</tr>"
 					);
-				}
+				}	
+				
 					},
 					error:function(request, status,error){
 			             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -450,19 +456,19 @@ text-overflow;
 			});	
 
 //			용도셀렉트박스 선택하는 옵션
-			$("#goods_use").change(function(){
-				if($("#goods_use").val() == "동물의약품"){
-					$("#goods_type option").remove();
-					$("#goods_type").append("<option>의약품</option>");
-				}else if($("#goods_use").val() == "의약외품"){
-					$("#goods_type option").remove();
-					$("#goods_type").append("<option>식품</option>");
-					$("#goods_type").append("<option>물품</option>");
-					$("#goodsnamediv2").show();
-					$("#goodsnamediv1").hide();
-					$("#goodsnamediv3").hide();
-				}
-			});
+// 			$("#goods_use").change(function(){
+// 				if($("#goods_use").val() == "동물의약품"){
+// 					$("#goods_type option").remove();
+// 					$("#goods_type").append("<option>의약품</option>");
+// 				}else if($("#goods_use").val() == "의약외품"){
+// 					$("#goods_type option").remove();
+// 					$("#goods_type").append("<option>식품</option>");
+// 					$("#goods_type").append("<option>물품</option>");
+// 					$("#goodsnamediv2").show();
+// 					$("#goodsnamediv1").hide();
+// 					$("#goodsnamediv3").hide();
+// 				}
+// 			});
 			
 			
 			//입고날짜 달력 열리는 부분
@@ -470,7 +476,7 @@ text-overflow;
 		        startDate: moment()
 		    });
 			
-			//품목 검색버튼 이벤트
+			//상품추가할 때 품목 검색버튼 이벤트
 			$("#mediSearch").click(function(){
 				
 				if($('#medisearchtxt').val()==""){
@@ -482,7 +488,7 @@ text-overflow;
 					async:true,
 					url:'/goods/goodsMediSearch.dodam',
 					contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-					data:"medisearchtxt="+$('#medisearchtxt').val(),
+					data:{"medi_name":$('#medisearchtxt').val(),"medi_use":$("#goods_use").val()},
 					dataType : "json",
 					success:function(list){
 						var i;
@@ -493,16 +499,31 @@ text-overflow;
 						    }
 						}
 						$("#meditbody").text('');
-				for(var i = 0; i<count; i++){						
-					$("#meditable").append(
-						"<tr class='danger' id='medigoods' onclick='javascript:trclick(this)'>"
-						+"<td><input type='radio' id='mediradio' name='goods_name' value='"+(list[i]).medi_name+"'/>"+(list[i]).medi_name +"</td>"
-						+"<td>"+ (list[i]).medi_use +"</td>" 
-						+"<td>"+ (list[i]).medi_componentkor +"</td>"
-						+"<td>"+ (list[i]).medi_componenteng +"</td>"
-						+"<td>"+(list[i]).medi_company +"</td>"						
-						+"</tr>"
-					);
+						
+				
+				for(var i = 0; i<count; i++){
+// 					var color = ["active","","success","","info","","warning","","danger",""];
+					$("#meditable").append(						
+							"<tr class='danger' id='medigoods' onclick='javascript:trclick(this)'>"
+							+"<td><input type='radio' id='mediradio' name='mediradio' value='"+(list[i]).medi_name+"'/>"+(list[i]).medi_name +"</td>"
+							+"<td>"+ (list[i]).medi_use +"</td>" 
+							+"<td>"+ (list[i]).medi_componentkor +"</td>"
+							+"<td>"+ (list[i]).medi_componenteng +"</td>"
+							+"<td>"+(list[i]).medi_company +"</td>"						
+							+"</tr>"						
+						);					
+// 					if(i>9){
+// 						var j=i-10;
+// 						$("#meditable").append(						
+// 								"<tr class='"+color[j]+"' id='medigoods' onclick='javascript:trclick(this)'>"
+// 								+"<td><input type='radio' id='mediradio' name='goods_name' value='"+(list[i]).medi_name+"'/>"+(list[i]).medi_name +"</td>"
+// 								+"<td>"+ (list[i]).medi_use +"</td>" 
+// 								+"<td>"+ (list[i]).medi_componentkor +"</td>"
+// 								+"<td>"+ (list[i]).medi_componenteng +"</td>"
+// 								+"<td>"+(list[i]).medi_company +"</td>"						
+// 								+"</tr>"						
+// 							);					
+// 					}					
 				}
 					},
 					error:function(request, status,error){
@@ -516,7 +537,6 @@ text-overflow;
 			
 			$("#btninsert").click(function(){
 			    if($("#goods_use").val()==""){alert("용도를 선택해 주세요");return;}
-			    else if($("#goods_type").val()==""){alert("상품구분을 선택해 주세요");return;}
 			    else if($("#medi_radio").val()==""){alert("품목을 선택해 주세요");return;}
 			    else if($("#goods_price_in").val()==""){alert("입고가격을 입력해 주세요");return;}
 			    else if($("#goods_price_out").val()==""){alert("판매가격을 입력해 주세요");return;}
@@ -530,10 +550,18 @@ text-overflow;
 			
 			
 				});
+			
 			//상품추가에서 행을 누르면 라디오 버튼 체크
 			function trclick(elem){
-
+				$(elem).children().eq(0).children().prop("checked","true");
+// 				alert($(elem).children().eq(2).html());
+// 				alert($(elem).children().eq(3).html());
+				$("#hidden_stock_name").val($(elem).children().children().val());
+				$("#hidden_medi_componentkor").val($(elem).children().eq(2).html());
+				$("#hidden_medi_componenteng").val($(elem).children().eq(3).html());				
 			}
+			
+			
 </script>
 		
 <script type="text/javascript">

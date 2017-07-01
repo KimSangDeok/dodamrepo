@@ -50,7 +50,7 @@ public class GoodsController {
 //			list = goodsDAO.historylist();
 //			ModelAndView mv = new ModelAndView();
 //			mv.addObject("historylist",list);
-//			mv.setViewName("/goods/goodsShow");
+//			mv.setViewName("/goods/goodsHistory");
 //			return mv;
 //		}
 	
@@ -58,16 +58,17 @@ public class GoodsController {
 	@RequestMapping("/goodsSearch.dodam")
 	@ResponseBody
 	public List<GoodsVO> goodsSearch(String goodsSearch){
+		
 		List<GoodsVO> list = goodsDAO.goodsSearchList(goodsSearch);
-		System.out.println(list.get(1).getGoods_name());
+		System.out.println(list.get(0).getGoods_use());
 		return list;
 	}
 	
 	//상품추가에서 품목명 검색하는 부분
 	@RequestMapping("/goodsMediSearch.dodam")
 	@ResponseBody
-	public List<GoodsVO> goodsMediSearch(String medisearchtxt){
-		List<GoodsVO> list = goodsDAO.goodsSearchmedi(medisearchtxt);
+	public List<GoodsVO> goodsMediSearch(GoodsVO goodsVO){
+		List<GoodsVO> list = goodsDAO.goodsSearchmedi(goodsVO);
 		return list;
 	}
 	
@@ -75,11 +76,8 @@ public class GoodsController {
 	@RequestMapping("/goodsInsert.dodam")
 	public String goodsInsert(GoodsVO goodsVO){
 		int goods = goodsDAO.goodsInsert(goodsVO);
-				
-		
-		
-		return "redirect:goodsShow.dodam";
-		
+		return "redirect:goodsShow.dodam";	
+
 	}	
 	
 }
