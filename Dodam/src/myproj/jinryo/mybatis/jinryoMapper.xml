@@ -18,4 +18,12 @@ from ANIMAL ani, JINRYO jry, PERSON pers, CUSTOMER cus
 where ani.ANIMAL_NUM = #{animalNum} and jry.PER_ID = pers.PER_ID and jry.ANIMAL_NUM = ani.ANIMAL_NUM and ani.CUS_TEL = cus.CUS_TEL
 </select>
 
+<select id="selectMonjinBig" resultType="string">
+select DISTINCT PA_BIG from PAPER
+</select>
+
+<select id="selectMonjinMid" parameterType="string" resultType="string">
+select DISTINCT PA_MID from PAPER where PA_BIG=#{bigMenus.getI}
+</select>
+
 </mapper>

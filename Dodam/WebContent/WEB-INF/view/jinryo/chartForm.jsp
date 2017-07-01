@@ -75,29 +75,99 @@ table tbody tr:nth-child(2n + 1) {
 
 </style>
 
+
 <!-- datepicker css -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
-  
 
-<!-- popup script -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+	$("#datepicker").datepicker();
+});
+</script>
+
+<!-- popup js -->
 <script src="/js/jquery.popitup.js"></script>
 
 <script>
 
 //선택한 버튼에 해당하는 popup open
 function popupOpen(divId) {
+	//
 	
 	$('#'+divId).popitup({
 		widthSet : window.innerWidth*0.8+'',	//팝업창 가로길이 (창 최대길이의 80%)
-		chase : false
+		chase : false,
+		onCloseModal   :  function(){
+			//닫을때 값
+		}
 	});
+	
+	
+	
+	//
+	if(divId=='monjinPopup'){
+		//한번 열리면 막기 해야함.
+		$('#monjinMenuDiv').text('');
+		$('#monjinMenuDiv').append('<iframe src="/jinryo/treeMenu/monjin.dodam?type='+divId+'" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
+		
+		return false;
+		
+		var cnt = 0;
+		$.ajax({
+			url : "/jinryo/selectMonjin.dodam",
+			type : 'get',
+			dataType : "json",
+			success : function(data){
+				
+				
+				console.log(data);
+				console.log(data.bigMenus[0]);
+				console.log(data.midMenus);
+				console.log(data.midMenus[0]);
+				console.log((data.midMenus[0])[0]);
+				for(var i in data){
+					
+					 if (data.hasOwnProperty(i)) {
+					        cnt++;
+				    }
+				}
+				console.log('cnt : '+cnt);
+				/* 
+				var text='';
+				for(var i = 0; i<cnt; i++){
+					
+					text+=''+
+					'<li class="media">'+
+						'<div class="media-body">'+
+							'<div class="media">'+
+								'<a class="pull-left" href="#">'+
+									'<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">'+
+								'</a>'+
+								'<div class="media-body">'+
+									'<table class="table-condensed">'+
+										'<tbody><tr>'+
+											'<td><small class="text-muted">보호자명</small><br>'+data[i].CUS_NAME+'</td>'+
+											'<td><small class="text-muted">환자명</small><br>'+data[i].ANIMAL_NAME+'</td>'+
+											'<td><small class="text-muted">품종</small><br>'+data[i].ANIMAL_BREED+'</td>'+
+											'<td><small class="text-muted">담당의</small><br>'+data[i].PER_NAME+'</td>'+
+											'<td><small class="text-muted">차트번호</small><br>'+data[i].JRYO_NUM+'</td>'+
+											'<td><small class="text-muted">등록일</small><br>'+data[i].JRYO_DT+'</td>'+
+										'</tr>'+
+									'</tbody></table>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+					'</li>';
+				}
+				$('#chartHistoryListUl').text('');
+				$('#chartHistoryListUl').append(text); */
+			},
+			 error:function(request, status,error){
+	             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	         }
+		});
+	}
 }
 </script>
 
@@ -175,7 +245,9 @@ function popupOpen(divId) {
 				<h4 class="popit-title">분류</h4>
 			</div>
 			<!-- 질문 iframe -->
-			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe>
+			<div id="monjinMenuDiv">
+<!-- 				<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe> -->
+			</div>
 		</div>
 		<!-- End 왼쪽 문진메뉴 div-->
 		
@@ -236,7 +308,74 @@ function popupOpen(divId) {
 				<h4 class="popit-title">category</h4>
 			</div>
 			<!-- 증상분류 iframe -->
-			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe>
+<!-- 			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe> -->
+			
+			
+			
+			
+			
+			
+<!-- <div class="container" style="margin-top:30px;">
+    <div class="row">
+        <div class="col-md-4">
+            <ul id="tree2">
+                <li><a href="#">TECH</a>
+                    <ul>
+                        <li>Company Maintenance</li>
+                        <li>Employees
+                            <ul>
+                                <li>Reports
+                                    <ul>
+                                        <li>Report1</li>
+                                        <li>Report2</li>
+                                        <li>Report3</li>
+                                    </ul>
+                                </li>
+                                <li>Employee Maint.</li>
+                            </ul>
+                        </li>
+                        <li>Human Resources</li>
+                    </ul>
+                </li>
+                <li>XRP
+                    <ul>
+                        <li>Company Maintenance</li>
+                        <li>Employees
+                            <ul>
+                                <li>Reports
+                                    <ul>
+                                        <li>Report1</li>
+                                        <li>Report2</li>
+                                        <li>Report3</li>
+                                    </ul>
+                                </li>
+                                <li>Employee Maint.</li>
+                            </ul>
+                        </li>
+                        <li>Human Resources</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 		<!-- End 왼쪽 카테고리 div-->
 		
@@ -400,7 +539,7 @@ function popupOpen(divId) {
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Tx</h4>
 			</div>
 			<div style="width: 20%; height:90%; float: left;">
-				<iframe src="/jinryo/monjinType.dodam" "></iframe>
+<!-- 				<iframe src="/jinryo/monjinType.dodam" "></iframe> -->
 			</div>
 			<div style="width: 80%; height:90%; float: left;">
 				<table>
@@ -435,7 +574,7 @@ function popupOpen(divId) {
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Rx</h4>
 			</div>
 			<div style="width: 20%; height:90%; float: left;">
-				<iframe src="/jinryo/monjinType.dodam" "></iframe>
+<!-- 				<iframe src="/jinryo/monjinType.dodam" "></iframe> -->
 			</div>
 			<div style="width: 80%; height:90%; float: left;">
 				<table>
