@@ -2,6 +2,7 @@ package myproj.customer.dto;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,7 @@ public class CustomerVO {
 	private String cus_memo;
 	private String cus_hospital;
 	private String cusfile_name;
+	private String cushidden;
 
 	MultipartFile file; //file 변수명과 view에서의 파일 name이 같아야함 (name='file')
 	
@@ -26,22 +28,25 @@ public class CustomerVO {
 	public void setFile(MultipartFile file){
 		//파일 업로드 코딩
 		
-		this.cusfile_name = file.getOriginalFilename()+"_"+System.currentTimeMillis();
-		
-		
-		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+cusfile_name); 
-		
-		//파일을 저장할 경로를 설정
-		long time = System.currentTimeMillis();
-		try {
+		if(!(file.getOriginalFilename().equals(cushidden) )) { 
+			System.out.println("고객");
+			this.cusfile_name = file.getOriginalFilename()+"_"+System.currentTimeMillis();
 			
-			file.transferTo(f);
+			File f = new File("C:\\sm\\Finalworkspace\\DodamCopy2\\WebContent\\imageupload\\"+cusfile_name); 
 			
-		} catch (IllegalStateException e) {				
-			e.printStackTrace();
-		} catch (IOException e) {
+			//파일을 저장할 경로를 설정
 			
-			e.printStackTrace();
+			try {
+				file.transferTo(f);
+				
+			} catch (IllegalStateException e) {				
+				e.printStackTrace();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}else if(file.getOriginalFilename().equals(cushidden) ){
+			
 		}
 	}
 	
@@ -89,7 +94,18 @@ public class CustomerVO {
 	}
 
 	public void setCusfile_name(String cusfile_name) {
-		this.cusfile_name = cusfile_name;
+		System.out.println("");
+			this.cusfile_name = cusfile_name;
 	}
+
+	public String getCushidden() {
+		return cushidden;
+	}
+
+	public void setCushidden(String cushidden) {
+		this.cushidden = cushidden;
+	}
+	
+	
 
 }

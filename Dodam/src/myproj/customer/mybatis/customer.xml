@@ -24,7 +24,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 고객정보 수정 DB에 UPDATE하는 SQL 문장 -->
 <update id="cuseditInsert" parameterType="myproj.customer.dto.CustomerVO">
-	UPDATE customer set  cusfile_name=#{cusfile_name}, cus_name = #{cus_name} ,cus_tel=#{cus_tel} , cus_addr = #{cus_addr},
+	UPDATE customer set  
+	<if test="cusfile_name != null">
+	cusfile_name=#{cusfile_name}, 
+	</if>
+	cus_name = #{cus_name} ,cus_tel=#{cus_tel} , cus_addr = #{cus_addr},
 		cus_hospital = #{cus_hospital}, cus_memo = #{cus_memo} where cus_tel=#{cus_tel} 
 </update>
 

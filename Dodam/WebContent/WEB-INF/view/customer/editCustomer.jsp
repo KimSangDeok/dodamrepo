@@ -246,8 +246,8 @@ $(document).ready(function(){
 					<div>
 						<p style="float: left;">please click here and upload your picture</p><br/><br/>
 						<br/><br/>
-
-						<div id="cusfile" class="file-upload" name="file" data-input-name="file" style="background-image:url(/imageupload/${cusInfo.cusfile_name})  " >
+						<input type="hidden"class="file-upload" name="cushidden" style="background-image:url(/imageupload/${cusInfo.cusfile_name})"/>
+						<div id="cusfile" class="file-upload" name="file" data-input-name="file" style="background-image:url(/imageupload/${cusInfo.cusfile_name})" >
 						</div>
 
 					</div>
@@ -294,7 +294,8 @@ $(document).ready(function(){
 				 
 				  <c:forEach items="${aniInfo}" var="aniInfo">
 				   <div id="bigdiv" style="margin-top:20px; ">
-			        <div id="cusfile" class="file-upload" data-input-name="file2" name="file2" style="  margin-top:10px; background-image:url(/imageupload/${aniInfo.animalfile_name})  " >
+				   <input type="hidden"class="file-upload" name="animalhidden" style="background-image:url(/imageupload/${aniInfo.animalfile_name})"/>
+			        <div id="cusfile" class="file-upload" data-input-name="file2" name="file2" style="  margin-top:10px; background-image:url(/imageupload/${aniInfo.animalfile_name})" >
 				 	</div>
 				 	<div class="animalinfo" >
 	                	<a class="name" style="float: left; margin-left:110px;">

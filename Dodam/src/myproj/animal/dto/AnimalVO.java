@@ -2,6 +2,7 @@ package myproj.animal.dto;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,6 +20,7 @@ public class AnimalVO {
 	private String  animal_duedate;
 	private String  cus_tel;
 	private String  animalfile_name;
+	private String  animalhidden;
 	
 	MultipartFile file2;
 	
@@ -28,9 +30,11 @@ public class AnimalVO {
 	
 	public void setFile2(MultipartFile file2) {
 		
+		if(!(file2.getOriginalFilename().equals(animalhidden) )) { 
+			System.out.println("동물");
 		this.animalfile_name = file2.getOriginalFilename()+"_"+System.currentTimeMillis();
 		
-		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+animalfile_name);
+		File f = new File("C:\\sm\\Finalworkspace\\DodamCopy2\\WebContent\\imageupload\\"+animalfile_name);
 		
 		try{
 			file2.transferTo(f);
@@ -40,6 +44,9 @@ public class AnimalVO {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
+		}
+		}else{
+			
 		}
 	}
 	public String getAnimal_num() {
@@ -120,6 +127,17 @@ public class AnimalVO {
 	public void setAnimalfile_name(String animalfile_name) {
 		this.animalfile_name = animalfile_name;
 	}
+
+	public String getAnimalhidden() {
+		return animalhidden;
+	}
+
+	public void setAnimalhidden(String animalhidden) {
+		this.animalhidden = animalhidden;
+	}
+
+
+	
 	
 	
 }
