@@ -28,7 +28,7 @@ public class AnimalVO {
 	
 	public void setFile2(MultipartFile file2) {
 		
-		this.animalfile_name = file2.getOriginalFilename();
+		this.animalfile_name = file2.getOriginalFilename()+"_"+System.currentTimeMillis();
 		
 		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+animalfile_name);
 		

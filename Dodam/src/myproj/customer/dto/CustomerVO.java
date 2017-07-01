@@ -26,13 +26,15 @@ public class CustomerVO {
 	public void setFile(MultipartFile file){
 		//파일 업로드 코딩
 		
-		this.cusfile_name = file.getOriginalFilename();
+		this.cusfile_name = file.getOriginalFilename()+"_"+System.currentTimeMillis();
+		
 		
 		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+cusfile_name); 
 		
 		//파일을 저장할 경로를 설정
-		
+		long time = System.currentTimeMillis();
 		try {
+			
 			file.transferTo(f);
 			
 		} catch (IllegalStateException e) {				
