@@ -51,4 +51,26 @@ public class BeautyDAOImpl implements BeautyDAO {
 		return beauty.insert("beauty.registerBeauty", beautyServiceVO);
 	}
 
+	// 미용을 완료한다.
+	@Override
+	public void doneBeautyService(BeautyServiceVO beautyServiceVO) {
+		// 1. 수납테이블에 미용 완료했으니 가격이랑 등록되게!
+		beauty.insert("beauty.registerPay", beautyServiceVO);
+		// 2. beautyService에서 완료로 수정
+		beauty.update("beauty.doneBeautyService", beautyServiceVO);	
+	}
+
+	// 미용코드를 가지고 목록 하나를 가져온다.
+	@Override
+	public BeautyServiceVO searchBeautyOne(BeautyServiceVO beautyServiceVO) {
+		return beauty.selectOne("beauty.beautyOne", beautyServiceVO);
+	}
+
+	@Override
+	public BeautyVO searchPrice(String option) {
+		return beauty.selectOne("beauty.beautyOptionPrice", option);
+	}
+
+
+
 }

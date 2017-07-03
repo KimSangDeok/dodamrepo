@@ -223,16 +223,20 @@
 	<!-- end : 미용 일정을 등록하는 datepicker -->
 
 
-	<!-- begin : 미용 옵션 추가하는 버튼, script(팝업을 띄운다) -->
+	<!-- begin : 미용 옵션 추가하는 버튼, script(팝업을 띄운다), 미용예약, 미용하기 버튼 3가지 -->
 	<div class="row">
+		<form method='get' action="/beauty/beautyCam.dodam">
 		<div class="col-lg-12">
 		<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
-		<a class="registerbeauty" href="javascript:registerBeauty()">미용예약</a>  
+		<a class="registerbeauty" href="javascript:registerBeauty()">미용예약</a> 
+		<input type="hidden" name="bty_code" id="bty_code">	
+		<input type="submit" class="registerbeauty" value="미용하기">
 		</div>
+		</form>
 	</div>
 	<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
-	<!-- end : 미용 옵션 추가하는 버튼, script(팝업을 띄운다) -->
-                		
+	<!-- end : 미용 옵션 추가하는 버튼, script(팝업을 띄운다), 미용예약, 미용하기 버튼 3가지 -->
+                			
                 		
 	<!-- begin : 미용 옵션 추가 drag -->		 	
 	<div class="rowOption">
@@ -291,7 +295,6 @@
 // 미용 예약 버튼을 클릭했을 때, DB에 예약이 되게 해줘야 해요~
 function registerBeauty(){
 	
-	
 	// 미용을 등록할 select의 option을 모두 다 넣는다.
 	var opts_val = [];
 	
@@ -334,18 +337,10 @@ function registerBeauty(){
   			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
    		}  
 	})
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 // 테이블을 클릭했을 때
- function showList(cus_tel, cus_name, animal_name, animal_breed, animal_num, cus_addr){
+ function showList(bty_code, cus_tel, cus_name, animal_name, animal_breed, animal_num, cus_addr){
 	
 	/* 값들이~, 위의 info에 적히도록!!! */
 	$('#cusname').val(cus_name);
@@ -354,6 +349,8 @@ function registerBeauty(){
 	$('#animalbreed').val(animal_breed);
 	$('#cusaddr').val(cus_addr);
 	$('#animalnum').val(animal_num);
+	
+	$('#bty_code').val(bty_code);
 		
 } 
 
@@ -388,7 +385,8 @@ function layer_open(el){
 		e.preventDefault();
 	});
 
-}				
+}
+
 </script>
 
 

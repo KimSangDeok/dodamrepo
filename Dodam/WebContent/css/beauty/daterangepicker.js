@@ -42,12 +42,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             // datepicker range의 초기값을 무조건 오늘 날짜로 설정하기위함.
             
-            this.viewStartDate = this.params.startDate;
- //           this.viewEndDate = this.params.startDate;
+ //           this.viewStartDate = this.params.startDate;
+           this.viewStartDate = this.params.endDate;
             this.viewEndDate = this.params.endDate;
 
-            this.dateStart = this.params.startDate.clone();
-//            this.dateEnd = this.params.startDate.clone();
+ //           this.dateStart = this.params.startDate.clone();
+            this.dateStart = this.params.endDate.clone();
            this.dateEnd = this.params.endDate.clone();
 
             this.render.call(this);
@@ -391,7 +391,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         					
       					$('.beautyTbody').append
         					(
-        					'<tr onclick="javascript:showList('+"'"+data[i].CUS_TEL+"', '"+data[i].CUS_NAME+"', '"+data[i].ANIMAL_NAME+"', '"+data[i].ANIMAL_BREED+"', '"+data[i].ANIMAL_NUM+"', '"+data[i].CUS_ADDR+"'"+')">'+
+        					'<tr onclick="javascript:showList('+"'"+data[i].BTY_CODE+"', '"+data[i].CUS_TEL+"', '"+data[i].CUS_NAME+"', '"+data[i].ANIMAL_NAME+"', '"+data[i].ANIMAL_BREED+"', '"+data[i].ANIMAL_NUM+"', '"+data[i].CUS_ADDR+"'"+')">'+
         					'<td>'+data[i].BTY_DT+'</td>'+
         					'<td>'+data[i].ANIMAL_NAME+'</td>'+
         					'<td>'+data[i].ANIMAL_BREED+'</td>'+

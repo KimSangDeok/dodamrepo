@@ -8,6 +8,7 @@ public class BeautyServiceVO {
 	static String bty_dt;		// 미용 날짜
 	static String bty_ox;		// 미용 했는지 여부
 	static String animal_num;	// 미용 받는 동물 번호
+	static int bty_price;		// 미용 옵션의 총 가격
 	
 	// 위의 변수의 getter setter
 	public static String getBty_code() {
@@ -16,7 +17,6 @@ public class BeautyServiceVO {
 	public static void setBty_code(String bty_code) {
 		BeautyServiceVO.bty_code = bty_code;
 	}
-
 	public static String getBtm_type() {
 		return btm_type;
 	}
@@ -40,6 +40,12 @@ public class BeautyServiceVO {
 	}
 	public static void setAnimal_num(String animal_num) {
 		BeautyServiceVO.animal_num = animal_num;
+	}
+	public static int getBty_price() {
+		return bty_price;
+	}
+	public static void setBty_price(int bty_price) {
+		BeautyServiceVO.bty_price = bty_price;
 	}
 	
 	

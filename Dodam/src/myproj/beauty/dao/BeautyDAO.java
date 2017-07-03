@@ -26,6 +26,15 @@ public interface BeautyDAO {
 	// 미용 일정을 등록한다. (초기등록)
 	int registerBeauty(BeautyServiceVO beautyServiceVO);
 
+	// 미용을 완료한다.
+	void doneBeautyService(BeautyServiceVO beautyServiceVO);
+
+	// 미용코드를 가지고 목록 하나를 가져온다.
+	BeautyServiceVO searchBeautyOne(BeautyServiceVO beautyServiceVO);
+
+	// 각 미용 코드의 가격 값을 가져온다.
+	BeautyVO searchPrice(String option);
+
 	
 	
 	
