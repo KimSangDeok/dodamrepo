@@ -15,7 +15,41 @@ $(document).ready(function(){
 	
 	$(".midLi").on("click",function(){
 		
-		alert('중메뉴 선택! 소메뉴 불러오자');
+		var bigMenu=$(this).attr('bigMenu');
+		var midMenu=$(this).text();
+		
+		$.ajax({
+			url : "/jinryo/smMonjin.dodam",
+			type : 'get',
+			data : {
+				"bigMenu" : bigMenu,
+				"midMenu" : midMenu
+			},
+			dataType : "json",
+			success : function(data){
+				console.log(data);
+				console.log(data.length);
+				console.log(data[0].PA_SM);
+				var inputText = '';
+				$('#questionDiv',parent.document).text('');
+				for(var i=0; i<data.length; i++){
+					if(data[i].PA_SELECT_NUM=='1'){
+						
+						inputText='  <input type="radio" name="a'+i+'" />예<input type="radio" name="a'+i+'" />아니오';
+					}else if(data[i].PA_SELECT_NUM=='2'){
+						
+						inputText='<input type="text" />';
+					}
+					$('#questionDiv',parent.document).append(''+
+						'<div class="content-wrapper">'+
+							'<div>'+
+								'<label>'+data[i].PA_SM+'</label>'+inputText+
+							'</div>'+
+						'</div>'+
+					'');
+				}
+			}
+		});
 	});
 });
 </script>
@@ -27,9 +61,9 @@ $(document).ready(function(){
             	<c:forEach items="${bigMenus}" var="bigMenus" varStatus="st">
             		<li class="bigLi">${bigMenus}
             			<ul>
-	            			<c:forEach items="${midMenus}" var="midMenus" begin="${st.index}" end="${st.index}">
-	            				<c:forEach items="${midMenus}" var="inMidMenus">
-	            					<li class="midLi">${inMidMenus}</li>
+	            			<c:forEach items="${midMenus}" var="midMenus"  begin="${st.index}" end="${st.index}">
+	            				<c:forEach items="${midMenus}" var="inMidMenus" >
+	            					<li class="midLi" bigMenu="${bigMenus}">${inMidMenus}</li>
 	            				</c:forEach>
 	            			</c:forEach>
             			</ul>

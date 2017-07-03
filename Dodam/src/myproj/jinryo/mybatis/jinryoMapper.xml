@@ -26,4 +26,7 @@ select DISTINCT PA_BIG from PAPER
 select DISTINCT PA_MID from PAPER where PA_BIG=#{bigMenus.getI}
 </select>
 
+<select id="selectMonjinSm" parameterType="hashmap" resultType="hashmap">
+select PA_SM, PA_SELECT_NUM from PAPER where PA_BIG=#{bigMenu} and PA_MID=#{midMenu}
+</select>
 </mapper>

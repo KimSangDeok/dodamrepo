@@ -17,18 +17,30 @@ public class JinryoDAOImpl implements JinryoDAO{
 
 	String namespace="jrmapper.";
 	
+	/* 
+	 * @see myproj.jinryo.service.JinryoService#selectByAnimalNum(java.lang.String)
+	 * @param animalNum 동물의 번호
+	 * @return List<HashMap> 주인 정보, 진료내역정보
+	 */
 	@Override
 	public List<HashMap> selectByAnimalNum(String animalNum) {
 		
 		return jinroySstp.selectList(namespace+"selectByAnimalNum",animalNum);
 	}
 
+	/* 
+	 * @see myproj.jinryo.dao.JinryoDAO#selectMonjin()
+	 * @return Map (대메뉴리스트,중메뉴리스트)
+	 */
 	@Override
 	public Map selectMonjin() {
-
-		List<String> bigMenus = jinroySstp.selectList(namespace+"selectMonjinBig");
-		List<List> midMenus = new ArrayList<List>();
 		
+		//대메뉴 리스트
+		List<String> bigMenus = jinroySstp.selectList(namespace+"selectMonjinBig");
+		
+		//중메뉴 리스트 담을 List
+		List<List> midMenus = new ArrayList<List>();
+		//대메뉴값에 해당하는 중메뉴들
 		for(int i=0; i<bigMenus.size(); i++){
 			
 			midMenus.add( jinroySstp.selectList(namespace+"selectMonjinMid",bigMenus.get(i)));
@@ -40,5 +52,20 @@ public class JinryoDAOImpl implements JinryoDAO{
 		
 		return menuMap;
 	}
-	
+
+	/* 
+	 * @see myproj.jinryo.dao.JinryoDAO#selectSmMonjin(java.lang.String, java.lang.String)
+	 * @param bigMenu 대메뉴값
+	 * @param midMenu 중메뉴값
+	 * @return List<HashMap> 소메뉴 질문리스트 
+	 */
+	@Override
+	public List<HashMap> selectSmMonjin(String bigMenu, String midMenu) {
+
+		Map map = new HashMap();
+		map.put("bigMenu", bigMenu);
+		map.put("midMenu", midMenu);
+		
+		return jinroySstp.selectList(namespace+"selectMonjinSm",map);
+	}
 }

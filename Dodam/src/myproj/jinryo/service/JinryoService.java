@@ -9,4 +9,6 @@ public interface JinryoService {
 	List<HashMap> selectByAnimalNum(String animalNum);
 	
 	Map selectMonjin();
+
+	List<HashMap> selectSmMonjin(String bigMenu, String midMenu);
 }

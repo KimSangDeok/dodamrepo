@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
+
 <link rel="stylesheet" href="/jinryoCss/css/bootstrap.css">
 
 <!-- popup css -->
@@ -113,60 +114,6 @@ function popupOpen(divId) {
 		
 		return false;
 		
-		var cnt = 0;
-		$.ajax({
-			url : "/jinryo/selectMonjin.dodam",
-			type : 'get',
-			dataType : "json",
-			success : function(data){
-				
-				
-				console.log(data);
-				console.log(data.bigMenus[0]);
-				console.log(data.midMenus);
-				console.log(data.midMenus[0]);
-				console.log((data.midMenus[0])[0]);
-				for(var i in data){
-					
-					 if (data.hasOwnProperty(i)) {
-					        cnt++;
-				    }
-				}
-				console.log('cnt : '+cnt);
-				/* 
-				var text='';
-				for(var i = 0; i<cnt; i++){
-					
-					text+=''+
-					'<li class="media">'+
-						'<div class="media-body">'+
-							'<div class="media">'+
-								'<a class="pull-left" href="#">'+
-									'<img class="media-object img-circle " src="/images/jinryo/dog01.jpg" width="70px" height="70px">'+
-								'</a>'+
-								'<div class="media-body">'+
-									'<table class="table-condensed">'+
-										'<tbody><tr>'+
-											'<td><small class="text-muted">보호자명</small><br>'+data[i].CUS_NAME+'</td>'+
-											'<td><small class="text-muted">환자명</small><br>'+data[i].ANIMAL_NAME+'</td>'+
-											'<td><small class="text-muted">품종</small><br>'+data[i].ANIMAL_BREED+'</td>'+
-											'<td><small class="text-muted">담당의</small><br>'+data[i].PER_NAME+'</td>'+
-											'<td><small class="text-muted">차트번호</small><br>'+data[i].JRYO_NUM+'</td>'+
-											'<td><small class="text-muted">등록일</small><br>'+data[i].JRYO_DT+'</td>'+
-										'</tr>'+
-									'</tbody></table>'+
-								'</div>'+
-							'</div>'+
-						'</div>'+
-					'</li>';
-				}
-				$('#chartHistoryListUl').text('');
-				$('#chartHistoryListUl').append(text); */
-			},
-			 error:function(request, status,error){
-	             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	         }
-		});
 	}
 }
 </script>
@@ -259,11 +206,11 @@ function popupOpen(divId) {
 			<!-- End header -->
 			
 			<!-- Begin 질문-->
-			<div class="popit-body" id="bodycontainer">
+			<div id="questionDiv" class="popit-body" id="bodycontainer" style="overflow:scroll; width: 100%; height: 94%">
 				
 				<div class="content-wrapper">
 					<div>
-						<label>가려움은?</label><input type="text"/>
+						<label>가려움은?</label><input id="testInput" value="0" type="radio"/>
 					</div>
 				</div>
 				

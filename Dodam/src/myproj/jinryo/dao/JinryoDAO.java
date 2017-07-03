@@ -10,4 +10,6 @@ public interface JinryoDAO {
 	public List<HashMap> selectByAnimalNum(String animalNum) ;
 	
 	public Map selectMonjin();
+
+	public List<HashMap> selectSmMonjin(String bigMenu, String midMenu);
 }
