@@ -15,7 +15,7 @@ public class StayController {
 
 	@Autowired
 	StayDAO stayDAO;
-	
+	   
 	@RequestMapping("/{url}.dodam")
 	public String showList(@PathVariable String url){
 		return "/stay/"+url;
