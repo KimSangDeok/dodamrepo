@@ -1,5 +1,5 @@
 'use strict';
-  
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || !1; descriptor.configurable = !0; if ("value" in descriptor) descriptor.writable = !0; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -40,15 +40,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             moment.locale(this.params.locale);
 
-            // datepicker range의 초기값을 무조건 오늘 날짜로 설정하기위함.
-            
             this.viewStartDate = this.params.startDate;
-            this.viewEndDate = this.params.startDate;
-//            this.viewEndDate = this.params.endDate;
+            this.viewEndDate = this.params.endDate;
 
             this.dateStart = this.params.startDate.clone();
-            this.dateEnd = this.params.startDate.clone();
-//            this.dateEnd = this.params.endDate.clone();
+            this.dateEnd = this.params.endDate.clone();
 
             this.render.call(this);
 
@@ -206,27 +202,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function hideCalendar() {
                 this.params.onHide();
                 this.$el.removeClass('show');
-                
-                
-/*                // 날짜를 클릭하여, datepicker가 꺼지면 그 날짜를 검색해 줘야한다. 이것도 ajax를 사용하자.
-                $.ajax({
-                	url : "/beauty/changeDate.dodam",
-                	type : 'get',
-                	data : {'from_to_date' : $('#rangedate').val()},
-                	dataType : 'jason',
-                	success : function(data){
-                		alert("date");
-                	},
-            		error:function(request, status,error){
-           			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-            		}                	
-                })*/
-                
-                
-                
-                
-
-                
             }
         }, {
             key: 'renderMonth',
@@ -364,6 +339,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 } else {
                         this.el.val(this.dateStart.format(this.params.format) + this.params.delimiter + this.dateEnd.format(this.params.format));
                     }
+                //날짜에 따라서 입고내역 불러오는 부분
+             // 날짜를 클릭하여, datepicker가 꺼지면(hide) 그 날짜를 검색해 줘야한다. 이것도 ajax를 사용하자.
+                $.ajax({
+                	url : "/goods/changeDate.dodam",
+                	type : 'get',
+                	data : {'from_to_date' : $('#rangedate').val()},
+                	dataType : 'json',
+                	success : function(data){
+//                		alert((data[0]).GOODS_DATE_IN);
+                		// table tbody를 비우자~~
+                		$('.goodsHistoryTbody').text('');	// div 클리어!
+                		
+                		// success 라면, data를 뿌린다.
+        				var i;
+        				var count=0;
+        				for (i in data) {
+        				    if (data.hasOwnProperty(i)) {
+        				        count++;
+        				    }
+        				}
+                		
+        				for(var i=0; i<count; i++){
+
+        					
+      					$('.goodsHistoryTbody').append
+        					(
+        					'<tr>'+
+        					'<td>'+(data[i]).GOODS_INOUT_TYPE+'</td>'+
+        					'<td>'+(data[i]).STOCK_NAME+'</td>'+
+        					'<td>'+(data[i]).GOODS_USE+'</td>'+
+        					'<td>'+(data[i]).GOODS_DATE_IN+'</td>'+
+        					'<td>'+(data[i]).GOODS_PRICE_IN+'</td>'+
+        					'<td>'+(data[i]).GOODS_COUNT_IN+'</td>'+
+        					'</tr>'
+        					);
+      					
+      					
+      					var result = new Array();
+
+        				}                		  		
+                	},
+            		error:function(request, status,error){
+           			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            		}                	
+                }); 
+   
+                
+                
             }
         }, {
             key: 'onAfterRender',
@@ -372,6 +395,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 if (this.params.type == 'rangedate') {
                     this.$el.find('.dt__wrapper').addClass('rangedate');
+
                 }
 
                 if (this.params.modalMode) {
@@ -382,6 +406,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: 'destroy',
             value: function destroy() {
                 this.$el.detach().off().remove();
+   
             }
         }]);
 

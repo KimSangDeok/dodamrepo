@@ -22,7 +22,9 @@ public class GoodsVO {
 	private String stock_name;
 	private String stock_count;
 	
-	
+	private String rangedate;
+	private String from_date;
+	private String end_date;
 	public String getMedi_name() {
 		return medi_name;
 	}
@@ -125,6 +127,24 @@ public class GoodsVO {
 	public void setStock_count(String stock_count) {
 		this.stock_count = stock_count;
 	}
-	
+	public String getRangedate() {
+		return rangedate;
+	}
+	public void setRangedate(String rangedate) {
+		this.rangedate = rangedate;
+	}
+	public String getFrom_date() {
+		return from_date;
+	}
+	public void setFrom_date(String from_date) {
+		this.from_date = from_date;
+	}
+	public String getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(String end_date) {
+		this.end_date = end_date;
+	}
+
 
 }

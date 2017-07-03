@@ -20,11 +20,6 @@ where s.stock_name=g.stock_name and goods_num in (select max(goods_num) from goo
 
 </select>
 
-<!-- 가장 최근의 입고가격불러오는 부분 -->
-<select id="priceIn" resultType="String">
-	
-</select>
-
 <!-- 상품추가할 때 의약품 검색하는 부분 -->
 <select id="searchmedi" parameterType="myproj.goods.dto.GoodsVO" resultType="myproj.goods.dto.GoodsVO">
 	select *
@@ -55,13 +50,34 @@ where s.stock_name=g.stock_name and goods_num in (select max(goods_num) from goo
 </insert>
 
 
+<!--처음에 입고내역 불러오는 부분과 달력이 바뀔때마다 table이 바뀌는 부분 -->
+<select id="changeDateList"  parameterType="hashmap" resultType="hashmap">
 
-<!-- 입고내역 불러오는 부분 -->
-<!-- 상품 처음에 모든리스트 불러오는 부분 -->
-<!-- <select id="historylist" resultType="myproj.goods.dto.GoodsVO"> -->
-<!-- 	select * -->
-<!-- 	from goods -->
-<!-- 	ORDER BY goods_name -->
-<!-- </select> -->
+select goods_use, goods_inout_type,stock_name,to_char(goods_date_in) as goods_date_in,goods_count_in,goods_price_in
+from goods
+where goods_date_in between #{from_date} and #{to_date}
+order by stock_name
+
+</select>
+
+<!-- 검색해서 불러오는 부분 -->
+<select id="historySearch" parameterType="myproj.goods.dto.GoodsVO" resultType="myproj.goods.dto.GoodsVO">
+select 
+STOCK_NAME,
+to_char(GOODS_DATE_IN) as goods_date_in,
+to_char(GOODS_DATE_out) as goods_date_out,
+GOODS_PRICE_IN,
+GOODS_PRICE_OUT,
+GOODS_COUNT_IN,
+GOODS_COUNT_OUT,
+GOODS_USE,
+GOODS_INOUT_TYPE
+from goods
+where (goods_date_in between #{from_date} and #{end_date}) and goods_inout_type=#{goods_inout_type} and goods_use=#{goods_use} and stock_name like '%'||#{stock_name}||'%'
+order by stock_name
+</select>
+
+
+
 
 </mapper>

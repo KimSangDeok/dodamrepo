@@ -2,6 +2,7 @@ package myproj.goods.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class GoodsDAOImpl implements GoodsDAO{
 		return result;
 	}
 	
+	//처음에 입고내역 불러오는 부분
 //	@Override
 //	public List<GoodsVO> historylist() {
 //		
@@ -58,6 +60,19 @@ public class GoodsDAOImpl implements GoodsDAO{
 		}else if(exist<1){
 			int stockresult = goods.insert("goods.stockInsert",goodsVO);
 		}
+	}
+
+	//날짜 바뀔때 자동적으로 table이 바뀌는 부분
+	@Override
+	public List<Map<String, Object>> changeDateGoodsList(HashMap<String, Object> dateMap) {
+		
+		return goods.selectList("goods.changeDateList", dateMap);
+	}
+
+	@Override
+	public List<GoodsVO> historySearch(GoodsVO goodsVO) {
+		
+		return goods.selectList("goods.historySearch",goodsVO);
 	}
 	
 	

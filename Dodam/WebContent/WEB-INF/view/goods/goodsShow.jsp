@@ -320,7 +320,7 @@ text-overflow;
             <button type="button" class="btn btn-default popitup-close">취소</button>
             <button type="button" id="btninsert" class="btn btn-primary">등록</button>
           </div>
-<!-- 라디오버튼 누를 때 마다 히든값 주는 부분 -->
+<!-- 라디오버튼 누를 때 마다 히든값으로 값을 넣어 주는 부분 -->
           <input type="hidden" id="hidden_stock_name" name="stock_name">			
 		  <input type="hidden" id="hidden_medi_componentkor" name="medi_componentkor">			
 		  <input type="hidden" id="hidden_medi_componenteng" name="medi_componenteng">	
