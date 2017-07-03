@@ -195,15 +195,12 @@ public class BeautyController {
 	
 	// beautyCam.jsp에서 미용을 완료 했다고 '완료' 버튼을 눌렀을때, update table을!! (완료라고)
 	@RequestMapping("/beautyDone.dodam")
-	public ModelAndView beautyDone(BeautyServiceVO beautyServiceVO){
+	public String beautyDone(BeautyServiceVO beautyServiceVO){
 		
 		// 1. 미용을 완료했으면, 완료라고 update 해줘야하는데, 여기서 primarykey값인 bty_code를 가져간다. 2. 수납테이블에 insert
 		beautyDAO.doneBeautyService(beautyServiceVO);
-
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/beauty/beautyView");
 		
-		return mv;
+		return "redirect:beautyView.dodam";
 		
 	}
 }
