@@ -100,21 +100,22 @@ function popupOpen(divId) {
 		widthSet : window.innerWidth*0.8+'',	//팝업창 가로길이 (창 최대길이의 80%)
 		chase : false,
 		onCloseModal   :  function(){
-			//닫을때 값
+			//닫을때(x)
 		}
 	});
 	
-	
-	
-	//
+	//등록 버튼 눌를때 데이터 어케 담고 있을꺼?
 	if(divId=='monjinPopup'){
-		//한번 열리면 막기 해야함.
-		$('#monjinMenuDiv').text('');
-		$('#monjinMenuDiv').append('<iframe src="/jinryo/treeMenu/monjin.dodam?type='+divId+'" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
 		
-		return false;
+		$('#'+divId+'Menu').text('');
+		$('#'+divId+'Menu').append('<iframe src="/jinryo/treeMenu/monjin.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
+	}else if(divId=='cccbPopup')
 		
-	}
+		$('#'+divId+'Menu1').text('');
+		$('#'+divId+'Menu1').append('<iframe src="/jinryo/treeMenu/cccbPopup.dodam?type=Tx" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
+		
+// 		$('#'+divId+'Menu2').text('');
+// 		$('#'+divId+'Menu2').append('<iframe src="/jinryo/treeMenu/cccbPopup.dodam?type=tr" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
 }
 </script>
 
@@ -192,7 +193,7 @@ function popupOpen(divId) {
 				<h4 class="popit-title">분류</h4>
 			</div>
 			<!-- 질문 iframe -->
-			<div id="monjinMenuDiv">
+			<div id="monjinPopupMenu">
 <!-- 				<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe> -->
 			</div>
 		</div>
@@ -256,73 +257,6 @@ function popupOpen(divId) {
 			</div>
 			<!-- 증상분류 iframe -->
 <!-- 			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe> -->
-			
-			
-			
-			
-			
-			
-<!-- <div class="container" style="margin-top:30px;">
-    <div class="row">
-        <div class="col-md-4">
-            <ul id="tree2">
-                <li><a href="#">TECH</a>
-                    <ul>
-                        <li>Company Maintenance</li>
-                        <li>Employees
-                            <ul>
-                                <li>Reports
-                                    <ul>
-                                        <li>Report1</li>
-                                        <li>Report2</li>
-                                        <li>Report3</li>
-                                    </ul>
-                                </li>
-                                <li>Employee Maint.</li>
-                            </ul>
-                        </li>
-                        <li>Human Resources</li>
-                    </ul>
-                </li>
-                <li>XRP
-                    <ul>
-                        <li>Company Maintenance</li>
-                        <li>Employees
-                            <ul>
-                                <li>Reports
-                                    <ul>
-                                        <li>Report1</li>
-                                        <li>Report2</li>
-                                        <li>Report3</li>
-                                    </ul>
-                                </li>
-                                <li>Employee Maint.</li>
-                            </ul>
-                        </li>
-                        <li>Human Resources</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> -->
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		</div>
 		<!-- End 왼쪽 카테고리 div-->
 		
@@ -485,9 +419,9 @@ function popupOpen(divId) {
 			<div class="popit-header" style="height: 10%;">
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Tx</h4>
 			</div>
-			<div style="width: 20%; height:90%; float: left;">
-<!-- 				<iframe src="/jinryo/monjinType.dodam" "></iframe> -->
-			</div>
+			
+			<div id="cccbPopupMenu1" style="width: 20%; height:90%; float: left;"></div>
+			
 			<div style="width: 80%; height:90%; float: left;">
 				<table>
 					<thead>
@@ -496,11 +430,7 @@ function popupOpen(divId) {
 							<td>금액</td>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>BIle acid test(Pre&Post)</td>
-							<td>100,000</td>
-						</tr>
+					<tbody id="txTBody">
 						<tr>
 							<td>Biopsy-초음파유도</td>
 							<td>80,000</td>
@@ -520,7 +450,7 @@ function popupOpen(divId) {
 			<div class="popit-header" style="height: 10%;">
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Rx</h4>
 			</div>
-			<div style="width: 20%; height:90%; float: left;">
+			<div id="cccbPopupMenu2" style="width: 20%; height:90%; float: left;">
 <!-- 				<iframe src="/jinryo/monjinType.dodam" "></iframe> -->
 			</div>
 			<div style="width: 80%; height:90%; float: left;">

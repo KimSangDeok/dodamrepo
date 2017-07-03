@@ -12,4 +12,8 @@ public interface JinryoDAO {
 	public Map selectMonjin();
 
 	public List<HashMap> selectSmMonjin(String bigMenu, String midMenu);
+
+	public List<String> selectTxTrMenu(String txtrType);
+
+	public List<HashMap> selectSmTx(String txLargeMenu);
 }

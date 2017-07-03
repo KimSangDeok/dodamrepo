@@ -29,4 +29,12 @@ select DISTINCT PA_MID from PAPER where PA_BIG=#{bigMenus.getI}
 <select id="selectMonjinSm" parameterType="hashmap" resultType="hashmap">
 select PA_SM, PA_SELECT_NUM from PAPER where PA_BIG=#{bigMenu} and PA_MID=#{midMenu}
 </select>
+
+<select id="selectTxTrList" parameterType="string" resultType="string">
+select DISTINCT TX_LARGE from ${value}
+</select>
+
+<select id="selectTxSmList" parameterType="string" resultType="hashmap">
+select TX_SMALL, TX_PRICE from TX where TX_LARGE=#{txLargeMenu}
+</select>
 </mapper>
