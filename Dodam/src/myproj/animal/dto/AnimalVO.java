@@ -34,7 +34,7 @@ public class AnimalVO {
 			System.out.println("동물");
 		this.animalfile_name = file2.getOriginalFilename()+"_"+System.currentTimeMillis();
 		
-		File f = new File("C:\\sm\\Finalworkspace\\DodamCopy2\\WebContent\\imageupload\\"+animalfile_name);
+		File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+animalfile_name);
 		
 		try{
 			file2.transferTo(f);
