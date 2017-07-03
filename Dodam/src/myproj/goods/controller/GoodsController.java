@@ -1,10 +1,8 @@
 package myproj.goods.controller;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import org.apache.catalina.connector.Request;
-import org.apache.tiles.jsp.taglib.GetAsStringTag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import myproj.animal.dto.AnimalVO;
-import myproj.customer.dto.CustomerVO;
 import myproj.goods.dao.GoodsDAO;
 import myproj.goods.dto.GoodsVO;
 
@@ -34,10 +30,10 @@ public class GoodsController {
 	@RequestMapping("/goodsShow.dodam")
 	public ModelAndView goodslist(GoodsVO goodsVO){
 		System.out.println("재고현황탔다@@");
-		List<GoodsVO> list = new ArrayList<GoodsVO>();
-		list = goodsDAO.goodslist();
+		List<GoodsVO> list = goodsDAO.goodslist();
+		System.out.println(list);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("goodslist",list);
+		mv.addObject("list",list);	
 		mv.setViewName("/goods/goodsShow");
 		return mv;
 	}

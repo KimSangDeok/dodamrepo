@@ -1,5 +1,6 @@
 package myproj.goods.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import myproj.goods.dto.GoodsVO;

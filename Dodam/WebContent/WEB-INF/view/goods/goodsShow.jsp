@@ -343,31 +343,28 @@ text-overflow;
           <th>입고가격</th>
           <th>판매가격</th>
           <th>입고날짜</th>          
-          <th>입고수량</th>
-          <th>판매수량</th>
           <th>남은수량</th>
         </tr>
       </thead>
       <tbody id="tbody">  
    <c:choose>
-   	<c:when test="${goodslist eq null}">
+   	<c:when test="${list eq null}">
    		<tr>
-   			<td colspan="7">등록된 재고가 없습니다.</td>
+   			<td colspan="6">등록된 재고가 없습니다.</td>
    		</tr>
    	</c:when>
     <c:otherwise>    	
-    	<c:forEach items="${goodslist}" var="a">
+    	<c:forEach items="${list}" var="a">
     		<tr class="">     			   			    						
     			<td>${a.goods_use}</td>
     			<td>${a.stock_name}</td>
     			<td>${a.goods_price_in}</td>
     			<td>${a.goods_price_out}</td>
     			<td>${a.goods_date_in}</td>
-    			<td>${a.goods_count_in}</td>
-    			<td>${a.goods_count_out}</td>
-    			<td>${a.stock_count}</td>   			
+    			<td>${a.stock_count}</td>
+    		    			  			
     		</tr>
-    	</c:forEach>   	
+    	</c:forEach>    	   	
     </c:otherwise>
    </c:choose>   
       </tbody>
@@ -440,8 +437,6 @@ text-overflow;
 						+ "<td>"+(list[i]).goods_price_in +"</td>"
 						+ "<td>"+ (list[i]).goods_price_out +"</td>"
 						+ "<td>"+ (list[i]).goods_date_in +"</td>"
-						+ "<td>"+(list[i]).goods_count_in +"</td>"						
-						+ "<td>"+ (list[i]).goods_count_out +"</td>"
 						+ "<td>"+ (list[i]).stock_count +"</td>"
 						+ "</tr>"
 					);
