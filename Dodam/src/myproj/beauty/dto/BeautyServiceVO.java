@@ -4,7 +4,6 @@ package myproj.beauty.dto;
 public class BeautyServiceVO {
 
 	static String bty_code;		// 미용 서비스 고유 넘버 (sequence)
-	static String per_id;		// 미용 담당자 아이디
 	static String btm_type;		// 미용 옵션 (어떤 미용 받는지)
 	static String bty_dt;		// 미용 날짜
 	static String bty_ox;		// 미용 했는지 여부
@@ -17,12 +16,7 @@ public class BeautyServiceVO {
 	public static void setBty_code(String bty_code) {
 		BeautyServiceVO.bty_code = bty_code;
 	}
-	public static String getPer_id() {
-		return per_id;
-	}
-	public static void setPer_id(String per_id) {
-		BeautyServiceVO.per_id = per_id;
-	}
+
 	public static String getBtm_type() {
 		return btm_type;
 	}

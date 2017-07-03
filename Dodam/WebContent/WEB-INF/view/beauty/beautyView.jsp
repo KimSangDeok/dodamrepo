@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setContentType("text/html; charset=utf-8"); %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- c태그를 사용하기 위해 taglib를 적어야 한다. -->
 <link rel='stylesheet' href="/style/css/beautytablestyles.css"> <!-- 미용내역 table css -->
 
-<!-- datepicker의 css -->
+<!-- datepicker(range)의 css -->
 <link href="/css/goods/smalldatepicker/smallDatestyle.css" rel="stylesheet" type="text/css">
 <link href="/css/goods/smalldatepicker/smallcalendar.css" rel="stylesheet" type="text/css">
+<!-- datepicker(미용옵션) -->
+<link type="text/css" rel="stylesheet" href="/css/beauty/demo.css">
 
 
 		<!-- 부트스트랩 공통!! -->
@@ -58,7 +62,8 @@
 		<script src="/js/jquery.popitup.js"></script>
 		<!-- begin : 팝업 -->
 
-
+		<!-- 미용 옵션 저장할때 사용하는 datepicker -->
+		<script type="text/javascript" src="/css/beauty/date-time-picker.min.js"></script>
 
 <!-- start of div(body) -->
 <div class="body"><br/>
@@ -210,6 +215,14 @@
 	</div>
 
 
+	<!-- begin : 미용 일정을 등록하는 datepicker -->
+	<input type="text" class="mt10px input" id="J-demo-01">
+	<script type="text/javascript">
+		$('#J-demo-01').dateTimePicker();
+	</script>	
+	<!-- end : 미용 일정을 등록하는 datepicker -->
+
+
 	<!-- begin : 미용 옵션 추가하는 버튼, script(팝업을 띄운다) -->
 	<div class="row">
 		<div class="col-lg-12">
@@ -241,7 +254,7 @@
 		    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
 		</div>
 	            
-		<div class="col-xs-5">
+		<div class="col-xs-5" id="optionResult">
 		    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
 		</div>
 		
@@ -277,23 +290,50 @@
 <script>
 // 미용 예약 버튼을 클릭했을 때, DB에 예약이 되게 해줘야 해요~
 function registerBeauty(){
-	alert("예약 서지");
+	
+	
+	// 미용을 등록할 select의 option을 모두 다 넣는다.
+	var opts_val = [];
+	
+	$('#undo_redo_to option').each(function(){
+		opts_val.push( $(this).text() );
+	});
+
+	alert(opts_val.length);
+	alert(typeof(opts_val));
+	
+	alert("+++"+opts_val[0]);
+	alert("+++"+opts_val[1]);	
+	alert("+++"+opts_val[2]);
+	
+
+	var regidata = {
+		'btm_type_list':opts_val,
+		'bty_dt':$('#J-demo-01').val(),
+		'animal_num':$('#animalnum').val()
+	}
+	
+	alert(JSON.stringify(regidata));
 	
 	// 1) ajax로 등록을하고,,,
 	// 2) table의 전체 내용을 다시 뿌려주는....(오늘날짜라면 에약날짜가~~)
 	
-/* 	$.ajax({
+	$.ajax({
 		url : "/beauty/registerBeauty.dodam",
-		type : "get",
-		data : {"btm_type":, "bty_dt":, "animal_num":}
+		type : "post",   // ajax 는 무조건 post!
+		//contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		data : JSON.stringify(regidata), 	//stringify는 json 객체럴 string으로 변환!
+
+
+		dataType : 'json',
 		
-		
-		
-		
-		
-		
-		
-	}) */
+		success : function(data){
+			
+		},
+		error:function(request, status,error){
+  			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+   		}  
+	})
 	
 	
 	
@@ -305,7 +345,7 @@ function registerBeauty(){
 }
 
 // 테이블을 클릭했을 때
- function showList(cus_tel, cus_name, animal_name, animal_breed, cus_addr){
+ function showList(cus_tel, cus_name, animal_name, animal_breed, animal_num, cus_addr){
 	
 	/* 값들이~, 위의 info에 적히도록!!! */
 	$('#cusname').val(cus_name);
@@ -313,6 +353,7 @@ function registerBeauty(){
 	$('#animalname').val(animal_name);
 	$('#animalbreed').val(animal_breed);
 	$('#cusaddr').val(cus_addr);
+	$('#animalnum').val(animal_num);
 		
 } 
 

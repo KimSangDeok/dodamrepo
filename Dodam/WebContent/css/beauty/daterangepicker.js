@@ -391,7 +391,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         					
       					$('.beautyTbody').append
         					(
-        					'<tr onclick="javascript:showList('+"'"+data[i].CUS_TEL+"', '"+data[i].CUS_NAME+"', '"+data[i].ANIMAL_NAME+"', '"+data[i].ANIMAL_BREED+"', '"+data[i].CUS_ADDR+"'"+')">'+
+        					'<tr onclick="javascript:showList('+"'"+data[i].CUS_TEL+"', '"+data[i].CUS_NAME+"', '"+data[i].ANIMAL_NAME+"', '"+data[i].ANIMAL_BREED+"', '"+data[i].ANIMAL_NUM+"', '"+data[i].CUS_ADDR+"'"+')">'+
         					'<td>'+data[i].BTY_DT+'</td>'+
         					'<td>'+data[i].ANIMAL_NAME+'</td>'+
         					'<td>'+data[i].ANIMAL_BREED+'</td>'+
@@ -399,7 +399,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         					'<td>'+data[i].CUS_TEL+'</td>'+
         					'<td>'+data[i].BTM_TYPE+'</td>'+
         					'<td>'+data[i].BTY_OX+'</td>'+
-        					'<td style="display:none">'+data[i].CUS_ADDR+'</td>'
+        					'<td style="display:none">'+data[i].CUS_ADDR+'</td>'+
+        					'<td style="display:none">'+data[i].ANIMAL_NUM+'</td>'
         					);
       					
       					

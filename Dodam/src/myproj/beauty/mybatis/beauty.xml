@@ -22,12 +22,15 @@ AND a.cus_tel = c.cus_tel
 </select>
 	
 <select id="changeDateList" parameterType="hashmap" resultType="hashmap">	
-SELECT to_char(b.bty_dt, 'YYYY.MM.DD') bty_dt, a.animal_name animal_name, a.animal_breed animal_breed, c.cus_addr cus_addr, c.cus_name cus_name, c.cus_tel cus_tel, b.btm_type btm_type, b.bty_ox bty_ox
+SELECT a.animal_num animal_num, to_char(b.bty_dt, 'YYYY.MM.DD') bty_dt, a.animal_name animal_name, a.animal_breed animal_breed, c.cus_addr cus_addr, c.cus_name cus_name, c.cus_tel cus_tel, b.btm_type btm_type, b.bty_ox bty_ox
 FROM beauty b, animal a, customer c
 WHERE to_char(bty_dt, 'YYYYMMDD') BETWEEN replace(#{from_date}, '.', '') AND replace(#{to_date}, '.', '')
 AND b.animal_num = a.animal_num
 AND a.cus_tel = c.cus_tel
 </select>
 
+<insert id="registerBeauty" parameterType="myproj.beauty.dto.BeautyServiceVO">
+INSERT INTO beauty VALUES (beautyseq.nextval, #{btm_type}, #{bty_dt}, #{bty_ox}, #{animal_num})
+</insert>
 
 </mapper>

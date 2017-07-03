@@ -23,6 +23,9 @@ public interface BeautyDAO {
 	// datepicker range를 바꾸었을 때, (hide) 이럴 시, 날짜에 해당하는 뷰티내역을 검색
 	List<Map<String, String>> changeDateBeautyList(HashMap<String, String> dateMap);
 
+	// 미용 일정을 등록한다. (초기등록)
+	int registerBeauty(BeautyServiceVO beautyServiceVO);
+
 	
 	
 	
