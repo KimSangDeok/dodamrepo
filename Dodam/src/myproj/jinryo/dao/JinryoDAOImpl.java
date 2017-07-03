@@ -68,4 +68,22 @@ public class JinryoDAOImpl implements JinryoDAO{
 		
 		return jinroySstp.selectList(namespace+"selectMonjinSm",map);
 	}
+
+	/* 
+	 * @see myproj.jinryo.dao.JinryoDAO#selectTxTrMenu(java.lang.String)
+	 * @param txtrType tx 혹은 tr
+	 * @return tx 혹은 tr 리스트
+	 */
+	 
+	@Override
+	public List<String> selectTxTrMenu(String txtrType) {
+
+		return jinroySstp.selectList(namespace+"selectTxTrList",txtrType);
+	}
+
+	@Override
+	public List<HashMap> selectSmTx(String txLargeMenu) {
+
+		return jinroySstp.selectList(namespace+"selectTxSmList", txLargeMenu);
+	}
 }

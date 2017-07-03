@@ -11,4 +11,8 @@ public interface JinryoService {
 	Map selectMonjin();
 
 	List<HashMap> selectSmMonjin(String bigMenu, String midMenu);
+	
+	List <String> selectTxTrMenu(String txtrType);
+
+	List<HashMap> selectSmTx(String txLargeMenu);
 }

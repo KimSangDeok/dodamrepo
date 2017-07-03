@@ -25,7 +25,6 @@ public class JinryoController {
 		return "/jinryo/"+url;
 	}
 	
-	
 	/**
 	 * @param type 차트생성의 팝업창 종류
 	 * @return ModelAndView (사용될 메뉴들의 리스트)
@@ -34,19 +33,47 @@ public class JinryoController {
 	@RequestMapping("/monjin.dodam")
 	public ModelAndView selectTreeMenu(String type){
 		
-		ModelAndView mv = new ModelAndView();
+		Map monjinMap = jinryoService.selectMonjin();
 		
-		if(type.equals("monjinPopup")){
-			
-			Map monjinMap = jinryoService.selectMonjin();
-			mv.setViewName("/jinryo/treeMenu/monjin.treeTile");
-			mv.addObject("bigMenus", monjinMap.get("bigMenus"));
-			mv.addObject("midMenus", monjinMap.get("midMenus"));
-			return mv;
-		}else if(type.equals("")){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/jinryo/treeMenu/monjin.treeTile");
+		mv.addObject("bigMenus", monjinMap.get("bigMenus"));
+		mv.addObject("midMenus", monjinMap.get("midMenus"));
+		
+		return mv;
+	}
+	
+	/**
+	 * @param type tx or tr
+	 * @return 메뉴리스트
+	 * 차트생성에서 처치/처방 팝업에의 TreeMenu 목록
+	 */
+	@RequestMapping("/cccbPopup.dodam")
+	public ModelAndView selectTxTrMenu(String type){
+		
+		ModelAndView mv = new ModelAndView();
+		if(type.equals("Tx")){
+			List <String> txtrList = jinryoService.selectTxTrMenu(type);
+			mv.setViewName("/jinryo/treeMenu/txtr.treeTile");
+			mv.addObject("txList", txtrList);
+		}else if(type.equals("tr")){
 			
 		}
+		
 		return mv;
+	}
+	
+	/**
+	 * @param txLargeMenu Tx에서 선택한 카테고리명
+	 * @return 해당하는 소메뉴명과 가격들
+	 *  Tx팝업에 해당하는 리스트와 가격
+	 */
+	@RequestMapping("/smTx.dodam")
+	@ResponseBody
+	public List<HashMap> smTx(String txLargeMenu){
+		
+		List<HashMap> smData = jinryoService.selectSmTx(txLargeMenu);
+		return smData;
 	}
 	
 	/**

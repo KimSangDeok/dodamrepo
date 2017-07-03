@@ -51,4 +51,26 @@ public class JinroyServiceImpl implements JinryoService{
 		return jdao.selectSmMonjin(bigMenu, midMenu);
 	}
 
+	/* 
+	 * @see myproj.jinryo.service.JinryoService#selectTxTrMenu(java.lang.String)
+	 * @param txtrType tx 혹은 tr
+	 * @return tx 혹은 tr 리스트
+	 */
+	@Override
+	public List<String> selectTxTrMenu(String txtrType) {
+		
+		return jdao.selectTxTrMenu(txtrType);
+	}
+
+	/* 
+	 * @see myproj.jinryo.service.JinryoService#selectSmTx(java.lang.String)
+	 * @param txLargeMenu Tx에서 선택한 카테고리명
+	 * @return 해당하는 소메뉴명과 가격들
+	 */
+	@Override
+	public List<HashMap> selectSmTx(String txLargeMenu) {
+		
+		return jdao.selectSmTx(txLargeMenu);
+	}
+
 }
