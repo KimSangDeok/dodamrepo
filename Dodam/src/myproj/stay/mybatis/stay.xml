@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="stay">
+
+<!-- 입원장 및 호텔방 추가 -->
+<insert id="newAnimalRoom" parameterType="myproj.stay.dto.RoomVO">
+INSERT INTO animalroom (ar_num, ar_name, ar_price, ar_type, ar_color)
+VALUES (seq_animalroom_seq.nextval, #{ar_name}, #{ar_price}, #{ar_type}, #{ar_color})
+</insert>
+
+
+
+</mapper>
