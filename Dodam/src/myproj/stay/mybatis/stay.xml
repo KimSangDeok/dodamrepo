@@ -11,6 +11,26 @@ INSERT INTO animalroom (ar_num, ar_name, ar_price, ar_type, ar_color)
 VALUES (seq_animalroom_seq.nextval, #{ar_name}, #{ar_price}, #{ar_type}, #{ar_color})
 </insert>
 
+<select id="allRoomList" resultType="myproj.stay.dto.RoomVO">
+SELECT * FROM animalroom
+</select>
 
+<!-- 저장 버튼 눌렀을 때, 모든 방의 위치 정보를 update 한다. -->
+<update id="updateAnimalRoom" parameterType="myproj.stay.dto.RoomVO">
+UPDATE animalroom SET
+ar_top = ${ar_top},
+ar_left = ${ar_left}
+WHERE ar_num = ${ar_num}
+</update>
+
+<select id="selectRoomAndServiceAll" resultType="hashmap">
+SELECT a.ar_num ar_num, a.ar_name ar_name, a.ar_price ar_price, a.ar_type ar_type, a.ar_color ar_color, a.ar_top ar_top, a.ar_left ar_left, d.animal_name animal_name, d.cus_name cus_name, d.stay_num stay_num, d.animal_num animal_num, d.stay_checkin stay_checkin, d.stay_checkout stay_checkout, d.stay_reason stay_reason, d.camera_num camera_num, d.camera_existence camera_existence
+FROM animalroom a,
+(SELECT a.animal_name animal_name, c.cus_name cus_name, h.stay_num stay_num, h.animal_num animal_num, h.stay_checkin stay_checkin, h.stay_checkout stay_checkout, h.stay_reason stay_reason, h.camera_num camera_num, h.camera_existence camera_existence
+FROM hospital_stay h, animal a, customer c
+WHERE h.animal_num = a.animal_num
+AND a.cus_tel = c.cus_tel) d
+WHERE a.stay_num = d.stay_num(+)
+</select>
 
 </mapper>
