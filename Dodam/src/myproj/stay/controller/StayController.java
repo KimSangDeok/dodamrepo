@@ -40,15 +40,12 @@ public class StayController {
 	@RequestMapping("/stayView.dodam")
 	public ModelAndView showStayView(){
 		
-		// 1. room의 모든 정보를 가져와라. 왜? room을 보여줘야지, 색상, 이름 등!
+		// 1. 비어있는 room을 모두 가져와라. 입원 및 호텔 하기 팝업에서 보여주려고.
 		List<RoomVO> roomList = stayDAO.selectRoomList();
 		
-		// 2. 입원해있거나 호텔에 있는 모든 동물의 정보를 가져와야한다.
+		// 2. 입원해있거나 호텔에 있는 모든 동물의 정보를 가져와야한다. (1번은 안가져와도 될듯)
 		List<StayVO> stayList = stayDAO.selectStayList();
-		
-		System.out.println(stayList.size());
-		
-		
+				
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("roomList", roomList);
 		mv.addObject("stayList", stayList);
@@ -78,7 +75,7 @@ public class StayController {
 			// temp로 받았을 때, jason 뒤에 =가 붙음..ㅜㅜ 그래서 임시로 선언하여 replace함
 			String temp = URLDecoder.decode(roomDATA, "UTF-8");
 			rooms = temp.replace("=", "");
-
+			System.out.println(rooms);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

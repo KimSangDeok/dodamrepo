@@ -24,10 +24,10 @@ public class StayDAOImpl implements StayDAO {
 		return stay.insert("stay.newAnimalRoom", roomVO);
 	}
 
-	// 입원장 및 호텔방 전체 불러오기
+	// 비어있는 입원장 및 호텔방 불러오기
 	@Override
 	public List<RoomVO> selectRoomList() {
-		return stay.selectList("stay.allRoomList");
+		return stay.selectList("stay.emptyRoomList");
 	}
 
 	// 일단 update할 roomList를 통채로 가져가
@@ -43,11 +43,11 @@ public class StayDAOImpl implements StayDAO {
 			// WHY?? 각각의 ar num, left, top을 또 꺼내오려고~
 			JSONObject roomObject = (JSONObject) roomList.get(i);
 			
-			/*
+			
 			System.out.println("++"+roomObject.get("ar_num"));
 			System.out.println("++"+roomObject.get("ar_left"));
 			System.out.println("++"+roomObject.get("ar_top"));			
-			*/
+			
 			
 			// 올 갖고왔움!! 자, 이걸 roomList의 갯수만큼! 즉 room 갯수만큼 update 해줘야 합니다.	
 			RoomVO roomVO = new RoomVO();

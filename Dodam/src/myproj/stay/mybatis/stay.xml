@@ -11,8 +11,10 @@ INSERT INTO animalroom (ar_num, ar_name, ar_price, ar_type, ar_color)
 VALUES (seq_animalroom_seq.nextval, #{ar_name}, #{ar_price}, #{ar_type}, #{ar_color})
 </insert>
 
-<select id="allRoomList" resultType="myproj.stay.dto.RoomVO">
+<select id="emptyRoomList" resultType="myproj.stay.dto.RoomVO">
 SELECT * FROM animalroom
+WHERE stay_num IS NULL
+OR stay_num=''
 </select>
 
 <!-- 저장 버튼 눌렀을 때, 모든 방의 위치 정보를 update 한다. -->

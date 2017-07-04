@@ -11,7 +11,7 @@ import myproj.stay.dto.StayVO;
 //RoomVO와 controller를 연결하는 DAO 
 public interface StayDAO {
 	
-	// 입원장 및 호텔방 전체 불러오기
+	// 비어있는 입원장 및 호텔방 불러오기
 	List<RoomVO> selectRoomList();
 
 	// 입원장 및 호텔방 추가
