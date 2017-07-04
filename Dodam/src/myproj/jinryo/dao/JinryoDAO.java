@@ -16,4 +16,6 @@ public interface JinryoDAO {
 	public List<String> selectTxTrMenu(String txtrType);
 
 	public List<HashMap> selectSmTx(String txLargeMenu);
+
+	public List<HashMap> selectRxList();
 }

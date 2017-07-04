@@ -37,4 +37,15 @@ select DISTINCT TX_LARGE from ${value}
 <select id="selectTxSmList" parameterType="string" resultType="hashmap">
 select TX_SMALL, TX_PRICE from TX where TX_LARGE=#{txLargeMenu}
 </select>
+
+<select id="selectRxList" resultType="hashmap">
+select   distinct(s.stock_name) stock_name, 
+			g.MEDI_COMPONENTKOR MEDI_COMPONENTKOR, 
+			g.MEDI_COMPONENTENG MEDI_COMPONENTENG, 
+			s.STOCK_COUNT STOCK_COUNT,
+			g.goods_price_out goods_price_out
+from stock s, goods g
+where (s.stock_name=g.stock_name and not s.stock_count=0) and g.goods_use='동물용의약품'
+
+</select>
 </mapper>

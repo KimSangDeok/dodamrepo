@@ -73,7 +73,11 @@ table tbody tr:nth-child(2n + 1) {
     
      background-color: white;
 }
-
+/* 처치/처방 팝업 table hover */
+#txTBody>tr:HOVER, #rxBody>tr:HOVER{
+	cursor:pointer;
+	background-color: #EAEAEA;
+}
 </style>
 
 
@@ -112,10 +116,62 @@ function popupOpen(divId) {
 	}else if(divId=='cccbPopup')
 		
 		$('#'+divId+'Menu1').text('');
-		$('#'+divId+'Menu1').append('<iframe src="/jinryo/treeMenu/cccbPopup.dodam?type=Tx" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
+		$('#'+divId+'Menu1').append('<iframe src="/jinryo/treeMenu/cccbPopup.dodam?type=Tx" width="100%" height="90%" style=""></iframe>');
 		
+		$.ajax({
+			url : "/jinryo/rxList.dodam",
+			type : 'get',
+			dataType : "json",
+			success : function(data){
+				console.log(data);
+				console.log(data.length);
+				console.log(data[0].STOCK_NAME);
+				console.log(data[0].MEDI_COMPONENTKOR);
+				console.log(data[0].MEDI_COMPONENTENG);
+				console.log(data[0].STOCK_COUNT);
+// 				return false;
+				
+				var inputText = '';
+				$('#rxBody').text('');
+				for(var i=0; i<data.length; i++){
+					
+					$('#rxBody').append(''+
+						'<tr name="RxRow" onclick="javascript:addTxTr(this, '+data[i].GOODS_PRICE_OUT+')">'+
+							'<td>'+data[i].STOCK_NAME+'</td>'+
+							'<td>'+data[i].MEDI_COMPONENTKOR+'</td>'+
+							'<td>'+data[i].MEDI_COMPONENTENG+'</td>'+
+							'<td>'+data[i].STOCK_COUNT+'</td>'+
+						'</tr>'+
+					'');
+				}
+			}
+		});
 // 		$('#'+divId+'Menu2').text('');
 // 		$('#'+divId+'Menu2').append('<iframe src="/jinryo/treeMenu/cccbPopup.dodam?type=tr" width="100%" height="90%" style="padding-top: 15px;"></iframe>');
+}
+
+function addTxTr(selectedRow, trPrice){
+	
+	var name = '';
+	var price = '';
+	if($(selectedRow).attr('name')=='TxRow'){
+		
+		name= $(selectedRow).find('td:eq(0)').text();
+		price= $(selectedRow).find('td:eq(1)').text();
+	}else if($(selectedRow).attr('name')=='RxRow'){
+		
+		name = $(selectedRow).find('td:eq(0)').text();
+		price = trPrice;
+	}
+	
+	$('#totalTBody').append(''+
+			'<tr>'+
+				'<td>'+name+'</td>'+
+				'<td><select></select>1</td>'+
+				'<td>1</td>'+
+				'<td>'+price+'</td>'+
+			'</tr>'+
+	'');
 }
 </script>
 
@@ -416,7 +472,7 @@ function popupOpen(divId) {
 		
 		<!-- Begin 진단 위왼쪽(Tx) div -->
 		<div class="popit-content" style="border: 1px solid #ccc; width:50%; height:40%; clear: both; float: left;">
-			<div class="popit-header" style="height: 10%;">
+			<div class="popit-header" style="height: 10%; background: #FFD8D8;">
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Tx</h4>
 			</div>
 			
@@ -447,30 +503,35 @@ function popupOpen(divId) {
 		
 		<!-- Begin 진단 위오른쪽(Rx) div-->
 		<div class="popit-content" style="border: 1px solid #ccc; width:50%; height:40%; float: left;">
-			<div class="popit-header" style="height: 10%;">
+			<div class="popit-header" style="height: 10%; background: #FFD8D8;">
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">Rx</h4>
 			</div>
-			<div id="cccbPopupMenu2" style="width: 20%; height:90%; float: left;">
-<!-- 				<iframe src="/jinryo/monjinType.dodam" "></iframe> -->
-			</div>
-			<div style="width: 80%; height:90%; float: left;">
+			<div style="width: 100%; height:90%; overflow:scroll;">
 				<table>
 					<thead>
 						<tr>
-							<td>성분명</td>
-							<td>상품명</td>
+							<td style="width: 30%">상품명</td>
+							<td style="width: 30%">성분명(한글)</td>
+							<td style="width: 30%">성분명(영어)</td>
+							<td style="width: 10%">재고</td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="rxBody">
 						<tr>
+							<td>?????????</td>
+							<td>?????????</td>
 							<td>?????????</td>
 							<td>?????????</td>
 						</tr>
 						<tr>
 							<td>?????????</td>
 							<td>?????????</td>
+							<td>?????????</td>
+							<td>?????????</td>
 						</tr>
 						<tr>
+							<td>?????????</td>
+							<td>?????????</td>
 							<td>?????????</td>
 							<td>?????????</td>
 						</tr>
@@ -481,11 +542,11 @@ function popupOpen(divId) {
 		<!-- End 진단 위오른쪽(Rx) div -->
 		
 		<!-- Begin 진단 아랫쪽(처치처방된 리스트) div -->
-		<div class="popit-content" style="border: 1px solid #ccc; width:100%; height:40%; clear: both;">
+		<div class="popit-content" style="border: 1px solid #ccc; width:100%; height:45%; clear: both; ">
 		
 			<!-- Begin header -->
-			<div class="popit-header" >
-				<h4 class="popit-title" >처치/처방 List</h4>
+			<div class="popit-header" style=" background:#FFD8D8; height: 10%;">
+				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;" >처치/처방 List</h4>
 			</div>
 			<div style="float: right;">
 				<input type="button" value="추가">
@@ -495,61 +556,27 @@ function popupOpen(divId) {
 			<!-- End header -->
 			
 			<!-- Begin -->
-			<div>
+			<div style="width:100%; height:80%; overflow:scroll;">
 				<table class="table-bordered table-hover">
 					<thead>
 						<tr>
-							<td>이름</td>
-							<td>단위</td>
-							<td colspan="7" align="center">투여</td>
-							<td>판매</td>
-							<td colspan="3" align="center">합계</td>
+							<td width="50%">이름</td>
+							<td width="20%">단위 (회)</td>
+							<td width="20%">투여 (일)</td>
+							<td width="10%">금액</td>
 						</tr>
 					</thead>
-					<tbody>
-						<tr style="background-color: rgba(144, 144, 144, 0.075);">
-							<td>Tx/Rx/Labs</td>
-							<td>Unit</td>
-							<td>Qty</td>
-							<td>QtyT</td>
-							<td>EA</td>
-							<td>Dy</td>
-							<td>Tt</td>
-							<td>일</td>
-							<td>Rt</td>
-							<td>금액</td>
-							<td>금액</td>
-							<td>부가세</td>
-							<td>합계금액</td>
-						</tr>
+					<tbody id="totalTBody">
 						<tr>
 							<td>진료비-재진</td>
-							<td>회</td>
+							<td><select></select>1</td>
 							<td>1</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>일</td>
-							<td></td>
-							<td>5,000</td>
-							<td>5,000</td>
-							<td>500</td>
 							<td>5,500</td>
 						</tr>
 						<tr>
 							<td>내복약</td>
-							<td>회</td>
 							<td>1</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>일</td>
-							<td></td>
-							<td>5,000</td>
-							<td>5,000</td>
-							<td>500</td>
+							<td>1</td>
 							<td>5,500</td>
 						</tr>
 					</tbody>
@@ -559,9 +586,12 @@ function popupOpen(divId) {
 			
 		</div>
 		<!-- End  진단 아랫쪽(처치처방된 리스트) div -->		
+		<div style="width: 100%; height:5%;">
+			<h2 style="margin-top: 0; margin-bottom: 0; float: right;">총 금액:<span>3200000</span></h2>
+		</div>
 		
 		<!-- Begin 아랫쪽 버튼 -->
-		<div class="popit-content" style=" width:70%; height:15%; float: right;">
+		<div class="popit-content" style=" width:70%; height:5%; float: right;">
 			<div class="popit-footer" style="float: right">
 				<button type="button" class="btn btn-default popitup-close">취소</button>
 				<button type="button" class="btn btn-primary">등록</button>

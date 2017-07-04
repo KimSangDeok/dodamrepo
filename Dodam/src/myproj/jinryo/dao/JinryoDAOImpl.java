@@ -86,4 +86,10 @@ public class JinryoDAOImpl implements JinryoDAO{
 
 		return jinroySstp.selectList(namespace+"selectTxSmList", txLargeMenu);
 	}
+
+	@Override
+	public List<HashMap> selectRxList() {
+
+		return jinroySstp.selectList(namespace+"selectRxList");
+	}
 }

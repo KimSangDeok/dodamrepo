@@ -73,4 +73,10 @@ public class JinroyServiceImpl implements JinryoService{
 		return jdao.selectSmTx(txLargeMenu);
 	}
 
+	@Override
+	public List<HashMap> selectRxList() {
+		// TODO Auto-generated method stub
+		return jdao.selectRxList();
+	}
+
 }

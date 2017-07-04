@@ -15,4 +15,6 @@ public interface JinryoService {
 	List <String> selectTxTrMenu(String txtrType);
 
 	List<HashMap> selectSmTx(String txLargeMenu);
+
+	List<HashMap> selectRxList();
 }

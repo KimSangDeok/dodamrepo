@@ -102,4 +102,17 @@ public class JinryoController {
 		List<HashMap> selectHistoryList = jinryoService.selectByAnimalNum(animal_num);
 		return selectHistoryList;
 	}
+	
+	/**
+	 * @param 
+	 * @return 
+	 * 
+	 */
+	@RequestMapping("/rxList.dodam")
+	@ResponseBody
+	public List<HashMap> rxList(){
+		
+		List<HashMap> rxList = jinryoService.selectRxList();
+		return rxList;
+	}
 }
