@@ -11,10 +11,18 @@ INSERT INTO animalroom (ar_num, ar_name, ar_price, ar_type, ar_color)
 VALUES (seq_animalroom_seq.nextval, #{ar_name}, #{ar_price}, #{ar_type}, #{ar_color})
 </insert>
 
-<select id="emptyRoomList" resultType="myproj.stay.dto.RoomVO">
+<!-- 비어있는 동물장(입원만!!)가져오기 -->
+<select id="emptyHospitalRoomList" resultType="myproj.stay.dto.RoomVO">
 SELECT * FROM animalroom
-WHERE stay_num IS NULL
-OR stay_num=''
+WHERE animal_existence IS NULL
+AND ar_type = '입원'
+</select>
+
+<!-- 입원 및 호텔가기 팝업에서 라디오 버튼 변경되면 -->
+<select id="radioChangeRoom" parameterType="String" resultType="myproj.stay.dto.RoomVO">
+SELECT * FROM animalroom
+WHERE animal_existence IS NULL
+AND ar_type = #{ar_type}
 </select>
 
 <!-- 저장 버튼 눌렀을 때, 모든 방의 위치 정보를 update 한다. -->
@@ -26,13 +34,60 @@ WHERE ar_num = ${ar_num}
 </update>
 
 <select id="selectRoomAndServiceAll" resultType="hashmap">
-SELECT a.ar_num ar_num, a.ar_name ar_name, a.ar_price ar_price, a.ar_type ar_type, a.ar_color ar_color, a.ar_top ar_top, a.ar_left ar_left, d.animal_name animal_name, d.cus_name cus_name, d.stay_num stay_num, d.animal_num animal_num, d.stay_checkin stay_checkin, d.stay_checkout stay_checkout, d.stay_reason stay_reason, d.camera_num camera_num, d.camera_existence camera_existence
-FROM animalroom a,
-(SELECT a.animal_name animal_name, c.cus_name cus_name, h.stay_num stay_num, h.animal_num animal_num, h.stay_checkin stay_checkin, h.stay_checkout stay_checkout, h.stay_reason stay_reason, h.camera_num camera_num, h.camera_existence camera_existence
-FROM hospital_stay h, animal a, customer c
-WHERE h.animal_num = a.animal_num
-AND a.cus_tel = c.cus_tel) d
-WHERE a.stay_num = d.stay_num(+)
+SELECT d.ar_num, d.ar_name, d.ar_price, d.ar_type, d.ar_color, d.ar_top, d.ar_left, d.camera_num, d.camera_existence, d.animal_existence, i.animal_name, i.cus_name, i.stay_num, i.animal_num, i.stay_checkin, i.stay_checkout, i.stay_reason
+FROM animalroom d,
+(SELECT r.ar_num, h.stay_num, h.animal_num, h.stay_checkin, h.stay_checkout, h.stay_reason, a.animal_name, c.cus_name
+FROM animalroom r, hospital_stay h, animal a, customer c
+WHERE r.animal_existence IS NOT NULL
+AND h.ar_num = r.ar_num
+AND h.animal_num = a.animal_num
+AND a.cus_tel = c.cus_tel
+AND h.stay_ox IS NOT NULL) i
+WHERE d.ar_num = i.ar_num(+)
 </select>
+
+
+<!-- 퇴원처리 1단계 : animalRoom 에서 animal_existence을 null처리 : 방에서 동물 빼! -->
+<update id="animalRoomNull" parameterType='String'>
+UPDATE animalroom SET
+animal_existence = null
+WHERE ar_num = #{ar_num}
+</update>
+<!-- 퇴원처리 2단계 : hospital_stay에서 checkout을 퇴원을 누른 날짜로 update!-->
+<update id="outCheckout" parameterType="String">
+UPDATE hospital_stay SET
+stay_checkout = sysdate,
+stay_ox = ''
+WHERE stay_num = #{stay_num}
+</update>
+<!-- 퇴원처리 3단계. 입원과 퇴원 사이 몇일인지 불러와라!! -->
+<select id="calculateDays" parameterType="String" resultType="String">
+SELECT TO_CHAR(stay_checkout, 'YYYYMMDD') - TO_CHAR(stay_checkin, 'YYYYMMDD') + 1 AS staydays
+FROM hospital_stay
+WHERE stay_num = #{stay_num}
+</select>
+<!-- 퇴원처리 4단계. 퇴원하려는 방의 1일당 가격 가져와라.!! -->
+<select id="getAnimalRoomPrice" parameterType="String" resultType="int">
+SELECT ar_price
+FROM animalroom
+WHERE ar_num = #{ar_num}
+</select>
+<!-- 퇴원처리 5단계. 수납테이블에 가격 정보 입력.! -->
+<insert id="goPay" parameterType="hashmap">
+INSERT INTO pay (pay_num, animal_num, stay_num, pay_price, pay_ox) VALUES
+(seq_pay_num.nextval, #{animal_num}, #{stay_num}, #{total_price}, 'false')
+</insert>
+
+<!-- 입원이나, 호텔에 들어가자 -->
+<insert id="inAnimalStay" parameterType="myproj.stay.dto.StayVO">
+INSERT INTO hospital_stay VALUES (seq_hospital_stay.nextval, #{animal_num}, #{stay_checkin}, #{stay_checkout}, #{stay_reason}, #{ar_num}, 'true')
+</insert>
+
+<update id="inAnimalRoom" parameterType="myproj.stay.dto.RoomVO">
+UPDATE animalroom SET
+animal_existence = 'true'
+WHERE ar_num = #{ar_num}
+</update> 
+
 
 </mapper>

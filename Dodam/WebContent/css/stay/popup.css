@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+		.popit-wrapper{
+			display: none;
+			border: 1px solid #ccc;
+			background: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 6px 2px #ccc;
+			height:600px;
+		
+		}
+		.popit-content {
+			padding: 20px;
+		}
+		
+		.popit-header {
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.popit-body {
+			padding: 20px 0;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.popitup-overlay {
+			background: #000;
+			position: fixed;
+			z-index: 9999;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0.5;
+			
+		}
+		input[type="button"]{
+			padding-left: 0;
+			padding-right: 0;
+		
+		}

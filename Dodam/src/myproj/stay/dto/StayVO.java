@@ -8,11 +8,18 @@ public class StayVO {
 	private String stay_checkin;		// 입원이나 호텔의 chek in 날짜
 	private String stay_checkout;		// 입원이나 호텔의 check out 날짜
 	private String stay_reason;			// 입원이나 호텔의 사유
-	private String camera_num;			// 카메라 번호
-	private String camera_existence;	// 카메라 유무
+	private String ar_num;				// 입원장이나 호텔장 번호
+	private String stay_ox;				// 입원이나 호텔 서비스가 종료되었는지 여부
+	
 	
 	
 	// 위 변수의 setter, getter
+	public String getStay_ox() {
+		return stay_ox;
+	}
+	public void setStay_ox(String stay_ox) {
+		this.stay_ox = stay_ox;
+	}
 	public String getStay_num() {
 		return stay_num;
 	}
@@ -43,18 +50,13 @@ public class StayVO {
 	public void setStay_reason(String stay_reason) {
 		this.stay_reason = stay_reason;
 	}
-	public String getCamera_num() {
-		return camera_num;
+	public String getAr_num() {
+		return ar_num;
 	}
-	public void setCamera_num(String camera_num) {
-		this.camera_num = camera_num;
+	public void setAr_num(String ar_num) {
+		this.ar_num = ar_num;
 	}
-	public String getCamera_existence() {
-		return camera_existence;
-	}
-	public void setCamera_existence(String camera_existence) {
-		this.camera_existence = camera_existence;
-	}
+
 
 	
 	
