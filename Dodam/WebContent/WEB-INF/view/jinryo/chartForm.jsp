@@ -73,8 +73,8 @@ table tbody tr:nth-child(2n + 1) {
     
      background-color: white;
 }
-/* 처치/처방 팝업 table hover */
-#txTBody>tr:HOVER, #rxBody>tr:HOVER{
+/* 팝업 table hover */
+#txTBody>tr:HOVER, #rxBody>tr:HOVER, #jindanTBody>tr:HOVER, #jindanAddTBody>tr:HOVER	{
 	cursor:pointer;
 	background-color: #EAEAEA;
 }
@@ -87,8 +87,75 @@ table tbody tr:nth-child(2n + 1) {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(function() {
+	
+// 	$('#jindanAddTBody>tr').each('click', function(){
+		
+// 		alert('ddd');
+// 	});
+	
+	
 	$("#datepicker").datepicker();
+	
+	$('#jindanSearchWord').keypress(function( event ) {
+		if ( event.which == 13 ) {
+			if($(this).val()=='') {
+				
+				alert('검색어를 입력하세요');
+				return false;
+			}
+			var searchWord = $(this).val();
+
+			$.ajax({
+				url : "/jinryo/jindan.dodam",
+				type : 'get',
+				data : {
+					"word" : searchWord
+				},
+				dataType : "json",
+				success : function(data){
+// 					console.log(data);
+// 					console.log(data.length);
+// 					console.log(data[0].DI_NUM);
+// 					console.log(data[0].DI_ANIMALTYPE);
+// 					console.log(data[0].DI_NAME);
+// 	 				return false;
+					
+					var inputText = '';
+					$('#jindanTBody').text('');
+					for(var i=0; i<data.length; i++){
+						
+						$('#jindanTBody').append(''+
+							'<tr onclick="javascript:jindanAdd(this)">'+
+								'<td>'+data[i].DI_NAME+'</td>'+
+								'<td>'+data[i].DI_ANIMALTYPE+'</td>'+
+							'</tr>'+
+						'');
+					}
+				}
+			});
+		}
+	});
 });
+
+function jindanRemove(thisRow){
+	
+	$(thisRow).remove();
+}
+
+function jindanAdd(thisRow){
+	
+	var name = $(thisRow).find('td:eq(0)').text();
+	var type = $(thisRow).find('td:eq(1)').text();
+	
+	$('#jindanAddTBody').append(''+
+		'<tr onclick="javascript:jindanRemove(this)">'+
+			'<td>'+name+'</td>'+
+			'<td>'+type+'</td>'+
+		'</tr>'+
+	'');
+}
+
+
 </script>
 
 <!-- popup js -->
@@ -123,13 +190,6 @@ function popupOpen(divId) {
 			type : 'get',
 			dataType : "json",
 			success : function(data){
-				console.log(data);
-				console.log(data.length);
-				console.log(data[0].STOCK_NAME);
-				console.log(data[0].MEDI_COMPONENTKOR);
-				console.log(data[0].MEDI_COMPONENTENG);
-				console.log(data[0].STOCK_COUNT);
-// 				return false;
 				
 				var inputText = '';
 				$('#rxBody').text('');
@@ -173,6 +233,8 @@ function addTxTr(selectedRow, trPrice){
 			'</tr>'+
 	'');
 }
+
+
 </script>
 
 <div class="body" style="padding-top: 5%;">
@@ -370,25 +432,22 @@ function addTxTr(selectedRow, trPrice){
 		<!-- Begin 진단윗쪽 div -->
 		<div class="popit-content" style="border: 1px solid #ccc; width:100%; height:40%; clear: both;">
 			<div class="popit-header">
-				<h4 class="popit-title">진단 내용 검색<input type="text"/></h4>
+				<h4 class="popit-title">진단 내용 검색<input type="text" id="jindanSearchWord" name="jindanSearchWord" /></h4>
 			</div>
-			<div>
+			<div style="width:100%; height:88%; overflow:scroll;">
 				<table>
 					<thead>
 						<tr>
 							<td>진단명(영문)</td>
-							<td>진단명(한글)</td>
 							<td>종</td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="jindanTBody">
 						<tr>
-							<td>Pateller luxation, medial, lateral, aplaisa</td>
 							<td>슬개골 탈굴, 무형성증</td>
 							<td>Canine, Feline</td>
 						</tr>
 						<tr>
-							<td>Pateller trauma, fracture, ligament, tendon</td>
 							<td>슬개골의 외상, 골절, 인대, 힘줄의 손상, 파열</td>
 							<td>Canine, Feline</td>
 						</tr>
@@ -419,25 +478,22 @@ function addTxTr(selectedRow, trPrice){
 			<!-- End header -->
 			
 			<!-- Begin -->
-			<div>
+			<div style="width:100%; height:76%; overflow:scroll">
 				<table>
 					<thead>
 						<tr>
 							<td>진단명(영문)</td>
-							<td>진단명(한글)</td>
 							<td>종</td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="jindanAddTBody">
 						<tr>
 							<td>Pateller luxation, medial, lateral, aplaisa</td>
 							<td>슬개골 탈굴, 무형성증</td>
-							<td>Canine, Feline</td>
 						</tr>
 						<tr>
 							<td>Pateller trauma, fracture, ligament, tendon</td>
 							<td>슬개골의 외상, 골절, 인대, 힘줄의 손상, 파열</td>
-							<td>Canine, Feline</td>
 						</tr>
 					</tbody>
 				</table>

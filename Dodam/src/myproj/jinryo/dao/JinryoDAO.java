@@ -18,4 +18,6 @@ public interface JinryoDAO {
 	public List<HashMap> selectSmTx(String txLargeMenu);
 
 	public List<HashMap> selectRxList();
+	
+	public List<HashMap> selectJindanList(String word);
 }

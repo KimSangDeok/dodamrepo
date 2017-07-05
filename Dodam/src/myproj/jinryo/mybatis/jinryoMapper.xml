@@ -46,6 +46,10 @@ select   distinct(s.stock_name) stock_name,
 			g.goods_price_out goods_price_out
 from stock s, goods g
 where (s.stock_name=g.stock_name and not s.stock_count=0) and g.goods_use='동물용의약품'
-
 </select>
+
+<select id="selectJindanList" parameterType="string" resultType="hashmap">
+select * from DISEASE where DI_NAME like '%${value}%'
+</select>
+
 </mapper>

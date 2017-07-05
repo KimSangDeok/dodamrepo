@@ -17,4 +17,6 @@ public interface JinryoService {
 	List<HashMap> selectSmTx(String txLargeMenu);
 
 	List<HashMap> selectRxList();
+	
+	List<HashMap> selectJindanList(String word);
 }

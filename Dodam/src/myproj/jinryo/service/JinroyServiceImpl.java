@@ -79,4 +79,10 @@ public class JinroyServiceImpl implements JinryoService{
 		return jdao.selectRxList();
 	}
 
+	@Override
+	public List<HashMap> selectJindanList(String word) {
+
+		return jdao.selectJindanList(word);
+	}
+
 }

@@ -92,4 +92,10 @@ public class JinryoDAOImpl implements JinryoDAO{
 
 		return jinroySstp.selectList(namespace+"selectRxList");
 	}
+
+	@Override
+	public List<HashMap> selectJindanList(String word) {
+		
+		return jinroySstp.selectList(namespace+"selectJindanList", word);
+	}
 }

@@ -115,4 +115,13 @@ public class JinryoController {
 		List<HashMap> rxList = jinryoService.selectRxList();
 		return rxList;
 	}
+	
+	
+	@RequestMapping("/jindan.dodam")
+	@ResponseBody
+	public List<HashMap> selectJindanList(String word){
+		
+		List<HashMap> jindanList = jinryoService.selectJindanList(word);
+		return jindanList;
+	}
 }
