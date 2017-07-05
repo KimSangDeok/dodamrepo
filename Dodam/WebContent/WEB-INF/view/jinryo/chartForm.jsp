@@ -166,15 +166,25 @@ function jindanAdd(thisRow){
 //선택한 버튼에 해당하는 popup open
 function popupOpen(divId) {
 	//
-	
-	$('#'+divId).popitup({
-		widthSet : window.innerWidth*0.8+'',	//팝업창 가로길이 (창 최대길이의 80%)
-		chase : false,
-		onCloseModal   :  function(){
-			//닫을때(x)
-		}
-	});
-	
+	if(divId=='addJinryoPopup'){
+		
+		$('#'+divId).popitup({
+			widthSet : window.innerWidth*0.2+'',	//팝업창 가로길이 (창 최대길이의 80%)
+			chase : false,
+			onCloseModal   :  function(){
+				//닫을때(x)
+			}
+		});
+	}else{
+		
+		$('#'+divId).popitup({
+			widthSet : window.innerWidth*0.8+'',	//팝업창 가로길이 (창 최대길이의 80%)
+			chase : false,
+			onCloseModal   :  function(){
+				//닫을때(x)
+			}
+		});
+	}	
 	//등록 버튼 눌를때 데이터 어케 담고 있을꺼?
 	if(divId=='monjinPopup'){
 		
@@ -295,7 +305,7 @@ function addTxTr(selectedRow, trPrice){
 	<!-- End  컨테이너-->
 	
 	<!-- Begin 문진팝업 -->
-	<div id="monjinPopup" class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+	<div id="monjinPopup" class="popit-wrapper popit-wrapper-chase" style=" left: 0px; opacity: 0;">
 		
 		<!-- Begin 닫기 버튼 -->
 		<div class="popit-content" style=" width:70%; height:5%; float: right;">
@@ -659,10 +669,10 @@ function addTxTr(selectedRow, trPrice){
 	<!-- End Tx/Rx팝업 -->
 	
 	<!-- Begin 추가 진료 팝업 -->
-	<div id="addJinryoPopup" class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+	<div id="addJinryoPopup" class="popit-wrapper popit-wrapper-chase" style="height:20%; left: 0px; opacity: 0;">
 		
 		<!-- Begin 닫기 버튼 -->
-		<div class="popit-content" style=" width:70%; height:5%; float: right;">
+		<div class="popit-content" style=" width:70%; height:30%; float: right;">
 			<button id="popupCloseBtn" type="button" class="popitup-close close">
 				<span class="glyphicon glyphicon-remove-circle"></span>
 			</button>
@@ -671,10 +681,10 @@ function addTxTr(selectedRow, trPrice){
 		
 		<!-- Begin -->
 		<div class="popit-content" style="margin-left:auto; margin-right:auto;  width:50%; height:40%; clear: both;">
-			<div class="popit-header" style="height: 10%;">
+			<div class="popit-header" style="height: 50%;">
 				<h4 class="popit-title" style="margin-top: 0; margin-bottom: 0;">추가진료 날짜 선택</h4>
 			</div>
-			<div >
+			<div style="height: 50%;">
 				<input id="datepicker" type="text"/>
 			</div>
 		</div>
