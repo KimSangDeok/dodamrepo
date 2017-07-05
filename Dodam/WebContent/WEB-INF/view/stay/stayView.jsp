@@ -9,7 +9,7 @@
 		
 		<!-- begin : ÆË¾÷ style°ú script!! -->
 		<link rel="stylesheet" href="/css/stay/popup.css"/>
-		<script src="/js/jquery.popitup.js"></script>
+		<script src="/css/stay/jquery.popitup.js"></script>
 		<!-- end : ÆË¾÷ -->
 
 		<!-- begin : colorPicker -->
