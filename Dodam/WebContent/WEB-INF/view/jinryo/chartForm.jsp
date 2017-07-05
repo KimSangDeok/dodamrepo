@@ -378,38 +378,21 @@ function addTxTr(selectedRow, trPrice){
 		</div>
 		<!-- End 닫기 버튼 -->
 		
-		<!-- Begin 왼쪽 카테고리 div -->
-		<div class="popit-content" style="border-right: 1px solid #ccc; width:30%; height:100%; float: left; padding-top:2.8%">
-			<div class="popit-header">
-				<h4 class="popit-title">category</h4>
-			</div>
-			<!-- 증상분류 iframe -->
-<!-- 			<iframe src="/jinryo/monjinType.dodam" width="100%" height="90%" style="padding-top: 15px;"></iframe> -->
-		</div>
-		<!-- End 왼쪽 카테고리 div-->
-		
 		<!-- Begin 오른쪽 증상 div-->
-		<div class="popit-content" style="border-bottom: 1px solid #ccc; width:70%; height:80%; float: left;">
+		<div class="popit-content" style="border-bottom: 1px solid #ccc; width:100%; height:90%;">
 		
 			<!-- Begin header -->
-			<div class="popit-header"><h4 class="popit-title">증상</h4></div>
+<!-- 			<div class="popit-header"><h4 class="popit-title">증상</h4></div> -->
 			<!-- End header -->
 			
 			<!-- Begin 증상-->
-			<div class="popit-body" id="bodycontainer">
-				
+			<div class="popit-body" id="" style="width: 100%; height: 90%;">
 				<div class="content-wrapper">
-					<div>
-						<input type="checkbox"/><label>난청,귀머거리</label>
-					</div>
+					<h1>증상을 입력하세요.</h1>
 				</div>
-				
 				<div class="content-wrapper">
-					<div>
-						<input type="checkbox"/><label>귀의 진드기,기생충,기생충</label>
-					</div>
+					<textarea rows="" cols="" style="width: 90%; height: 90%; font-size: 20px;" ></textarea>
 				</div>
-				
 			</div>
 			<!-- End 증상-->
 			
@@ -417,7 +400,7 @@ function addTxTr(selectedRow, trPrice){
 		<!-- End 오른쪽 증상 div -->
 		
 		<!-- Begin 아랫쪽 버튼 -->
-		<div class="popit-content" style=" width:70%; height:15%; float: right;">
+		<div class="popit-content" style=" width:70%; height:10%; float: right;">
 			<div class="popit-footer" style="float: right">
 				<button type="button" class="btn btn-default popitup-close">취소</button>
 				<button type="button" class="btn btn-primary">등록</button>
