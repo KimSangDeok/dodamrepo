@@ -175,6 +175,15 @@ function popupOpen(divId) {
 				//닫을때(x)
 			}
 		});
+	}else if(divId=='vitalPopup'){
+		
+		$('#'+divId).popitup({
+			widthSet : window.innerWidth*0.3+'',	//팝업창 가로길이 (창 최대길이의 80%)
+			chase : false,
+			onCloseModal   :  function(){
+				//닫을때(x)
+			}
+		});
 	}else{
 		
 		$('#'+divId).popitup({
@@ -285,7 +294,7 @@ function addTxTr(selectedRow, trPrice){
 					<div class="row">
 						<div class="col-xs-12 col-md-12">
 							<a href="#" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-user"></span> <br />혈액검사</a> 
-							<a href="#" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-file"></span> <br />바이탈</a> 
+							<a href="javascript:popupOpen('vitalPopup')" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-file"></span> <br />바이탈</a> 
 							<a href="#" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-picture"></span> <br />X-ray</a> 
 							<a href="#" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-tag"></span> <br />CT결과</a> 
 							<a href="#" class="btn btn-warning btn-lg" role="button">&nbsp;<span class="glyphicon glyphicon-tag"></span> <br />심전도 검사</a>
@@ -684,6 +693,57 @@ function addTxTr(selectedRow, trPrice){
 		
 	</div>
 	<!-- End 추가 진료 팝업 -->
+	
+	
+	<!-- Begin 바이탈 팝업 -->
+	<div id="vitalPopup" class="popit-wrapper popit-wrapper-chase" style="height:50%; left: 0px; opacity: 0;">
+		
+		<!-- Begin 닫기 버튼 -->
+		<div class="popit-content" style=" width:70%; height:5%; float: right;">
+			<button id="popupCloseBtn" type="button" class="popitup-close close">
+				<span class="glyphicon glyphicon-remove-circle"></span>
+			</button>
+		</div>
+		<!-- End 닫기 버튼 -->
+		
+		<!-- Begin 오른쪽 증상 div-->
+		<div class="popit-content" style="border-bottom: 1px solid #ccc; width:100%; height:90%;">
+		
+			<!-- Begin header -->
+<!-- 			<div class="popit-header"><h4 class="popit-title">증상</h4></div> -->
+			<!-- End header -->
+			
+			<!-- Begin 증상-->
+			<div class="popit-body" id="" style="width: 100%; height: 90%;">
+				<div class="content-wrapper">
+					<h1>바이탈</h1>
+				</div>
+				<div class="content-wrapper">
+				<br/><br/>
+					몸무게<input type="text" id="weight" name="weight"/><br/><br/>
+					체온<input type="text" id="temperature" name="temperature"/><br/><br/>
+					수축기혈압<input type="text" id="systolicBloodPressure" name="systolicBloodPressure"/><br/><br/>
+					이완기혈압<input type="text" id="diastoleBloodPressure" name="diastoleBloodPressure"/><br/><br/>
+					심박수<input type="text" id="heartRate" name="heartRate"/><br/><br/>
+					호흡수<input type="text" id="breathingRate" name=" breathingRate "/><br/><br/>
+				</div>
+			</div>
+			<!-- End 증상-->
+			
+		</div>
+		<!-- End 오른쪽 증상 div -->
+		
+		<!-- Begin 아랫쪽 버튼 -->
+		<div class="popit-content" style=" width:70%; height:10%; float: right;">
+			<div class="popit-footer" style="float: right">
+				<button type="button" class="btn btn-default popitup-close">취소</button>
+				<button type="button" class="btn btn-primary">등록</button>
+			</div>
+		</div>
+		<!-- End 아랫쪽 버튼 -->
+		
+	</div>
+	<!-- End 바이탈 팝업 -->
 	
 </div>
 <!-- End body -->
