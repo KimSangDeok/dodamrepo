@@ -1,5 +1,7 @@
 package myproj.main.dao;
 
+import java.util.List;
+
 import myproj.main.dto.MainVO;
 
 // Interface!!
@@ -20,4 +22,9 @@ public interface MainDAO {
 	 */
 	int memberInsert(MainVO vo);
 	
+	
+	/**
+	 * 의사 이름 검색 기능 구현
+	 */
+	public List<MainVO> doctorSelect();
 }

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!-- <link rel="stylesheet" href="/css/book/css/bbs.css" type="text/css"> -->
 <!-- 작은데이터피커-->
@@ -8,7 +10,85 @@
 <link href="/css/book/smalldatepicker/smallcalendar.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
 <script src="/css/book/smalldatepicker/es5.js"></script>
-<!-- 작은데이터피커끝-->
+
+<!-- popup script -->
+<script src="/js/jquery.popitup.js"></script>
+
+
+<!-- Begin popup css -->
+<style type="text/css">
+
+@media ( min-width:768px) {
+	#main-nav {
+		line-height: 0;
+		text-align: center;
+	}
+	#main-menu {
+		display: inline-block;
+	}
+}
+
+.popit-wrapper {
+/* 	height: 90%; */
+	display: none;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 6px 2px #ccc;
+}
+
+.popit-content {
+/* 	padding: 20px; */
+    margin-top: 10px
+}
+
+.popit-header {
+	border-bottom: 1px solid #ccc;
+}
+
+.popit-body {
+	padding: 40px 0;
+	width: 500px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+	left: 0px;
+}
+
+.popit-body p {
+ text-align: right; 
+ margin-right: 120px;
+ 
+}
+.popit-footer{ margin-bottom:20px;
+}
+.popitup-overlay {
+	background: #000;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0.5;
+}
+
+.margin-top-40 {
+	margin-top: 40px;
+}
+
+.list-group-item {
+	border: 0;
+}
+
+#popupCloseBtn{
+	height: 0.85em;
+}
+</style>
+<!-- End popup 스타일-->
+
+
+<!-- 작은데이터피커끝 -->
 <style>
 	table.table_booking td {
     padding: 7px 0 7px 0;
@@ -21,15 +101,114 @@
 	}
 </style>
 
+<script>
+$(function(){
+	$('.listCenter').siblings('td').click(function(){ //선택자 중 형제 찾기 
+		
+		if( $(this).text()!=''){
+			return false;
+		}else{
+			
+			$('#Popup').popitup({
+				chase : false
+			});
+		}
+	});
+	
+});
+
+
+</script>
 
 <div class="body">
+<!-- Begin 팝업 -->
+<form action="reservInsert.dodam" method="post">
+	<div id="Popup" class="popit-wrapper popit-wrapper-chase" style="  left: 0px;opacity: 0;">
+		
+		<!-- Begin 닫기 버튼 -->
+		<div class="popit-content" style=" width:70%; height:5%;  ">
+			<button id="button" type="button" class="popitup-close close" style="background-color: white; margin-left:110%;">
+				<span class="glyphicon glyphicon-remove-circle" >close</span>
+			</button>
+		</div>
+		<!-- End 닫기 버튼 -->
+		
+		<!-- *************************************  -->
+		<div class="popit-content">
+			<div class="popit-header">
+		    </div>
+			<div class="popit-body">
+			
+				<p>의사아이디
+					<input class="form-control J_Message" type="text" name="per_id"
+					style="back-ground: rgba(229, 179, 179, 0.075);" placeholder="아이디">
+				</p>
+				<p>의사이름
+					<input class="form-control J_Message" type="text" name="doctor_name"
+					style="back-ground: rgba(229, 179, 179, 0.075);" placeholder="의사이름">
+				</p>
+				<p>동물번호
+					<input class="form-control J_Message" type="text" name="animal_num"
+					style="back-ground: rgba(229, 179, 179, 0.075);" placeholder="동물번호">
+				</p>
+				<p>예약날짜
+					<input class="form-control J_Message" type="text" name="rsvt_dt"
+					value="${clickdate}"style="back-ground: rgba(229, 179, 179, 0.075);" placeholder="예약날짜">
+				</p>	
+				<p>예약시간
+					<select name="rsvt_time" class="form-control J_Message" 	style="width:190px;back-ground: rgba(229, 179, 179, 0.075);
+					placeholder="예약시간">
+						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
+						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
+						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
+						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
+						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
+						<option value="19:00">19:00</option>
+						<option value="20:00">20:00</option>
+						<option value="21:00">21:00</option>
+					</select>	
+				</p>	
+				<p>서비스분류
+					<select name="service_type" class="form-control J_Message" 	style="width:190px;back-ground: rgba(229, 179, 179, 0.075);">
+						<option value="beauty">미용</option>
+						<option value="jinryo">진료</option>
+						<option value="hospital">입원</option>
+						<option value="hotel">호텔</option>
+					</select>	
+				</p>	
+												
+			</div>
+		</div>
+		<!-- *************************************  -->
+		
+	<!-- End 오른쪽  div -->
+		
+		<!-- Begin 아랫쪽 버튼 -->
+		<div class="popit-content" style=" width:70%; height:10% ;  margin-left:15%;">
+			<div class="popit-footer" >
+				<button type="button" class="btn btn-default popitup-close">취소</button>
+				<button type="submit" class="btn btn-primary">예약</button>
+			</div>
+		</div>
+		<!-- End 아랫쪽 버튼 -->
+		
+	</div>
+	</form>
+	<!-- End 문진팝업 -->
+
+
 <div id="contents" style="padding-top:10px">      
 	<h1>스케줄 현황</h1>
 		<div style="float:left;margin-left:500px;margin-bottom:20px">
 			<!-- 작은달력 화면 -->
 				<div class="form-row">
 				<label for="singleDateRange">Single mode</label>
-				<input type="text" placeholder="Date picker" id="singleDateRange"><div class="dt"><div class="dt__wrapper"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Sunday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">25</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d ">20</div><div class="dt__calendar_m_d ">21</div><div class="dt__calendar_m_d ">22</div><div class="dt__calendar_m_d ">23</div><div class="dt__calendar_m_d ">24</div><div class="dt__calendar_m_d active">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div></div></div>
+				<input type="text" placeholder="Date picker" id="singleDateRange" ><div class="dt"><div class="dt__wrapper"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Sunday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">25</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d ">20</div><div class="dt__calendar_m_d ">21</div><div class="dt__calendar_m_d ">22</div><div class="dt__calendar_m_d ">23</div><div class="dt__calendar_m_d ">24</div><div class="dt__calendar_m_d active">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div></div></div>
 				</div>	        
 			<!-- 작은달력 화면 끝 -->
 		</div>		
@@ -40,163 +219,45 @@
 		</p>    
       <div id="c_contact" style="margin-top:30px">
 		<div style="width: 1000px;overflow-x: auto;margin: auto;">
-			<table class="table_booking" style="width: 1680px;">				
-						<tbody>
+			<table  class="table_booking" style="width: 1680px;">				
+				<tbody class="tbody">
 <!-- 담당자-->
+					<tr>
+						<th width="130px" id="doctorname" >진료시작시간</th>	
+						<c:forEach var="per_name" items="${perName}">					
+							<th style="width: 100px;" id="${per_name.per_name}" >${per_name.per_name}</th>							
+						</c:forEach>				
+					</tr>
+<!-- 9시-->				
+					<c:forEach var="time" begin="9" end="21">
+						
 						<tr>
-							<th width="80px">진료시작시간</th>						
-								<th style="width: 100px;">D_황선화</th>							
-								<th style="width: 100px;">D_김우석</th>							
-								<th style="width: 100px;">D_선민정</th>							
-								<th style="width: 100px;">D_김상덕</th>							
-								<th style="width: 100px;">D_백선미</th>							
-								<th style="width: 100px;">B_방민주</th>						
-								<th style="width: 100px;">B_이도희</th>							
+							<td class="listCenter">${time}:00</td>
+							<c:forEach var="per_name" items="${perName}">
+						
+								<c:set value="${time}:00" var="ttt"/>
+							<c:set var="reservationType" value="0"/>
+								<c:forEach var="realPerName" items="${per_name.per_name}">
+									
+									<c:forEach  var="result" items="${result}">
+										<c:if test="${result.rsvt_time eq ttt and result.doctor_name eq realPerName}">
+											<c:set var="reservationType" value="1"/>
+										</c:if>
+									</c:forEach>
+									
+								</c:forEach>
+								<c:if test="${reservationType==0}">
+										<td></td>
+									</c:if>
+									<c:if test="${reservationType==1}">
+										<td style="background-color: pink">예약완료</td>
+										<c:set var="reservationType" value="0"/>
+									</c:if>
+							</c:forEach>
 						</tr>
-<!-- 9시-->					
-						<tr>
-							<td class="listCenter" nowrap="">9:00</td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td></td>					
-								<td></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>
-						</tr>
-<!--10시-->
-						<tr>
-							<td class="listCenter" nowrap="">10:00</td>						
-								<td></td>						
-								<td></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>					
-								<td></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td></td>
-						</tr>
-<!--11시-->
-						<tr>
-							<td class="listCenter" nowrap="">11:00</td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td></td>
-						</tr>
-<!--12시-->
-						<tr>
-							<td class="listCenter" nowrap="">12:00</td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>					
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>						
-								<td style="background-color: #29eede;"></td>
-						</tr>						
-<!--13시-->
-						<tr>
-							<td class="listCenter" nowrap="">13:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>									
-<!--14시-->
-						<tr>
-							<td class="listCenter" nowrap="">14:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>
-<!--15시-->
-						<tr>
-							<td class="listCenter" nowrap="">15:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>
-<!--16시-->
-						<tr>
-							<td class="listCenter" nowrap="">16:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>
-<!--17시-->
-						<tr>
-							<td class="listCenter" nowrap="">17:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>
-<!--18시-->
-						<tr>
-							<td class="listCenter" nowrap="">18:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>
-<!--19시-->
-						<tr>
-							<td class="listCenter" nowrap="">19:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>						
-<!--20시-->
-						<tr>
-							<td class="listCenter" nowrap="">20:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>						
-<!--21시-->
-						<tr>
-							<td class="listCenter" nowrap="">21:00</td>						
-								<td></td>						
-								<td></td>						
-								<td></td>						
-								<td></td>					
-								<td></td>						
-								<td></td>						
-								<td></td>
-						</tr>			
-			</tbody></table>
+					</c:forEach>	
+				</tbody>
+			</table>
 		</div>
 
 
@@ -204,11 +265,17 @@
    </div>
 
 <script>
-$(function(){
-    $('#singleDateRange').DatePicker({
-        startDate: moment()
-    });
-});
+	$(function() {
+			
+			var temp1 = location.href.split("?");
+			var temp2 = temp1[1].split("=");
+			var date = temp2[1];
+			$('#singleDateRange').DatePicker({
+				startDate : moment(date)
+					
+			});
+ 		});
+
 </script>
 
 <script type="text/javascript">
@@ -219,12 +286,12 @@ $(function(){
   _gaq.push(['_trackPageview']);
 
   (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
 
 </script>
-
 
 </div>

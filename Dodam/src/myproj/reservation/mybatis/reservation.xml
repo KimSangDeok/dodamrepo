@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reservation">
+
+<!--예약정보를 DB에 Insert하는 SQL 문장 -->
+ <insert id="reservInsert" parameterType="myproj.reservation.dto.ReservationVO">
+ INSERT INTO reservation VALUES( SEQ_rsvt.nextval, #{animal_num} , #{rsvt_dt} ,#{per_id} ,#{rsvt_time} 
+ ,#{service_type} ,#{doctor_name})
+ </insert>
+
+<select id="bringList" parameterType="string" resultType="myproj.reservation.dto.ReservationVO" >
+select * from reservation
+where RSVT_DT='20170705'
+</select>
+
+
+</mapper>

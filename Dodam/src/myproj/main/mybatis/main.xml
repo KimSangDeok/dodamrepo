@@ -12,4 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</if>	
 </select>
 
+<!-- 의사 이름 검색해오는 sql 문장 -->
+<select id="doctorName"  resultType="myproj.main.dto.MainVO" >
+	select per_name, per_id from person 
+</select>
+
 </mapper>

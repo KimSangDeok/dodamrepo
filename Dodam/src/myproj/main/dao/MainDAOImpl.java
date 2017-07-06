@@ -1,5 +1,7 @@
 package myproj.main.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -45,4 +47,13 @@ public class MainDAOImpl implements MainDAO {
 		}
 		return result;
 	}
+
+	@Override
+	public List<MainVO> doctorSelect() {
+
+		return main.selectList("main.doctorName");
+	}
+	
+	
+
 }
