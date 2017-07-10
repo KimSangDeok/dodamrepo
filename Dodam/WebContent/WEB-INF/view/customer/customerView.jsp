@@ -415,8 +415,6 @@ function showList(cus_tel){
 						<span>고객관리</span>
 						<ul class="dropdown">						
 							<li><div id="registerDiv"><a href="javascript:monjinOpen()"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
-							<li><a href="/customer/editCustomer.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
-							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>고객검색</a></li>
 							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>SMS발송</a></li>
 						</ul>
 					</div>
@@ -478,7 +476,7 @@ function showList(cus_tel){
 <!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
-<div id="block2" class="modal-content" style="margin-left: 320px;" >
+<div id="block2" class="modal-content" style=" margin-left: 320px;" >
 	<table>
 		<tr>
 			<td><a class="title" style="font-size: 13pt;">반려 동물 목록</a>

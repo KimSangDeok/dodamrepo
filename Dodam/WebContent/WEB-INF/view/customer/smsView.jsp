@@ -52,9 +52,7 @@
 		<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 			<span>고객관리</span>
 			<ul class="dropdown">						
-				<li><div id="registerDiv"><a href="#"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
 				<li><a href="/customer/customerView.dodam"><i class="icon-envelope icon-large"></i>고객검색</a></li>
-				<li><a href="/customer/editCustomer.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
 				<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>sms 전송</a></li>
 			</ul>
 		</div>
