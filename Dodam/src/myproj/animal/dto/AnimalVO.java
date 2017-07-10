@@ -29,7 +29,8 @@ public class AnimalVO {
 	}
 	
 	public void setFile2(MultipartFile file2) {
-		
+		System.out.println("file2.getOriginalFilename() : "+file2.getOriginalFilename());
+		System.out.println("animalhidden : "+animalhidden);
 		if(!(file2.getOriginalFilename().equals(animalhidden) )) { 
 			System.out.println("동물");
 		this.animalfile_name = file2.getOriginalFilename()+"_"+System.currentTimeMillis();

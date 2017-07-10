@@ -23,8 +23,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		return customer.selectList("customer.customerList");
 	}
-	
-
 
 	@Override
 	public List<AnimalVO> clicklist(AnimalVO animalVO) {
@@ -32,18 +30,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
-
+	@Override
 	//고객정보 db에 삽입
 	public int cusInsert(CustomerVO customerVO) {
 		return customer.insert("customer.infocusInsert",customerVO);
 	}
 
+	@Override
 	//고객 핸드폰 번호로 고객 정보 얻어오기
 	public CustomerVO cusSelect(String phoneNum) {
 		return customer.selectOne("customer.cusSelect", phoneNum);
 	}
-
 	
+	//고객정보수정 DB에 업데이트
+	@Override
+	public int cuseditInsert(CustomerVO customerVO) {
+		return customer.update("customer.cuseditInsert",customerVO);
+	}
 	
 	// smsView.jsp에서 동물 전체 검색~~~~
 	@Override
@@ -63,9 +66,5 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
-	//고객정보수정 DB에 업데이트
-	@Override
-	public int cuseditInsert(CustomerVO customerVO) {
-		return customer.update("customer.cuseditInsert",customerVO);
-	}
+	
 }

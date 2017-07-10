@@ -18,12 +18,15 @@ public interface CustomerDAO {
 	/*클릭한 고객의 동물목록*/
 	List<AnimalVO> clicklist(AnimalVO animalVO);
 	
+	//고객 번호로 고객 정보 검색해오기
+	CustomerVO cusSelect(String phoneNum);
+	
 	//고객 정보 DB에 등록하기 
 	int cusInsert(CustomerVO customerVO);
 	
 	//고객 정보 수정 업데이트
 	int cuseditInsert(CustomerVO customerVO);
-		
+	
 	// smsView.jsp에서 동물 전체 검색~~~~
 	List<Map<String, String>> showAnimalList();
 	
@@ -33,5 +36,10 @@ public interface CustomerDAO {
 	// smsView.jsp에서 즐겨찾기 메세지 전체 검색~~~~
 	List<Map<String, String>> showFavoriteList();
 
+
+
+
+
+	
 	
 }
