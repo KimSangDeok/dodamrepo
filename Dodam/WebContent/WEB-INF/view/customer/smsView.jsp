@@ -197,7 +197,7 @@
 					<textarea  class="message_content" ></textarea>
 				
 					<div style="float:left">
-					<input type="button" value="내용지우기"/>
+					<input class='erase' type="button" value="내용지우기"/>
 					<input type="text" class="message_name" style="width:35%; padding:10px" placeholder="즐겨찾기 명" id="subject"/>
 					<input type="button" class="smsSave" value="저장"/>
 					</div>
@@ -216,6 +216,17 @@
 	<script>
 	//* 발송 버튼을 누르면  
 	function sendMessage(){
+
+		// 메세지를 보내기 전, 모든 내용(메세지내용과, 보낼 핸드폰번호 목록)을 입력했는지 검사한다.
+		if($('.scroll').text()==""){
+			alert("전송할 핸드폰주소를 반드시 하나 이상 입력해야 합니다.");
+			return false;
+		}
+		if($('.message_content').val()==""){
+			alert("전송할 메세지 내용을 반드시 입력해야 합니다.");
+			return false;
+		}
+		
 		// 문자 발송하는 메소드~~ action이 coolsms에서 제공하는 페이지로 넘어가므로
 		// ajax를 이용해야 한다요~
 		
@@ -308,6 +319,16 @@ $(document).ready(function() {
 	// sms에서 자주 사용하는 메세지 내용을 즐겨찾기 목록에 추가한다. ajax를 이용
 	$('.smsSave').bind('click', function(){
 		
+		// 등록하기전, 모든 내용(즐겨찾기명과 메세지 내용)을 입력했는지 검사한다.
+		if($('.message_name').val()==""){
+			alert("즐겨찾기 명을 반드시 입력해야 합니다.");
+			return false;
+		}
+		if($('.message_content').val()==""){
+			alert("즐겨찾기 메세지 내용을 반드시 입력해야 합니다.");
+			return false;
+		}
+
  		$.ajax({
 			url : '/customer/favoriteSMS.dodam',
 			type : 'get',
@@ -351,9 +372,16 @@ $(document).ready(function() {
     		error:function(request, status,error){
    			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
    			}
-		}) 
-		
+		}) 	
 	})
+	
+	
+	// 내용지우기 버튼을 누르면 내용아 모두 사라져라!!
+	$('.erase').bind('click', function(){
+		$('.message_content').val("");
+	})
+	
+	
 }); 
 </script>
 

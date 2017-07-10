@@ -419,14 +419,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             		}                	
                 })  
                 
-                
-                
-                
-                
-                
-                
-                
-                
+                // 달력의 날짜를 set 하면 달력아 사라져라!
+                this.params.onHide();
+                this.$el.removeClass('show');    
+                                
             }
         }, {
             key: 'onAfterRender',

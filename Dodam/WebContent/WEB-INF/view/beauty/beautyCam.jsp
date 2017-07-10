@@ -7,25 +7,14 @@
 <div class="body"><br/>
 
 
-	<div style="float:left; border:3px solid pink; width:80%">
-	<!-- 라즈베리로 입원장을 보여주는 화면을 설계합시다~~~~~~~~ -->
-
-	읏챠챠챠챠챠~~~ 라즈베리로 입원장을 보여주는 화면을 설계합시다
-	
-	<!-- end : 라즈베리 입원장 보여주는 곳 -->	
-	</div>
-
-
-
-
 	<!-- begin : DIV 1) 미용을 할 동물의 정보, 미용 내용을 띄움 / 미용 완료, 취소 버튼 -->
-	<div style="float:left; border:3px solid blue; width:20%">
+	<div>
 	
 		<form method="get" action="/beauty/beautyDone.dodam">
 		<input type="hidden" name="bty_code" value="${bty_code}">
 		<input type="hidden" name="bty_price" value="${bty_price}">
 		<input type="hidden" name="animal_num" value="${animal_num}">
-		<input type="text" name="btm_type" value="${btm_type}">
+		<input disabled='disabled' type="text" name="btm_type" value="${btm_type}">
 
 		
 		<input type="button" value="취소" id="cancel">
@@ -35,6 +24,20 @@
 	
 	</div>
 	<!-- end : DIV 1) 미용을 할 동물의 정보, 미용 내용을 띄움 / 미용 완료, 취소 버튼 -->
+	
+
+	<div>
+	<!-- 라즈베리로 입원장을 보여주는 화면을 설계합시다~~~~~~~~ -->
+
+	<img src="http://192.168.0.194:8080/?action=stream" alt="미용하고 있는 장면이 뜨는 화면"/>
+	
+	<!-- end : 라즈베리 입원장 보여주는 곳 -->	
+	</div>
+
+
+
+
+
 
 
 

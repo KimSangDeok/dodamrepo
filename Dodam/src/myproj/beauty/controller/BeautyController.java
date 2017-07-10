@@ -84,9 +84,8 @@ public class BeautyController {
 		HashMap<String, String> dateMap = new HashMap<String, String>();
 		dateMap.put("from_date", date[0]);
 		dateMap.put("to_date", date[1]);
-
+		
 		beautyServiceList = beautyDAO.changeDateBeautyList(dateMap);
-
 
 		return beautyServiceList;
 	}
