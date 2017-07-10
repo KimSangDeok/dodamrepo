@@ -85,8 +85,8 @@ h1 {
 }
 #keywords thead tr th { 
   font-weight: bold;
-  padding: 12px 30px;
-  padding-left: 42px;
+/*   padding: 12px 30px;
+  padding-left: 42px; */
 }
 #keywords thead tr th span { 
   padding-right: 20px;

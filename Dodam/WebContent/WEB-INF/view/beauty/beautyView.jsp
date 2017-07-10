@@ -60,6 +60,21 @@
 		right: 0;
 		opacity: 0.5;
 	}
+	.beautyDIV{
+	    position: relative;
+	    background-color: #fff;
+	    -webkit-background-clip: padding-box;
+	    background-clip: padding-box;
+	    border: 1px solid #999;
+	    border: 1px solid rgba(248, 14, 14, 0.2);
+	    border-radius: 6px;
+	    outline: 0;
+	    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	    width:500px;
+	    height:450px;
+	    margin-bottom: 50px;
+	}
 	</style>
 	<script src="/js/jquery.popitup.js"></script>
 	<!-- begin : 팝업 -->
@@ -110,8 +125,8 @@
 				
 				 
 <!-- begin : DIV 1) 미용 일정을 보여주는 테이블 -->
-<div style="float:left; width:60%">
-	<div style="background-color:pink">
+<div class='beautyDIV' style="float:left; width:59%; margin-right:1%">
+	<div>
 	<h1>미 용 목 록</h1>
 	</div>
 
@@ -216,8 +231,8 @@
 			 	
 			 	
 <!-- begin : DIV 2) 미용 옵션을 보여주고, 등록하는 DIV -->
-<div style="float:left; width:40%">
-	<div style="background-color:pink">
+<div class='beautyDIV' style="float:left; width:40%">
+	<div>	
 	<h1>미 용 등 록</h1>
 	</div>
 
@@ -231,10 +246,9 @@
 
 
 	<!-- begin : 미용 옵션 추가하는 버튼, script(팝업을 띄운다), 미용예약, 미용하기 버튼 3가지 -->
-	<div class="row">
+	<div class="rows">
 		<form method='get' action="/beauty/beautyCam.dodam">
 		<div class="col-lg-12">
-		<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
 		<a class="registerbeauty" href="javascript:registerBeauty()">미용예약</a> 
 		<input type="hidden" name="bty_code" id="bty_code">	
 		<input type="submit" class="registerbeauty" value="미용하기">
@@ -243,32 +257,42 @@
 	</div>
 	<script type="text/javascript" src="/beautymodal/rmodal.js"></script>
 	<!-- end : 미용 옵션 추가하는 버튼, script(팝업을 띄운다), 미용예약, 미용하기 버튼 3가지 -->
-                			
+     
+	<br/>        			
                 		
 	<!-- begin : 미용 옵션 추가 drag -->		 	
 	<div class="rowOption">
-		<div class="col-xs-5">
-			<select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
-				<!-- db에서 BeautyOption을 불러와서 뿌려줘야 한다. -->              		
-				<c:forEach var='option' items="${beautyOption}" >
-				<option>${option.btm_type}</option>
-				</c:forEach>
-			</select>
-		</div>
-	            
-		<div class="col-xs-2">
-		    <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
-		    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">▶▶</button>
-		    <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
-		    <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
-		    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">◀◀</button>
-		    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
-		</div>
-	            
-		<div class="col-xs-5" id="optionResult">
-		    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
+		
+		<div style='float:right; margin-right:3%'>
+		<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
 		</div>
 		
+		<br/>
+		
+		<div class='beautyOption' style='margin-top:30px; margin-bottom:50px'>
+		
+			<div class="col-xs-5">
+				<select name="from[]" id="undo_redo" class="form-control" size="13" multiple="multiple">
+					<!-- db에서 BeautyOption을 불러와서 뿌려줘야 한다. -->              		
+					<c:forEach var='option' items="${beautyOption}" >
+					<option>${option.btm_type}</option>
+					</c:forEach>
+				</select>
+			</div>
+	            
+			<div class="col-xs-2">
+			    <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
+			    <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block">▶▶</button>
+			    <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block">></button>
+			    <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><</button>
+			    <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block">◀◀</button>
+			    <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
+			</div>
+	            
+			<div class="col-xs-5" id="optionResult">
+			    <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
+			</div>
+		</div>
 		
 		<!-- begin : 미용옵션 옮기는 script -->
 		<script type="text/javascript" src="/style/js/multiselect.js"></script>
