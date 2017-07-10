@@ -70,7 +70,7 @@ $(function(){
 			"<li class='news-item'>"+
 			"<a href="+
 			news_json[i].link+
-			">"+
+			" target='_blank'>"+	// target='_blank'는 새로운 창으로 띄우게 할려는 속성!!!
 			news_json[i].title+
 			"</a>"+
 			"</li>"

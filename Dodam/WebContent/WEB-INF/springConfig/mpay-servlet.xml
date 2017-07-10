@@ -21,7 +21,7 @@
 			value ="classpath*:myproj/mpay/mybatis/*.xml"/>
 </bean>
 
-<bean id='mm' class="org.mybatis.spring.SqlSessionTemplate">
+<bean id='mpay' class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="factoryBeanMpay"></constructor-arg>
 </bean>
 

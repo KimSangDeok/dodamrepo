@@ -1,41 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<link rel="stylesheet" type="text/css" href="/manage/style.css" />
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
-<link href="/css/goods/smalldatepicker/smallDatestyle.css" rel="stylesheet" type="text/css">
-<link href="/css/goods/smalldatepicker/smallcalendar.css" rel="stylesheet" type="text/css">
+	
+	<!-- begin : 관리자 추가 메뉴 css -->
+	<link rel="stylesheet" type="text/css" href="/manage/style.css" />
+	<!-- end : 관리자 추가 메뉴 css -->
+	
+	<!-- begin : date range picker -->
+	<link href="/css/mpay/smalldatepicker/smallDatestyle.css" rel="stylesheet" type="text/css">
+	<link href="/css/mpay/smalldatepicker/smallcalendar.css" rel="stylesheet" type="text/css">
+	<link href="/css/book/smalldatepicker/smallDatestyle.css" rel="stylesheet" type="text/css">
+	<!-- end : date range picker -->
 
-	<style>
-	/* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
-	.main{
-		z-index:2;
-	}
-	.count, .Quantity{
-		z-index:1;
-	}
-	</style>
-<script type="text/javascript" src="/manage/modernizr.custom.79639.js"></script>
-<noscript><link rel="stylesheet" type="text/css" href="/manage/noJS.css" /></noscript> 
-
+<!-- begin : mpayView 두번째 : 기간내 매출액, 건수를 보여주라~ -->
 <div class="body">
 
-<div class="body">
-
-				<div class="wrapper-demo">
-					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
-						<span>매출관리</span>
-						<ul class="dropdown">
-						
-							<li><a href="/mpay/mpayView.dodam"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
-							<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>매출 액 및 건수</a></li>
-							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
-						</ul>
-					</div>
-				​</div>
-		 
-			 		<script type="text/javascript">
-			
+		<!-- begin : 관리자 추가 메뉴 DIV, 스크립트 -->
+		<div class="wrapper-demo">
+			<div id="dd" class="wrapper-dropdown-3" tabindex="1">
+				<span>매출관리</span>
+				<ul class="dropdown">
+					<li><a href="/mpay/mpayView.dodam"><i class="icon-envelope icon-large"></i>시간대별 접수고객</a></li>
+					<li><a href="/mpay/mpayView2.dodam"><i class="icon-truck icon-large"></i>매출 액 및 건수</a></li>
+					<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>매출 내용 분석</a></li>
+				</ul>
+			</div>
+		​</div>
+			 
+		<script type="text/javascript">
 			function DropDown(el) {
 				this.dd = el;
 				this.placeholder = this.dd.children('span');
@@ -71,19 +63,22 @@
 			}
 
 			$(function() {
-
 				var dd = new DropDown( $('#dd') );
-
 				$(document).click(function() {
 					// all dropdowns
 					$('.wrapper-dropdown-3').removeClass('active');
 				});
-
 			});
-
 		</script>
+		<!-- end : 관리자 추가 메뉴 DIV, 스크립트 -->
+
 
 		<br/>
+		
+
+		<!-- mpayView2의 진짜 본문 내용 : div로 묶는 이유는, 내용을 우측으로 이동하게 하려고 -->
+		<div class='mpayView1' style='margin-left:11%'>		
+		
 		<!-- 분석 기간을 설정하는 datepicker와 button -->
 		<div class="form-row">
 			<div style="float:left">
@@ -319,7 +314,7 @@
 		</script>	
 
 
-		
+		</div>
 
 
 </div>

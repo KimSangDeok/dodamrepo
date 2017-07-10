@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mpay">
+
+<select id="howManyAnimalCustomer" parameterType="String" resultType="hashmap">
+SELECT t.rsvt_time, NVL(p.total_animal, 0) total_animal, NVL(p.total_customer, 0) total_customer
+FROM reservation_time t,
+(
+SELECT r.rsvt_time, COUNT(DISTINCT r.animal_num) total_animal, COUNT(DISTINCT c.cus_tel) total_customer
+FROM reservation r, customer c, animal a
+WHERE TO_CHAR(rsvt_dt, 'YYYY.MM.DD') = #{selectDay}
+AND r.animal_num = a.animal_num
+AND a.cus_tel = c.cus_tel
+GROUP BY rsvt_time
+) p
+WHERE p.rsvt_time(+) = t.rsvt_time
+ORDER BY t.rsvt_time
+</select>
+
+
+<select id="mpayView3Jinryo" parameterType="String" resultType="hashmap">
+SELECT m.month, NVL(r.total_jinryo, 0) total
+FROM mpay_month m,
+(
+SELECT TO_CHAR(jryo_dt, 'MM') JINRYO_DD, COUNT(*) TOTAL_JINRYO
+FROM jinryo
+WHERE TO_CHAR(jryo_dt, 'YYYY') = #{selectYY}
+GROUP BY TO_CHAR(jryo_dt, 'MM')
+) r
+WHERE m.month = r.jinryo_dd(+)
+ORDER BY m.month
+</select>
+
+
+<select id="mpayView3Stay" parameterType="String" resultType="hashmap">
+SELECT m.month, NVL(r.total_stay, 0) total
+FROM mpay_month m,
+(
+SELECT TO_CHAR(stay_checkin, 'MM') stay_DD, COUNT(*) TOTAL_STAY
+FROM hospital_stay
+WHERE TO_CHAR(stay_checkin, 'YYYY') = #{selectYY}
+GROUP BY TO_CHAR(stay_checkin, 'MM')
+) r
+WHERE m.month = r.stay_dd(+)
+ORDER BY m.month
+</select>
+
+<select id="mpayView3Beauty" parameterType="String" resultType="hashmap">
+SELECT m.month, NVL(r.total_beauty, 0) total
+FROM mpay_month m,
+(
+SELECT COUNT(*) TOTAL_beauty, TO_CHAR(bty_dt, 'MM') beauty_DD
+FROM beauty
+WHERE TO_CHAR(bty_dt, 'YYYY') = #{selectYY}
+GROUP BY TO_CHAR(bty_dt, 'MM')
+) r
+WHERE m.month = r.beauty_dd(+)
+ORDER BY m.month
+</select>
+
+</mapper>
