@@ -53,6 +53,36 @@ var windo=eval('window.open("'+page+'","'+nam+'","location=no,status=no,toolbar=
 
 	}
 </script>
+<script type="text/javascript">
+$(function(){
+	var news_string = ${resultNews};		// controller에서 받아온 뉴스(string형태)를 잘 가져옴.
+	//console.log(news_string.items);
+	var news_json = news_string.items;		// news_string에서 뉴스만 있는 'items'만 가져오면 json 형태로 받아짐
+	//console.log(news_json.length);
+	
+	for(var i=0; i<news_json.length; i++){
+		console.log(i);
+		console.log(news_json[i].title);
+		console.log(news_json[i].link);
+		
+		// 타이틀과, link를 가져와 주자!!!
+		$('#demo1').append(		
+			"<li class='news-item'>"+
+			"<a href="+
+			news_json[i].link+
+			">"+
+			news_json[i].title+
+			"</a>"+
+			"</li>"
+		)
+	}
+	
+	
+	
+	
+
+})
+</script>
 <title>로그인메인</title>
 </head>
 <body class="index">
@@ -112,45 +142,10 @@ var windo=eval('window.open("'+page+'","'+nam+'","location=no,status=no,toolbar=
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-xs-12">
-<%-- 									<c:forEach items="${bookList}" var ="b"> --%>
 										<ul id="demo1">
-											<li class="news-item">Curabitur porttitor ante eget
-												hendrerit adipiscing. Maecenas at magna accumsan, rhoncus
-												neque id, fringilla dolor. <a href="#">Read more...</a>
-											</li>
-											<li class="news-item">Curabitur porttitor ante eget
-												hendrerit adipiscing. Maecenas at magna accumsan, rhoncus
-												neque id, fringilla dolor. <a href="#">Read more...</a>
-											</li>
-											<li class="news-item">Praesent ornare nisl lorem, ut
-												condimentum lectus gravida ut. Ut velit nunc, vehicula
-												volutpat laoreet vel, consequat eu mauris. <a href="#">Read
-													more...</a>
-											</li>
-											<li class="news-item">Nunc ultrices tortor eu massa
-												placerat posuere. Vivamus viverra sagittis nunc. Nunc et
-												imperdiet magna. Mauris sed eros nulla. <a href="#">Read
-													more...</a>
-											</li>
-											<li class="news-item">Morbi sodales tellus sit amet leo
-												congue bibendum. Ut non mauris eu neque fermentum pharetra.
-												<a href="#">Read more...</a>
-											</li>
-											<li class="news-item">In pharetra suscipit orci sed
-												viverra. Praesent at sollicitudin tortor, id sagittis magna.
-												Fusce massa sem, bibendum id. <a href="#">Read more...</a>
-											</li>
-											<li class="news-item">Maecenas nec ligula sed est
-												suscipit aliquet sed eget ipsum. Suspendisse id auctor nibh.
-												Ut porttitor volutpat augue, non sodales odio dignissi id. <a
-												href="#">Read more...</a>
-											</li>
-											<li class="news-item">Onec bibendum consectetur diam,
-												nec euismod urna venenatis eget. Cras consequat convallis
-												leo. <a href="#">Read more...</a>
-											</li>
+										<!-- ****뉴스가 들어가는 부분입니다**** -->
+										<!-- ****controller에서 뉴스를 가져와서 스크립트에서 append 시켰어여****-->
 										</ul>
-<%-- 										</c:forEach> --%>
 									</div>
 								</div>
 							</div>
