@@ -27,7 +27,7 @@ select DISTINCT PA_MID from PAPER where PA_BIG=#{bigMenus.getI}
 </select>
 
 <select id="selectMonjinSm" parameterType="hashmap" resultType="hashmap">
-select PA_SM, PA_SELECT_NUM from PAPER where PA_BIG=#{bigMenu} and PA_MID=#{midMenu}
+select PA_NUM, PA_SM, PA_SELECT_NUM from PAPER where PA_BIG=#{bigMenu} and PA_MID=#{midMenu}
 </select>
 
 <select id="selectTxTrList" parameterType="string" resultType="string">
@@ -35,7 +35,7 @@ select DISTINCT TX_LARGE from ${value}
 </select>
 
 <select id="selectTxSmList" parameterType="string" resultType="hashmap">
-select TX_SMALL, TX_PRICE from TX where TX_LARGE=#{txLargeMenu}
+select TX_NUM, TX_SMALL, TX_PRICE from TX where TX_LARGE=#{txLargeMenu}
 </select>
 
 <select id="selectRxList" resultType="hashmap">
@@ -51,5 +51,61 @@ where (s.stock_name=g.stock_name and not s.stock_count=0) and g.goods_use='ÎèôÎ¨
 <select id="selectJindanList" parameterType="string" resultType="hashmap">
 select * from DISEASE where DI_NAME like '%${value}%'
 </select>
+
+<insert id="insertJinryo" parameterType="myproj.jinryo.dto.JinryoVO">
+insert into jinryo values(
+	SEQ_JINRYO.nextval, 
+	#{per_id},
+	#{jryo_diseases},
+	#{symptom},
+	sysdate,
+	#{jryo_memo},
+	#{animal_num},
+	#{jryo_price},
+	#{jryo_tx},
+	#{jryo_rx}
+)
+</insert>
+<insert id="insertVital" parameterType="myproj.jinryo.dto.JinryoVitalVO">
+	<selectKey keyProperty="jryo_num" resultType="string" order="BEFORE">
+		SELECT SEQ_JINRYO.CURRVAL FROM DUAL
+	</selectKey>
+
+	INSERT INTO vital VALUES(
+		SEQ_JINRYO_VITAL.nextval,
+		#{jryo_num},
+		#{vt_weight},
+		#{vt_temperature},
+		#{vt_systolic_blood},
+		#{vt_diastolic_blood},
+		#{vt_heart_rate},
+		#{vt_breathing_rate}
+	)
+</insert>
+
+<insert id="insertMonjin" parameterType="hashmap">
+	<selectKey keyProperty="jryo_num" resultType="string" order="BEFORE">
+		SELECT SEQ_JINRYO.CURRVAL FROM DUAL
+	</selectKey>
+	
+	INSERT INTO PAPER_HISTORY VALUES(
+		SEQ_PAPER_HISTORY.nextval,
+		#{num},
+		#{jryo_num},
+		#{value}
+	)
+</insert>
+<insert id="insertImage" parameterType="hashmap">
+	<selectKey keyProperty="jryo_num" resultType="string" order="BEFORE">
+		SELECT SEQ_JINRYO.CURRVAL FROM DUAL
+	</selectKey>
+	
+	INSERT INTO jinryo_image VALUES(
+		SEQ_JINRYO_IMG.nextval,
+		#{jryo_num},
+		#{name},
+		#{fakeName}
+	)
+</insert>
 
 </mapper>

@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import myproj.jinryo.dto.JinryoVO;
+import myproj.jinryo.dto.JinryoVitalVO;
+
 
 public interface JinryoDAO {
 
@@ -20,4 +23,12 @@ public interface JinryoDAO {
 	public List<HashMap> selectRxList();
 	
 	public List<HashMap> selectJindanList(String word);
+
+	public int insertMonjin(Map monjinInertMap);
+
+	public int insertJinryo(JinryoVO jinryoVO);
+
+	public int insertVital(JinryoVitalVO jinryoVitalVO);
+
+	public int insertImages(Map imgMap);
 }

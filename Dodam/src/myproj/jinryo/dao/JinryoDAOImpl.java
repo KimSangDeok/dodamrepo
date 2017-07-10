@@ -9,6 +9,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import myproj.jinryo.dto.JinryoVO;
+import myproj.jinryo.dto.JinryoVitalVO;
+
 @Repository
 public class JinryoDAOImpl implements JinryoDAO{
 
@@ -97,5 +100,30 @@ public class JinryoDAOImpl implements JinryoDAO{
 	public List<HashMap> selectJindanList(String word) {
 		
 		return jinroySstp.selectList(namespace+"selectJindanList", word);
+	}
+
+	@Override
+	public int insertMonjin(Map monjinInertMap) {
+		
+		jinroySstp.insert(namespace+"insertMonjin", monjinInertMap);
+		return 0;
+	}
+
+	@Override
+	public int insertJinryo(JinryoVO jinryoVO) {
+		
+		return jinroySstp.insert(namespace+"insertJinryo", jinryoVO);
+	}
+
+	@Override
+	public int insertVital(JinryoVitalVO jinryoVitalVO) {
+		
+		return jinroySstp.insert(namespace+"insertVital",jinryoVitalVO);
+	}
+
+	@Override
+	public int insertImages(Map imgMap) {
+			
+		return jinroySstp.insert(namespace+"insertImage",imgMap);
 	}
 }

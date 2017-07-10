@@ -4,6 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import myproj.jinryo.dto.JinryoImageVO;
+import myproj.jinryo.dto.JinryoVO;
+import myproj.jinryo.dto.JinryoVitalVO;
+
 public interface JinryoService {
 
 	List<HashMap> selectByAnimalNum(String animalNum);
@@ -19,4 +25,6 @@ public interface JinryoService {
 	List<HashMap> selectRxList();
 	
 	List<HashMap> selectJindanList(String word);
+	
+	int insertJinryoChart(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO, HttpSession session);
 }

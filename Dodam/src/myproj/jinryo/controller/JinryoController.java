@@ -1,16 +1,29 @@
 package myproj.jinryo.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import myproj.jinryo.dto.JinryoImageVO;
+import myproj.jinryo.dto.JinryoVO;
+import myproj.jinryo.dto.JinryoVitalVO;
 import myproj.jinryo.service.JinryoService;
 
 @Controller
@@ -23,6 +36,49 @@ public class JinryoController {
 	@RequestMapping("/{url}.dodam")
 	public String show(@PathVariable String url){
 		return "/jinryo/"+url;
+	}
+	
+	/**
+	 * @return 대기중인 환자를 보는 페이지로 이동(jinryoView)
+	 * 	chartForm.jsp 에서 진료작성을 하고 '차트생성' 버튼 클릭시 진료내용 insert
+	 */
+	@RequestMapping("/chartInsert.dodam")
+	public String chartInsert(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO,  HttpSession session){
+		
+//		System.out.println("monjinSaveMenus : "+monjinSaveMenus);
+		
+//		System.out.println("getJryo_diseases : "+jinryoVO.getJryo_diseases());
+//		System.out.println("getSymptom : "+jinryoVO.getSymptom());
+//		System.out.println("getJryo_tx : "+jinryoVO.getJryo_tx());
+//		System.out.println("getJryo_rx : "+jinryoVO.getJryo_rx());
+//		System.out.println("getJryo_memo : "+jinryoVO.getJryo_memo());
+//		System.out.println("getJryo_price : "+jinryoVO.getJryo_price());
+		
+//		System.out.println("getVt_num"+jinryoVitalVO.getVt_num());
+//		System.out.println("getJryo_num"+jinryoVitalVO.getJryo_num());
+//		System.out.println("getVt_weight >"+jinryoVitalVO.getVt_weight());
+//		System.out.println("getVt_temperature >"+jinryoVitalVO.getVt_temperature());
+//		System.out.println("getVt_systolic_blood >"+jinryoVitalVO.getVt_systolic_blood());
+//		System.out.println("getVt_diastolic_blood >"+jinryoVitalVO.getVt_diastolic_blood());
+//		System.out.println("getVt_heart_rate >"+jinryoVitalVO.getVt_heart_rate());
+//		System.out.println("getVt_breathing_rate >"+jinryoVitalVO.getVt_breathing_rate());
+
+		
+//		System.out.println("[0].getJr_img_num() >"+jinryoImageVO[0].getJr_img_num());
+//		System.out.println("[0].getJryo_num() >"+jinryoImageVO[0].getJryo_num());
+//		System.out.println("[0].getJr_img_name() >"+jinryoImageVO.getJr_img_name()[0]);
+//		System.out.println("[0].getJr_img_fake_name() >"+jinryoImageVO.getJr_img_fake_name()[0]);
+		
+		
+//		System.out.println("[1].getJr_img_num() >"+jinryoImageVO[1].getJr_img_num());
+//		System.out.println("[1].getJryo_num() >"+jinryoImageVO[1].getJryo_num());
+//		System.out.println("[1].getJr_img_name() >"+jinryoImageVO.getJr_img_name()[1]);
+//		System.out.println("[1].getJr_img_fake_name() >"+jinryoImageVO.getJr_img_fake_name()[1]);
+		
+		int result = jinryoService.insertJinryoChart(monjinSaveMenus, jinryoVO, jinryoVitalVO, jinryoImageVO, session);
+		return "/jinryo/jinryoView";
+		
+//		return "/jinryo/jinryoView";
 	}
 	
 	/**
@@ -123,5 +179,83 @@ public class JinryoController {
 		
 		List<HashMap> jindanList = jinryoService.selectJindanList(word);
 		return jindanList;
+	}
+	
+	@RequestMapping(value="/monjinSessionSave.dodam", method=RequestMethod.POST, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String monjinSessionSave(@RequestBody String menuNameAndData, HttpSession session){
+		
+		
+		try {
+			String temp = URLDecoder.decode(menuNameAndData, "UTF-8");
+			menuNameAndData = temp.replace("=", "");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// 스트링으로 넘어온 데이터를 jsonObj에 json형식으로 넣는거.
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObj = null;
+		try {
+			jsonObj = (JSONObject)jsonParser.parse(menuNameAndData);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 각 room에 대한 정보가 배열로 되어있움
+		JSONArray data = (JSONArray)jsonObj.get("data");
+		String categoryName = (String)jsonObj.get("categoryName");
+//		for(int i=0; i<data.size();i++){
+//			
+//			System.out.println("data["+i+"] : "+data.get(i));
+//		}
+//		System.out.println("============================================================");
+		session.setAttribute(categoryName, data);
+		
+		JSONArray saveList2 =(JSONArray) session.getAttribute(categoryName);
+//		for(int i=0; i<saveList2.size();i++){
+//			
+//			System.out.println("saveList2["+i+"] : "+saveList2.get(i));
+//		}
+		return "임시저장 성공";
+	}
+	
+	@RequestMapping(value="/monjinSessionLoad.dodam", method=RequestMethod.POST, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String monjinSessionLoad(@RequestBody String bigAndMid, HttpSession session){
+		
+		try {
+			String temp = URLDecoder.decode(bigAndMid, "UTF-8");
+			bigAndMid = temp.replace("=", "");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		// 스트링으로 넘어온 데이터를 jsonObj에 json형식으로 넣는거.
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObj = null;
+		try {
+			jsonObj = (JSONObject)jsonParser.parse(bigAndMid);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		
+//		System.out.println("jsonObj.get(bigAndMid) : "+jsonObj.get("bigAndMid"));
+		
+		JSONArray dataList =(JSONArray) session.getAttribute((String)jsonObj.get("bigAndMid"));
+		
+		if(dataList != null) {
+			
+//			for(int i=0; i<dataList.size();i++){
+//				System.out.println("dataList["+i+"] : "+dataList.get(i));
+//			}
+		}
+		
+		if(dataList != null){
+			return dataList.toJSONString();
+		}else{
+			return "isNull";
+		}
 	}
 }

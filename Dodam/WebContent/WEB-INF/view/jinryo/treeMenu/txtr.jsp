@@ -35,7 +35,7 @@ $(document).ready(function(){
 				for(var i=0; i<data.length; i++){
 					
 					$('#txTBody',parent.document).append(''+
-						'<tr name="TxRow" onclick="javascript:addTxTr(this)">'+
+						'<tr id="tx'+data[i].TX_NUM+'" name="TxRow" onclick="javascript:addTxTr(this)">'+
 							'<td>'+data[i].TX_SMALL+'</td>'+
 							'<td>'+data[i].TX_PRICE+'</td>'+
 						'</tr>'+
