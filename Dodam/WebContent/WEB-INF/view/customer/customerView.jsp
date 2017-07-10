@@ -417,6 +417,7 @@ function showList(cus_tel){
 							<li><div id="registerDiv"><a href="javascript:monjinOpen()"><i class="icon-envelope icon-large"></i>고객등록</a></div></li>
 							<li><a href="/customer/editCustomer.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
 							<li><a href="/mpay/mpayView3.dodam"><i class="icon-plane icon-large"></i>고객검색</a></li>
+							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>SMS발송</a></li>
 						</ul>
 					</div>
 				​</div>

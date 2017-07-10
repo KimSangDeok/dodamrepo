@@ -297,6 +297,7 @@ function animalUpdate(animal_num, cus_tel){
 						<ul class="dropdown">						
 							<li><a href="/customer/customerView.dodam"><i class="icon-envelope icon-large"></i>고객검색</a></li>
 							<li><a href="/customer/editCustomer.dodam"><i class="icon-truck icon-large"></i>고객수정</a></li>
+							<li><a href="/customer/smsView.dodam"><i class="icon-plane icon-large"></i>SMS발송</a></li>							
 						</ul>
 					</div>
 				​</div>
