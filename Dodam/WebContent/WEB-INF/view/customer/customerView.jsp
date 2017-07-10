@@ -344,7 +344,7 @@ function showList(cus_tel){
 				      '<a >품종<input id="type" type="text" disabled="disabled" value='+ data[i].animal_type+' /></a><br/>'+
 				      '<a >성별<input id="gender" type="text" disabled="disabled" value='+ data[i].animal_gender+' /></a><br/>'+
 	                  '<a >생일<input id="birth" type="text" disabled="disabled" value='+ data[i].animal_birth+' /></a><br/>'+
-	                  '<a> 첫 방문일<input id="firstdate" type="text" disabled="disabled" value='+ data[i].animal_firstdate+' /></a><br/><br/>'+
+	                  '<a> 첫 방문일<input id="firstdate" type="text" disabled="disabled" value='+ data[i].animal_firstdate+' /></a><br/><br/><br/>'+
 	               '</div>');
 			}
 			
@@ -506,6 +506,7 @@ function showList(cus_tel){
                     </a><br/>
                     <a>
                         첫 방문일<input id="firstdate" type="text" />
+                        <br/><br/>
                     </a>
                     <br/>
                 </div>
