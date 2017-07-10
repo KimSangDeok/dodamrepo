@@ -117,8 +117,6 @@ text-overflow;
 
 <!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 <div >
-<!-- 가운데 구분 줄 -->    	
-    	<div class="hr1"  style="margin-top:50px"></div>
 <!-- goods화면의 sidemenu 시작-->
 <div>
 <div style="float:left">
@@ -188,23 +186,25 @@ text-overflow;
 
 <!-- 테이블 div-->
 <div style="float:left;padding-left:50px;">
-    <h1>재고현황</h1>
+<!--     <h1>재고현황</h1> -->
 	     <form class="forms" method="get" action="#">
 <!-- 재고 검색 텍스트 및 버튼  begin-->
-    		<div style="float:left;padding-top:20px;padding-right:20px">				
+    		<div style="margin-top:100px; float:left;padding-top:20px;padding-right:20px">				
 					<div style="float:left;padding-right:10px">
-	        		<input type="text" id="goodsSearch" name="goods_name" value="" placeholder="품목명 (ex)장~,장난~,장난감"class="goods-input">
+	        		<input type="text" id="goodsSearch" name="goods_name" value="" style="margin-top:5px;" placeholder="품목명 (ex)장~,장난~,장난감"class="goods-input">
 	        		</div>
 	        		<div style="float:left">
-	       			<button type="button" id ="btnsearch"class="btn btn-danger">검색</button>
+	       			<button type="button" id ="btnsearch"class="btn btn-danger" style=" background-color:#fda699; width:70px; height:35;">검색</button>
 	       			</div>
 	       </form>
     		</div>
 <!-- 상품추가버튼-->
-	 <div class="row margin-top-20" style="float:right; padding-right:20px;padding-bottom:15px">        
-            <a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">상품추가</a>            
+	 <div class="row margin-top-20" style="float:right; padding-right:20px;padding-bottom:15px ;width: 500px;">        
+            <a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" style="float:right;margin-right:150px; 
+            margin-top:-60px; float:right;margin-right:130px; margin-top:-55px;width:70px; background-color:#aaaaaa; height:35;" role="button">상품추가</a>            
       </div>
 <!-- 상품추가버튼 끝 -->
+		
 
 <!-- 팝업열리는 부분 -->
 <div class="popit-wrapper popit-wrapper-chase">
@@ -331,10 +331,11 @@ text-overflow;
 <!-- 팝업열리는 부분 끝-->
 	   			
     	</div>
-<!-- 가운데 구분 줄 -->    	
-    	<div class="hr1"></div>
 
 <!-- 테이블 시작 -->
+<div style="margin-left:15% ; margin-right:10% ;">
+<!--Export 버튼  -->
+    <button id="btnexport"class="btn btn-success" style="margin-top:120px; float: right;">Export</button>
 	<table class="table" id="table2excel">
       <thead>
         <tr class="">
@@ -369,9 +370,9 @@ text-overflow;
    </c:choose>   
       </tbody>
     </table>
-    	<div style="float:right">
-        <button id="btnexport"class="btn btn-success">Export</button>
-        </div>
+    
+    </div>
+    	
 </div>
 <!-- 테이블 div 끝 -->
 
