@@ -9,7 +9,7 @@
 		
 		<!-- begin : 팝업 style과 script!! -->
 		<link rel="stylesheet" href="/css/stay/popup.css"/>
-		<script src="/css/stay/jquery.popitup.js"></script>
+		<script src="/js/jquery.popitup.js"></script>
 		<!-- end : 팝업 -->
 
 		<!-- begin : colorPicker -->
@@ -205,7 +205,7 @@
 	<div class="popit-wrapper popit-wrapper-chase" id='setDIV' style="top:50%; left:0px; opacity:0;">
 	<div class="popit-content">
 		<div class="popit-header">
-	    <h4 class="popit-title">입원장 및 호텔방 추가</h4>
+	    <h4 class="popit-title">입원장 및 호텔방 정보 변경</h4>
 	    </div><br/>
 	
 		<!-- 팝업창 바디부분 -->
@@ -323,9 +323,9 @@
 			var li = $('#multidraggable').children();
 
 			// li noeds의 갯수를 alert
-			alert(li.length);
+			//alert(li.length);
 			// li의 갯수만큼 
-			alert(li.attr('id')); 
+			//alert(li.attr('id')); 
 
 			// 각각의 ar_num과 ar_top과 ar_left 값을 li.length만큼 저장해야 합니다요.
 			
@@ -348,7 +348,7 @@
 			})
 			
 			/* 우후! jason 안에 배열을 넣음!!! */
-			alert(JSON.stringify(jsonArr));
+			//alert(JSON.stringify(jsonArr));
 			
 			$.ajax({
 				url : "/stay/save.dodam",
@@ -444,7 +444,7 @@ $(document).ready(function() {
 	})
 	
 	$('.set').bind('click', function(){
-		alert($(this).attr('id'));
+		//alert($(this).attr('id'));
 		
 		var infoss = $(this).attr('id').split('+');		
 		
@@ -463,6 +463,16 @@ $(document).ready(function() {
 	// 팝업창에서, 등록 DB에 넣자! 
 	$('#addRegister').bind('click', function(){
 
+		// 등록 이전, 장의 이름과 가격이 반드시 들어와야 한다.
+		if($('.ar_name').val()==""){
+			alert('입원장 이나 호텔장의 이름을 반드시 입력해야합니다.');
+			return false;
+		}
+		if($('.ar_price').val()==""){
+			alert('입원장 이나 호텔장의 가격을 반드시 입력해야합니다.');
+			return false;
+		}
+		
 		// animalroom 테이블에 입원장 및 호텔방 데이터를 생성하자.
 		$.ajax({
 			url : "/stay/newAnimalRoom.dodam",
@@ -471,12 +481,9 @@ $(document).ready(function() {
 			dataType : 'json',
     		success : function(data){
 				// 입원장이나 호텔방을 보여줄 div를 append하라~
-				
-			    $('#multidraggable').append(
-			    	'<li style="background-color: '+data.ar_color+'">'+data.ar_name+'</li>'		    		
-			    );
-    			
+				location.href="/stay/stayView.dodam";
     		},
+    		
     		error:function(request, status,error){
     			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
     		}
@@ -492,11 +499,39 @@ $(document).ready(function() {
 	
 	// 입원장과 호텔장의 정보를 수정한다.
 	$('#setRegister').bind('click', function(){
-		
+
+		alert($('.set_ar_num').val());
 		alert($('.set_ar_name').val());
 		alert($('.set_ar_type option:selected').val());
 		alert($('#set_ar_color').val());
 		alert($('.set_ar_price').val());
+		
+		// 등록 이전, 장의 이름과 가격이 반드시 들어와야 한다.
+		if($('.set_ar_name').val()==""){
+			alert('입원장 이나 호텔장의 이름을 반드시 입력해야합니다.');
+			return false;
+		}
+		if($('.set_ar_price').val()==""){
+			alert('입원장 이나 호텔장의 가격을 반드시 입력해야합니다.');
+			return false;
+		}
+		
+
+		$.ajax({
+			url : "/stay/setAnimalRoom.dodam",
+			type : 'get',
+			data : {'ar_num':$('.set_ar_num').val(), 'ar_name':$('.set_ar_name').val(), 'ar_type':$('.set_ar_type option:selected').val(), 'ar_color' : $('#set_ar_color').val(), 'ar_price':$('.set_ar_price').val()},
+			dataType : 'json',
+    		success : function(data){
+				// 입원장이나 호텔방을 보여줄 div를 append하라~
+				location.href="/stay/stayView.dodam";
+    		},
+    		
+    		error:function(request, status,error){
+    			 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    		}
+		})
+		
 		
 	})
 

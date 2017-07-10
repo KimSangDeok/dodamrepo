@@ -20,7 +20,17 @@
 	<!-- start : 콤보박스 관련 script -->
 	<script>
 	$(document).ready(function(){
-	          $('.combobox').combobox()
+		
+		if(!('url' in window)&&('webkitURL' in window)){
+			window.URL = window.webkitURL;
+		}
+		
+		$('#camera').change(function(e){
+			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+			
+		});
+		
+	          $('.combobox').combobox();
 	});
 	</script>
 	<script type="text/javascript">
@@ -41,7 +51,7 @@
 
 	<!-- 라즈베리로 입원장을 보여주는 화면을 설계합시다~~~~~~~~ -->
 
-	읏챠챠챠챠챠~~~ 라즈베리로 입원장을 보여주는 화면을 설계합시다
+	<img src="http://192.168.0.194:8080/?action=stream" alt='입원장을 보여주는 곳입니다.'/>
 	
 	<!-- end : 라즈베리 입원장 보여주는 곳 -->
 

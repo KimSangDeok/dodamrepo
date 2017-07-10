@@ -45,6 +45,9 @@ public interface StayDAO {
 	// 입원이나 호텔에 등록하자.
 	void inAnimalStay(StayVO stayVO);
 	void inAnimalRoom(RoomVO roomVO);
+	
+	// 입원장호텔장 수정 하기 버튼
+	void setAnimalRoom(RoomVO roomVO);
 
 
 }

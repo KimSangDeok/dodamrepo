@@ -89,5 +89,13 @@ animal_existence = 'true'
 WHERE ar_num = #{ar_num}
 </update> 
 
+<update id="setAnimalRoom" parameterType="myproj.stay.dto.RoomVO">
+UPDATE animalroom SET
+ar_name = #{ar_name}, 
+ar_price = #{ar_price}, 
+ar_type = #{ar_type}, 
+ar_color =  #{ar_color}
+WHERE ar_num = #{ar_num}
+</update>
 
 </mapper>

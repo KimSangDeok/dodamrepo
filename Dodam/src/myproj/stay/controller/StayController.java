@@ -86,6 +86,24 @@ public class StayController {
 		return roomVO;
 	}
 	
+	
+	// 입원장호텔장 수정 하기 버튼
+	@RequestMapping("/setAnimalRoom.dodam")
+	@ResponseBody
+	public RoomVO setAnimalRoom(RoomVO roomVO){
+		
+		System.out.println(roomVO.getAr_name());
+		System.out.println(roomVO.getAr_type());
+		System.out.println(roomVO.getAr_price());
+		System.out.println(roomVO.getAr_color());
+		
+		
+		stayDAO.setAnimalRoom(roomVO);
+		return roomVO;
+	}
+	
+	
+	
 	// stayView.jsp에서 '저장'버튼! (입원장 호텔방의 위치를 저장하게 해준다.)
 	@RequestMapping(value="/save.dodam", method=RequestMethod.POST)
 	@ResponseBody

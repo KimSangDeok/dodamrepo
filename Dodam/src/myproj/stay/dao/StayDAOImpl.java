@@ -125,6 +125,12 @@ public class StayDAOImpl implements StayDAO {
 		stay.update("stay.inAnimalRoom", roomVO);
 		
 	}
+	
+	// 입원장호텔장 수정 하기 버튼
+	@Override
+	public void setAnimalRoom(RoomVO roomVO) {
+		stay.update("stay.setAnimalRoom", roomVO);
+	}
 
 	
 	
