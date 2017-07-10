@@ -247,7 +247,7 @@
 		<!-- 전체접수창 end -->
 		
 		<!-- 접수대기자 화면 -->
-		<div class="sidebargroup" style="width:30%; float:left;">
+		<div class="sidebargroup" style="width:30%; margin-right:0;float:left;">
 			<div class="sidebar">
 				<div class="sidebar-box">
 					<h3>접수 대기자</h3>
