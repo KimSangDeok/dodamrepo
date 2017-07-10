@@ -130,7 +130,7 @@ $(function(){
 		<br />
 		<div class="row">
 <!-- 			<div class="6u 12u(narrower) news"> -->
-				<div class="container">
+				<div class="container" style="width:120%">
 					<!-- <div class="row"> -->
 
 					<div class="col-md-6 news">

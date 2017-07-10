@@ -76,7 +76,7 @@
 		<br/>
 
 		<!-- mpayView의 진짜 본문 내용 : div로 묶는 이유는, 내용을 우측으로 이동하게 하려고 -->
-		<div class='mpayView1' style='margin-left:11%'>
+		<div class='mpayView1' style='margin-left:15%'>
 		
 		<!-- 분석 기간을 설정하는 datepicker와 button -->
 		<div class="form-row" style='float:left'>
