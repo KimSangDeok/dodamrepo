@@ -207,7 +207,7 @@ text-overflow;
 		
 
 <!-- 팝업열리는 부분 -->
-<div id='goodsPopupDIV' class="popit-wrapper popit-wrapper-chase">
+<div id='goodsPopupDIV' class="popit-wrapper popit-wrapper-chase" style='height:830px'>
         <div class="popit-content">
           <div class="popit-header">
             <button type="button" class="popitup-close close">
