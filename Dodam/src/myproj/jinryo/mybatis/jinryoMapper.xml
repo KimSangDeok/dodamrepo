@@ -125,10 +125,15 @@ WHERE jryo_num = #{jryo_num}
 AND p.pa_num = h.pa_num
 </select>
 
-
+<select id="selectChartImage" parameterType="String" resultType="hashmap">
+select * from JINRYO_IMAGE where JRYO_NUM=#{jryo_num}
+</select>
 
 <select id="selectVital" parameterType="String" resultType="hashmap">
 SELECT * FROM vital WHERE jryo_num = #{jryo_num}
 </select>
 
+<select id="selectTxListByNum" parameterType="String" resultType="hashmap">
+select TX_NUM,TX_LARGE,TX_SMALL,TX_PRICE from TX where TX_NUM=#{txNum}
+</select>
 </mapper>

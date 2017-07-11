@@ -67,17 +67,17 @@ $(document).ready(function(){
 					for(var i = 0; i<cnt; i++){
 
 						text+=''+
-						'<li style="width:90%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" >'+
+						'<li style="width:90%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('+data[i].JRYO_NUM+')" >'+
 							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>차트번호</span>'+
 								'<h3  style="display: inline;">'+data[i].JRYO_NUM+'</h3>'+
 							'</div>'+
 							'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  ">'+
-								'<span>차트번호</span>'+
+								'<span>질병</span>'+
 								'<h3  style="display: inline;">'+data[i].JRYO_DISEASES+'</h3>'+
 							'</div>'+
 						'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">'+
-							'<span>차트번호</span>'+
+							'<span>증상</span>'+
 							'<h3  style="display: inline; text-overflow: ellipsis;">'+data[i].SYMPTOM+'</h3>'+
 						'</div>'+
 							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
@@ -103,9 +103,17 @@ $(document).ready(function(){
 	});
 });
 
+function goDetail(chartNum){
+	
+	$('#jryo_num').val(chartNum);
+	$('#viewForm').submit();
+}
 </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<form id="viewForm" name="viewForm" action="/jinryo/detail.dodam" method="post">
+<input type="hidden" id="jryo_num" name="jryo_num" value="" />
+</form>
 <div class="body" style="width: 100%; height: 100%; ">
 	<br/>
 	
@@ -172,7 +180,7 @@ $(document).ready(function(){
 			<!-- 대기환자 리스트 -->
 			<div style="width: 100%; height: 90%; " id="readyListDiv">
 				<ul class="jinryoUl">
-					<li style="height: 10%; padding: 10px;" >치즈<input type="hidden" name="animal_num" value="2"/></li>
+					<li style="height: 10%; padding: 10px;" >치즈<input type="hidden" name="animal_num" value="59"/></li>
 				</ul>
 			</div>
 		</div>

@@ -26,9 +26,19 @@
 			
 				<!-- 문진의 질문항목, 답변사항을 뿌려주자. -->
 				<c:forEach var='moonjin' items="${moonjinHistory}" >
-				<p>Q. ${moonjin.PA_SM}</p>
-				<p>A. ${moonjin.PA_H_HISTORY}</p>
-				<br/>
+					<p>Q. ${moonjin.PA_SM}</p>
+					<c:choose>
+						<c:when test="${moonjin.PA_H_HISTORY=='y'}">
+							<p>A. 예</p>
+						</c:when>
+						<c:when test="${moonjin.PA_H_HISTORY=='n'}">
+							<p>A. 아니오</p>
+						</c:when>
+						<c:otherwise>
+							<p>A. ${moonjin.PA_H_HISTORY}</p>
+						</c:otherwise>
+					</c:choose>
+					<br/>
 				</c:forEach>
 
 			</div>
@@ -42,8 +52,11 @@
 			<div class="accordion-content">
 			
 				<!-- 검사기록에 있는 jpg를 불러준다. -->
-				<img src="/images/ddd.jpg" />
-				
+				<c:forEach var="img" items="${charImageHistory}">
+					<div style="border: solid 1px black; width: 20%; height: 20%; float: left;">
+						<img src="/imageupload/chartImages/${img.JR_IMG_FAKE_NAME}"/>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 		<!-- end : 2. 진료기록 중, 검사기록 -->
@@ -68,12 +81,12 @@
 			<div class="accordion-content">
 
 				<!-- 진단명 text(vital 정보)를 뿌려주자. -->
-				<p>몸무게 : #{jindanHistory.VT_WEIGHT}</p>
-				<p>체온 : #{jindanHistory.VT_TEMPERATURE}</p>
-				<p>수축기혈압 : #{jindanHistory.VT_SYSTOLIC_BLOOD}</p>
-				<p>이완기혈압 : #{jindanHistory.VTDIASTOLIC_BLOOD}</p>
-				<p>심박수 : #{jindanHistory.VT_HEART_RATE}</p>
-				<p>호흡수 : #{jindanHistory.VT_BREATHING_RATE}</p>
+				<p>몸무게 : ${jindanHistory.VT_WEIGHT}</p>
+				<p>체온 : ${jindanHistory.VT_TEMPERATURE}</p>
+				<p>수축기혈압 : ${jindanHistory.VT_SYSTOLIC_BLOOD}</p>
+				<p>이완기혈압 : ${jindanHistory.VTDIASTOLIC_BLOOD}</p>
+				<p>심박수 : ${jindanHistory.VT_HEART_RATE}</p>
+				<p>호흡수 : ${jindanHistory.VT_BREATHING_RATE}</p>
 
 			</div>
 		</div>
@@ -87,7 +100,11 @@
 
 				<!-- 처치처방 text를 뿌려주자. -->
 				<h2>처치내역</h2>
-				<p>${jinryo.JRYO_TX}</p>
+				<c:forEach var="txList" items="${jinryo.txList}">
+					<p style="display: inline;">${txList} / </p>
+				</c:forEach>
+<%-- 				<p>${jinryo.JRYO_TX}</p> --%>
+				<br/>
 				<br/>
 				<h2>처방내역</h2>
 				<p>${jinryo.JRYO_RX}</p>

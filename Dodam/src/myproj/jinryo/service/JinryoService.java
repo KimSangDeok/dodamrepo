@@ -40,6 +40,6 @@ public interface JinryoService {
 	List<Map<String, Object>> selectChartImage(String jryo_num);
 
 	// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
-	List<Map<String, Object>> selectVital(String jryo_num);
+	Map<String, Object> selectVital(String jryo_num);
 
 }

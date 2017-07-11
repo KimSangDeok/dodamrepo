@@ -2,6 +2,7 @@ package myproj.jinryo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -168,7 +169,22 @@ public class JinroyServiceImpl implements JinryoService{
 	// 1. 진료테이블에 있는 내용을 모두 가져와라.
 	@Override
 	public HashMap<String, Object> selectJinryoTable(String jryo_num) {
-		return jdao.selectJinryoTable(jryo_num);
+		HashMap<String, Object> map = jdao.selectJinryoTable(jryo_num);
+		
+		if(map.get("JRYO_TX")!=null){
+			
+			String txList=(String)map.get("JRYO_TX");
+			String[] txSplit=txList.split("/");
+			if(txSplit!=null){
+				List<String> temp = new ArrayList<String>();
+				for(int i =0; i<txSplit.length;i++){
+					
+					temp.add((String) jdao.selectTxListByNum(txSplit[i]).get("TX_SMALL"));
+				}
+				map.put("txList", temp);
+			}
+		}
+		return map;
 	}
 
 	// 2. 문진기록 내용을 모두 가져와라.
@@ -185,7 +201,7 @@ public class JinroyServiceImpl implements JinryoService{
 
 	// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
 	@Override
-	public List<Map<String, Object>> selectVital(String jryo_num) {
+	public Map<String, Object> selectVital(String jryo_num) {
 		return jdao.selectVital(jryo_num);
 	}
 
