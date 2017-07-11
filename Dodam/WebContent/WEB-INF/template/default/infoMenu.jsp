@@ -209,7 +209,7 @@
 	
 		// 고객 찾는 팝업에서 적용 버튼을 누른다면!!
 		$('#infoRegister').bind('click', function(){
-			alert('저굥');
+		
 			$('.infoAnimal').submit();
 		})
 	});
