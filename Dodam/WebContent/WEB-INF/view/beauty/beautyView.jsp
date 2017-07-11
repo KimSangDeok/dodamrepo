@@ -159,7 +159,7 @@
 <!-- 팝업열리는 부분 끝-->
 			
 				
-				 
+				    
 <!-- begin : DIV 1) 미용 일정을 보여주는 테이블 -->
 <div class='beautyDIV' style="float:left; width:59%; margin-right:1% ; margin-left:2%;margin-top:5%">
    <div>
