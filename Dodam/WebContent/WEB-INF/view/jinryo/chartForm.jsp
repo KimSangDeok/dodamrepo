@@ -826,24 +826,24 @@ function getInputValuesSession(bigAndMid){
 	<!-- End 바이탈 팝업 -->
 	
 	<form id="jinroyForm" name="jinroyForm" method="post" action="/jinryo/chartInsert.dodam" enctype="multipart/form-data">
-		<input type="text" id="per_id" name="per_id" value="test">
-		<input type="text" id="animal_num" name="animal_num" value="59">
-		<input type="text" id="jryo_diseases" name="jryo_diseases" value="jryo_diseases">
-		<input type="text" id="symptom" name="symptom" value="symptom">
-		<input type="text" id="jryo_tx" name="jryo_tx" value="jryo_tx">
-		<input type="text" id="jryo_rx" name="jryo_rx" value="jryo_rx">
-		<input type="text" id="jryo_memo" name="jryo_memo" value="jryo_memo">
-		<input type="text" id="jryo_price" name="jryo_price" value="jryo_price">
-		<input type="text" id="monjinSaveMenus" name="monjinSaveMenus" value="">
+		<input type="hidden" id="per_id" name="per_id" value="test">
+		<input type="hidden" id="animal_num" name="animal_num" value="59">
+		<input type="hidden" id="jryo_diseases" name="jryo_diseases" value="jryo_diseases">
+		<input type="hidden" id="symptom" name="symptom" value="symptom">
+		<input type="hidden" id="jryo_tx" name="jryo_tx" value="jryo_tx">
+		<input type="hidden" id="jryo_rx" name="jryo_rx" value="jryo_rx">
+		<input type="hidden" id="jryo_memo" name="jryo_memo" value="jryo_memo">
+		<input type="hidden" id="jryo_price" name="jryo_price" value="jryo_price">
+		<input type="hidden" id="monjinSaveMenus" name="monjinSaveMenus" value="">
 		<input id="jinryoImages" name="jinryoImages" type="file" style="display: none;" multiple="multiple">
 		
 		<!-- 바이탈 -->
-							몸무게<input type="text" id="" name="vt_weight"/><br/><br/>
-					체온<input type="text" id="" name="vt_temperature"/><br/><br/>
-					수축기혈압<input type="text" id="" name="vt_systolic_blood"/><br/><br/>
-					이완기혈압<input type="text" id="" name="vt_diastolic_blood"/><br/><br/>
-					심박수<input type="text" id="" name="vt_heart_rate"/><br/><br/>
-					호흡수<input type="text" id="" name="vt_breathing_rate"/><br/><br/>
+							몸무게<input type="hidden" id="" name="vt_weight"/><br/><br/>
+					체온<input type="hidden" id="" name="vt_temperature"/><br/><br/>
+					수축기혈압<input type="hidden" id="" name="vt_systolic_blood"/><br/><br/>
+					이완기혈압<input type="hidden" id="" name="vt_diastolic_blood"/><br/><br/>
+					심박수<input type="hidden" id="" name="vt_heart_rate"/><br/><br/>
+					호흡수<input type="hidden" id="" name="vt_breathing_rate"/><br/><br/>
 	</form>
 </div>
 <script>
