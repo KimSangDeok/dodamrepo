@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#payTable tr{
+	cursor: auto;
+}
+
 small {
 	text-align: center;
 }

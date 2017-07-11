@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!-- 부트스트랩 공통!! -->
@@ -8,119 +9,206 @@
 <!-- 수납화면css -->
 <link rel="stylesheet" href="/paymentcss/payment.css">
 
+<script type="text/javascript">
+	$(function() {
+
+		// 수납대기 삭제
+		$('.paydelbtn').click(function() {
+			var flag = confirm("정말 삭제하시겠습니까?");
+			var animal_num = $(this).next().val();
+			if (flag == true) {
+				$("#listfrm").attr("method", "post");
+				$("#listfrm").attr("action", "listdel.dodam?animal_num=" + animal_num);
+				$("#listfrm").submit();
+			} else {
+				alert("취소하였습니다.");
+			}
+		});
+		
+		// 수납대기 리스트 클릭시 수납목록
+		$("#listTable tr").click(function() {
+			if ($(this).click) {
+				
+				var animal_num = $(this).find('input[name=animal_num]').val();
+				var bcnt = 0; // 미용 카운트 변수
+				var scnt = 0; // 입원/호텔 카운트 변수
+				var jcnt = 0; // 진료 카운트 변수
+				var totpay = $(this).find('#totpay').text(); // 총액
+				$('#pay_amnum').attr('value', animal_num);
+				console.log(totpay);
+				
+				$.ajax({
+					url : "/payment/selectPay.dodam",
+					type : 'post',
+					data : "animal_num=" + animal_num,
+					dataType : "json",
+					success : function(data){
+						console.log(data);
+						
+						// 미용 목록
+						for(var i in data.btpaylist){
+							
+							 if(data.btpaylist.hasOwnProperty(i)){
+							    bcnt++;
+							 }
+						}
+						// 입원/호텔 목록
+						for(var i in data.stpaylist){
+							
+							 if(data.stpaylist.hasOwnProperty(i)){
+							    scnt++;
+							 }
+						}
+						// 진료 목록
+						for(var i in data.trpaylist){
+							
+							 if(data.trpaylist.hasOwnProperty(i)){
+							    jcnt++;
+							 }
+						}
+						
+						var text='';
+						
+						// 미용 리스트 생성
+						var btpay = data.btpaylist;
+						for(var i = 0; i<bcnt; i++){
+							text+=''+
+							'<tr>'+
+							'<td>미용</td>'+
+							'<td>'+btpay[i].BTM_TYPE+'</td>'+
+							'<td>'+btpay[i].BTPAY_PRICE+'</td>'+
+							'</tr>';
+						}
+						
+						// 입원/호텔 리스트 생성
+						var stpay = data.stpaylist;
+						for(var i = 0; i<scnt; i++){
+							text+=''+
+							'<tr>'+
+							'<td>입원/호텔</td>'+
+							'<td>'+stpay[i].AR_NAME+'</td>'+
+							'<td>'+stpay[i].STPAY_PRICE+'</td>'+
+							'</tr>';
+						}
+						
+						// 진료 리스트 생성
+						var trpay = data.trpaylist;
+						for(var i = 0; i<jcnt; i++){
+							text+=''+
+							'<tr>'+
+							'<td>진료</td>'+
+							'<td>'+trpay[i].TX_NAME+'-'+trpay[i].RX_NAME+'</td>'+
+							'<td>'+trpay[i].TRPAY_PRICE+'</td>'+
+							'</tr>';
+						}
+						$('#payTable thead').text('');
+						$('#payTable thead').append('<tr><th style="width: 90px;">구분</th><th style="width: 380px;">내용</th><th>금액</th></tr>');
+						$('#payTable tbody').text('');
+						$('#payTable tbody').append(text);
+						$('.rowgruop h3').text('');
+						$('.rowgruop h3').text('총액 : '+totpay);
+					},
+					 error:function(request, status,error){
+			             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			         }
+				});
+			}
+		});
+		
+		// 결제버튼 이벤트
+		$("#paybtn").click(function() {
+			var flag = confirm("결제하시겠습니까?");
+			var animal_num = $(this).next().val();
+			if (flag == true) {
+				
+				$("#payment").attr("method", "post");
+				$("#payment").attr("action", "payment.dodam?animal_num=" + animal_num);
+				$("#payment").submit();
+			} else {
+				alert("결제가 취소되었습니다.");
+			}
+		});
+		
+	});
+</script>
+
 <!-- 바디 시작 -->
 <div class="body">
 
-
-
-	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
-	<div>
-		<!-- 가운데 구분 줄 -->
-		<div class="hr1" style="margin-top: 50px"></div>
-
-		<!-- 수납대기/수납목록 -->
+		<!-- Begin 수납대기/수납목록 -->
 		<div class="paygroup">
-
-			<!-- 수납대기 -->
+		
+			<!-- Begin 수납대기 -->
 			<div class="payleft">
 				<h1 class="title">수납대기</h1>
-				<table id="listTable">
-					<tbody>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><small>2017/06/21<br/>12:43:27</small></td>
-							<td>김우석, 연이(Toy Poodle)</td>
-							<td>200,000</td>
-							<td><button class="paydelbtn btn-sm">삭제</button></td>
-
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><small>2017/06/21<br/>12:43:27</small></td>
-							<td>김우석, 연이(Toy Poodle)</td>
-							<td>200,000</td>
-							<td><button class="paydelbtn btn-sm">삭제</button></td>
-
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><small>2017/06/21<br/>12:43:27</small></td>
-							<td>김우석, 연이(Toy Poodle)</td>
-							<td>200,000</td>
-							<td><button class="paydelbtn btn-sm">삭제</button></td>
-
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<!-- 수납대기end -->
-			
-			<!-- 수납목록 -->
-			<div class="payright">
-				<h1 class="title">수납목록</h1>
-				<div class="tablediv">
-					<table id="payTable">
+				<form id="listfrm">
+					<!-- Begin 수납대기 테이블 -->
+					<table id="listTable">
 						<tbody>
-							<tr>
-								<th>구분</th>
-								<th>내용</th>
-								<th>수량</th>
-								<th>금액</th>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>주사</td>
-								<td>3</td>
-								<td>150,000</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>주사</td>
-								<td>3</td>
-								<td>150,000</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>주사</td>
-								<td>3</td>
-								<td>150,000</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" /></td>
-								<td>주사</td>
-								<td>3</td>
-								<td>150,000</td>
-							</tr>
+							<!-- Begin 수납대기 리스트 -->
+							<c:choose>
+								<c:when test="${waitinglist == null}">
+									<tr>
+										<td colspan='4'>수납대기목록이 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${waitinglist}" var="wait">
+										<tr>
+
+											<td style="text-align: center;"><strong>${wait.CUS_NAME}</strong></td>
+											<td style="text-align: center;">${wait.ANIMAL_NAME}</td>
+											<td id="totpay" style="text-align: center;">${wait.TOTAL_PRICE}</td>
+											<td>
+												<input type="hidden" name="tot_price" value="${wait.TOTAL_PRICE}">
+												<button class="paydelbtn btn-sm">삭제</button>
+												<input type="hidden" id="animal_num" name="animal_num" value="${wait.ANIMAL_NUM}">
+
+											</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+							<!-- End 수납대기 리스트 -->
 						</tbody>
 					</table>
-				</div>
-				<div class="rowgruop">
-					<h3 class="totalm">총액 : 600,000</h3>
-					<hr>
-					<button class="paybtn">결제</button>
-				</div>
+					<!-- End 수납대기 테이블 -->
+				</form>
 			</div>
-			<!-- 수납목록end -->
+			<!-- End 수납대기 -->
+
+			<!-- Begin 수납목록 -->
+			<div class="payright">
+				<h1 class="title">수납목록</h1>
+					<div class="tablediv">
+						<!-- Begin 수납목록 테이블 -->
+						<table id="payTable">
+							<thead>
+								<tr>
+									<th style="width: 90px;">구분</th>
+									<th style="width: 380px;">내용</th>
+									<th>금액</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<!-- End 수납목록 테이블 -->
+					</div>
+
+				<!-- Begin 총액/결제버튼 -->
+				<form id="payment">
+					<div class="rowgruop">
+						<h3>총액 : 0</h3>
+						<hr>
+						<button id="paybtn">결제</button>
+						<input type="hidden" id="pay_amnum" value="">
+					</div>
+				</form>
+				<!-- End 총액/결제버튼 -->
+			</div>
+			<!-- End 수납목록 -->
 
 		</div>
 		<!-- 수납대기/수납목록end -->
-
-
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-	</div>
 </div>
