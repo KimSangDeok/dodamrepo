@@ -67,26 +67,26 @@ $(document).ready(function(){
 					for(var i = 0; i<cnt; i++){
 
 						text+=''+
-						'<li style="width:90%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('+data[i].JRYO_NUM+')" >'+
-							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
+						'<li style="width:95%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('+data[i].JRYO_NUM+')" >'+
+							'<div style="width:10%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>차트번호</span>'+
-								'<h3  style="display: inline;">'+data[i].JRYO_NUM+'</h3>'+
+								'<h4  style="display: inline;">'+data[i].JRYO_NUM+'</h4>'+
 							'</div>'+
 							'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  ">'+
 								'<span>질병</span>'+
-								'<h3  style="display: inline;">'+data[i].JRYO_DISEASES+'</h3>'+
+								'<h4  style="display: inline;">'+data[i].JRYO_DISEASES+'</h4>'+
 							'</div>'+
 						'<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">'+
 							'<span>증상</span>'+
-							'<h3  style="display: inline; text-overflow: ellipsis;">'+data[i].SYMPTOM+'</h3>'+
+							'<h4  style="display: inline; text-overflow: ellipsis;">'+data[i].SYMPTOM+'</h4>'+
 						'</div>'+
 							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>담당의</span>'+
-								'<h3  style="display: inline;">'+data[i].PER_NAME+'</h3>'+
+								'<h4  style="display: inline;">'+data[i].PER_NAME+'</h4>'+
 							'</div>'+
-							'<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">'+
+							'<div style="width:25%; height:100%; display: inline-block; overflow: hidden;">'+
 								'<span>진료일자</span>'+
-								'<h3  style="display: inline;">'+data[i].JRYO_DT+'</h3>'+
+								'<h4  style="display: inline;">'+ajaxNumTransDateFormat(data[i].JRYO_DT)+'</h4>'+
 							'</div>'+
 						'</li>';
 					}
@@ -102,6 +102,19 @@ $(document).ready(function(){
 		});
 	});
 });
+
+//ajax 에서 받아온 data 값중 칼럼타입이 DATE인 놈의 값이 3121240 이런식으로 이상하게 받아올경우.
+function ajaxNumTransDateFormat(num){
+	
+	var date = ("/Date("+num+")/").substr(6);
+   	var currentTime = new Date(parseInt(date ));
+   	var month = currentTime.getMonth() + 1;
+   	var day = currentTime.getDate();
+   	var year = currentTime.getFullYear();
+   	var date = year+ "/" + month + "/" + day;
+   	
+  	return date;
+}
 
 function goDetail(chartNum){
 	
@@ -167,30 +180,30 @@ function goDetail(chartNum){
 
 
 <ul id="jinroyHistoryListUl" class="jinryoUl" style="padding-top: 15px;">		    		
-<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}">  
-<li style="width:100%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('+data[i].JRYO_NUM+')" >
-<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
-<span>차트번호</span>
-<h3 style="display: inline;">${infoJinryoHistory.JRYO_NUM}</h3>
-</div>
-<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
-<span>질병</span>
-<h3 style="display: inline;">${infoJinryoHistory.JRYO_DISEASES}</h3>
-</div>
-<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
-<span>증상</span>
-<h3  style="display: inline; text-overflow: ellipsis;">${infoJinryoHistory.SYMPTOM}</h3>
-</div>
-<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
-<span>담당의</span>
-<h3  style="display: inline;">${infoJinryoHistory.PER_NAME}</h3>
-</div>
-<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
-<span>진료일자</span>
-<h3  style="display: inline;">${infoJinryoHistory.JRYO_DT}</h3>
-</div>
-</li>		    		
-</c:forEach>		    		
+	<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}">  
+		<li style="width:95%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('${infoJinryoHistory.JRYO_NUM}+')" >
+			<div style="width:10%; height:100%; display: inline-block; overflow: hidden;">
+				<span>차트번호</span>
+				<h4  style="display: inline;">${infoJinryoHistory.JRYO_NUM}</h4>
+			</div>
+			<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;  ">
+				<span>질병</span>
+				<h4  style="display: inline;">${infoJinryoHistory.JRYO_DISEASES}</h4>
+			</div>
+			<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
+				<span>증상</span>
+				<h4  style="display: inline; text-overflow: ellipsis;">${infoJinryoHistory.SYMPTOM}</h4>
+			</div>
+			<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
+				<span>담당의</span>
+				<h4  style="display: inline;">${infoJinryoHistory.PER_NAME}</h4>
+			</div>
+			<div style="width:25%; height:100%; display: inline-block; overflow: hidden;">
+				<span>진료일자</span>
+				<h4  style="display: inline;">${infoJinryoHistory.JRYO_DT}</h4>
+			</div>
+		</li>
+	</c:forEach>		    		
 </ul>
 
 		    </div>
