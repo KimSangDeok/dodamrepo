@@ -48,8 +48,6 @@
 
 	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 	<div>
-		<!-- 가운데 구분 줄 -->
-		<div class="hr1" style="margin-top: 50px"></div>
 		<!-- goods화면의 sidemenu 시작-->
 		<div>
 			<div style="float: left">
@@ -115,8 +113,7 @@
 			</div>
 
 			<!-- 테이블 div-->
-			<div style="float: left; padding-left: 50px;">
-				<h5>입출고 내역</h5>
+			<div style="float: left; padding-left: 50px; margin-top:100px;">
 				<form class="forms" method="get" action="#">
 					<!-- 입/출고 기간 셀렉트 박스 -->
 					<div style="float: left; width: 1000px;">
@@ -309,16 +306,15 @@
 									class="goods-input">
 							</div>
 							<div style="float: left">
-								<button type="button" id="historySearch" class="btn btn-danger">검색</button>
+								<button type="button" id="historySearch" class="btn btn-danger" 
+								style="width:70px; height:35; background-color:#fda699;">검색</button>
 							</div>
 				</form>
 			</div>
 		</div>
-		<!-- 가운데 구분 줄 -->
-		<div class="hr1"></div>
 
 
-		<table class="table" id="table2excel">
+		<table class="table" id="table2excel" style="margin-top: 100px;">
 			<thead>
 				<tr class="noExl">
 					<th>입/출고</th>

@@ -14,6 +14,16 @@
 <!-- popup script -->
 <script src="/js/jquery.popitup.js"></script>
 
+<!-- Date picker css -->
+<style>
+.dt__calendar_head{
+background-color: #e74c3c;
+}
+.dt__calendar_m_d.active {
+    background-color: #e5f791;
+    color: #180202;
+}
+</style>
 
 <!-- Begin popup css -->
 <style type="text/css">
@@ -258,20 +268,6 @@ $(function(){
 				<p>예약시간
 				<input class="form-control J_Message" id="poptime" type="text" name="rsvt_time"
 					value=""style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;" placeholder="예약시간" readonly="readonly">					
-<!-- 						<option value="9:00">9:00</option> -->
-<!-- 						<option value="10:00">10:00</option> -->
-<!-- 						<option value="11:00">11:00</option> -->
-<!-- 						<option value="12:00">12:00</option> -->
-<!-- 						<option value="13:00">13:00</option> -->
-<!-- 						<option value="14:00">14:00</option> -->
-<!-- 						<option value="15:00">15:00</option> -->
-<!-- 						<option value="16:00">16:00</option> -->
-<!-- 						<option value="17:00">17:00</option> -->
-<!-- 						<option value="18:00">18:00</option> -->
-<!-- 						<option value="19:00">19:00</option> -->
-<!-- 						<option value="20:00">20:00</option> -->
-<!-- 						<option value="21:00">21:00</option> -->
-<!-- 					</select>	 -->
 				</p>	
 				<p>서비스분류
 					<select name="service_type" class="form-control J_Message" 	style="width:190px;back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;">
@@ -302,8 +298,8 @@ $(function(){
 
 
 <div id="contents" style="padding-top:10px">      
-	<h1>스케줄 현황</h1>
-		<div style="float:left;margin-left:500px;margin-bottom:20px">
+	<h1 style="font-family: 맑은고딕; ">Schedule status</h1>
+		<div style="float:left;margin-left:230px;margin-bottom:20px">
 			<!-- 작은달력 화면 -->
 				<div class="form-row">
 				<label for="singleDateRange">날짜선택</label>
@@ -311,7 +307,7 @@ $(function(){
 				</div>	        
 			<!-- 작은달력 화면 끝 -->
 		</div>		
-		<p class="cho2" style="padding-top:20px">
+		<p class="cho2" style="padding-top:20px;margin-right:-310px;">
 				<img src="/css/book/bookimage/o.gif"> 예약불가 &nbsp;&nbsp;&nbsp;&nbsp;
 				<img src="/css/book/bookimage/x.gif"> 예약가능
 				

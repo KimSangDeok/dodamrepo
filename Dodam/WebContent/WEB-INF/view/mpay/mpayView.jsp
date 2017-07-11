@@ -12,6 +12,17 @@
 	<link href="/css/mpay/smallDatestyle.css" rel="stylesheet" type="text/css">
 	<!-- end : date range picker -->
 
+	<!-- Date picker css -->
+	<style>
+	.dt__calendar_head{
+	background-color: #e74c3c;
+	}
+	.dt__calendar_m_d.active {
+	    background-color: #e5f791;
+	    color: #180202;
+	}
+	</style>
+
 <!-- begin : mpayView 첫번째 : 시간대별 접수 고객을 보여줘라~ -->
 <div class="body">
 

@@ -272,7 +272,7 @@ body {
                 				$("#reservationtime option").each(function(){               					
                 					if($(this).val()==(list[i]).rsvt_time){
                 						$(this).attr("disabled","disabled");
-                						$(this).css("background-color","red");                						
+                						$(this).css("background-color", "red");                						
                 					}
                 				});         
                 			}
