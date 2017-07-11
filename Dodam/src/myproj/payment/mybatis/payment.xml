@@ -5,6 +5,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="payment">
 
+<!-- 수납대기 리스트 -->
+<select id="waitinglist"  resultType="hashmap">
+	SELECT d.animal_num animal_num, a.animal_name animal_name, c.cus_name cus_name, TO_CHAR( d.total_price, '999,999,999') total_price
+	FROM animal a, customer c,
+		(SELECT animal_num, sum(pay_price) as total_price FROM pay
+		 WHERE pay_ox = 'false'
+		 GROUP BY animal_num) d
+	WHERE a.animal_num = d.animal_num AND a.cus_tel = c.cus_tel
+</select>
 
+<!-- 미용 수납목록 리스트 -->
+<select id="btpaylist"  resultType="hashmap" parameterType="int">
+	SELECT b.btm_type btm_type, TO_CHAR( p.pay_price, '999,999,999') btpay_price
+	FROM pay p, beauty b
+	WHERE p.bty_code = b.bty_code AND p.pay_ox='false' AND p.animal_num = #{animal_num}
+</select>
+
+<!-- 입원/호텔 수납목록 리스트 -->
+<select id="stpaylist"  resultType="hashmap" parameterType="int">
+	SELECT z.ar_name ar_name, TO_CHAR( p.pay_price, '999,999,999') stpay_price
+	FROM pay p, (SELECT r.ar_name ar_name, h.stay_num stay_num
+	    		 FROM hospital_stay h, animalroom r
+	    		 WHERE h.ar_num = r.ar_num) z
+	WHERE p.stay_num = z.stay_num AND p.pay_ox='false' AND p.animal_num = #{animal_num}
+</select>
+
+<!-- 진료 수납목록 리스트 -->
+<select id="trpaylist"  resultType="hashmap" parameterType="int">
+	 SELECT TO_CHAR( p.pay_price, '999,999,999') trpay_price, j.jryo_tx tx_name, j.jryo_rx rx_name
+	 FROM jinryo j, pay p
+	 WHERE p.jryo_num = j.jryo_num AND p.animal_num = #{animal_num}
+</select>
+
+<!-- 수납대기 삭제 -->
+<delete id="listdel" parameterType="int">
+	DELETE 
+	FROM pay 
+	WHERE animal_num = #{animal_num}
+</delete>
+
+<!-- 결제하기 -->
+<update id="paymentok" parameterType="int">
+	UPDATE pay 
+	SET pay_ox = 'true' 
+	WHERE animal_num = #{animal_num}
+</update>
 
 </mapper>

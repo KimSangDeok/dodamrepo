@@ -13,6 +13,7 @@ public class MainDAOImpl implements MainDAO {
 	@Autowired
 	SqlSessionTemplate main;
 
+	// 로그인
 	@Override
 	public MainVO memberLogin(MainVO vo) {
 		MainVO mainVo = null;
@@ -24,7 +25,8 @@ public class MainDAOImpl implements MainDAO {
 		}
 		return mainVo;
 	}
-	
+
+	// ID중복확인
 	@Override
 	public MainVO idCheck(MainVO vo) {
 		MainVO mainVo = null;
@@ -37,6 +39,7 @@ public class MainDAOImpl implements MainDAO {
 		return mainVo;
 	}
 
+	// 회원가입
 	@Override
 	public int memberInsert(MainVO vo) {
 		int result = 0;
@@ -47,13 +50,14 @@ public class MainDAOImpl implements MainDAO {
 		}
 		return result;
 	}
-
+	
+	//의사 이름 검색
 	@Override
 	public List<MainVO> doctorSelect() {
 
 		return main.selectList("main.doctorName");
 	}
-	
-	
+
+
 
 }
