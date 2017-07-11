@@ -32,7 +32,7 @@ public class CustomerVO {
 			System.out.println("고객");
 			this.cusfile_name = file.getOriginalFilename()+"_"+System.currentTimeMillis();
 			
-			File f = new File("C:\\Users\\kosta\\smgit\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+cusfile_name); 
+			File f = new File("C:\\Users\\kosta\\git\\dodamrepo\\Dodam\\WebContent\\imageupload\\"+cusfile_name); 
 			
 			//파일을 저장할 경로를 설정
 			
