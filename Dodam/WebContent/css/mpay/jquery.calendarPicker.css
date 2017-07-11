@@ -1,9 +1,9 @@
 .calBox {
-  background-color: #928d81;
+  /* background-color: #928d81; */
   padding: 2px;
   -moz-border-radius: 4px;
   text-align: center;
-  color: white;
+  color: pink;
 }
 
 .calElement {
@@ -20,7 +20,7 @@
 }
 
 .calYear .calElement {
-  border: 1px solid #999999;
+/*   border: 1px solid #999999; */
 }
 
 
@@ -36,19 +36,19 @@ span.calElement.next:hover, span.calElement.prev:hover {
 
 
 .calElement.selected {
-  background-color: #404040;
-  border: 1px solid #404040;
+  background-color: pink;
+  color:white;
+  border: 1px solid coral;
   -moz-border-radius: 3px
 }
 
 span.calElement:hover {
-  background-color: #404040;
-  border: 1px solid #404040;
+  border: 3px double coral;
   -moz-border-radius: 3px;
   cursor: pointer;
 }
 
 .calElement.today {
-  border: 1px solid #e0e000;
+  /* border: 1px solid #e0e000; */
   -moz-border-radius: 3px
 }
