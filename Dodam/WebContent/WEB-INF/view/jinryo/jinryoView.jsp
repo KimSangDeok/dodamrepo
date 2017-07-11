@@ -162,7 +162,21 @@ function goDetail(chartNum){
 								<td>보호자명</td><td>환자명</td><td>품종</td>
 							</tr>
 							<tr>
-								<td><h1 id="cusName"></h1></td><td><h1 id="aniName"></h1></td><td><h1 id="aniBreed"></h1></td>
+								<td>
+									<h1 id="cusName">
+										<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}" begin="1" end="1">${infoJinryoHistory.CUS_NAME}</c:forEach>
+									</h1>
+								</td>
+								<td>
+									<h1 id="aniName">
+										<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}" begin="1" end="1">${infoJinryoHistory.ANIMAL_NAME}</c:forEach>
+									</h1>
+								</td>
+								<td>
+									<h1 id="aniBreed">
+										<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}" begin="1" end="1">${infoJinryoHistory.ANIMAL_BREED}</c:forEach>
+									</h1>
+								</td>
 							</tr>
 						</table>
 					</div>
