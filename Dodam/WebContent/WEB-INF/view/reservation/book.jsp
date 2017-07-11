@@ -14,7 +14,17 @@
 <!-- popup script -->
 <script src="/js/jquery.popitup.js"></script>
 
-
+<!-- Date picker css -->
+	<style>
+	.dt__calendar_head{
+	background-color: #e74c3c;
+	}
+	.dt__calendar_m_d.active {
+	    background-color: #e5f791;
+	    color: #180202;
+	}
+	</style>
+	
 <!-- Begin popup css -->
 <style type="text/css">
 
@@ -290,10 +300,10 @@ $(function(){
 
 
 <div id="contents" style="padding-top:10px">      
-	<h1>스케줄 현황</h1>
+ <br/><br/><br/>
 		<div style="float:left;margin-left:500px;margin-bottom:20px">
 			<!-- 작은달력 화면 -->
-				<div class="form-row">
+				<div class="form-row" style="left:-290px;" >
 				<label for="singleDateRange">날짜선택</label>
 				<input type="text" placeholder="Date picker" id="singleDateRange" ><div class="dt"><div class="dt__wrapper"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Sunday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">25</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d ">20</div><div class="dt__calendar_m_d ">21</div><div class="dt__calendar_m_d ">22</div><div class="dt__calendar_m_d ">23</div><div class="dt__calendar_m_d ">24</div><div class="dt__calendar_m_d active">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div></div></div>
 				</div>	        
