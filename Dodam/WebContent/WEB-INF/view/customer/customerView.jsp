@@ -345,7 +345,7 @@ function showList(cus_tel){
 				      '<a >성별<input id="gender" type="text" disabled="disabled" value='+ data[i].animal_gender+' /></a><br/>'+
 	                  '<a >생일<input id="birth" type="text" disabled="disabled" value='+ data[i].animal_birth+' /></a><br/>'+
 	                  '<a> 첫 방문일<input id="firstdate" type="text" disabled="disabled" value='+ data[i].animal_firstdate+' /></a>'+	
-	                  '메모<textarea id="memo" disabled="disabled" type="text">'+ data[i].animal_memo+'</textarea><br/></div>'
+	                  '메모<textarea id="memo" disabled="disabled" type="text">'+ data[i].animal_memo+'</textarea><br/><br/><br/></div>'
 	                  );
 			}
       },
@@ -477,7 +477,7 @@ function showList(cus_tel){
 <!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
-<div id="block2" class="modal-content" style=" margin-left: 330px; height: 400px; overflow: scroll;" >
+<div id="block2" class="modal-content" style=" margin-left: 330px; height: 400px; overflow-y: scroll;" >
    <table>
       <tr>
          <td><a class="title" style="font-size: 13pt;">반려 동물 목록</a>
@@ -657,7 +657,7 @@ function showList(cus_tel){
             
             <input type="hidden" id="phoneNum" name="phoneNum" value="" />
          
-            <div class="col-md-6" style="overflow: scroll; height: 300px;">
+            <div class="col-md-6" style="overflow-y: scroll; height: 300px;">
 
                <table id="myTable" class="table table-inverse">
                   <thead>
