@@ -200,14 +200,14 @@ text-overflow;
     		</div>
 <!-- 상품추가버튼-->
 	 <div class="row margin-top-20" style="float:right; padding-right:20px;padding-bottom:15px ;width: 500px;">        
-            <a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" style="float:right;margin-right:150px; 
+            <a id='addGoodsBtn' class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" style="float:right;margin-right:150px; 
             margin-top:-60px; float:right;margin-right:130px; margin-top:-55px;width:70px; background-color:#aaaaaa; height:35;" role="button">상품추가</a>            
       </div>
 <!-- 상품추가버튼 끝 -->
 		
 
 <!-- 팝업열리는 부분 -->
-<div class="popit-wrapper popit-wrapper-chase">
+<div id='goodsPopupDIV' class="popit-wrapper popit-wrapper-chase">
         <div class="popit-content">
           <div class="popit-header">
             <button type="button" class="popitup-close close">
@@ -400,12 +400,12 @@ text-overflow;
 				 });
 				
 // 			상품추가 제이쿼리(팝업열리는 쿼리)
-				 $('.btn-sm').bind('click', function(){				        
-				        if($(this).hasClass('btn-chase')){
-				          $('.popit-wrapper-chase').popitup({
-				            chase: false
-				          });
-				        }				        
+				 $('#addGoodsBtn').bind('click', function(){				        
+				       
+		          $('#goodsPopupDIV').popitup({
+		            chase: false
+		          });
+				       			        
 				      });	
 				      
 //			상품 검색 부분				      

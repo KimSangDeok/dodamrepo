@@ -275,7 +275,7 @@
 	<div class="rowOption">
 		
 		<div style='float:right; margin-right:3%'>
-		<a class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
+		<a id='beautyOptionBtn' class="btn btn-sm btn-primary btn-chase" href="javascript:void(0);" role="button">옵션추가</a>
 		</div>
 		
 		<br/>
@@ -451,7 +451,7 @@
 	
 		
 		// 미용 옵션 버튼 이벤트 : 팝업아 열려라
-		$('.btn-sm').bind('click', function(){    
+		$('#beautyOptionBtn').bind('click', function(){    
 			$('.beautyOptionPopup').popitup({
 				chase: false
 			});			        
