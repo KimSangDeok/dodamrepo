@@ -215,7 +215,7 @@ $(document).ready(function(){
 
 function monjinOpen() {
          var byensu = window.innerWidth/2;
-         $('.popit-wrapper-chase').popitup({
+         $('#modalpop').popitup({
             widthSet : window.innerWidth*0.8+'',
             chase : false
          });
@@ -566,7 +566,7 @@ function showList(cus_tel){
       
       
 <!-- Begin 팝업 내용 -->
-   <div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
+   <div id="modalpop" class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
    
       <div class="popit-content" style=" width:100%; height:5%;">
          <button id="popupCloseBtn" type="button" class="popitup-close close">
