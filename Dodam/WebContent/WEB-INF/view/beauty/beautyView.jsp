@@ -99,7 +99,7 @@
 <div class="body"><br/>
 			
 	<!-- 팝업내용 -->
-	<div class="popit-wrapper popit-wrapper-chase" id='beautyOptionPopup' style="left: 0px; opacity: 0;">
+	<div class="popit-wrapper popit-wrapper-chase beautyOptionPopup" id='beautyOptionPopup' style="left: 0px; opacity: 0;">
         <div class="popit-content">
 			<div class="popit-header">
             	<h4 class="popit-title">미용 옵션 추가</h4>
@@ -452,7 +452,7 @@
 		
 		// 미용 옵션 버튼 이벤트 : 팝업아 열려라
 		$('.btn-sm').bind('click', function(){    
-			$('#beautyOptionPopup').popitup({
+			$('.beautyOptionPopup').popitup({
 				chase: false
 			});			        
 		 });	

@@ -71,7 +71,7 @@
 	
 
 	<!-- begin: 팝업 DIV : infoMenu의 팝업내용 (동물을 검색하여 info에 띄우고, session에 등록한다.) -->
-	<div id='infoPopup' class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
+	<div class="popit-wrapper popit-wrapper-chase infoPopup" id='infoPopup' style="left: 0px; opacity: 0;">
         <div class="popit-content">
 			<div class="popit-header">
             	<h4 class="popit-title">동 물 검 색</h4>
@@ -200,9 +200,10 @@
 				
 			});
 
-			$('#infoPopup').popitup({
+			$('.infoPopup').popitup({
 				chase: false
 			});
+			
 		 });
 	
 		// 고객 찾는 팝업에서 적용 버튼을 누른다면!!
