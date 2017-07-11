@@ -400,7 +400,7 @@ function todaylistclick(elem){
 			$("#info_animalname").val((list[0]).animal_name);
 			$("#info_animalbreed").val((list[0]).animal_breed);		
 
-			alert(${animal});
+// 			alert(${animal});
 			
 		}
 	});

@@ -145,11 +145,11 @@ import myproj.reservation.dto.ReservationVO;
 			//오늘의 예약현황에서 리스트를 클릭했을 때 상단바에 정보 뜨는 부분
 			@RequestMapping("/listInfomation.dodam")
 			@ResponseBody
-			public List<ReservationVO> listInfomation(ReservationVO reservationVO, HttpSession session, HttpServletRequest request){
+			public List<ReservationVO> listInfomation(ReservationVO reservationVO){
 				List<ReservationVO> result = reservationDAO.listInfomation(reservationVO);
-				result.get(0).getAnimal_name();
-				ServletRequest ssession = null;
-				ssession.setAttribute("animal", result.get(0).getAnimal_name());
+//				result.get(0).getAnimal_name();
+//				ServletRequest ssession = null;
+//				ssession.setAttribute("animal", result.get(0).getAnimal_name());
 				return result;
 			}
 		
