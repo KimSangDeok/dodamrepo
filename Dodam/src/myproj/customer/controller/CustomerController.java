@@ -197,18 +197,19 @@ public class CustomerController {
 			@RequestMapping("/infoAnimalApply.dodam")
 			public String infoAnimalApply(CustomerVO cVO, AnimalVO aVO, HttpSession session){			
 
-				session.setAttribute("cus_name", cVO.getCus_name());
-				session.setAttribute("cus_tel", cVO.getCus_tel());
-				session.setAttribute("ani_num", aVO.getAnimal_num());
-				session.setAttribute("ani_breed", aVO.getAnimal_breed());
-				session.setAttribute("ani_name", aVO.getAnimal_name());
+				session.setAttribute("cusname", cVO.getCus_name());
+				session.setAttribute("custel", cVO.getCus_tel());
+				session.setAttribute("animalnum", aVO.getAnimal_num());
+				session.setAttribute("animalbreed", aVO.getAnimal_breed());
+				session.setAttribute("animalname", aVO.getAnimal_name());
+
 				
 				System.out.println("커스터머 컨트롤"+session.getAttribute("pageName"));
 				
 			// 1. 화면 session을 가져온다 (진료랑 수납)
 				if(session.getAttribute("pageName")=="jinryo"){
 					System.out.println("세션값 진료");
-					String animalNum = (String)session.getAttribute("ani_num");
+					String animalNum = (String)session.getAttribute("animalnum");
 					System.out.println("세션 애니멀너너너넌너"+animalNum);
 					return "redirect:/jinryo/infoJinryoView.dodam?animal_num="+animalNum;
 				}
