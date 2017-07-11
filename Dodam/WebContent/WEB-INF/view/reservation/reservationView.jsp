@@ -272,7 +272,7 @@ body {
                 				$("#reservationtime option").each(function(){               					
                 					if($(this).val()==(list[i]).rsvt_time){
                 						$(this).attr("disabled","disabled");
-                						$(this).css("background-color", "red");                						
+                						$(this).css("background-color","red");                						
                 					}
                 				});         
                 			}
@@ -381,29 +381,29 @@ function over(elem){
 }	
 
 function todaylistclick(elem){
+	location.href="/reservation/listInfomation.dodam?animal_num="+$(elem).find("input").val()
+			+"&rsvt_dt="+$(elem).children().eq(5).html().split("/")[0]
+			+"&rsvt_time="+$(elem).children().eq(5).html().split("/")[1];
 // 	$(elem).children().eq(2).html();
 // 	alert($(elem).children().eq(2).html());
-	$.ajax({
-		type:'get',
-		async:true,
-		url:'/reservation/listInfomation.dodam',
-		contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-		data:{"animal_num" : $(elem).find("input").val(),
-			"rsvt_dt" : $(elem).children().eq(5).html().split("/")[0],
-			"rsvt_time" : $(elem).children().eq(5).html().split("/")[1]},
-		dataType : "json",
-		success:function(list){
-
-			$("#info_doctor_name").val($(elem).children().eq(2).html());
-			$("#info_cusname").val($(elem).children().eq(3).html());
-			$("#info_custel").val((list[0]).cus_tel);
-			$("#info_animalname").val((list[0]).animal_name);
-			$("#info_animalbreed").val((list[0]).animal_breed);		
-
-// 			alert(${animal});
-			
-		}
-	});
+// 	$.ajax({
+// 		type:'get',
+// 		async:true,
+// 		url:'/reservation/listInfomation.dodam',
+// 		contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+// 		data:{"animal_num" : $(elem).find("input").val(),
+// 			"rsvt_dt" : $(elem).children().eq(5).html().split("/")[0],
+// 			"rsvt_time" : $(elem).children().eq(5).html().split("/")[1]},
+// 		dataType : "json",
+// 		success:function(list){
+// // 			alert("왔!!!!!!!!!!");
+// // 			$("#info_doctor_name").val(${doctorname});
+// // 			$("#info_cusname").val($(elem).children().eq(3).html());
+// // 			$("#info_custel").val((list[0]).cus_tel);
+// // 			$("#info_animalname").val((list[0]).animal_name);
+// // 			$("#info_animalbreed").val((list[0]).animal_breed);					
+// 		}
+// 	});
 
 }
 

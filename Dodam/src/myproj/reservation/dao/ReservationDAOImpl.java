@@ -163,7 +163,7 @@ public class ReservationDAOImpl implements ReservationDAO{
 	//휴대 전화로 검색 해 오는 부분
 	@Override
 	public List<ReservationVO> custelSearch(String cus_tel) {
-//		System.out.println("들어온놈"+cus_tel);
+		System.out.println("들어온놈"+cus_tel);
 		String custel1 = cus_tel.substring(0, 3);
 		String custel2 = cus_tel.substring(3,7);
 		String custel3 = cus_tel.substring(7,11);
@@ -173,6 +173,23 @@ public class ReservationDAOImpl implements ReservationDAO{
 		List<ReservationVO> list = reservation.selectList("reservation.custelSearch", tel);
 		
 		return list;
+	}
+
+	
+////////////////////////////////////접수 부분///////////////////////////////////	
+	
+	//접수 등록하는 부분(실질적으로는 예약에서 접수 시간과 접수 여부를 업데이트 시키는 부분)
+	@Override
+	public int counterInsert(ReservationVO reservationVO) {
+		reservationVO.setRsvt_dt(reservationVO.getRsvt_dt().split(" ")[0]);		 
+		reservation.update("reservation.counterInsert",reservationVO);
+		return 1;
+	}
+	
+	//접수 대기자 불러 오는 부분
+	@Override
+	public List<ReservationVO> counterlist(String today) {
+		return reservation.selectList("reservation.counterlist",today);
 	}
 
 	

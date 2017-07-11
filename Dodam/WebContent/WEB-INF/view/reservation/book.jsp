@@ -189,7 +189,7 @@ $(function(){
 	    });
 	//팝업창에서 예약버튼 클릭 이벤트
 	 $(".btn-primary").click(function(){
-		 if($("input[name=cus_tel]").val() == null || $("input[name=cus_name]").val() == null || $("input[name=animal_name]").val()!=null){
+		 if($("#entercus_tel").val() == null || $("#entercus_name").val() == null){
 			 alert("빈칸을 모두 입력해 주세요");
 		 }else{
 			 $("#formbook").submit();
@@ -205,7 +205,7 @@ $(function(){
 
 <div class="body">
 <!-- Begin 팝업 -->
-<form id="formbook" action="/reservation/reservInsert.dodam" method="post">
+<form id="formbook" action="/reservation/reserveInsert.dodam" method="post">
 	<div id="Popup" class="popit-wrapper popit-wrapper-chase" style="  left: 0px;opacity: 0;">
 		
 		<!-- Begin 닫기 버튼 -->
@@ -239,7 +239,7 @@ $(function(){
 					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;" placeholder="휴대폰 번호">
 				</p>
 				<p>보호자 성함
-					<input class="form-control J_Message" type="text" name="cus_name"
+					<input class="form-control J_Message" id="entercus_name" type="text" name="cus_name"
 					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;" placeholder="보호자 성함"  readonly="readonly">
 					</br>
 					<span id="serchcusname" style="dispay:none"></span>

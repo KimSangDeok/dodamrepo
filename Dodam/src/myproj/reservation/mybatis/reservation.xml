@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="reservation">
 
-<!--                             reservationView.jsp부분                                 -->
+<!-- reservationView.jsp부분   -->
 
 <!-- 예약현황에서 오늘의 예약테이블 구하는 부분 -->
 <select id="reservationlist" parameterType="String"  resultType="myproj.reservation.dto.ReservationVO">
@@ -57,18 +57,19 @@ where doctor_name=#{doctor_name} and rsvt_time=#{rsvt_time} and rsvt_dt=#{rsvt_d
 
 <!-- 오늘의 예약 현황을 클릭 했을 때 상단 바에 정보 보여 주는 부분 -->
 <select id="listInfomation" parameterType="myproj.reservation.dto.ReservationVO" resultType="myproj.reservation.dto.ReservationVO">
-select c.cus_name, c.cus_tel, a.animal_breed, a.animal_name
+select c.cus_name, c.cus_tel, a.animal_breed, a.animal_name, r.doctor_name, r.animal_num, r.rsvt_dt
 from reservation r, customer c, animal a
 where c.cus_tel=a.cus_tel and c.cus_tel in (select cus_tel from animal where animal_num=#{animal_num}) 
 and r.ANIMAL_NUM=#{animal_num} and r.RSVT_DT=#{rsvt_dt} and r.RSVT_TIME=#{rsvt_time}
 </select>
 
 
-<!--                             book.jsp부분                                 -->
+<!-- book.jsp부분  -->
 
 <!--예약정보를 DB에 Insert하는 SQL 문장 -->
 <insert id="reserveInsert" parameterType="myproj.reservation.dto.ReservationVO">
-insert into reservation values(seq_rsvt.nextval,#{animal_num},#{rsvt_dt},#{per_id},#{rsvt_time},#{service_type},#{doctor_name})
+insert into reservation (rsvt_num,animal_num,rsvt_dt,per_id,rsvt_time,service_type,doctor_name) 
+values(seq_rsvt.nextval,#{animal_num},#{rsvt_dt},#{per_id},#{rsvt_time},#{service_type},#{doctor_name})
 </insert>
 
 <!-- 예약하기에서 동물이름과 휴대폰번호로 동물번호 검색하는 부분 -->
@@ -88,6 +89,21 @@ where RSVT_DT=#{today}
 select c.cus_name, a.animal_name
 from customer c, animal a 
 where c.cus_tel = a.cus_tel and c.cus_tel=#{tel}
+</select>
+
+<!-- 접수 부분 -->
+<update id="counterInsert" parameterType="myproj.reservation.dto.ReservationVO">
+UPDATE reservation SET counter_date_time= sysdate, COUNTER_STATE='o' 
+where animal_num=#{animal_num} and rsvt_dt=#{rsvt_dt} and doctor_name=#{doctor_name}
+</update>
+
+<!-- 접수 대기자 불러오는 부분 -->
+<select id="counterlist" parameterType="String" resultType="myproj.reservation.dto.ReservationVO">
+select a.animal_name, r.DOCTOR_NAME, r.SERVICE_TYPE
+from animal a, reservation r
+where a.animal_num=r.animal_num and a.animal_num in (select animal_num from reservation 
+where counter_state='o' and jinryo_state='x' and rsvt_dt=#{today})
+order by r.COUNTER_DATE_TIME
 </select>
 
 

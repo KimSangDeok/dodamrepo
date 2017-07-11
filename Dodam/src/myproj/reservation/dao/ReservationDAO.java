@@ -38,4 +38,11 @@ public interface ReservationDAO {
 	//오늘의 예약현황에서 리스트 클릭 했을 때 상단바에 정보 보여주는 부분
 	List<ReservationVO> listInfomation(ReservationVO reservationVO);
 	
+	
+	/////////////////////////////접수 부분///////////////////////////////////
+	//접수 등록하는 부분(실질적으로는 예약에서 접수 시간과 접수 여부를 업데이트 시키는 부분)
+	int counterInsert(ReservationVO reservationVO);
+	
+	//접수 대기자 불러 오는 부분
+	List<ReservationVO> counterlist(String today);
 }

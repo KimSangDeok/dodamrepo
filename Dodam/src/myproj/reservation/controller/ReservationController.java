@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -144,20 +142,26 @@ import myproj.reservation.dto.ReservationVO;
 	
 			//오늘의 예약현황에서 리스트를 클릭했을 때 상단바에 정보 뜨는 부분
 			@RequestMapping("/listInfomation.dodam")
-			@ResponseBody
-			public List<ReservationVO> listInfomation(ReservationVO reservationVO){
+//			@ResponseBody
+			public String listInfomation(ReservationVO reservationVO, HttpSession session){
 				List<ReservationVO> result = reservationDAO.listInfomation(reservationVO);
-//				result.get(0).getAnimal_name();
-//				ServletRequest ssession = null;
-//				ssession.setAttribute("animal", result.get(0).getAnimal_name());
-				return result;
+				session.setAttribute("cusname", result.get(0).getCus_name());
+				session.setAttribute("doctorname",result.get(0).getDoctor_name());
+				session.setAttribute("custel",result.get(0).getCus_tel());
+				session.setAttribute("animalname",result.get(0).getAnimal_name());
+				session.setAttribute("animalbreed",result.get(0).getAnimal_breed());
+				session.setAttribute("animalnum",result.get(0).getAnimal_num());
+				session.setAttribute("rsvtdt",result.get(0).getRsvt_dt());
+
+				
+				return "redirect:/counter/counterView.dodam";
 			}
 		
 		
 	////////////////////book.jsp부분
 		
 		//예약 DB등록
-		@RequestMapping("/reservInsert.dodam")
+		@RequestMapping("/reserveInsert.dodam")
 		public String reservInsert(ReservationVO reservationVO){
 //			System.out.println("예약하기");
 		int reservation = reservationDAO.reservinsert(reservationVO);
