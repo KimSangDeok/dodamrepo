@@ -393,7 +393,7 @@ function todaylistclick(elem){
 			"rsvt_time" : $(elem).children().eq(5).html().split("/")[1]},
 		dataType : "json",
 		success:function(list){
-			alert("왔!!!!!!!!!!");
+
 			$("#info_doctor_name").val($(elem).children().eq(2).html());
 			$("#info_cusname").val($(elem).children().eq(3).html());
 			$("#info_custel").val((list[0]).cus_tel);

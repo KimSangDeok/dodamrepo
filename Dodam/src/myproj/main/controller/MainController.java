@@ -82,6 +82,7 @@ public class MainController {
 			result = 1;
 			message = "로그인 성공";
 			session.setAttribute("userName", reVO.getPer_name());
+			session.setAttribute("userid", vo.getPer_id());
 			//session.setAttribute("sessionTime", new Date().toString());
 		}
 

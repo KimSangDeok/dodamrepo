@@ -7,6 +7,7 @@
 			<div class="content">
 				<h1>DodamDodam</h1>
 				<h2>${userName}</h2>
+				<input type="hidden" value="${userid}">
 				<a href="#" class="button big alt"><span>도담도담한 시작</span></a>
 			</div>
 			<a href="#" class="button hidden"><span>start</span></a>
