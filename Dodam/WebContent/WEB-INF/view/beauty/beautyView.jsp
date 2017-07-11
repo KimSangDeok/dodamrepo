@@ -417,12 +417,12 @@
 	 function showList(bty_code, cus_tel, cus_name,  animal_name, animal_breed, animal_num, cus_addr){
 		
 		/* 값들이~, 위의 info에 적히도록!!! */
-		$('#cusname').val(cus_name);
-		$('#custel').val(cus_tel);
-		$('#animalname').val(animal_name);
-		$('#animalbreed').val(animal_breed);
+		$('#info_cusname').val(cus_name);
+		$('#info_custel').val(cus_tel);
+		$('#info_animalname').val(animal_name);
+		$('#info_animalbreed').val(animal_breed);
 		$('#cusaddr').val(cus_addr);
-		$('#animalnum').val(animal_num);
+		$('#info_animalnum').val(animal_num);
 		
 		$('#bty_code').val(bty_code);
 			
