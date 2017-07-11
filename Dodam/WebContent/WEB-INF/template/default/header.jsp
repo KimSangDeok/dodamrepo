@@ -6,7 +6,7 @@
 		<div class="inner">
 			<div class="content">
 				<h1>DodamDodam</h1>
-				<h2>건강하고 예쁘게 자라주렴</h2>
+				<h2>${userName}</h2>
 				<a href="#" class="button big alt"><span>도담도담한 시작</span></a>
 			</div>
 			<a href="#" class="button hidden"><span>start</span></a>
