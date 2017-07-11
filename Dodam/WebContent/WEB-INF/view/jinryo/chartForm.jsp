@@ -838,12 +838,12 @@ function getInputValuesSession(bigAndMid){
 		<input id="jinryoImages" name="jinryoImages" type="file" style="display: none;" multiple="multiple">
 		
 		<!-- 바이탈 -->
-							몸무게<input type="hidden" id="" name="vt_weight"/><br/><br/>
-					체온<input type="hidden" id="" name="vt_temperature"/><br/><br/>
-					수축기혈압<input type="hidden" id="" name="vt_systolic_blood"/><br/><br/>
-					이완기혈압<input type="hidden" id="" name="vt_diastolic_blood"/><br/><br/>
-					심박수<input type="hidden" id="" name="vt_heart_rate"/><br/><br/>
-					호흡수<input type="hidden" id="" name="vt_breathing_rate"/><br/><br/>
+							<input type="hidden" id="" name="vt_weight"/><br/><br/>
+					<input type="hidden" id="" name="vt_temperature"/><br/><br/>
+					<input type="hidden" id="" name="vt_systolic_blood"/><br/><br/>
+					<input type="hidden" id="" name="vt_diastolic_blood"/><br/><br/>
+					<input type="hidden" id="" name="vt_heart_rate"/><br/><br/>
+					<input type="hidden" id="" name="vt_breathing_rate"/><br/><br/>
 	</form>
 </div>
 <script>
