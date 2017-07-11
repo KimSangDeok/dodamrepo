@@ -46,6 +46,9 @@ public class JinryoController {
 	
 	@RequestMapping("/jinryoView.dodam")
 	public ModelAndView defaultJinryoView(HttpSession session){
+		
+		session.setAttribute("pageName", "jinryo");
+		System.out.println("+"+session.getAttribute("pageName"));
 
 		String per_id = (String)session.getAttribute("userid");
 		System.out.println("일단 perid 가져왔니 >>"+per_id);
