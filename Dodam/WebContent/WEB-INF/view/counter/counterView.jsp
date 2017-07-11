@@ -114,6 +114,23 @@ display:table;
 	});
 </script>
 
+<style>
+/*div 스타일 적용 */
+    .sidebargroup {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(248, 14, 14, 0.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    width:500px;
+    height:450px;
+    margin-bottom: 50px;
+</style>
 <!-- 바디 시작 -->
 <div class="body">
 
@@ -122,14 +139,12 @@ display:table;
 
 	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
 	<div>
-		<!-- 가운데 구분 줄 -->
-		<div class="hr1" style="margin-top: 50px"></div>
 
 		<h1
-			style="font-weight: bolder; margin-left: 5%; margin-top: 0.5%; font-size: 200%; text-align: left;">접수</h1>
+			style="font-weight: bolder; margin-left: 14.8%; margin-top: 2%; font-size: 200%; text-align: left;">접수</h1>
 
 		<!-- 전체접수창 -->
-		<div class="outer-wrap">
+		<div class="outer-wrap" style="margin-left:15%; margin-right:3%;width:40%; float:left;">
 
 			<!-- 접수메뉴 -->
 			<div class="demenu">
@@ -310,7 +325,7 @@ display:table;
 		<!-- 전체접수창 end -->
 		
 		<!-- 접수대기자 화면 -->
-		<div class="sidebargroup">
+		<div class="sidebargroup" style="width:30%; margin-right:0;float:left;">
 			<div class="sidebar">
 				<div class="sidebar-box">
 					<h3>접수 대기자</h3>
