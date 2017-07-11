@@ -207,7 +207,7 @@ body {
     width: 100px;
     height: 100px;
     float: right;
-    margin-right: 610px;
+    margin-right: 520px;
     }
 </style>
 
@@ -294,7 +294,10 @@ body {
             
             //드래그 해서 삭제하는 이벤트
             eventDragStop: function(event,jsEvent) {
-                if( (1150 < jsEvent.pageX) & (jsEvent.pageX < 1300) & (840 < jsEvent.pageY) & (jsEvent.pageY < 940)){
+//             	alert(jsEvent.pageX+"/"+jsEvent.pageY);
+ 				  var title = event.title.split("(");
+                  var firsttime = title[1].split(")");
+                if( (860 < jsEvent.pageX) & (jsEvent.pageX < 960) & (870 < jsEvent.pageY) & (jsEvent.pageY < 980)){
 						 var title = event.title.split("(");
 		                 var firsttime = title[1].split(")");
 						 if(!confirm("정말 삭제 하시겠습니까?")){
@@ -384,27 +387,6 @@ function todaylistclick(elem){
 	location.href="/reservation/listInfomation.dodam?animal_num="+$(elem).find("input").val()
 			+"&rsvt_dt="+$(elem).children().eq(5).html().split("/")[0]
 			+"&rsvt_time="+$(elem).children().eq(5).html().split("/")[1];
-// 	$(elem).children().eq(2).html();
-// 	alert($(elem).children().eq(2).html());
-// 	$.ajax({
-// 		type:'get',
-// 		async:true,
-// 		url:'/reservation/listInfomation.dodam',
-// 		contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-// 		data:{"animal_num" : $(elem).find("input").val(),
-// 			"rsvt_dt" : $(elem).children().eq(5).html().split("/")[0],
-// 			"rsvt_time" : $(elem).children().eq(5).html().split("/")[1]},
-// 		dataType : "json",
-// 		success:function(list){
-// // 			alert("왔!!!!!!!!!!");
-// // 			$("#info_doctor_name").val(${doctorname});
-// // 			$("#info_cusname").val($(elem).children().eq(3).html());
-// // 			$("#info_custel").val((list[0]).cus_tel);
-// // 			$("#info_animalname").val((list[0]).animal_name);
-// // 			$("#info_animalbreed").val((list[0]).animal_breed);					
-// 		}
-// 	});
-
 }
 
 
@@ -423,7 +405,7 @@ function todaylistclick(elem){
 	
 	<div style="padding-top:50px;margin-bottom:100px;">
 			<!--달력시작 -->
-		<div style="float:left;padding-left:30px;padding-bottom:150px;padding-left:300px">
+		<div style="float:left;padding-left:30px;padding-bottom:150px;padding-left:100px">
 				<div id='calendar' style="float:left;width:50%"></div>
 			<!--달력 끝 -->	
 			<!-- 테이블 리스트 코딩 부분 -->

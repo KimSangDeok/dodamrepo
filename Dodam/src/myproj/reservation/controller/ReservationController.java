@@ -130,14 +130,16 @@ import myproj.reservation.dto.ReservationVO;
 		
 			//드래그해서 예약 삭제 하는 부분
 			@RequestMapping("/deleteReservation.dodam")
-			public ModelAndView reservUpdate(ReservationVO reservationVO){
+			public String reservUpdate(ReservationVO reservationVO){
 //				System.out.println("으하하하하하하하"+ reservationVO.getDoctor_name()+ "/" +reservationVO.getRsvt_dt()+ "/" +reservationVO.getRsvt_time());
+				System.out.println("의사의사"+reservationVO.getDoctor_name());
+				System.out.println("시간시간"+reservationVO.getRsvt_time());
 				
 				ModelAndView mv = new ModelAndView();
 				int result = reservationDAO.deleteReservation(reservationVO);
 				
-				mv.setViewName("/reservation/reservationView");
-				return mv;
+//				mv.setViewName("/reservation/reservationView");
+				return "redirect:reservationView.dodam";
 			}
 	
 			//오늘의 예약현황에서 리스트를 클릭했을 때 상단바에 정보 뜨는 부분
