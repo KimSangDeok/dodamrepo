@@ -132,7 +132,7 @@
 			
 			<!-- 팝업창 바디부분 -->
 			<div class="popit-body"  id="bodycontainer">
-				<div class="content- wrapper">
+				<div class="content-wrapper">
 		            
 					<div>
 					 <label>종류</label>
@@ -298,7 +298,6 @@
                 		
 	<!-- begin : 미용 옵션 추가 drag -->		 	
 	<div class="rowOption">
-		
 		<div style='float:right; margin-right:3%'>
 		<input type="button" class="btn btn-sm  btn-primary btn-chase" href="javascript:void(0);"  role="button" value="옵션추가" style=""/>
 		</div>

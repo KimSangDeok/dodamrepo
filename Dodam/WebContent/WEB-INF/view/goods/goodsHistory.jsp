@@ -29,6 +29,18 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
 <script src="/css/goods/smalldatepicker/es5.js"></script>
 <!-- 작은데이터피커끝-->
+
+<!-- Date picker css -->
+	<style>
+	.dt__calendar_head{
+	background-color: #e74c3c;
+	}
+	.dt__calendar_m_d.active {
+	    background-color: #e5f791;
+	    color: #180202;
+	}
+	</style>
+
 <!-- 스타일 -->
 <style type="text/css">
 @media ( min-width : 768px) {
