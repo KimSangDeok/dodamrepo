@@ -64,6 +64,7 @@
     overflow: hidden;
     left: 0px;
     overflow-y: scroll;
+    font-size: 10pt;
 }
 
 .popit-body p {
@@ -116,6 +117,16 @@
 <script>
 //예약할 때, 빈칸 누르면 팝업창 뜨는 부분
 $(function(){
+	
+	//임시방편 새로고침
+	$('#button').click(function(){
+		location.href="/reservation/book.dodam";
+	});
+	$('#cancel').click(function(){
+		location.href="/reservation/book.dodam";
+	});
+	
+	
 	//예약가능한 칸에 클릭이벤트
 	$('.listCenter').siblings('td').click(function(){ //선택자 중 형제 찾기 
 		
@@ -216,7 +227,7 @@ $(function(){
 <div class="body">
 <!-- Begin 팝업 -->
 <form id="formbook" action="/reservation/reserveInsert.dodam" method="post">
-	<div id="Popup" class="popit-wrapper popit-wrapper-chase" style="  left: 0px;opacity: 0;">
+	<div id="Popup" class="popit-wrapper popit-wrapper-chase" style="height:500px;  left: 0px;opacity: 0;">
 		
 		<!-- Begin 닫기 버튼 -->
 		<div class="popit-content" style=" width:70%; height:5%;">
@@ -288,7 +299,7 @@ $(function(){
 		<!-- Begin 아랫쪽 버튼 -->
 		<div class="popit-content" style=" width:70%; height:10% ;  margin-left:15%;">
 			<div class="popit-footer" >
-				<button type="button" class="btn btn-default popitup-close">취소</button>
+				<button type="button" id="cancel" class="btn btn-default popitup-close">취소</button>
 				<button type="button" class="btn btn-primary">예약</button>
 			</div>
 		</div>
