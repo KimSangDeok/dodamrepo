@@ -197,6 +197,7 @@ import myproj.reservation.dto.ReservationVO;
 		@RequestMapping("/custelSearch.dodam")
 		@ResponseBody
 		public List<ReservationVO> custelSearch(String cus_tel){
+			System.out.println("폰번호="+cus_tel);
 			List<ReservationVO> result = reservationDAO.custelSearch(cus_tel);		
 			return result;
 		}

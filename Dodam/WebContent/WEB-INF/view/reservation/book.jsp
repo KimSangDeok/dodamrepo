@@ -14,16 +14,6 @@
 <!-- popup script -->
 <script src="/js/jquery.popitup.js"></script>
 
-<!-- Date picker css -->
-<style>
-.dt__calendar_head{
-background-color: #e74c3c;
-}
-.dt__calendar_m_d.active {
-    background-color: #e5f791;
-    color: #180202;
-}
-</style>
 
 <!-- Begin popup css -->
 <style type="text/css">
@@ -148,16 +138,18 @@ $(function(){
 			
 		}
 	});
-	
+
 	//휴대폰 번호 입력칸에서 엔터키치면 검색해 오는 부분
-	 $("input[name=cus_tel]").keydown(function (key) {		 
+	 $("#entercus_tel").keyup(function (key) {
+		 
 	        if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+	        	alert("dd");
 	            $.ajax({
 	            	type:'get',
             		async:true,
             		url:'/reservation/custelSearch.dodam',
             		contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-            		data:{"cus_tel" : $("input[name=cus_tel]").val()},
+            		data:{"cus_tel" : $("#entercus_tel").val()},
             		dataType : "json",
             		success:function(list){
             			$("#serchcusname").css("display","none");
@@ -243,7 +235,7 @@ $(function(){
 					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;" placeholder="담당자 이름"  readonly="readonly">
 				</p>
 				<p>휴대폰 번호
-					<input class="form-control J_Message" type="text" name="cus_tel"
+					<input class="form-control J_Message" id="entercus_tel" type="text" name="cus_tel"
 					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;" placeholder="휴대폰 번호">
 				</p>
 				<p>보호자 성함
@@ -298,8 +290,8 @@ $(function(){
 
 
 <div id="contents" style="padding-top:10px">      
-	<h1 style="font-family: 맑은고딕; ">Schedule status</h1>
-		<div style="float:left;margin-left:230px;margin-bottom:20px">
+	<h1>스케줄 현황</h1>
+		<div style="float:left;margin-left:500px;margin-bottom:20px">
 			<!-- 작은달력 화면 -->
 				<div class="form-row">
 				<label for="singleDateRange">날짜선택</label>
@@ -307,7 +299,7 @@ $(function(){
 				</div>	        
 			<!-- 작은달력 화면 끝 -->
 		</div>		
-		<p class="cho2" style="padding-top:20px;margin-right:-310px;">
+		<p class="cho2" style="padding-top:20px">
 				<img src="/css/book/bookimage/o.gif"> 예약불가 &nbsp;&nbsp;&nbsp;&nbsp;
 				<img src="/css/book/bookimage/x.gif"> 예약가능
 				
