@@ -50,11 +50,11 @@
 	<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
 	<input id="info_cusname" class='customerInfo' type='text' disabled='disabled' name='customer_name' value='${cus_name}'/>
 	<input id ="info_custel" type='text' disabled='disabled' name='customer_tel' value='${cus_tel}'/>
-	<input id ="info_animalname" type='text' disabled='disabled' name='customer_tel' value='${animal_name}'/>
-	<input id= "info_animalbreed" type='text' disabled='disabled' name='pet_type' value='${animal_breed}'/>
-	<input id= "info_doctor_name" type='text' disabled='disabled' name='customer_addr'/>
-	<input id= "info_animalnum" type='hidden' disabled='disabled' name='animal_num' value='${ani_num}'/>
+	<input id ="info_animalname" type='text' disabled='disabled' name='customer_tel' value='${ani_name}'/>
+	<input id= "info_animalbreed" type='text' disabled='disabled' name='pet_type' value='${ani_breed}'/>
+	<input id= "info_doctor_name" type='text' disabled='disabled' name='doctor_name'/>
 	
+	<input id= "info_animalnum" type='hidden' disabled='disabled' name='animal_num' value='${ani_num}'/>
 	<a class="btn btn-sm btn-primary btn-chase" id='infoBtn' href="javascript:void(0);" role="button">고객검색</a>
 	
 	
@@ -207,8 +207,6 @@
 	
 		$('#infoRegister').bind('click', function(){
 			
-			alert($('#v_cusname').val());
-
 			$.ajax({
 				url : "/customer/infoAnimalApply.dodam",
 				data : {'cus_name':$('#v_cusname').val(), 'cus_tel':$('#v_custel').val(), 'animal_name':$('#v_animalname').val(),
