@@ -40,6 +40,17 @@
 		right: 0;
 		opacity: 0.5;
 	}
+	/* 버튼 css */
+	#infoBtn{
+	color: #110f0f;
+    background-color: #fafbfb;
+    border-color: #e74c3c;
+	}
+	#infoBtn:hover {
+	    color: #fff;
+	    background-color: rgba(245, 81, 64, 0.75);
+	    border-color: #bc0b0b;
+	}
 	</style>
 	<script src="/js/jquery.popitup.js"></script>
 	<!-- begin : 팝업 -->

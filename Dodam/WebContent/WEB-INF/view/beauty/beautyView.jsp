@@ -31,23 +31,24 @@
     color: #110f0f;
     background-color: #fafbfb;
     border-color: #e74c3c;
-}	
-	/*beauty css*/
-	/* .registerbeauty {
-    color: #150b0b;
-    background-color: #f2a59d;
-    border-color: #cb3424;
-	} */
+	}	
 	.registerbeauty {
     color: #150b0b;
     background-color: none;
     border-color: none;
 	}
+	.btn-primary:hover {
+	    color: #fff;
+	    background-color: rgba(245, 81, 64, 0.75);
+	    border-color: #bc0b0b;
+	}
+	
 	.col-lg-12 {
     width: 50%;
     left: 180px;
     top: -30px;
 }
+	
 	</style>	
 	
 	<!-- begin : table의 헤더 중앙정렬 -->
