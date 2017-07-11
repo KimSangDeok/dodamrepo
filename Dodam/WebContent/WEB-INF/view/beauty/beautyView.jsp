@@ -161,104 +161,104 @@
 				
 				 
 <!-- begin : DIV 1) 미용 일정을 보여주는 테이블 -->
-<div class='beautyDIV' style="float:left; width:56%; margin-left:3% ; margin-right:1%; margin-top: 5%">
-	<div>
-	<h1 style="font-family: 맑은고딕; ">Beauty List</h1>
-	</div>
+<div class='beautyDIV' style="float:left; width:59%; margin-right:1% ; margin-left:2%;margin-top:5%">
+   <div>
+   <h1>Beauty List</h1>
+   </div>
 
 
-	<!-- begin : 미용 목록 기간을 설정하는 datepicker -->
-	<div class="form-row">
-		<div style="float:left">
-		<input type="text" placeholder="Date range  picker" id="rangedate"><div class="dt"><div  class="dt__wrapper rangedate"><div class="dt__calendar  dt__start"><div class="dt__calendar_head"><div  class="dt__calendar_head_wday">Tuesday</div><div  class="dt__calendar_head_month"><i  class="prev">&lt;</i><span>June</span><i  class="next">&gt;</i></div><div  class="dt__calendar_head_day">20</div><div  class="dt__calendar_head_year"><i  class="prev">&lt;</i>2017<i  class="next">&gt;</i></div></div><div  class="dt__calendar_nav"><div  class="dt__calendar_nav_title">Jun 2017</div></div><div  class="dt__calendar_start"><div class="dt__calendar_m"><div  class="dt__calendar_m_w"><div  class="dt__calendar_m_w_n">Su</div><div  class="dt__calendar_m_w_n">Mo</div><div  class="dt__calendar_m_w_n">Tu</div><div  class="dt__calendar_m_w_n">We</div><div  class="dt__calendar_m_w_n">Th</div><div  class="dt__calendar_m_w_n">Fr</div><div  class="dt__calendar_m_w_n">Sa</div></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d ">1</div><div  class="dt__calendar_m_d ">2</div><div  class="dt__calendar_m_d ">3</div><div  class="dt__calendar_m_d ">4</div><div  class="dt__calendar_m_d ">5</div><div  class="dt__calendar_m_d ">6</div><div  class="dt__calendar_m_d ">7</div><div  class="dt__calendar_m_d ">8</div><div  class="dt__calendar_m_d ">9</div><div  class="dt__calendar_m_d ">10</div><div  class="dt__calendar_m_d ">11</div><div  class="dt__calendar_m_d ">12</div><div  class="dt__calendar_m_d ">13</div><div  class="dt__calendar_m_d ">14</div><div  class="dt__calendar_m_d ">15</div><div  class="dt__calendar_m_d ">16</div><div  class="dt__calendar_m_d ">17</div><div  class="dt__calendar_m_d ">18</div><div  class="dt__calendar_m_d ">19</div><div  class="dt__calendar_m_d active">20</div><div  class="dt__calendar_m_d between">21</div><div  class="dt__calendar_m_d between">22</div><div  class="dt__calendar_m_d between">23</div><div  class="dt__calendar_m_d active">24</div><div  class="dt__calendar_m_d ">25</div><div  class="dt__calendar_m_d ">26</div><div  class="dt__calendar_m_d ">27</div><div  class="dt__calendar_m_d ">28</div><div  class="dt__calendar_m_d ">29</div><div  class="dt__calendar_m_d ">30</div></div></div></div><div  class="dt__calendar dt__end"><div  class="dt__calendar_head"><div  class="dt__calendar_head_wday">Saturday</div><div  class="dt__calendar_head_month"><i  class="prev">&lt;</i><span>June</span><i  class="next">&gt;</i></div><div  class="dt__calendar_head_day">24</div><div  class="dt__calendar_head_year"><i  class="prev">&lt;</i>2017<i  class="next">&gt;</i></div></div><div  class="dt__calendar_nav"><div  class="dt__calendar_nav_title">Jun 2017</div></div><div  class="dt__calendar_end"><div class="dt__calendar_m"><div  class="dt__calendar_m_w"><div  class="dt__calendar_m_w_n">Su</div><div  class="dt__calendar_m_w_n">Mo</div><div  class="dt__calendar_m_w_n">Tu</div><div  class="dt__calendar_m_w_n">We</div><div  class="dt__calendar_m_w_n">Th</div><div  class="dt__calendar_m_w_n">Fr</div><div  class="dt__calendar_m_w_n">Sa</div></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d_e"></div><div  class="dt__calendar_m_d ">1</div><div  class="dt__calendar_m_d ">2</div><div  class="dt__calendar_m_d ">3</div><div  class="dt__calendar_m_d ">4</div><div  class="dt__calendar_m_d ">5</div><div  class="dt__calendar_m_d ">6</div><div  class="dt__calendar_m_d ">7</div><div  class="dt__calendar_m_d ">8</div><div  class="dt__calendar_m_d ">9</div><div  class="dt__calendar_m_d ">10</div><div  class="dt__calendar_m_d ">11</div><div  class="dt__calendar_m_d ">12</div><div  class="dt__calendar_m_d ">13</div><div  class="dt__calendar_m_d ">14</div><div  class="dt__calendar_m_d ">15</div><div  class="dt__calendar_m_d ">16</div><div  class="dt__calendar_m_d ">17</div><div  class="dt__calendar_m_d ">18</div><div  class="dt__calendar_m_d ">19</div><div  class="dt__calendar_m_d active">20</div><div  class="dt__calendar_m_d between">21</div><div  class="dt__calendar_m_d between">22</div><div  class="dt__calendar_m_d between">23</div><div  class="dt__calendar_m_d active">24</div><div  class="dt__calendar_m_d ">25</div><div  class="dt__calendar_m_d ">26</div><div  class="dt__calendar_m_d ">27</div><div  class="dt__calendar_m_d ">28</div><div  class="dt__calendar_m_d ">29</div><div  class="dt__calendar_m_d ">30</div></div></div></div><div  class="dt__ranges"><div class="dt__ranges_item" data- range="0" "="">Yesterday</div><div class="dt__ranges_item"  data-range="1" "="">Sunday</div><div  class="dt__ranges_item" data-range="2" "="">2  Weeks</div><div class="dt__ranges_item" data-range="3"  "="">This Month</div><div class="dt__ranges_item" data- range="4" "="">Last Month</div><div class="dt__ranges_item"  data-range="5" "="">This Year</div></div></div></div>
-		</div>
-	</div><br/>
-	
-	<script  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12 .0/moment.min.js"></script>
-	
-<!-- begin : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코 딩 있음 꼭꼭꼭 봐야함 -->
-	<script  src="/css/beauty/daterangepicker.js"></script>
-<!-- end : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코딩  있음 꼭꼭꼭 봐야함 -->
-		
-	<script type="text/javascript">
-	$(function(){
-		 $('#rangedate').DatePicker({
-		        type: 'rangedate',
-		    startDate: moment().subtract(1, 'week'),
-		    endDate: moment(),
-		    ranges: [{
-		        label: "Yesterday",
-		        startDate: moment().subtract(1, 'day'),
-		        endDate: moment().subtract(1, 'day')
-		    }, {
-		        label: 'Sunday',
-		        startDate: moment().startOf('week'),
-		        endDate: moment()
-		    }, {
-		        label: '2 Weeks',
-		        startDate: moment().startOf ('week').subtract(1, 'week'),
-		        endDate: moment()
-		    }, {
-		        label: 'This Month',
-		        startDate: moment().startOf('month'),
-		        endDate: moment()
-		    }, {
-		        label: 'Last Month',
-		        startDate: moment().startOf ('month').subtract(1, 'month'),
-		        endDate: moment().startOf('month')
-		    }, {
-		        label: 'This Year',
-		        startDate: moment().startOf('year'),
-		        endDate: moment().startOf('moth')
-		    }]
-		    });      				      
-		});
-	</script>
-	<!-- end : datepicker -->
+   <!-- begin : 미용 목록 기간을 설정하는 datepicker -->
+   <div class="form-row">
+      <div style="float:left">
+      <input type="text" placeholder="Date range picker" id="rangedate"><div class="dt"><div class="dt__wrapper rangedate"><div class="dt__calendar dt__start"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Tuesday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">20</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_start"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__calendar dt__end"><div class="dt__calendar_head"><div class="dt__calendar_head_wday">Saturday</div><div class="dt__calendar_head_month"><i class="prev">&lt;</i><span>June</span><i class="next">&gt;</i></div><div class="dt__calendar_head_day">24</div><div class="dt__calendar_head_year"><i class="prev">&lt;</i>2017<i class="next">&gt;</i></div></div><div class="dt__calendar_nav"><div class="dt__calendar_nav_title">Jun 2017</div></div><div class="dt__calendar_end"><div class="dt__calendar_m"><div class="dt__calendar_m_w"><div class="dt__calendar_m_w_n">Su</div><div class="dt__calendar_m_w_n">Mo</div><div class="dt__calendar_m_w_n">Tu</div><div class="dt__calendar_m_w_n">We</div><div class="dt__calendar_m_w_n">Th</div><div class="dt__calendar_m_w_n">Fr</div><div class="dt__calendar_m_w_n">Sa</div></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d_e"></div><div class="dt__calendar_m_d ">1</div><div class="dt__calendar_m_d ">2</div><div class="dt__calendar_m_d ">3</div><div class="dt__calendar_m_d ">4</div><div class="dt__calendar_m_d ">5</div><div class="dt__calendar_m_d ">6</div><div class="dt__calendar_m_d ">7</div><div class="dt__calendar_m_d ">8</div><div class="dt__calendar_m_d ">9</div><div class="dt__calendar_m_d ">10</div><div class="dt__calendar_m_d ">11</div><div class="dt__calendar_m_d ">12</div><div class="dt__calendar_m_d ">13</div><div class="dt__calendar_m_d ">14</div><div class="dt__calendar_m_d ">15</div><div class="dt__calendar_m_d ">16</div><div class="dt__calendar_m_d ">17</div><div class="dt__calendar_m_d ">18</div><div class="dt__calendar_m_d ">19</div><div class="dt__calendar_m_d active">20</div><div class="dt__calendar_m_d between">21</div><div class="dt__calendar_m_d between">22</div><div class="dt__calendar_m_d between">23</div><div class="dt__calendar_m_d active">24</div><div class="dt__calendar_m_d ">25</div><div class="dt__calendar_m_d ">26</div><div class="dt__calendar_m_d ">27</div><div class="dt__calendar_m_d ">28</div><div class="dt__calendar_m_d ">29</div><div class="dt__calendar_m_d ">30</div></div></div></div><div class="dt__ranges"><div class="dt__ranges_item" data-range="0" "="">Yesterday</div><div class="dt__ranges_item" data-range="1" "="">Sunday</div><div class="dt__ranges_item" data-range="2" "="">2 Weeks</div><div class="dt__ranges_item" data-range="3" "="">This Month</div><div class="dt__ranges_item" data-range="4" "="">Last Month</div><div class="dt__ranges_item" data-range="5" "="">This Year</div></div></div></div>
+      </div>
+   </div><br/>
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+   
+<!-- begin : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코딩 있음 꼭꼭꼭 봐야함 -->
+   <script src="/css/beauty/daterangepicker.js"></script>
+<!-- end : 이 스크립트에 daterange 바뀌면 table 다시 search 하는 코딩 있음 꼭꼭꼭 봐야함 -->
+      
+   <script type="text/javascript">
+   $(function(){
+       $('#rangedate').DatePicker({
+              type: 'rangedate',
+          startDate: moment().subtract(1, 'week'),
+          endDate: moment(),
+          ranges: [{
+              label: "Yesterday",
+              startDate: moment().subtract(1, 'day'),
+              endDate: moment().subtract(1, 'day')
+          }, {
+              label: 'Sunday',
+              startDate: moment().startOf('week'),
+              endDate: moment()
+          }, {
+              label: '2 Weeks',
+              startDate: moment().startOf('week').subtract(1, 'week'),
+              endDate: moment()
+          }, {
+              label: 'This Month',
+              startDate: moment().startOf('month'),
+              endDate: moment()
+          }, {
+              label: 'Last Month',
+              startDate: moment().startOf('month').subtract(1, 'month'),
+              endDate: moment().startOf('month')
+          }, {
+              label: 'This Year',
+              startDate: moment().startOf('year'),
+              endDate: moment().startOf('moth')
+          }]
+          });                        
+      });
+   </script>
+   <!-- end : datepicker -->
 
-			 	
-	<table id="keywords" cellspacing="0" cellpadding="0">
-		<thead>
-		<tr style="background-color: #e3e3e3;">
-			<th><span>예약일자</span></th>
-			<th><span>동물명</span></th>
-			<th><span>종</span></th>
-			<th><span>고객명</span></th>
-			<th><span>핸드폰번호</span></th>
-			<th><span>미용내역</span></th>
-			<th><span>미용완료여부</span></th>
-		</tr>
-		</thead>
-	 	<tbody class="beautyTbody">     
-	     
-		<!-- db에서 BeautyService을 불러와서 뿌려줘야  한다. mapping한 key값이 대문자여서 대문자로!!-->              		
-		<c:forEach var='service'  items="${beautyService}" >
-		
-		<tr>
-		<td>${service.BTY_DT}</td>
-		<td>${service.ANIMAL_NAME}</td>
-		<td>${service.ANIMAL_BREED}</td>
-		<td>${service.CUS_NAME}</td>
-		<td>${service.CUS_TEL}</td>
-		<td>${service.BTM_TYPE}</td>
-		<td>${service.BTY_OX}</td>
-		<td style="display:none"> ${service.CUS_ADDR}</td>
-		
-		</c:forEach>
-		</tbody>
-		</table>
-		
-		<!-- begin : 미용 내역 table js, 기능은, th를 누르 면 정렬이 됨 -->
-		<script type="text/javascript"  src="/style/js/jquery.tablesorter.min.js"></script>
-			<script type="text/javascript">
-		$(function(){
-		   $('#keywords').tablesorter(); 
-		});
-		</script>
-		<!-- end : 미용 내역 table js, 기능은, th를 누르면  정렬이 됨 -->
-		
-		
-		
+   <div style="overflow-y: scroll; height: 380px;">
+   <table id="keywords" cellspacing="0" cellpadding="0" >
+      <thead>
+      <tr style="background-color: #a6afb0;">
+         <th><span>예약일자</span></th>
+         <th><span>동물명</span></th>
+         <th><span>종</span></th>
+         <th><span>고객명</span></th>
+         <th><span>핸드폰번호</span></th>
+         <th><span>미용내역</span></th>
+         <th><span>미용완료여부</span></th>
+      </tr>
+      </thead>
+       <tbody class="beautyTbody">     
+        
+      <!-- db에서 BeautyService을 불러와서 뿌려줘야 한다. mapping한 key값이 대문자여서 대문자로!!-->                    
+      <c:forEach var='service' items="${beautyService}" >
+      
+      <tr>
+      <td>${service.BTY_DT}</td>
+      <td>${service.ANIMAL_NAME}</td>
+      <td>${service.ANIMAL_BREED}</td>
+      <td>${service.CUS_NAME}</td>
+      <td>${service.CUS_TEL}</td>
+      <td>${service.BTM_TYPE}</td>
+      <td>${service.BTY_OX}</td>
+      <td style="display:none">${service.CUS_ADDR}</td>
+      
+      </c:forEach>
+      </tbody>
+      </table>
+      </div>
+      <!-- begin : 미용 내역 table js, 기능은, th를 누르면 정렬이 됨 -->
+      <script type="text/javascript" src="/style/js/jquery.tablesorter.min.js"></script>
+         <script type="text/javascript">
+      $(function(){
+         $('#keywords').tablesorter(); 
+      });
+      </script>
+      <!-- end : 미용 내역 table js, 기능은, th를 누르면 정렬이 됨 -->
+      
+      
+      
 </div> 
 <!-- end : DIV 1) 미용 일정을 보여주는 테이블 -->
 	
