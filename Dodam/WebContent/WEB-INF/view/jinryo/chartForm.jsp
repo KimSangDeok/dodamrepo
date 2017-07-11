@@ -82,6 +82,46 @@ table tbody tr:nth-child(2n + 1) {
 	cursor:pointer;
 	background-color: #EAEAEA;
 }
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+.btn-primary {
+    color: #170a0a;
+    background-color: #dceefd;
+    border-color: #e6eaef;
+}
+ .btn-primary:hover { 
+ 	color: #fff; 
+    background-color: #6fb9f7; 
+    border-color: #6fb9f7;
+ } 
+.btn-success {
+    color: #0f0f0f;
+    background-color: #aae9aa;
+    border-color: #bceebc;
+}
+.btn-info {
+    color: #251010;
+    background-color: #ffa49b;
+    border-color: #ebc1c1;
+}
+.btn-danger {
+    color: #0d0909;
+    background-color: #fbf7ad;
+    border-color: #efe6a2;
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #ff7b7b;
+    border-color: #ff7b7b;
+}
+.btn-warning {
+    color: #150e0e;
+    background-color: rgb(251, 211, 107);
+    border-color: #febf67;
+}
 </style>
 
 
