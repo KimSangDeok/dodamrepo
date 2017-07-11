@@ -14,7 +14,12 @@
 		<!-- *******여기에~~~ 년도를 선택했을 때, 분석자료를 가져와야하는 함수가 있도다~~~~~~~~ -->	
 	
 	<!-- end : date range picker -->
-
+<style>
+.highcharts-root{
+    width: 1100;
+    height: 400;
+	}
+</style>
 <div class="body">
 
 		<!-- begin : 관리자 추가 메뉴 DIV, 스크립트 -->

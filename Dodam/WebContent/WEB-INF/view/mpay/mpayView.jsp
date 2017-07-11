@@ -21,6 +21,10 @@
 	    background-color: #e5f791;
 	    color: #180202;
 	}
+	.highcharts-root{
+    width: 1100;
+    height: 400;
+	}
 	</style>
 
 <!-- begin : mpayView 첫번째 : 시간대별 접수 고객을 보여줘라~ -->
