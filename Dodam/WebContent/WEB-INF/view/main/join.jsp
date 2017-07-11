@@ -7,33 +7,334 @@
 <title>회원가입</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- 회원가입 화면 -->
+<!-- 회원가입 화면 CSS -->
 <link rel="stylesheet" type="text/css" href="/logincss/join.css" />
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+	//아이디 중복체크
+	function idDuplicateCheck() {
+		var reg_uid = /^[a-z0-9]{4,12}$/; //5~12자 영문소문자, 숫자 사용가능
+		var reg_upw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-]|.*[0-9]).{6,24}$/; //6~16자 영문대소문자, 숫자, 특수문자 혼합하여 사용
+		var id = $.trim($("#per_id").val());
+		// 로그인 프로세스 호출
+		$.ajax({
+			type : 'post',
+			async : true,
+			//url:'${pageContext.request.contextPath}/login_chk.do',
+			url : 'idCheck.dodam',
+			contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+			// data: $("#userinput").serialize(),
+			data : "per_id=" + $("#per_id").val(),
+
+			success : function(resultData) {
+				if (!reg_uid.test(id)) {
+					$('#idCheckResult').html("4~ 12자 영문 소문자, 숫자만 사용가능합니다.");
+
+				} else {
+					$('#idCheckResult').html(resultData);
+				}
+
+			}
+		});
+	}
+
+	// 생년월일 셀렉트박스 생성
+	$(function() {
+		var mydate = new Date();
+		var ye = $('.year');
+		var mo = $('.month');
+		var da = $('.date');
+
+		//년도 옵션 추가
+		for (var i = mydate.getFullYear(); i > mydate.getFullYear() - 70; i--) {
+			ye.append("<option value=" + i + ">" + i);
+		}
+
+		//월 옵션 추가
+		for (var i = 1; i <= 12; i++) {
+			if (i < 10) {
+				mo.append("<option value='0" + i + "'>" + i);
+			} else {
+				mo.append("<option value=" + i + ">" + i);
+			}
+		}
+
+		var d = new Date();
+		d.setYear(ye.val());
+		d.setMonth(mo.val());
+		d.setDate(0);
+		var date = d.getDate();
+
+		//1~마지막날까지 옵션 추가
+		for (var i = 1; i <= date; i++) {
+			if (i < 10) {
+				da.append("<option value='0" + i + "'>" + i);
+			} else {
+				da.append("<option value=" + i + ">" + i);
+			}
+		}
+
+		//월이 바뀌었을때의 이벤트
+		mo.change(function() {
+			$("#date option").remove();
+
+			//선택된 월의 마지막 날짜 얻어옴
+			var d = new Date();
+			d.setYear(ye.val());
+			d.setMonth(mo.val());
+			d.setDate(0);
+			var date = d.getDate();
+
+			//1~마지막날까지 옵션 추가
+			for (var i = 1; i <= date; i++) {
+				if (i < 10) {
+					da.append("<option value='0" + i + "'>" + i);
+				} else {
+					da.append("<option value=" + i + ">" + i);
+				}
+			}
+		});
+
+	});
+
+	//비밀번호 유효성
+	$(function() {
+		$("#per_pass")
+				.blur(
+						function() {
+							var val = $(this).val();
+							var regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-]|.*[0-9]).{6,16}$/;
+
+							if (val == "" || val == null) {
+								$("#pwCheckResult").html("필수입력");
+							} else if (!regex.test(val)) {
+								$("#pwCheckResult")
+										.html(
+												"6~ 16자 영문 대 소문자, 숫자, 특수문자 혼합하여 입력해주세요.");
+							} else {
+								$("#pwCheckResult").html("확인");
+							}
+						});
+	});
+
+	//비밀번호 확인
+	$(function() {
+		$("#reper_pass").blur(function() {
+			var val = $(this).val();
+			var orgin = $("#per_pass").val();
+
+			if (val == "" || val == null) {
+				$("#repwCheckResult").html("필수입력");
+			} else if (val != orgin) {
+				$("#repwCheckResult").html("비밀번호 불일치");
+			} else {
+				$("#repwCheckResult").html("확인");
+			}
+		});
+	});
+
+	//이름 유효성
+	$(function() {
+		$("#per_name").blur(function() {
+			var val = $(this).val();
+			var regex = /^[가-힣]{2,12}$/;
+
+			if (val == "" || val == null) {
+				$("#nameCheckResult").html("필수입력");
+			} else if (!regex.test(val)) {
+				$("#nameCheckResult").html("한글만 입력해주세요.");
+			} else {
+				$("#nameCheckResult").html("확인");
+			}
+		});
+	});
+
+	//연락처 유효성
+	$(function() {
+		$("#per_tel").blur(function() {
+			var val = $(this).val();
+			var regex = /^\d{2,3}\d{3,4}\d{4}$/;
+
+			if (val == "" || val == null) {
+				$("#telCheckResult").html("필수입력");
+			} else if (!regex.test(val)) {
+				$("#telCheckResult").html("숫자만 입력해주세요.");
+			} else {
+				$("#telCheckResult").html("확인");
+			}
+		});
+	});
+
+	//이메일 유효성
+	$(function() {
+		$("#per_mail").blur(function() {
+			var val = $(this).val();
+			var regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+			if (val == "" || val == null) {
+				$("#mailCheckResult").html("필수입력");
+			} else if (!regex.test(val)) {
+				$("#mailCheckResult").html("이메일 형식이 올바르지 않습니다.");
+			} else {
+				$("#mailCheckResult").html("확인");
+			}
+		});
+	});
+
+	//사용자의 자료 입력여부를 검사하는 함수
+	function checkUserInput() {
+		var reg_uid = /^[a-z0-9]{4,12}$/; // 아이디 정규표현식
+		var reg_upw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-]|.*[0-9]).{6,16}$/; // 비밀번호 정규표현식
+		var reg_uname = /^[가-힣]{2,8}$/; // 이름 정규표현식
+		var reg_umail = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // 이메일 정규표현식
+		var reg_utel = /^\d{2,3}\d{3,4}\d{4}$/; // 연락처 정규표현식
+		var id = $.trim($("#per_id").val());
+		var pass = $.trim($("#per_pass").val());
+		var name = $.trim($("#per_name").val());
+		var mail = $.trim($("#per_mail").val());
+		var tel = $.trim($("#per_tel").val());
+
+		// 구분 미선택
+		if (!($('.director').prop("checked")) && !($('.vet').prop("checked"))
+				&& !($('.nurse').prop("checked"))) {
+			alert("직책을 선택해 주세요.");
+			$(".type").focus();
+			return;
+		}
+
+		// 아이디 미입력
+		if ($.trim($("#per_id").val()) == '') {
+			alert("아이디를 입력해 주세요.");
+			$("#per_id").focus();
+			return;
+		}
+
+		// 정규표현식에 어긋나는 아이디
+		if (!reg_uid.test(id)) {
+			alert("올바른 형식의 아이디가 아닙니다.");
+			$("#per_id").focus();
+			return;
+		}
+
+		// 비밀번호 미입력
+		if ($.trim($('#per_pass').val()) == '') {
+			alert("비밀번호를 입력해 주세요.");
+			$('#per_pass').focus();
+			return;
+		}
+
+		// 정규표현식에 어긋나는 비밀번호
+		if (!reg_upw.test(pass)) {
+			alert("올바른 형식의 비밀번호가 아닙니다.");
+			$("#per_pass").focus();
+			return;
+		}
+
+		// 먼저입력한 비밀번호와 미일치
+		if ($.trim($('#per_pass').val()) != $.trim($('#reper_pass').val())) {
+			alert("비밀번호가 일치하지 않습니다.");
+			$('#reper_pass').focus();
+			return;
+		}
+
+		// 이름 미입력
+		if ($.trim($('#per_name').val()) == '') {
+			alert("이름을 입력해 주세요.");
+			$('#per_name').focus();
+			return;
+		}
+
+		// 정규표현식에 어긋나는 이름
+		if (!reg_uname.test(name)) {
+			alert("올바른 형식의 이름이 아닙니다.");
+			$("#per_name").focus();
+			return;
+		}
+
+		// 생년월일 미선택
+		if (($('.year').val()) == '0' || ($('.month').val()) == '0'
+				|| ($('.date').val()) == '0') {
+			alert("생년월일을 입력해 주세요.");
+			return;
+		}
+
+		// 연락처 미입력
+		if ($.trim($('#per_tel').val()) == '') {
+			alert("연락처를 입력해 주세요.");
+			$('#per_tel').focus();
+			return;
+		}
+
+		// 정규표현식에 어긋나는 연락처
+		if (!reg_utel.test(tel)) {
+			alert("올바른 형식의 연락처가 아닙니다.");
+			$("#per_tel").focus();
+			return;
+		}
+
+		// 이메일 미입력
+		if ($.trim($('#per_mail').val()) == '') {
+			alert("이메일을 입력해 주세요.");
+			$('#per_mail').focus();
+			return;
+		}
+
+		// 정규표현식에 어긋나는 이메일
+		if (!reg_umail.test(mail)) {
+			alert("올바른 형식의 이메일이 아닙니다.");
+			$("#per_mail").focus();
+			return;
+		}
+
+		// 약관미동의
+		if (!($('#chkConfirm').prop("checked"))) {
+			alert("약관에 동의하셔야 합니다.");
+			return;
+		}
+
+		// 입력한 생년월일
+		$('#per_birth').attr(
+				'value',
+				$.trim($('#per_y').val() + $('#per_m').val()
+						+ $('#per_d').val()));
+
+		// 선택한 구분번호
+		$('#pertype_code').attr('value',
+				$.trim($('input[type=radio][name=pertype]:checked').val()));
+
+		// 자료를 전송합니다.
+		document.userinput.submit();
+	}
+</script>
 
 </head>
 <body>
 
-	<!-- 상단메뉴 -->
+	<!-- Begin 상단메뉴 -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="main.dodam">도담도담</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
 			</div>
 			<div class="navbar-collapse collapse">
@@ -47,88 +348,127 @@
 			</div>
 		</div>
 	</nav>
-	
-	<!-- 회원가입전체화면 -->
+	<!-- End 상단메뉴 -->
+
+	<!-- Begin 회원가입전체화면 -->
 	<div class="contentwrap">
 		<article class="container">
 			<div class="page-header">
-				<h1> 회원가입 <small>관계자만 회원가입이 가능합니다.</small></h1>
+				<h1>
+					회원가입 <small>관계자만 회원가입이 가능합니다.</small>
+				</h1>
 			</div>
 			<br />
-			
-			<!-- 정보작성폼 -->
-			<form class="form-horizontal joinform">
+
+			<!-- Begin 정보작성폼 -->
+			<form class="form-horizontal joinform" method="post"
+				action="userInsert.dodam" name="userinput" id="userinput">
+				
+				<!-- Begin 정보작성란 -->
 				<div class="join_group">
 					<br />
 					<div class="form-group">
-						<label for="inputId" class="col-sm-2 control-label">아이디</label>
-						<div class="col-sm-5">
-							<input type="text" class="form-control" id="inputId"
-								placeholder="아이디">
+						<label class="col-sm-2 control-label">*구분</label>
+						<div class="col-sm-5 type" tabindex="0">
+							<input type="hidden" name="pertype_code" id="pertype_code">
+							<input type="radio" name="pertype" class="director" value="1">원장
+							<input type="radio" name="pertype" class="vet" value="2">수의사
+							<input type="radio" name="pertype" class="nurse" value="3">간호사
 						</div>
 					</div>
 					<hr />
 					<div class="form-group">
-						<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
+						<label for="inputId" class="col-sm-2 control-label">*아이디</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control" id="inputPassword"
-								placeholder="비밀번호">
+							<input type="text" class="form-control" id="per_id" name="per_id"
+								placeholder="아이디" onkeyup="idDuplicateCheck()">
 
 						</div>
+						<span id="idCheckResult" style="width: 150px; color: red"></span>
 					</div>
 					<hr />
 					<div class="form-group">
-						<label for="inputPasswordCheck" class="col-sm-2 control-label">비밀번호 확인</label>
+						<label for="inputPassword" class="col-sm-2 control-label">*비밀번호</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control" id="inputPasswordCheck" placeholder="비밀번호 확인">
+							<input type="password" class="form-control" id="per_pass"
+								name="per_pass" placeholder="비밀번호">
+
 						</div>
+						<span id="pwCheckResult" style="width: 150px; color: red"></span>
+					</div>
+					<hr />
+					<div class="form-group">
+						<label for="inputPasswordCheck" class="col-sm-2 control-label">*비밀번호
+							확인</label>
+						<div class="col-sm-5">
+							<input type="password" class="form-control" id="reper_pass"
+								placeholder="비밀번호 확인">
+						</div>
+						<span id="repwCheckResult" style="width: 150px; color: red"></span>
 					</div>
 					<hr />
 
 
 					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">이름</label>
+						<label for="inputName" class="col-sm-2 control-label">*이름</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="inputName" placeholder="이름">
+							<input type="text" class="form-control" id="per_name"
+								name="per_name" placeholder="이름">
 						</div>
+						<span id="nameCheckResult" style="width: 150px; color: red"></span>
 					</div>
 					<hr />
 					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">생년월일</label>
+
+						<label for="inputName" class="col-sm-2 control-label">*생년월일</label>
+
 						<div class="col-sm-1">
-							<select id="yy" title="년" class="sel">
-								<option value="y">년</option>
-								<option value="1">2017</option>
+							<input type="hidden" id="per_birth" name="per_birth"> <select
+								class="year" title="년" id="per_y">
+								<option value="0">년</option>
 
-							</select>
+							</select>년
 						</div>
 						<div class="col-sm-1">
-							<select id="mm" title="월" class="sel">
-								<option value="m">월</option>
-								<option value="1">12</option>
+							<select class="month" title="월" id="per_m">
+								<option value="0">월</option>
 
-							</select>
+
+							</select>월
 						</div>
-						<div class="col-sm-1">
-							<select id="dd" title="일" class="sel">
-								<option value="d">일</option>
-								<option value="1">12</option>
+						<div class="col-sm-1 day">
+							<select class="date" title="일" id="per_d">
+								<option value="0">일</option>
 
-							</select>
+							</select>일
 						</div>
-
 					</div>
+
 					<hr />
 					<div class="form-group">
-						<label for="inputNumber" class="col-sm-2 control-label">이메일주소</label>
+						<label for="inputNumber" class="col-sm-2 control-label">*연락처</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="inputNumber" placeholder="이메일주소">
+							<input type="text" class="form-control" id="per_tel"
+								name="per_tel" placeholder="연락처">
 
 						</div>
+						<span id="telCheckResult" style="width: 150px; color: red"></span>
+					</div>
+
+					<hr />
+					<div class="form-group">
+						<label for="inputNumber" class="col-sm-2 control-label">*이메일주소</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="per_mail"
+								name="per_mail" placeholder="이메일주소">
+
+						</div>
+						<span id="mailCheckResult" style="width: 150px; color: red"></span>
 					</div>
 				</div>
-				
-				<!-- 이용약관화면 -->
+				<!-- End 정보작성란 -->
+
+				<!-- Begin 이용약관화면 -->
 				<br /> <label>*이용약관</label>
 				<div class="tarConfirm1">
 					<table class="confirmtable">
@@ -150,7 +490,8 @@
 								<td height="20">&nbsp;</td>
 							</tr>
 							<tr>
-								<td height="30" colspan="2"><strong> 제2조(약관의 효력과 변경)</strong></td>
+								<td height="30" colspan="2"><strong> 제2조(약관의 효력과
+										변경)</strong></td>
 							</tr>
 							<tr>
 								<td height="20" align="center">&nbsp;</td>
@@ -364,9 +705,10 @@
 								<td height="20" align="center">&nbsp;</td>
 								<td height="20">1. 도담도담 웹챠트 홈페이지는 회원이나 제3자에 의해 표출된 의견을
 									승인하거나 반대하거나 수정하지 않습니다. 도담도담 웹챠트 홈페이지는 어떠한 경우라도 회원이 서비스에 담긴 정보에
-									의존해 얻은 이득이나 입은 손해에 대해 책임이 없습니다.<br>
-									2. 도담도담 웹챠트 홈페이지는 회원간 또는 회원과 제3자간에 서비스를 매개로 하여 물품거래 혹은 금전적 거래 등과 관련하여 어떠한 책임도 부담하지 아니하고, 회원이
-									서비스의 이용과 관련하여 기대하는 이익에 관하여 책임을 부담하지 않습니다.</td>
+									의존해 얻은 이득이나 입은 손해에 대해 책임이 없습니다.<br> 2. 도담도담 웹챠트 홈페이지는 회원간
+									또는 회원과 제3자간에 서비스를 매개로 하여 물품거래 혹은 금전적 거래 등과 관련하여 어떠한 책임도 부담하지
+									아니하고, 회원이 서비스의 이용과 관련하여 기대하는 이익에 관하여 책임을 부담하지 않습니다.
+								</td>
 							</tr>
 							<tr>
 								<td height="20" align="center">&nbsp;</td>
@@ -395,36 +737,41 @@
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
+				<!-- End 이용약관화면 -->
 				
 				<!-- 약관동의체크 -->
-				<input type="checkbox" name="chkConfirm1" id="chkConfirm1">
-				<label for="chkConfirm1">위 약관에 동의 합니다.</label>
-				<br/><br/>
-				
-				<!-- 회원가입/다시작성 버튼 -->
+				<input type="checkbox" name="chkConfirm" id="chkConfirm">
+				<label>위 약관에 동의 합니다.</label> <br /> <br />
+
+				<!-- Begin 회원가입/다시작성 버튼 -->
 				<div class="button_group">
 					<div class="col-sm-6">
-						<input type="submit" class="btn btn-primary" value="회원가입">
+						<input type="button" name="confirm" class="btn btn-primary"
+							value="회원가입" OnClick="javascript:checkUserInput()">
 						<button class="btn btn-warning">다시작성</button>
 					</div>
 				</div>
-				<br/><br/><br/><br/>
+				<!-- End 회원가입/다시작성 버튼 -->
+				<br /> <br /> <br /> <br />
 			</form>
+			<!-- End 정보작성폼 -->
 		</article>
 	</div>
+	<!-- End 회원가입전체화면 -->
 	
-<div class="dvFooter" id="dvFooter">
-    <div class="copyright">
-        <address>
-            경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층 Copyright ©2013 <strong>KOSTA</strong> All Rights Reserved.
-            <br>
-            판교교육장 컨소시엄&nbsp;&nbsp; TEL : 070-5039-5803,5805&nbsp;&nbsp; FAX : 070-7614-3450<br>
-            가산교육장 컨소시엄&nbsp;&nbsp; TEL : 070-5039-5815&nbsp;&nbsp; FAX : 070-7614-3450<br>
-        </address>
-    </div>
-</div>
+	<!-- Begin 하위 푸터 -->
+	<div class="dvFooter" id="dvFooter">
+		<div class="copyright">
+			<address>
+				경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층 Copyright ©2013 <strong>KOSTA</strong>
+				All Rights Reserved. <br> 판교교육장 컨소시엄&nbsp;&nbsp; TEL :
+				070-5039-5803,5805&nbsp;&nbsp; FAX : 070-7614-3450<br> 가산교육장
+				컨소시엄&nbsp;&nbsp; TEL : 070-5039-5815&nbsp;&nbsp; FAX : 070-7614-3450<br>
+			</address>
+		</div>
+	</div>
+	<!-- End 하위 푸터 -->
 
 
 </body>

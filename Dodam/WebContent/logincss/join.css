@@ -2,6 +2,23 @@
 
 /* CSS used here will be applied after bootstrap.css */
 
+/* .day { */
+/* 	padding-left: 0px !important; */
+/* } */
+
+select {
+	width: 56px;
+}
+
+.col-sm-1{
+	padding-top: 7px;
+	width: 100px !important;
+}
+
+.type {
+	padding-top: 7px;
+}
+
 #dvFooter {
     clear: both;
     height: 55px;

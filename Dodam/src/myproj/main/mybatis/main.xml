@@ -5,8 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="main">
 
+<!-- 로그인, ID중복확인 -->
 <select id="idCheck" parameterType="myproj.main.dto.MainVO" resultType="myproj.main.dto.MainVO"> 
-	select * from person where per_id=#{per_id}
+	SELECT * FROM person WHERE per_id=#{per_id}
 	<if test="per_pass !=null">
 		AND per_pass=#{per_pass}
 	</if>	
@@ -16,5 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="doctorName"  resultType="myproj.main.dto.MainVO" >
 	select per_name, per_id from person 
 </select>
+
+<!-- 회원가입 -->
+<insert id="userInsert" parameterType="myproj.main.dto.MainVO"> <!-- insert,delete,update는 리턴타입 필요없음 -->
+	INSERT INTO person VALUES(#{per_id}, #{pertype_code}, #{per_pass}, #{per_name}, #{per_birth}, #{per_tel}, #{per_mail})
+</insert>
 
 </mapper>
