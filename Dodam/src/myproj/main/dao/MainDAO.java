@@ -1,6 +1,7 @@
 package myproj.main.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import myproj.main.dto.MainVO;
 
@@ -24,4 +25,7 @@ public interface MainDAO {
 
 	// 비밀번호 찾기
 	MainVO findmemPw(MainVO vo);
+
+	// 공지사항
+	List<Map<String, String>> noticelist();
 }

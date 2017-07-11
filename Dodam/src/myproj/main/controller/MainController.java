@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,15 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import myproj.main.dao.MainDAOImpl;
+import myproj.main.dao.MainDAO;
 import myproj.main.dto.MainVO;
+
 
 @Controller
 @RequestMapping("/main")
 public class MainController {
 
 	@Autowired
-	MainDAOImpl mainDao;
+	MainDAO mainDao;
 
 	@RequestMapping("/{url}.dodam")
 	public String show(@PathVariable String url){
@@ -66,10 +69,13 @@ public class MainController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
+		
+		List<Map<String, String>> resultNotice = mainDao.noticelist();
+		System.out.println(resultNotice);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("resultNews", resultNews);	
-		mv.setViewName("/main/main.notile");			// main.jsp는 타일즈를 타면 안된다!!! ".notile"을 사용한다~
+		mv.addObject("resultNotice", resultNotice);
+		mv.addObject("resultNews", resultNews);
+		mv.setViewName("main/main");
 		return mv;
 	}
 
@@ -83,6 +89,7 @@ public class MainController {
 		if( reVO != null ){
 			result = 1;
 			message = "로그인 성공";
+			session.setAttribute("usercode", reVO.getPertype_code());
 			session.setAttribute("userName", reVO.getPer_name());
 			session.setAttribute("userid", vo.getPer_id());
 			//session.setAttribute("sessionTime", new Date().toString());

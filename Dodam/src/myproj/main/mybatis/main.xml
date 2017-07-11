@@ -33,4 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT per_pass FROM person WHERE per_id=#{per_id} AND per_mail=#{per_mail}
 </select>
 
+<!-- 공지사항 -->
+<select id="noticelist" resultType="hashmap">
+	SELECT notice_num, notice_title FROM notice
+</select>
+
+
 </mapper>

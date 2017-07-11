@@ -1,6 +1,7 @@
 package myproj.main.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +83,12 @@ public class MainDAOImpl implements MainDAO {
 			System.out.println("MainDAOImpl / findmemPw 실패 : " + ex.getMessage());
 		}
 		return mainVo;
+	}
+
+	// 공지사항
+	@Override
+	public List<Map<String, String>> noticelist() {
+
+		return main.selectList("main.noticelist");
 	}
 }

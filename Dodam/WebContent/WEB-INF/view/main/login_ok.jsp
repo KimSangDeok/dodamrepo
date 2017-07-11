@@ -11,7 +11,11 @@
   alert("${message}");
   
   if(${result} > 0 ){
-	  location.href="/reservation/reservationView.dodam";
+	  if(${usercode}==0){
+		  location.href="/notice/noticeList.dodam";
+	  }else{
+		  location.href="/reservation/reservationView.dodam";
+	  }
   }else{
 	  history.back();
   }

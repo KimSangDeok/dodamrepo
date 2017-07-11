@@ -12,24 +12,12 @@
 
 
 <script language="JavaScript">
-
 var page,wid,hit,nam;
 function win2(page,nam,wid,hit){
 var windo=eval('window.open("'+page+'","'+nam+'","location=no,status=no,toolbar=no,resizable=no,scrollbars=no, menubar=no,width='+wid+',height='+hit+',left=720, top=300, width=450, height=313")');
 }
-
 </script>
 
-<script src="/logincss/js/jquery.min.js"></script>
-<script src="/logincss/js/jquery.dropotron.min.js"></script>
-<script src="/logincss/js/jquery.scrolly.min.js"></script>
-<script src="/logincss/js/jquery.scrollgress.min.js"></script>
-<script src="/logincss/js/skel.min.js"></script>
-<script src="/logincss/js/util.js"></script>
-
-<!-- <script src="index.js"></script> -->
-
-<!-- <link href="site.css" rel="stylesheet" type="text/css" /> -->
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
 	rel="stylesheet" type="text/css">
 	
@@ -77,9 +65,17 @@ $(function(){
 		)
 	}
 	
+	// 뉴스목록
+	$("#demo1").bootstrapNews({
+        newsPerPage: 10,
+        autoplay: false
+    });
 	
-	
-	
+	// 공지사항목록
+	$("#demo2").bootstrapNews({
+        newsPerPage: 10,
+        autoplay: false
+    });
 
 })
 </script>
@@ -97,14 +93,8 @@ $(function(){
 		</header>
 
 		<!-- Banner -->
-		<section id="banner"> <!--
-						".inner" is set up as an inline-block so it automatically expands
-						in both directions to fit whatever's inside it. This means it won't
-						automatically wrap lines, so be sure to use line breaks where
-						appropriate (<br />).
-					-->
+		<section id="banner">
 		<div class="inner">
-
 			<header>
 			<h2>Login</h2>
 			</header>
@@ -126,11 +116,8 @@ $(function(){
 
 		<!-- Main -->
 
-		<article id="main"> <section class="wrapper style1 container special"> <br />
-		<br />
-		<div class="row">
-<!-- 			<div class="6u 12u(narrower) news"> -->
-				<div class="container" style="width:120%">
+		<article id="main"> 
+				<div class="container" style="width:90%">
 					<!-- <div class="row"> -->
 
 					<div class="col-md-6 news">
@@ -163,41 +150,17 @@ $(function(){
 								<div class="row">
 									<div class="col-xs-12">
 										<ul id="demo2">
-											<li class="news-item">Curabitur porttitor ante eget
-												hendrerit adipiscing. Maecenas at magna accumsan, rhoncus
-												neque id, fringilla dolor. <a href="#">Read more...</a>
+										<c:choose>
+											<c:when test="${resultNotice == null}">
+											<li class="news-item">공지사항이 없습니다.
 											</li>
-											<li class="news-item">Curabitur porttitor ante eget
-												hendrerit adipiscing. Maecenas at magna accumsan, rhoncus
-												neque id, fringilla dolor. <a href="#">Read more...</a>
-											</li>
-											<li class="news-item">Praesent ornare nisl lorem, ut
-												condimentum lectus gravida ut. Ut velit nunc, vehicula
-												volutpat laoreet vel, consequat eu mauris. <a href="#">Read
-													more...</a>
-											</li>
-											<li class="news-item">Nunc ultrices tortor eu massa
-												placerat posuere. Vivamus viverra sagittis nunc. Nunc et
-												imperdiet magna. Mauris sed eros nulla. <a href="#">Read
-													more...</a>
-											</li>
-											<li class="news-item">Morbi sodales tellus sit amet leo
-												congue bibendum. Ut non mauris eu neque fermentum pharetra.
-												<a href="#">Read more...</a>
-											</li>
-											<li class="news-item">In pharetra suscipit orci sed
-												viverra. Praesent at sollicitudin tortor, id sagittis magna.
-												Fusce massa sem, bibendum id. <a href="#">Read more...</a>
-											</li>
-											<li class="news-item">Maecenas nec ligula sed est
-												suscipit aliquet sed eget ipsum. Suspendisse id auctor nibh.
-												Ut porttitor volutpat augue, non sodales odio dignissi id. <a
-												href="#">Read more...</a>
-											</li>
-											<li class="news-item">Onec bibendum consectetur diam,
-												nec euismod urna venenatis eget. Cras consequat convallis
-												leo. <a href="#">Read more...</a>
-											</li>
+											</c:when>
+											<c:otherwise>
+											<c:forEach items="${resultNotice}" var="notice">
+												<li class="news-item"><a href="/notice/noticedetail.dodam?notice_num=${notice.NOTICE_NUM}">${notice.NOTICE_TITLE}</a></li>
+											</c:forEach>
+											</c:otherwise>
+										</c:choose>	
 										</ul>
 									</div>
 								</div>
@@ -205,13 +168,8 @@ $(function(){
 							<div class="panel-footer"></div>
 						</div>
 					</div>
-					<!-- </div> -->
 				</div>
-
-<!-- 			</div> -->
-		</div>
-		
-		</section> </article>
+		</article>
 
 
 
