@@ -273,7 +273,7 @@
 
 
 	<!-- begin : 미용 일정을 등록하는 datepicker -->
-	<input type="text" class="mt10px input" id="J- demo-01" placeholder="Date select" style="margin- top:40px;margin-right:230px;">
+	<input type="text" class="mt10px input" id="J-demo-01" placeholder="Date select" style="margin-top:40px;margin-right:230px;">
 	<script type="text/javascript">
 		$('#J-demo-01').dateTimePicker();
 	</script>	
