@@ -221,7 +221,7 @@
 		$('#infoRegister').bind('click', function(){
 			var pageSessionName = "<%=(String)session.getAttribute("pageName")%>"
 			alert(pageSessionName);
-			    
+			       
 			if(pageSessionName=="jinryo"){
 				alert('dzxxxfddf');
 				$('.infoAnimal').submit();
