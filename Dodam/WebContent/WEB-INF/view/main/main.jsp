@@ -157,7 +157,7 @@ $(function(){
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<span class="glyphicon glyphicon-list-alt"></span>
-								<a href=""><b>Notice</b></a>
+								<a href="/notice/noticeList.dodam"><b>Notice</b></a>
 							</div>
 							<div class="panel-body">
 								<div class="row">

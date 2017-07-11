@@ -27,6 +27,7 @@
          /WEB-INF/springConfig/stay-servlet.xml  
          /WEB-INF/springConfig/goods-servlet.xml
  	     /WEB-INF/springConfig/mpay-servlet.xml
+ 	     /WEB-INF/springConfig/notice-servlet.xml
          </param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+<!-- 게시글 리스트 -->
+<select id="list"  resultType="myproj.notice.dto.NoticeVO">
+	SELECT * FROM notice ORDER BY notice_num DESC
+</select>
+
+<!-- 게시글 내용보기 -->
+<select id="view" parameterType="myproj.notice.dto.NoticeVO" resultType="myproj.notice.dto.NoticeVO">
+	SELECT * FROM notice WHERE notice_num = #{notice_num, jdbcType=INTEGER}
+</select>
+
+<!-- 조회수 증가 -->
+<update id="hits" parameterType="myproj.notice.dto.NoticeVO">
+	UPDATE notice SET notice_hits = nvl(notice_hits, 0)+1 WHERE notice_num = #{notice_num, jdbcType=INTEGER}
+</update>
+
+<!-- 게시글 작성 -->
+<insert id="insert" parameterType="myproj.notice.dto.NoticeVO">
+	INSERT INTO notice(notice_num, notice_title, notice_regdate, notice_content, notice_hits) 
+	VALUES(seq_notice.nextval, #{notice_title}, sysdate, #{notice_content}, 0)
+</insert>
+
+<!-- 게시글 수정 -->
+<update id="edit" parameterType="myproj.notice.dto.NoticeVO">
+	UPDATE notice SET notice_title=#{notice_title}, notice_regdate=sysdate, notice_content=#{notice_content} 
+	WHERE notice_num = #{notice_num}
+</update>
+
+<!-- 게시글 삭제 -->
+<delete id="delete" parameterType="myproj.notice.dto.NoticeVO">
+	DELETE FROM notice WHERE notice_num = #{notice_num}
+</delete>
+
+</mapper>
