@@ -3,6 +3,11 @@
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
+<!-- 툴팁부분 -->
+<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/tooltipster.bundle.css" />
+<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
+<script type="text/javascript" src="/tooltipster-master/dist/js/tooltipster.bundle.js"></script>
+<!-- 툴팁부분 끝 -->
 
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -344,8 +349,9 @@ function showList(cus_tel){
 				      '<a >품종<input id="type" type="text" disabled="disabled" value='+ data[i].animal_type+' /></a><br/>'+
 				      '<a >성별<input id="gender" type="text" disabled="disabled" value='+ data[i].animal_gender+' /></a><br/>'+
 	                  '<a >생일<input id="birth" type="text" disabled="disabled" value='+ data[i].animal_birth+' /></a><br/>'+
-	                  '<a> 첫 방문일<input id="firstdate" type="text" disabled="disabled" value='+ data[i].animal_firstdate+' /></a><br/><br/><br/>'+
-	               '</div>');
+	                  '<a> 첫 방문일<input id="firstdate" type="text" disabled="disabled" value='+ data[i].animal_firstdate+' /></a>'+	
+	                  '메모<textarea id="memo" disabled="disabled" type="text">'+ data[i].animal_memo+'</textarea><br/></div>'
+	                  );
 			}
 			
 		},
@@ -391,21 +397,28 @@ function showList(cus_tel){
 </script>
 <script>
 
- $('#editbutton').click(function(){
-	 
+ $('#editbutton').mouseover(function(){
+	 $("#editbutton").tooltipster({
+		    theme: 'tooltipster-punk'
+		});
  });
-</script>
-
-<!-- 정보등록 하는 스크립트  -->
-<!-- <script>
-
- function infoInsert(){
+ 
+ 
+ $(function(){
+	 //고객을 더블클릭 하지 않았을 경우 고객을 선택해야 수정가능
+	 $('#editbutton').click(function(){
 	 
-	 location.href="/customer/infoInsert.dodam";
- }
-
+		 var phoneNum=$('#phoneNum').val();
+		 if(phoneNum=='' || phoneNum==null){
+			 
+			 alert('고객을 선택하세요!');
+		 }else{
+			 $('#editForm').submit();
+		 }
+	 });
+ });
+ 
 </script>
- -->
 
 <div class="body">
 <!-- Begin  왼쪽 메뉴바 -->
@@ -476,7 +489,7 @@ function showList(cus_tel){
 <!--Begin 고객 & 동물 부분 -->
 
 <div style=" max-width: 30% ; float: right; ">
-<div id="block2" class="modal-content" style=" margin-left: 320px;" >
+<div id="block2" class="modal-content" style=" margin-left: 320px; " >
 	<table>
 		<tr>
 			<td><a class="title" style="font-size: 13pt;">반려 동물 목록</a>
@@ -506,8 +519,10 @@ function showList(cus_tel){
                     </a><br/>
                     <a>
                         첫 방문일<input id="firstdate" type="text" />
-                        <br/><br/>
+                        <br/>
                     </a>
+                        메모<textarea id="memo" type="text"  >
+                    </textarea>
                     <br/>
                 </div>
             </a>
@@ -518,7 +533,7 @@ function showList(cus_tel){
  </div>
  </div>
 		<div  style=" max-width: 30%; float:right; " >
-	<div id="block1" class="modal-content" >
+	<div id="block1" class="modal-content"  style="height: 400px;">
 	<table>
 		<tr>
 			<td><a class="title" style="font-size: 13pt;">보호자 목록 </a>
@@ -643,10 +658,11 @@ function showList(cus_tel){
 		<div class="tablecontainer">
 		
 			<div class="line">
-			<form action="/customer/editCustomer.dodam">
+			<form id="editForm" action="/customer/editCustomer.dodam">
 			
-				<input style="" type="text" class="form-control" placeholder="Search..."id="search_field">
-				<input id="editbutton" style="margin-left:618px;" type="submit" value="수정">
+				<input style="" type="text" class="form-control" placeholder="Search.. ex) 서울시,고객명"id="search_field">
+				<input id="editbutton" style="margin-left:618px; background-color: #fafafa; font-family: 맑은고딕; 
+						font-weight: bold;" type="button" value="EDIT" title="고객을 더블클릭한 후 수정페이지로 넘어갈 수 있어요">
 				<br/><br/>
 				
 			</div>	

@@ -4,6 +4,11 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 
+<!-- 툴팁부분 -->
+<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/tooltipster.bundle.css" />
+<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
+<script type="text/javascript" src="/tooltipster-master/dist/js/tooltipster.bundle.js"></script>
+<!-- 툴팁부분 끝 -->
 
 <!-- begin : 사진 보내는 Form 쓰려면 필요한 js -->
 <script type="text/javascript" src="/customer-css/jquery.form.js"></script>
@@ -282,6 +287,16 @@ function animalUpdate(animal_num, cus_tel){
 		   
 	   });
    });
+   
+   
+   //동물추가 설명 툴팁
+   $("#add").mouseover(function(){
+	   alert("마우스 올렸땅")
+			$("#add").tooltipster({
+			    theme: 'tooltipster-punk'
+			});
+		});
+   
 </script>
 <!-- End 헤더 스크립트 -->
 
@@ -452,7 +467,7 @@ function animalUpdate(animal_num, cus_tel){
 	<div id="block2" class="modal-content" style="width: 500px;">
 	<table>
 		<tr>
-			<td><a class="title" >반려 동물 목록</a><img id="add" style="background: none; float:right;" src="/images/add.png">
+			<td><a class="title" >반려 동물 목록</a><img id="add" style="background: none; float:right;" src="/images/add.png" title="동물을 추가할 수 있어요">
     		</td>
 		</tr>
 	</table>
