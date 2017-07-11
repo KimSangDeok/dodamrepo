@@ -3,11 +3,6 @@
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
-<!-- 툴팁부분 -->
-<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/tooltipster.bundle.css" />
-<link rel="stylesheet" type="text/css" href="/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
-<script type="text/javascript" src="/tooltipster-master/dist/js/tooltipster.bundle.js"></script>
-<!-- 툴팁부분 끝 -->
 
 <link rel="stylesheet" type="text/css" href="/manage/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -125,7 +120,7 @@ margin-bottom: 5px;
 .modal-content {
  position: fixed;
 	left: 800px;
-	width: 300px;
+	width: 320px;
 }
 
 .block2 {
@@ -397,12 +392,7 @@ function showList(cus_tel){
 </script>
 <script>
 
- $('#editbutton').mouseover(function(){
-	 $("#editbutton").tooltipster({
-		    theme: 'tooltipster-punk'
-		});
- });
- 
+
  
  $(function(){
 	 //고객을 더블클릭 하지 않았을 경우 고객을 선택해야 수정가능
@@ -416,6 +406,8 @@ function showList(cus_tel){
 			 $('#editForm').submit();
 		 }
 	 });
+	 
+	 
  });
  
 </script>
@@ -484,12 +476,12 @@ function showList(cus_tel){
 <!-- End  왼쪽 메뉴바 -->
 
 <!-- Begin 메인부분 -->		
-		<div id="containers" style="min-width: 310px; height: 400px; margin: 0 auto">
+<div id="containers" style="min-width: 310px; height: 400px; margin: 0 auto">
 		
 <!--Begin 고객 & 동물 부분 -->
-
+ <!-- 반려동물 div  -->
 <div style=" max-width: 30% ; float: right; ">
-<div id="block2" class="modal-content" style=" margin-left: 320px; " >
+  <div id="block2" class="modal-content" style=" margin-left: 330px; height: 400px; overflow: scroll;" >
 	<table>
 		<tr>
 			<td><a class="title" style="font-size: 13pt;">반려 동물 목록</a>
@@ -501,12 +493,12 @@ function showList(cus_tel){
         <li class="group">
             <a class="modal-user-link group" >
                 <div class="user2">
-                    <img class="avatar" src="/imageupload/바탕화면.PNG" alt="Medium"></img>
-                    <p id="animalname" class="name">
-                    </p>
-                    <br/>
+                  <img class="avatar" src="/imageupload/바탕화면.PNG" alt="Medium"></img>
+                   <p id="animalname" class="name">
+                   </p>
+                  <br/>
                 </div>
-                <!-- 동물정보div -->
+                <!-- 동물정보 div -->
                 <div class="animalinfo" style=" text-align:right; margin-left: 20px; margin-right:30px;">
                     <a>
                         품종<input id="type" type="text" />
@@ -527,23 +519,19 @@ function showList(cus_tel){
                 </div>
             </a>
         </li>
-        
-        
     </ul>
  </div>
- </div>
-		<div  style=" max-width: 30%; float:right; " >
+ <!-- 보호자 div  -->
+<div  style=" max-width: 30%; float:right; " >
 	<div id="block1" class="modal-content"  style="height: 400px;">
-	<table>
-		<tr>
-			<td><a class="title" style="font-size: 13pt;">보호자 목록 </a>
-    		</td>
-		</tr>
-	</table>
+		<table>
+			<tr>
+				<td><a class="title" style="font-size: 13pt;">보호자 목록 </a>
+	    		</td>
+			</tr>
+		</table>
     <br/>
     <ul class="modal-user-index group">
-       
-
         <li class="group">
             <a class="modal-user-link group" >
                 <div id ="showimage" class="user">
@@ -568,31 +556,32 @@ function showList(cus_tel){
                         메모<textarea id="cusmemo" disabled="disabled" style="background-color: #fda699" type="text"  >
                     </textarea>
                     <br/>
-                </div>
-            </a>
-        </li>
-    </ul>
+                 </div>
+              </a>
+          </li>
+      </ul>
+   </div>
+ </div>
 </div>
-</div>
-		</div>
 		
 		
-<!-- Begin 팝업 내용 -->
-	<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
+<!-- Begin 고객&동물 팝업 내용 -->
+<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;  ">
 	
+		<!--Begin 닫기 버튼 div -->
 		<div class="popit-content" style=" width:100%; height:5%;">
 			<button id="popupCloseBtn" type="button" class="popitup-close close">
 				<span class="">X</span>
 			</button>
 		</div>
+		<!--End 닫기 버튼 div -->
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 		
-		<div id="step" >
-		<form id="firstform" method="post" action="/customer/infoInsert.dodam" 	enctype="multipart/form-data">
+<div id="step" >
+	<!-- 고객 등록 팝업 -->
+	<form id="firstform" method="post" action="/customer/infoInsert.dodam" 	enctype="multipart/form-data">
 		<div id="multistepform-example-container"  >
-		
 			<div id="firstpopup" style=" margin-left:50px; width:80%; height:65%; ">
-				
 					<h2 class="fs-title">Step 1. 고객 등록</h2>
 					<h3 class="fs-subtitle">Please register your information</h3>
 					<br/>
@@ -607,15 +596,11 @@ function showList(cus_tel){
 					</div>
 					<br/>
 					<input type="button" name="next" class="next button1" value="Next">
-									
-
 			</div>
-			
-			</div>
+		</div>
+		<!-- 동물 등록 팝업 -->
 			<div class="popit-content1" style=" margin-left:50px; width:80%; height:65%; ">
-			
-			<div id="secondpopup">
-
+				<div id="secondpopup">
 					<h2 class="fs-title">Step 2. 동물 등록</h2>
 					<h3 class="fs-subtitle">Please register your animal's picture</h3>
 					<br/>
@@ -635,44 +620,34 @@ function showList(cus_tel){
 						class="next button2" value="Next">
 				</div>
 			</div>
-			
 			<div class="popit-content2" style="; width:80%; height:65%; margin-left: 50px;">
-			<div id="lastpopup" >
-
+				<div id="lastpopup" >
 					<h2 class="fs-title">저장</h2>
 					<h3 class="fs-subtitle">check your information</h3>
-
 					<input id="previous2" type="button" name="previous" class="previous button"
 						value="Previous"> 
 					<input id="save" type="submit" name="submit" class="next button" value="Save">
-			
+				</div>
 			</div>
-			</div>
-			</form>
+		  </form>
 		</div>
 	</div>
 	<!-- End 팝업 내용  -->
 	
 	
-		<!--Begin table 코딩 -->
+		<!--Begin 고객 정보 listtable 코딩 -->
 		<div class="tablecontainer">
 		
 			<div class="line">
 			<form id="editForm" action="/customer/editCustomer.dodam">
-			
 				<input style="" type="text" class="form-control" placeholder="Search.. ex) 서울시,고객명"id="search_field">
 				<input id="editbutton" style="margin-left:618px; background-color: #fafafa; font-family: 맑은고딕; 
 						font-weight: bold;" type="button" value="EDIT" title="고객을 더블클릭한 후 수정페이지로 넘어갈 수 있어요">
 				<br/><br/>
-				
 			</div>	
 			<div class="row">
-			
-				
 				<input type="hidden" id="phoneNum" name="phoneNum" value="" />
-			
 				<div class="col-md-6" style="overflow: scroll; height: 300px;">
-
 					<table id="myTable" class="table table-inverse">
 						<thead>
 							<tr class="myHead">
@@ -682,6 +657,7 @@ function showList(cus_tel){
 								<th>첫방문일</th>
 							</tr>
 						</thead>
+					<!--  테이블에 고객 정보 뿌려주는 코딩 -->
 					<c:choose>
 						<c:when test="${listModel == null}">
 							<tr><td colspan='7'>등록된 고객이 없습니다.</td></tr>
@@ -699,23 +675,20 @@ function showList(cus_tel){
 							<td>${a.cus_firstdate}</td>
 							
 						</c:forEach>
-					  </c:otherwise>	
+					  	</c:otherwise>	
 					 </c:choose> 
 					</table>
 					</div>
 					<br/>
-						
-					</form>
+				  </form>
 				</div>
 			</div>
 		</div>
-
 		<!-- End 테이블 코딩  -->
 		
-		<!--Begin 검색 테이블  -->
+<!--Begin 검색 테이블  -->
   <script src="/search-js/search.js"></script>
-  
-    <script type="text/javascript">
+  <script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
