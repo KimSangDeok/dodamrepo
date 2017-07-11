@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 
 <!-- 부트스트랩 공통!! -->
 <link rel="stylesheet" href="/css/bootstrap.css" />
@@ -14,40 +16,122 @@
 <!-- 팝업 -->
 <script src="/js/jquery.popitup.js"></script>
 
-
-<!-- 스타일 적용 -->
-
 <style>
-/*div 스타일 적용 */
-    .sidebargroup {
-    position: relative;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #999;
-    border: 1px solid rgba(248, 14, 14, 0.2);
-    border-radius: 6px;
-    outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    width:500px;
-    height:450px;
-    margin-bottom: 50px;
+.outer-wrap {
+    width: 40%;
+    border: 1px solid #EAEAEA;
+    float: left;
+    margin-left: 17.5%;
+    margin-top: 2%;
+    border-radius: 5px;
+    margin-bottom: 10%;
+}
 </style>
+<!-- Begin popup css -->
+<style type="text/css">
+
+@media ( min-width:768px) {
+	#main-nav {
+		line-height: 0;
+		text-align: center;
+	}
+	#main-menu {
+		display: inline-block;
+	}
+}
+
+.popit-wrapper {
+/* 	height: 90%; */
+	display: none;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 6px 2px #ccc;
+}
+
+.popit-content {
+/* 	padding: 20px; */
+    margin-top: 10px
+}
+
+.popit-header {
+	border-bottom: 1px solid #ccc;
+}
+
+.popit-body {
+	padding: 40px 0;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    left: 0px;
+}
+
+.popit-body p { 
+display:table;
+} 
+.popit-footer{ margin-bottom:20px;
+}
+.popitup-overlay {
+	background: #000;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0.5;
+}
+
+.margin-top-40 {
+	margin-top: 40px;
+}
+
+.list-group-item {
+	border: 0;
+}
+
+#popupCloseBtn{
+	height: 0.85em;
+}
+</style>
+<!-- End popup 스타일-->
+
+<script>
+ 	$(function(){
+ 		$("#doctor_name").val("<%= session.getAttribute( "doctorname" ) %>");
+ 		$("#cus_name").val("<%= session.getAttribute( "cusname" ) %>");
+ 		$("#animal_name").val("<%= session.getAttribute( "animalname" ) %>");
+ 		$("#ssanimal_num").val("<%=session.getAttribute("animalnum")%>");
+ 		$("#ssrsvt_dt").val("<%=session.getAttribute("rsvtdt")%>");
+//  		alert($("#ssrsvt_dt").val());
+ 		$("#conterComplete").click(function(){
+ 			$("#formcounter").submit();
+ 		});
+ 		
+ 		$("#jinryotype").css("background-color","");
+ 		
+	});
+</script>
+
 <!-- 바디 시작 -->
 <div class="body">
 
 
 
+
 	<!-- 여기 부분이 실질적으로 코딩하는 부분입니다~~~ div의 테두리는 지금 보기 편하기 위한 부분이고, 나중에 지울껍니다~~ -->
+	<div>
+		<!-- 가운데 구분 줄 -->
+		<div class="hr1" style="margin-top: 50px"></div>
 
-
+		<h1
+			style="font-weight: bolder; margin-left: 5%; margin-top: 0.5%; font-size: 200%; text-align: left;">접수</h1>
 
 		<!-- 전체접수창 -->
-			<h1	style="font-weight: bolder; margin-left: 14.8%; margin-top: 2%; font-size: 200%; text-align: left;">접수</h1>
+		<div class="outer-wrap">
 
 			<!-- 접수메뉴 -->
-			<div class="outer-wrap" style="margin-left:15%; margin-right:3%;width:40%; float:left;">
 			<div class="demenu">
 				<a class="add addpop" href="javascript:void(0);" role="button">
 				<img class="addimg" alt="접수추가" src="/countercss/add.png"></a>
@@ -59,14 +143,14 @@
 			
 				<!-- 진료접수목록 -->
 				<ul style="text-align: left;">
-					<li><a>원장실<input type="text" value="2" disabled="disabled"></a>
+					<li><a>원장실<input type="text" value="2" readonly="readonly"></a>
 						<ul>
 							<li>
 								<!-- 접수정보 -->
 								<div class="rcvdiv">
 									<div class="ldiv">
-										<label>연이(Toy Poodle)</label> <label><strong>김우석</strong>
-											귀진료</label>
+										<label>연이(Toy Poodle)</label> 
+										<label><strong>김우석</strong></label>
 									</div>
 									<div class="cdiv">
 										<label style="font-size: 130%;">일반</label> <label>12:33:27</label>
@@ -179,86 +263,65 @@
 			</nav>
 
 			<!-- 팝업열리는 부분 -->
-			<div class="popit-wrapper popit-wrapper-chase" style="left: 0px; opacity: 0;">
-				<div class="popit-content">
-					<div class="popit-header">
-<!-- 						<button type="button" class="popitup-close close"> -->
-<!-- 							<span class="glyphicon glyphicon-remove-circle"></span> -->
-<!-- 						</button> -->
-						<h4 class="popit-title">도담도담-접수추가/편집</h4>
+			<form id="formcounter" action="/counter/counterInsert.dodam" method="post">
+	<div id="Popup" class="popit-wrapper popit-wrapper-chase" style="  left: 0px;opacity: 0;">		
+		<!-- 팝업 열리는 부분  -->
+		<input type="hidden" id="ssanimal_num" name="animal_num" value="">
+		<input type="hidden" id="ssrsvt_dt" name="rsvt_dt" value="">
+		
+		<div class="popit-content">
+			<div class="popit-header">
+						<h4 class="popit-title">도담도담-접수</h4>
 					</div>
-
-					<!-- 팝업창 바디부분 -->
-					<div class="popit-body" id="bodycontainer">
-						<div class="content-wrapper">
-							<!--1번줄 -->
-								<div style="float: left">
-									<label>진료실</label>
-								</div>
-								<div style="float: right; padding-left: 20px;">
-									<select style="width: 222px;">
-										<option>원장실</option>
-										<option>태블릿</option>
-										<option>진료실</option>
-										<option>진료실2</option>
-										<option>회의실</option>
-										<option>수술실</option>
-										<option>입원실</option>
-										<option>검사실</option>
-										<option>접수실</option>
-										<option>미용실</option>
-									</select>
-								</div><br/>
-
-							<!-- 2번줄 -->
-
-								<div style="float: left">
-									<label>우선순위</label>
-								</div>
-								<div style="float: right; padding-left: 20px;">
-									<select style="width: 222px;">
-										<option>일반</option>
-										<option>응급</option>
-									</select>
-								</div>
-
-							<!--3번줄 -->
-
-								<div style="float: left">
-									<label>접수메모</label>
-								</div>
-								<div style="float: right; padding-left: 20px">
-									<textarea rows="8" cols="25"></textarea>
-								</div>
-							
-						</div>
-					</div>
-					<!-- 팝업창 바디 end -->
-					
-					<!-- 팝업창 접수/취소버튼 -->
-					<div class="popit-footer" style="float: center">
-						<button type="button" class="btn btn-default cancel popitup-close">취소</button>
-						<button type="button" class="btn btn-primary receive">접수</button>
-					</div>
-				</div>
+			<div class="popit-body">							
+				<p>
+					<label>담당자 이름</label>
+					<input class="form-control J_Message" type="text" id="doctor_name" name="doctor_name"
+					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;width:200px" placeholder="담당자 이름"  readonly="readonly">
+				</p>
+				<p>
+					<label>보호자 이름</label>
+					<input class="form-control J_Message" type="text" id="cus_name" name="cus_name"
+					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;width:200px" placeholder="보호자 이름"  readonly="readonly">
+				</p>
+				<p><label>동물 이름</label>
+					<input class="form-control J_Message" type="text" id="animal_name" name="animal_name"
+					style="back-ground: rgba(229, 179, 179, 0.075);margin-left: 20px;width:200px" placeholder="동물이름"  readonly="readonly">
+				</p>											
+										
 			</div>
-			<!-- 팝업열리는 부분 end-->
+		</div>
+		<!-- 팝업 end -->
+		
+		<!-- Begin 아랫쪽 버튼 -->
+		<div class="popit-content" style=" width:70%; height:10% ;  margin-left:15%;">
+			<div class="popit-footer" >
+				<button type="button" class="btn btn-default popitup-close">취소</button>
+				<button type="button" id="conterComplete" class="btn btn-primary">접수</button>
+			</div>
+		</div>
+		<!-- End 아랫쪽 버튼 -->
+		
+	</div>
+	</form>
+	<!-- End 팝업 -->
+
 		</div>
 		<!-- 전체접수창 end -->
 		
 		<!-- 접수대기자 화면 -->
-		<div class="sidebargroup" style="width:30%; margin-right:0;float:left;">
+		<div class="sidebargroup">
 			<div class="sidebar">
 				<div class="sidebar-box">
 					<h3>접수 대기자</h3>
 					<hr>
 					<div class="cat-list">
 						<ul>
-							<li><a href="#">담당의 : 황선화<br />환자명 : 순돌이
-							</a></li>
-							<li><a href="#">담당의 : 홍길동<br />환자명 : 순자
-							</a></li>
-
+							<c:set var='i' value='0'/> 	
+							<c:forEach items="${counterlist}" var="c">
+							<c:set var='i' value='${i+1}'/>
+								<li id="jinryotype"><a href="#" value="${i}">${i}. 담당의 : ${c.doctor_name}<br />환자명 : ${c.animal_name}</a></li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -300,6 +363,8 @@
 
 </script>
 
+	
+
 <script type="text/javascript">
 
 	var _gaq = _gaq || [];
@@ -315,5 +380,5 @@
 
 </script>
 
-	
+	</div>
 </div>

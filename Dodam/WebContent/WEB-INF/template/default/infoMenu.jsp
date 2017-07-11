@@ -59,13 +59,14 @@
 <div class="infoMenu" style="padding-top:20px;">
 	
 	<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
-	<input id="info_cusname" class='customerInfo' type='text' disabled='disabled' name='customer_name' value='${cus_name}'/>
-	<input id ="info_custel" type='text' disabled='disabled' name='customer_tel' value='${cus_tel}'/>
-	<input id ="info_animalname" type='text' disabled='disabled' name='customer_tel' value='${ani_name}'/>
-	<input id= "info_animalbreed" type='text' disabled='disabled' name='pet_type' value='${ani_breed}'/>
-	<input id= "info_doctor_name" type='text' disabled='disabled' name='doctor_name'/>
+	<input id="info_cusname" class='customerInfo' type='text' readonly="readonly" name='cust_name' value='${cusname}'/>
+	<input id ="info_custel" type='text' readonly="readonly" name='cus_tel' value="${custel}"/>
+	<input id ="info_animalname" type='text' readonly="readonly" name='animal_name' value="${animalname}"/>
+	<input id= "info_animalbreed" type='text' readonly="readonly" name='animal_breed' value="${animalbreed}"/>
+	<input id= "info_doctor_name" type='text' readonly="readonly" name='doctor_name' value="${doctorname}"/>
+	<input id= "info_animalnum" type='hidden' readonly="readonly" name='animal_num' value="${animalnum}"/>
+	<input id= "info_rsvtdt" type='hidden' readonly="readonly" name='rsvt_dt' value="${rsvtdt}"/>
 	
-	<input id= "info_animalnum" type='hidden' disabled='disabled' name='animal_num' value='${ani_num}'/>
 	<a class="btn btn-sm btn-primary btn-chase" id='infoBtn' href="javascript:void(0);" role="button">고객검색</a>
 	
 	
@@ -77,6 +78,11 @@
 	<input id= "v_animalbreed" type='hidden' name='animal_breed'/>
 	<input id= "v_cusaddr" type='hidden' name='cus_addr'/>
 	<input id= "v_animalnum" type='hidden' name='animal_num'/>
+
+	
+	
+	
+	
 	</form>
 	<!-- end : 팝업에서 고객을 선택한 값을 잠시 저장해주는 공간 -->
 	
