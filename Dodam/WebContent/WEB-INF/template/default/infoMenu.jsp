@@ -213,7 +213,7 @@
 			if(pageSessionName!="jinryo" || pageSessionName!="pay"){
 				$.ajax({
 		    		url : "/customer/infoAnimalApplyAJAX.dodam",
-		    		type : 'get',
+		    		type : 'get',  
 		    		async: true,
 		    		data : {'cus_tel':$('#v_custel').val(), 'cus_name':$('#v_cusname').val(), 'animal_breed':$('#v_animalbreed').val(), 'animal_name':$('#v_animalname').val(), 'animal_num':$('#v_animalnum').val()},							
 		    		dataType : "text",
