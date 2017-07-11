@@ -14,7 +14,7 @@
    	<!-- end : sms를 보낼 고객 핸드폰을 놓는 scroll -->
  
  	<!-- begin : sms 전송하는 css -->
- 	<link rel="stylesheet" type="text/css" href="/sms/message.css">
+	<link rel="stylesheet" href="/css/customer/style.css" type="text/css" media="all" />
  	<!-- end : sms 전송하는 css --> 
 
  	<!-- begin : 즐겨찾기 accordian -->
@@ -107,13 +107,13 @@
 			
 	
 	
-<div class="smsView">	
+<div class="smsView" style="margin-left:15%">	
 	
 	<!-- sms화면은 div3개로 관리, 1)고객핸드폰번호검색, 2)메세지 보내는 부분, 3)즐겨찾기로 구성 -->
 
 <!-- start DIV 1) 고객 핸드폰 번호 검색 -->
 	<div style="width:30%; float:left">
-		<div class="subMenu" style="width:100%;">고객 검색</div>
+		<div><h4>고객 검색</h4></div>
 		<br/><br/>				
 
 
@@ -189,27 +189,34 @@
 				
 <!-- start 2) 메세지 전송 -->
 	<div style="width:40%; float:left; padding:10px">
-		<div id="wrap">
-			<h1>Send a message to Dodam Family</h1>
-			<div id='form_wrap'>
-				<form>
-					<p>Message</p>
-					<textarea  class="message_content" ></textarea>
-				
-					<div style="float:left">
-					<input class='erase' type="button" value="내용지우기"/>
-					<input type="text" class="message_name" style="width:35%; padding:10px" placeholder="즐겨찾기 명" id="subject"/>
-					<input type="button" class="smsSave" value="저장"/>
-					</div>
 
-					<input type="button" value="Now, I send, thanks!" onclick="javascript:sendMessage()" />
-				
-					<div class="scroll">
-					<!-- 문자를 전송할 핸드폰 추가하는 공간 -->				
-					</div> 	
-				</form>
-			</div>
-		</div>
+	<div id="content">
+		<h1>메세지 보내기</h1>
+        <form action=" " method="post" id='form_wrap' autocomplete="on">
+			<p>
+				고객들 	
+				<span class="required">*</span>
+				<input type='button' class='erase' value='지우기'/>
+				<div class='scroll' name="username" id="username"  required="required" placeholder="Hi friend, how may I call you ?"></div> 
+			</p>
+
+
+ 			<p>
+			즐겨찾기 명 <br/><br/>
+			<input class='message_name' type="text" name="subject" id="subject"  placeholder="즐겨찾기 명" />
+			</p>
+
+			<p>메세지  
+			<span class="required">*</span> 
+			<br/><br/>	
+			<textarea class='message_content' style='width:300px'placeholder= "메세지내용을 입력하세요."  required="required" ></textarea> </p>
+			<p class="indication"> All fields with a <span class="required">*</span> are required</p>
+			
+			<input type="button" class="smsSave" value="저장"/>			
+			<input type="button" value="★Send  Message" onclick="javascript:sendMessage()" />		
+		</form>		
+    </div> 
+	    
 	</div>
 		
 		
@@ -256,6 +263,11 @@
 	   		error:function(request, status,error){
 	   			 //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	   			 //console.log(error);
+	   			$('.scroll').text('');
+	   			$('.message_content').val("");
+	   			 alert("메세지가 전송되었습니다.");
+	   			 
+	   			 
 	   		}
 		})
 	
@@ -274,7 +286,7 @@
 <!-- begin : 3) 즐겨찾기 -->	
 	<div style="width:30%; float:left">
 	
-		<div class="subMenu" style="width:100%;">즐겨찾는 SMS</div>
+		<div><h4>즐겨찾는 SMS</h4></div>
 	
 
 		<!-- begin : 즐겨찾기 메뉴 보이는 부분 -->
@@ -310,7 +322,7 @@
 $(document).ready(function() {
 	
 	// 즐겨찾기 목록을 추가해주면 해당 내용이 message에 들어가게 해주세여~~~
-	$('.accordion-content p').bind('click', function(){		
+	$('.accordion-content p').bind('click', function(){
 		$('.message_content').val($(this).text());
 
 	})
@@ -375,13 +387,10 @@ $(document).ready(function() {
 		}) 	
 	})
 	
-	
 	// 내용지우기 버튼을 누르면 내용아 모두 사라져라!!
 	$('.erase').bind('click', function(){
-		$('.message_content').val("");
+		$('.scroll').text('');
 	})
-	
-	
 }); 
 </script>
 
