@@ -28,7 +28,27 @@
 		<link href="/css/goods/smalldatepicker/smallcalendar.css" rel="stylesheet" type="text/css">
 		<!-- date range picker의 css (입원하기 및 호텔가기 팝업에서 사용이 됩니다.) -->
 
+<style>
+#add {
+	background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+.registerbeauty {
+	background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+.registerbeauty:hover{
+	color: #00000;
+	background-color: #fafbfb;
+    border-color: #e74c3c;
+}
 
+#add:hover{
+	color: black;
+	background-color: #fafbfb;
+    border-color: #e74c3c;
+}
+</style>
 <!-- 입원 및 병원실을 보여주는 화면 stayView.jsp 입니다. -->
 <div class="body">
 
