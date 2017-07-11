@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -35,14 +36,17 @@ public class BeautyController {
 	
 	
 	@RequestMapping("/{url}.dodam")
-	public String show(@PathVariable String url){
+	public String show(@PathVariable String url, HttpSession session){
+		session.setAttribute("pageName", "beauty");
 		return "/beauty/"+url;
 	}
 	
 	
 	// 미용 화면을 보자
 	@RequestMapping("/beautyView.dodam")
-	public ModelAndView showBeautyView(){
+	public ModelAndView showBeautyView(HttpSession session){
+		
+		session.setAttribute("pageName", "beauty");
 
 		List<BeautyVO> beautyOptionList;
 		List<Map<String, String>> beautyServiceList;		// 얘는 resultType을 hashmap으로 받아서 다음과 같이 mapping을 해준다.
@@ -169,6 +173,7 @@ public class BeautyController {
 	// beautyView.jsp에서 미용하기~ 버튼 누르면 beautyCam.jsp로 넘어가라
 	@RequestMapping("/beautyCam.dodam")
 	public ModelAndView showBeautyCam(BeautyServiceVO beautyServiceVO){
+		
 		
 		ModelAndView mv = new ModelAndView();
 		

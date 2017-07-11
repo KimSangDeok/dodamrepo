@@ -70,7 +70,7 @@
 	
 	
 	<!-- begin : 팝업에서 고객을 선택한 값을 잠시 저장해주는 공간 -->
-	<form class='infoAnimal' action="/customer/infoAnimalApply.dodam">
+	<form style='display:none' class='infoAnimal' action="/customer/infoAnimalApply.dodam">
 	<input id="v_cusname" type='hidden' name='cus_name'/>
 	<input id ="v_custel" type='hidden' name='cus_tel'/>
 	<input id ="v_animalname" type='hidden' name='animal_name'/> 

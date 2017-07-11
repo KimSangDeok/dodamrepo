@@ -393,7 +393,7 @@
 		var regidata = {
 			'btm_type_list':opts_val,
 			'bty_dt':$('#J-demo-01').val(),
-			'animal_num':$('#animalnum').val()
+			'animal_num':$('#info_animalnum').val()
 		}
 		
 		// 1) ajax로 등록을하고,,,
