@@ -215,21 +215,14 @@
 		    		url : "/customer/infoAnimalApplyAJAX.dodam",
 		    		type : 'get',
 		    		async: true,
-		    		data : {'cus_tel':$('.v_custel').val(), 'cus_name':$('.v_cusname').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val()},							
+		    		data : {'cus_tel':$('#v_custel').val(), 'cus_name':$('#v_cusname').val(), 'animal_breed':$('#v_animalbreed').val(), 'animal_name':$('#v_animalname').val(), 'animal_num':$('#v_animalnum').val()},							
 		    		dataType : "text",
 		    		success : function(){
+		    			location.reload();
 		    		},
 		    		error:function(request, status,error){
 		    		}
 				})
-				
-				<input id="v_cusname" type='hidden' name='cus_name'/>
-					<input id ="v_custel" type='hidden' name='cus_tel'/>
-					<input id ="v_animalname" type='hidden' name='animal_name'/> 
-					<input id= "v_animalbreed" type='hidden' name='animal_breed'/>
-					<input id= "v_cusaddr" type='hidden' name='cus_addr'/>
-					<input id= "v_animalnum" type='hidden' name='animal_num'/>
-				
 				
 			}else{
 				$('.infoAnimal').submit();			

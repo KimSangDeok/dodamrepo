@@ -223,4 +223,18 @@ public class CustomerController {
 				return "location:reload()";
 			}
 			
+			
+			// 타일즈 infomenu.jsp의 동물검색 팝업에서, 동물을 선택한 후, 그것을 적용한다면!!
+			@RequestMapping("/infoAnimalApplyAJAX.dodam")
+			@ResponseBody
+			public void infoAnimalApplyAJAX(CustomerVO cVO, AnimalVO aVO, HttpSession session){			
+
+				session.setAttribute("cus_name", cVO.getCus_name());
+				session.setAttribute("cus_tel", cVO.getCus_tel());
+				session.setAttribute("ani_num", aVO.getAnimal_num());
+				session.setAttribute("ani_breed", aVO.getAnimal_breed());
+				session.setAttribute("ani_name", aVO.getAnimal_name());
+			
+			}
+			
 		}
