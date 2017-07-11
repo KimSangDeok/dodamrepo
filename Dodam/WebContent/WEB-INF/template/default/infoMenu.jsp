@@ -208,8 +208,32 @@
 	
 		// 고객 찾는 팝업에서 적용 버튼을 누른다면!!
 		$('#infoRegister').bind('click', function(){
-		
-			$('.infoAnimal').submit();
+			var pageSessionName = "<%=(String)session.getAttribute("pageName")%>"
+			alert(pageSessionName);
+			if(pageSessionName!="jinryo" || pageSessionName!="pay"){
+				$.ajax({
+		    		url : "/customer/infoAnimalApplyAJAX.dodam",
+		    		type : 'get',
+		    		async: true,
+		    		data : {'cus_tel':$('.v_custel').val(), 'cus_name':$('.v_cusname').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val(), 'cus_tel':$('.v_custel').val()},							
+		    		dataType : "text",
+		    		success : function(){
+		    		},
+		    		error:function(request, status,error){
+		    		}
+				})
+				
+				<input id="v_cusname" type='hidden' name='cus_name'/>
+					<input id ="v_custel" type='hidden' name='cus_tel'/>
+					<input id ="v_animalname" type='hidden' name='animal_name'/> 
+					<input id= "v_animalbreed" type='hidden' name='animal_breed'/>
+					<input id= "v_cusaddr" type='hidden' name='cus_addr'/>
+					<input id= "v_animalnum" type='hidden' name='animal_num'/>
+				
+				
+			}else{
+				$('.infoAnimal').submit();			
+			}
 		})
 	});
 	</script>

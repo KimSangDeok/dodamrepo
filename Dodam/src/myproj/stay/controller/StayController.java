@@ -5,6 +5,8 @@ import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.RequestWrapper;
 
 import org.json.simple.JSONArray;
@@ -32,14 +34,19 @@ public class StayController {
 	StayDAO stayDAO;
 	
 	@RequestMapping("/{url}.dodam")
-	public String showList(@PathVariable String url){
+	public String showList(@PathVariable String url, HttpSession session){
+		session.setAttribute("pageName", "stay");
 		return "/stay/"+url;
 	}
 	
 	
 	// satyView.jsp가 켜질때, room의 정보, 입원및호텔에 있는 동물 정보를 모두모두 가져와야 해요~~
 	@RequestMapping("/stayView.dodam")
-	public ModelAndView showStayView(){
+	public ModelAndView showStayView(HttpSession session){
+		
+		session.setAttribute("pageName", "stay");
+		System.out.println(session.getAttribute("pageName"));
+		System.out.println("입원 session");
 		
 		// 1. 비어있는 room을 모두 가져와라. 입원 및 호텔 하기 팝업에서 보여주려고.
 		List<RoomVO> roomList = stayDAO.selectRoomList();
