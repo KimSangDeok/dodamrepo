@@ -59,12 +59,14 @@
 	
 	
 	<!-- begin : 팝업에서 고객을 선택한 값을 잠시 저장해주는 공간 -->
-	<input id="v_cusname" type='hidden'/>
-	<input id ="v_custel" type='hidden'/>
-	<input id ="v_animalname" type='hidden'/> 
-	<input id= "v_animalbreed" type='hidden'/>
-	<input id= "v_cusaddr" type='hidden'/>
-	<input id= "v_animalnum" type='hidden'/>
+	<form class='infoAnimal' action="/customer/infoAnimalApply.dodam">
+	<input id="v_cusname" type='hidden' name='cus_name'/>
+	<input id ="v_custel" type='hidden' name='cus_tel'/>
+	<input id ="v_animalname" type='hidden' name='animal_name'/> 
+	<input id= "v_animalbreed" type='hidden' name='animal_breed'/>
+	<input id= "v_cusaddr" type='hidden' name='cus_addr'/>
+	<input id= "v_animalnum" type='hidden' name='animal_num'/>
+	</form>
 	<!-- end : 팝업에서 고객을 선택한 값을 잠시 저장해주는 공간 -->
 	
 
@@ -205,25 +207,10 @@
 			}				        
 		 });
 	
+		// 고객 찾는 팝업에서 적용 버튼을 누른다면!!
 		$('#infoRegister').bind('click', function(){
-			
-			$.ajax({
-				url : "/customer/infoAnimalApply.dodam",
-				data : {'cus_name':$('#v_cusname').val(), 'cus_tel':$('#v_custel').val(), 'animal_name':$('#v_animalname').val(),
-					'animal_breed':$('#v_animalbreed').val(), 'cus_addr':$('#v_cusaddr').val(),
-					'animal_num':$('#v_animalnum').val()},
-				type : 'get',
-				success : function(data){
-					$('#popup_animalname').val("");
-					$('#popup_cusname').val("");
-					$('#popup_custel').val("");
-					
-					location.reload();
-				},
-				 error:function(request, status,error){
-		             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		         }
-			})
+			alert('저굥');
+			$('.infoAnimal').submit();
 		})
 	});
 	</script>

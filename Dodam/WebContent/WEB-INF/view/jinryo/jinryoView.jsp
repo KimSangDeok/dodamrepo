@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link href="/css/jinryo/jinryoView/bootstrap.css" rel="stylesheet" />
 <style>
 /* Begin div 테두리 */
@@ -164,7 +164,35 @@ function goDetail(chartNum){
 		    
 		    <!-- 이전 진료내역 전체 테두리 -->
 		    <div class="divBorder" style="  width: 100%; height: 77%;">
-		    		<ul id="jinroyHistoryListUl" class="jinryoUl" style="padding-top: 15px;"></ul>
+
+
+<ul id="jinroyHistoryListUl" class="jinryoUl" style="padding-top: 15px;">		    		
+<c:forEach var='infoJinryoHistory' items="${infoJinryoHistory}">  
+<li style="width:100%; height: 10%; padding: 10px; margin-left: auto; margin-right: auto; margin-bottom: 10px;" onclick="javascript:goDetail('+data[i].JRYO_NUM+')" >
+<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
+<span>차트번호</span>
+<h3 style="display: inline;">${infoJinryoHistory.JRYO_NUM}</h3>
+</div>
+<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
+<span>질병</span>
+<h3 style="display: inline;">${infoJinryoHistory.JRYO_DISEASES}</h3>
+</div>
+<div style="width:20%; height:100%; display: inline-block; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;">
+<span>증상</span>
+<h3  style="display: inline; text-overflow: ellipsis;">${infoJinryoHistory.SYMPTOM}</h3>
+</div>
+<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
+<span>담당의</span>
+<h3  style="display: inline;">${infoJinryoHistory.PER_NAME}</h3>
+</div>
+<div style="width:20%; height:100%; display: inline-block; overflow: hidden;">
+<span>진료일자</span>
+<h3  style="display: inline;">${infoJinryoHistory.JRYO_DT}</h3>
+</div>
+</li>		    		
+</c:forEach>		    		
+</ul>
+
 		    </div>
 		</div>
 		<!-- End 고객정보, 이전 진료내역 전체테두리 -->

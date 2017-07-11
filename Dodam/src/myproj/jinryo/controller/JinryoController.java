@@ -34,9 +34,29 @@ public class JinryoController {
 	JinryoService jinryoService;
 
 	@RequestMapping("/{url}.dodam")
-	public String show(@PathVariable String url){
+	public String show(@PathVariable String url, HttpSession session){
+		
+		session.setAttribute("pageName", "jinryo");
+		System.out.println("+"+session.getAttribute("pageName"));
+		
 		return "/jinryo/"+url;
 	}
+	
+	@RequestMapping("/infoJinryoView.dodam")
+	public ModelAndView showjinryoView(String animal_num, HttpSession session){
+		System.out.println("고객검색하여 animal 넘"+animal_num);
+		List<HashMap> selectHistoryList = jinryoService.selectByAnimalNum(animal_num);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/jinryo/jinryoView");
+		mv.addObject("infoJinryoHistory", selectHistoryList);
+		System.out.println(selectHistoryList.size());
+		for(int i=0; i<selectHistoryList.size(); i++){
+			System.out.println(selectHistoryList.get(i));
+		}
+		return mv;
+	}
+	
+	
 	
 	/**
 	 * @return 대기중인 환자를 보는 페이지로 이동(jinryoView)
@@ -44,6 +64,8 @@ public class JinryoController {
 	 */
 	@RequestMapping("/chartInsert.dodam")
 	public String chartInsert(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO,  HttpSession session){
+		
+
 		
 //		System.out.println("monjinSaveMenus : "+monjinSaveMenus);
 		
