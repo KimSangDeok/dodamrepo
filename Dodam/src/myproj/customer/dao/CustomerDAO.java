@@ -37,7 +37,8 @@ public interface CustomerDAO {
 	List<Map<String, String>> showFavoriteList();
 
 
-
+	// 타일즈 infomenu.jsp에서 동물 전체 검색!!
+	List<Map<String, String>> infoShowAnimal();
 
 
 	

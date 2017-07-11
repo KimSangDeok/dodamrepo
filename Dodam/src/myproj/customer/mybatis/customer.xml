@@ -54,4 +54,11 @@ INSERT INTO SMS VALUES (#{message_name}, #{message_content}, smsseq.nextval)
 <select id="favoriteSMSList" resultType="hashmap">
 	SELECT * FROM sms
 </select>
+
+<!-- infoMenu.jsp 에서 전체 동물과 그에 해당하는 각 핸드폰번호, 고객명 가져오기 -->
+<select id="infoShowAnimal" resultType="hashmap">
+	SELECT c.cus_name cus_name, c.cus_tel cus_tel, a.animal_name animal_name, a.animal_num, a.animal_breed, c.cus_addr
+	FROM animal a, customer c
+	WHERE a.cus_tel = c.cus_tel
+</select>
 </mapper>

@@ -3,6 +3,8 @@ package myproj.customer.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -180,5 +182,44 @@ public class CustomerController {
 					}
 					
 					return favoriteList;
+			}
+			
+			
+			// 타일즈 infomenu.jsp에서 동물 전체 검색!!
+			@RequestMapping("/infoAnimal.dodam")
+			@ResponseBody
+			public List<Map<String, String>> infoShowAnimal(){			
+				List<Map<String, String>> animalList = customerDAO.infoShowAnimal();	
+				return animalList;
+			}
+			
+			// 타일즈 infomenu.jsp의 동물검색 팝업에서, 동물을 선택한 후, 그것을 적용한다면!!
+			@RequestMapping("/infoAnimalApply.dodam")
+			@ResponseBody
+			public String infoAnimalApply(CustomerVO cVO, AnimalVO aVO, HttpSession session){			
+
+				session.setAttribute("cus_name", cVO.getCus_name());
+				session.setAttribute("cus_tel", cVO.getCus_tel());
+				session.setAttribute("animal_num", aVO.getAnimal_num());
+				session.setAttribute("ani_breed", aVO.getAnimal_breed());
+				session.setAttribute("ani_name", aVO.getAnimal_name());
+				
+				System.out.println("session값"+session.getAttribute("cus_name"));
+				
+	/*			// 1. 화면 session을 가져온다 (진료랑 수납)
+				if(진료 세션이면){
+					
+					return "redirect:/jinryo/jinryoView";
 				}
+				else if(수납세션이면){
+					
+					return "redirect:/jinryo/jinryoView";
+				}
+				else{
+					// 진료 화면도 아니고 수납화면도 아니라면,
+					// 그냥 팝업창만 꺼지고... session에 등록만 되면 된다.
+				}*/
+				return "location:reload()";
+			}
+			
 		}

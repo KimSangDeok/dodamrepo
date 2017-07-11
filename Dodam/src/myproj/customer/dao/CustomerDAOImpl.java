@@ -66,5 +66,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
+	// 타일즈 infomenu.jsp에서 동물 전체 검색!!
+	@Override
+	public List<Map<String, String>> infoShowAnimal() {
+		List<Map<String, String>> list = customer.selectList("customer.infoShowAnimal");
+		return list;
+	}
 	
 }
