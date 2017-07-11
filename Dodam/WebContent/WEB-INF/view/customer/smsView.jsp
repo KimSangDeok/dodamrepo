@@ -26,6 +26,25 @@
  
  
     <style>
+    /*div 스타일 적용 */
+    #accordianmessage {
+    margin-top:52px;
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(248, 14, 14, 0.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    width:400px;
+    height:690px;
+    margin-bottom: 50px;
+    
+}
+    
 	/* z-index 값이 작을 수록 아래에 깔리고, 높을 수록 위로 나온다. */
 	.manage{
 		z-index:2;
@@ -113,7 +132,6 @@
 
 <!-- start DIV 1) 고객 핸드폰 번호 검색 -->
 	<div style="width:30%; float:left">
-		<div><h4>고객 검색</h4></div>
 		<br/><br/>				
 
 
@@ -123,6 +141,7 @@
 			<input class="form-control" id="livesearch" placeholder="아무거나 입력하세요" type="text" />
 			</div></br>
 		
+			<div style="overflow: scroll; height: 670px;">
 			<table class="table" id="users">
 				<tr>
 					<th class="hidden-xs">고객 성명</th>
@@ -139,7 +158,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-
+			</div>
 
 		
 	<script src="/sms/demo.js"></script>
@@ -284,19 +303,16 @@
 		
 		
 <!-- begin : 3) 즐겨찾기 -->	
-	<div style="width:30%; float:left">
-	
-		<div><h4>즐겨찾는 SMS</h4></div>
-	
-
+	<div id="accordianmessage" style="border-radius: 6px; width:30%; float:left; ">
+		<p style="margin-top:20px; font-size:18pt; font-family:맑은고딕; font-weight: bold;">즐겨찾는 Message</p>
 		<!-- begin : 즐겨찾기 메뉴 보이는 부분 -->
-		<div class="accordion">
+		<div class="accordion" >
 
 		<!-- 자자, 여기서 SMS테이블에서 sms 즐겨찾기 내용을 불러와줘야해요~~ -->
  		
  			<c:forEach var="favorite" items="${favoriteList}">
 				
-		        <div>
+		        <div >
 		            <!-- span to target fix accordion -->
 		            <span class="target-fix" id="accordion${favorite.MESSAGE_ID}"></span>
 		            
