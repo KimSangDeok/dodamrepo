@@ -12,9 +12,9 @@
 
 	<select class="input-large form-control">
 		<option value="AL" selected="selected">입원장 및 병원실 선택</option>
-		<option value="AK">Alaska</option>
-		<option value="AZ">Arizona</option>
-		<option value="AR">Arkansas</option>
+		<option value="AK">입원실1</option>
+		<option value="AZ">입원실2</option>
+		<option value="AR">젤좋은호텔</option>
 	</select><br/><br/><br/>
 	
 	<!-- start : 콤보박스 관련 script -->

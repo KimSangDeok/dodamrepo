@@ -50,7 +50,7 @@ public class MainDAOImpl implements MainDAO {
 		}
 		return result;
 	}
-	
+
 	//의사 이름 검색
 	@Override
 	public List<MainVO> doctorSelect() {
@@ -58,6 +58,29 @@ public class MainDAOImpl implements MainDAO {
 		return main.selectList("main.doctorName");
 	}
 
+	// 아이디 찾기
+	@Override
+	public MainVO findmemId(MainVO vo) {
+		MainVO mainVo = null;
+		try{
+			mainVo = main.selectOne("main.findid", vo);
+		}catch( Exception ex )
+		{
+			System.out.println("MainDAOImpl / findmemId 실패 : " + ex.getMessage());
+		}
+		return mainVo;
+	}
 
-
+	// 비밀번호 찾기
+	@Override
+	public MainVO findmemPw(MainVO vo) {
+		MainVO mainVo = null;
+		try{
+			mainVo = main.selectOne("main.findpw", vo);
+		}catch( Exception ex )
+		{
+			System.out.println("MainDAOImpl / findmemPw 실패 : " + ex.getMessage());
+		}
+		return mainVo;
+	}
 }
