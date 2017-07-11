@@ -345,7 +345,7 @@ function todayclick(elem){
 			}
 			$("#todaytbody").text('');
 
-		for(int i=0; i<count; i++){
+		for(i=0; i<count; i++){
 		$("#todaytbody").append(
 		"<tr onclick='todaylistclick(this)' style='cursor:pointer'>"
 		+"<td>"+(i+1)+"<input type='text' value='"+(list[i]).animal_num+"' style='display:none'>"+"<td>"

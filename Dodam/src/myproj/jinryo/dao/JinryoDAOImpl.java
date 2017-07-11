@@ -126,4 +126,32 @@ public class JinryoDAOImpl implements JinryoDAO{
 			
 		return jinroySstp.insert(namespace+"insertImage",imgMap);
 	}
+
+
+	// 민정
+	// 1. 진료테이블에 있는 내용을 모두 가져와라.
+	@Override
+	public HashMap<String, Object> selectJinryoTable(String jryo_num) {
+		return jinroySstp.selectOne(namespace+"selectJinryoTable", jryo_num);
+	}
+
+	// 2. 문진기록 내용을 모두 가져와라.
+	@Override
+	public List<Map<String, Object>> selectMoonjin(String jryo_num) {
+		return jinroySstp.selectOne(namespace+"selectMoonjin", jryo_num);
+	}
+
+	// 3. 차트검사이미지 모두 불러오기
+	@Override
+	public List<Map<String, Object>> selectChartImage(String jryo_num) {
+		//return jinroySstp.selectList(namespace+"selectChartImage", jryo_num);
+		return null;
+	}
+
+	// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
+	@Override
+	public List<Map<String, Object>> selectVital(String jryo_num) {
+		return jinroySstp.selectList(namespace+"selectVital", jryo_num);
+	}
 }
+

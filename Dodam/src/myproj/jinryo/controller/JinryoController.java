@@ -258,4 +258,40 @@ public class JinryoController {
 			return "isNull";
 		}
 	}
+	
+	
+
+	// 진료num(String jryo_num)을 가지고 진료를 봤던 상세 기록 내용을 가져와야 한다
+	@RequestMapping("/detail.dodam")
+	public ModelAndView showJinryoDetailList(String jryo_num){
+		
+		// 1. 진료테이블에 있는 내용을 모두 가져와라. (가져갈 주요 정보 : 진료넘버, 의사, 진료날짜, 증상, 처치, 처방)
+		HashMap<String, Object> jinryoTableDetail = jinryoService.selectJinryoTable(jryo_num);
+		
+		// 2. 문진기록 내용을 모두 가져와라.
+		List<Map<String, Object>> moonjinHistory = jinryoService.selectMoonjin(jryo_num);
+		
+		// 3. 차트검사이미지 모두 불러오기
+		List<Map<String, Object>> charImageHistory = jinryoService.selectChartImage(jryo_num);
+		
+		// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
+		List<Map<String, Object>> jindanHistory = jinryoService.selectVital(jryo_num);				
+		
+
+		
+		
+		System.out.println(jryo_num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/jinryo/detail");
+		mv.addObject("jinryo", jinryoTableDetail);
+		mv.addObject("moonjinHistory", moonjinHistory);
+		mv.addObject("charImageHistory", charImageHistory);
+		mv.addObject("jindanHistory", jindanHistory);
+		
+		
+		return mv;
+		
+	}
+	
 }

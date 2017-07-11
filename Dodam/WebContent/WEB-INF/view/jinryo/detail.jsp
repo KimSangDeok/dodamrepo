@@ -28,6 +28,7 @@
 				<c:forEach var='moonjin' items="${moonjinHistory}" >
 				<p>Q. ${moonjin.PA_SM}</p>
 				<p>A. ${moonjin.PA_H_HISTORY}</p>
+				<br/>
 				</c:forEach>
 
 			</div>
@@ -61,13 +62,18 @@
 		<!-- end : 3. 진료기록 중, 증상 -->
 	
 	
-		<!-- begin : 4. 진료기록 중, 진단명 -->	
+		<!-- begin : 4. 진료기록 중, 바이탈 -->	
 		<div class="accordion-container">
-			<a href="#" class="accordion-toggle">진 단 명<span class="toggle-icon"><i class="fa fa-plus-circle"></i></span></a>
+			<a href="#" class="accordion-toggle">바 이 탈<span class="toggle-icon"><i class="fa fa-plus-circle"></i></span></a>
 			<div class="accordion-content">
 
-				<!-- 진단명 text를 뿌려주자. -->
-				<p>귀 염증, 귀 이명</p>
+				<!-- 진단명 text(vital 정보)를 뿌려주자. -->
+				<p>몸무게 : #{jindanHistory.VT_WEIGHT}</p>
+				<p>체온 : #{jindanHistory.VT_TEMPERATURE}</p>
+				<p>수축기혈압 : #{jindanHistory.VT_SYSTOLIC_BLOOD}</p>
+				<p>이완기혈압 : #{jindanHistory.VTDIASTOLIC_BLOOD}</p>
+				<p>심박수 : #{jindanHistory.VT_HEART_RATE}</p>
+				<p>호흡수 : #{jindanHistory.VT_BREATHING_RATE}</p>
 
 			</div>
 		</div>
@@ -82,6 +88,7 @@
 				<!-- 처치처방 text를 뿌려주자. -->
 				<h2>처치내역</h2>
 				<p>${jinryo.JRYO_TX}</p>
+				<br/>
 				<h2>처방내역</h2>
 				<p>${jinryo.JRYO_RX}</p>
 				

@@ -108,4 +108,27 @@ insert into jinryo values(
 	)
 </insert>
 
+<!-- 민정 -->
+<!-- 진료테이블의 기본적인 내용 모두 가져와라 -->
+<select id="selectJinryoTable" parameterType="String" resultType="hashmap">
+SELECT p.per_name, a.animal_name, c.jryo_num, c.jryo_diseases, c.symptom, c.jryo_dt, c.jryo_tx, c.jryo_rx
+FROM jinryo c, person p, animal a
+WHERE jryo_num = #{jryo_num}
+AND a.animal_num = c.animal_num
+AND p.per_id = c.per_id
+</select>
+
+<select id="selectMoonjin" parameterType="String" resultType="hashmap">
+SELECT p.pa_sm, h.pa_h_history
+FROM paper_history h, paper p
+WHERE jryo_num = #{jryo_num}
+AND p.pa_num = h.pa_num
+</select>
+
+
+
+<select id="selectVital" parameterType="String" resultType="hashmap">
+SELECT * FROM vital WHERE jryo_num = #{jryo_num}
+</select>
+
 </mapper>
