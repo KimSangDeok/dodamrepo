@@ -3,10 +3,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="infoMenu" style="padding-top:20px;">
 	<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
-	<input id="cusname" class='customerInfo' type='text' disabled='disabled' name='customer_name' value=''/>
-	<input id ="custel" type='text' disabled='disabled' name='customer_tel'/>
-	<input id ="animalname" type='text' disabled='disabled' name='customer_tel'/>
-	<input id= "animalbreed" type='text' disabled='disabled' name='pet_type'/>
-	<input id= "cusaddr" type='text' disabled='disabled' name='customer_addr'/>
-	<input id= "animalnum" type='hidden' disabled='disabled' name='animal_num'/>	
+	<!-- 진료, 입원 등 현재 서비스를 받는 고객 및 동료 정보를 보는 곳 -->
+	<input id="info_cusname" class='customerInfo' type='text' readonly="readonly" name='cust_name' value=''/>
+	<input id ="info_custel" type='text' readonly="readonly" name='cus_tel'/>
+	<input id ="info_animalname" type='text' readonly="readonly" name='animal_name'/>
+	<input id= "info_animalbreed" type='text' readonly="readonly" name='animal_breed'/>
+	<input id= "info_doctor_name" type='text' readonly="readonly" name='doctor_name'/>
+	<input id= "info_animalnum" type='hidden' readonly="readonly" name='animal_num'/>
 </div>

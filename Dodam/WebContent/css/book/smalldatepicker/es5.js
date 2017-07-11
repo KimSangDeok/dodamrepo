@@ -120,8 +120,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.render();
                 } else {
                     calendar === 'start' ? this.setStartDate(newDate) : this.setEndDate(newDate);
-                }
-
+                }             
+                
                 event.stopPropagation();
             }
         }, {
@@ -143,7 +143,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var _this = this;
 
                 this.$el.on('click', '.dt__calendar_start .dt__calendar_m_d', function (event) {
-                    return _this.setActiveDate(event, 'start');
+                    return _this.setActiveDate(event, 'start');                    
                 }).on('click', '.dt__calendar_end .dt__calendar_m_d', function (event) {
                     return _this.setActiveDate(event, 'end');
                 }).on('click', '.dt__start .dt__calendar_head_month .next', function (event) {
@@ -196,12 +196,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function showCalendar() {
                 this.params.onShow();
                 this.$el.addClass('show');
+
             }
         }, {
             key: 'hideCalendar',
             value: function hideCalendar() {
                 this.params.onHide();
-                this.$el.removeClass('show');
+                this.$el.removeClass('show');              
             }
         }, {
             key: 'renderMonth',
@@ -331,16 +332,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 this.onAfterRender();
             }
-        }, {
+        },{
             key: 'setValue',
             value: function setValue() {
                 if (this.params.type === 'date') {
                     this.el.val(this.dateStart.format(this.params.format));
                 } else {
                         this.el.val(this.dateStart.format(this.params.format) + this.params.delimiter + this.dateEnd.format(this.params.format));
-                    }
-            }
-        }, {
+                }
+ 
+				$.ajax({
+              	url : "/reservation/changedate2.dodam",
+              	type : 'get',
+              	data : "today="+$("#singleDateRange").val(),
+              	dataType : 'json',
+              	success : function(data){
+              		
+              		$(".reservation").css("background-color","");
+              		$(".reservation").html("");
+              		var i;
+      				var count=0;
+      				for (i in data) {
+      				    if (data.hasOwnProperty(i)) {
+      				        count++;
+      				    }
+      				}
+
+      				for(var k=0; k<$(".booktbody").children().length;k++){
+      					
+      					for(var j=0; j<$(".doctor").children().length; j++){
+      						for(var i=0; i<count; i++){
+			  					if($(".doctor").children().eq(j).html() == (data[i]).doctor_name && $(".listCenter").eq(k).html()==(data[i]).rsvt_time){
+			  						var index1 =  $(".doctor").children().eq(j).index();	//사람 인덱스	
+			  						var index3 = $(".booktbody").children().eq(k).index();
+//			  						alert($(".doctor").children().eq(j).html()+index1);
+			  						$(".scheduleclass").eq(index3).children().eq(index1).css("background-color","pink");
+			  						$(".scheduleclass").eq(index3).children().eq(index1).html("예약완료");
+			  					}	      						
+      						}     	
+      					}
+      				}
+
+          }
+                
+	});    
+				
+				this.params.onHide();
+                this.$el.removeClass('show');                
+   }       
+  
+        },{
             key: 'onAfterRender',
             value: function onAfterRender() {
                 this.$el.addClass('dt');
@@ -351,7 +392,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 if (this.params.modalMode) {
                     this.$el.addClass('dt-modal');
-                }
+                }  
+                
             }
         }, {
             key: 'destroy',
