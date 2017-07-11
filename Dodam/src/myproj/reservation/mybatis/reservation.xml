@@ -101,7 +101,7 @@ where animal_num=#{animal_num} and rsvt_dt=#{rsvt_dt} and doctor_name=#{doctor_n
 <select id="counterlist" parameterType="String" resultType="myproj.reservation.dto.ReservationVO">
 select a.animal_name, r.DOCTOR_NAME, r.SERVICE_TYPE
 from animal a, reservation r
-where a.animal_num=r.animal_num and counter_state='o'and a.animal_num in (select animal_num from reservation 
+where a.animal_num=r.animal_num and counter_state='o' and a.animal_num=r.animal_num and a.animal_num in (select animal_num from reservation 
 where counter_state='o' and jinryo_state='x' and rsvt_dt=#{today})
 order by r.COUNTER_DATE_TIME
 </select>

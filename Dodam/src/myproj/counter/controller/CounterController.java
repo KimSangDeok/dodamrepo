@@ -33,6 +33,7 @@ public class CounterController {
 	
 	@RequestMapping("/counterView.dodam")
 	public ModelAndView counterlist(){
+		System.out.println("왱");
 //		System.out.println("세션 들어온놈"+session.getAttribute("animalnum"));
 		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyy.MM.dd", Locale.KOREA );
 		Date td = new Date();
@@ -40,8 +41,6 @@ public class CounterController {
 		System.out.println(today);
 		List<MainVO> doctor = mainDAO.doctorSelect();
 		List<ReservationVO> counterlist = reservationDAO.counterlist(today);
-		System.out.println("접수대기자1="+counterlist.get(0).getDoctor_name());
-		System.out.println("접수대기자2="+counterlist.get(1).getDoctor_name());
 		ModelAndView mv = new ModelAndView();
 		System.out.println("싸이즈"+counterlist.size());
 		mv.addObject("counterlist",counterlist);
@@ -52,7 +51,7 @@ public class CounterController {
 	}
 	
 	@RequestMapping("/counterInsert.dodam")
-	public ModelAndView counterInsert(ReservationVO reservationVO){
+	public String counterInsert(ReservationVO reservationVO){
 		
 		reservationDAO.counterInsert(reservationVO);
 		
@@ -60,7 +59,7 @@ public class CounterController {
 
 		mv.setViewName("/counter/counterView");
 
-		return mv;
+		return "redirect:/counter/counterView.dodam";
 	}
 	
 	
