@@ -221,7 +221,15 @@
 		$('#infoRegister').bind('click', function(){
 			var pageSessionName = "<%=(String)session.getAttribute("pageName")%>"
 			alert(pageSessionName);
-			if(pageSessionName!="jinryo" || pageSessionName!="pay"){
+			
+			if(pageSessionName=="jinryo"){
+				alert('dzxxxfddf');
+				$('.infoAnimal').submit();
+			}
+			else if(pageSessionName=="pay"){
+				
+			}else{
+				alert('dfddfdffddf');
 				$.ajax({
 		    		url : "/customer/infoAnimalApplyAJAX.dodam",
 		    		type : 'get',  
@@ -233,10 +241,7 @@
 		    		},
 		    		error:function(request, status,error){
 		    		}
-				})
-				
-			}else{
-				$('.infoAnimal').submit();			
+				})		
 			}
 		})
 	});
