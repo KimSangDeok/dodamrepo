@@ -1,44 +1,44 @@
 
 function id_search()
 {
-    var f = document.id_f;
+	var f = document.id_f;
 
-        if(f.mem_name.value=="")
-        {
-            alert("이름을 입력해주세요.");
-            f.mem_name.focus();
-            return;
-        }
-
-        if(f.mem_email.value=="")
-        {
-            alert("E-mail을 입력해주세요.");
-            f.mem_email.focus();
-            return;
-        }
-        
-f.submit();
+	if(f.per_name.value=="")
+	{
+		alert("이름을 입력해주세요.");
+		f.per_name.focus();
+		return;
 	}
-	
-	
-	
+
+	if(f.per_mail.value=="")
+	{
+		alert("E-mail을 입력해주세요.");
+		f.per_mail.focus();
+		return;
+	}
+
+	f.submit();
+}
+
+
+
 function pw_search()
 {
-    var f = document.pw_f;
+	var f = document.pw_f;
 
-        if(f.mem_id.value=="")
-        {
-            alert("ID를 입력해주세요.");
-            f.mem_id.focus();
-            return;
-        }
-
-        if(f.mem_email.value=="")
-        {
-            alert("E-mail을 입력해주세요.");
-            f.mem_email.focus();
-            return;
-        }
-
-f.submit();
+	if(f.per_id.value=="")
+	{
+		alert("ID를 입력해주세요.");
+		f.per_id.focus();
+		return;
 	}
+
+	if(f.per_mail.value=="")
+	{
+		alert("E-mail을 입력해주세요.");
+		f.per_mail.focus();
+		return;
+	}
+
+	f.submit();
+}

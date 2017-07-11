@@ -23,4 +23,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO person VALUES(#{per_id}, #{pertype_code}, #{per_pass}, #{per_name}, #{per_birth}, #{per_tel}, #{per_mail})
 </insert>
 
+<!-- 아이디 찾기 -->
+<select id="findid" parameterType="myproj.main.dto.MainVO" resultType="myproj.main.dto.MainVO">
+	SELECT per_id FROM person WHERE per_name=#{per_name} AND per_mail=#{per_mail}
+</select>
+
+<!-- 비밀번호 찾기 -->
+<select id="findpw" parameterType="myproj.main.dto.MainVO" resultType="myproj.main.dto.MainVO">
+	SELECT per_pass FROM person WHERE per_id=#{per_id} AND per_mail=#{per_mail}
+</select>
+
 </mapper>
