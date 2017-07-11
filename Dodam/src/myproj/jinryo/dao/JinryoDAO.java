@@ -46,4 +46,8 @@ public interface JinryoDAO {
 
 	public Map<String, Object> selectTxListByNum(String txNum);
 
+	public List<HashMap<String, Object>> selectMyReadyList(Map map);
+
+	public HashMap selectAnimalInfoByAnimalNum(String animalNum);
+
 }

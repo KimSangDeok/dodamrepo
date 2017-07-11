@@ -2,6 +2,7 @@ package myproj.jinryo.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,41 @@ public class JinryoController {
 		return "/jinryo/"+url;
 	}
 	
+	
+	@RequestMapping("/jinryoView.dodam")
+	public ModelAndView defaultJinryoView(HttpSession session){
+
+		String per_id = (String)session.getAttribute("userid");
+		System.out.println("일단 perid 가져왔니 >>"+per_id);
+		List<HashMap<String, Object>> todayMyReadyList = jinryoService.selectMyReadyList(per_id);
+		
+		List todayReadyAnimalInfoList = new ArrayList();
+		
+		List<Map<String, Object>> aniInfoList = new ArrayList<Map<String, Object>>();
+		
+		System.out.println("오늘의 나의 리졸베이션 갯수\n"+todayMyReadyList.size());
+		for(int i =0; i<todayMyReadyList.size();i++){
+			
+			todayReadyAnimalInfoList.add(todayMyReadyList.get(i).get("ANIMAL_NUM"));
+			
+		}
+		
+//		System.out.println("리졸베이션 마다 ");
+		for(int i=0; i<todayReadyAnimalInfoList.size();i++){
+			
+			aniInfoList.add(jinryoService.selectAnimalInfoByAnimalNum((String) todayReadyAnimalInfoList.get(i)));
+		}
+//		System.out.println("todayMyReadyList.get(i).getANIMAL_NUM)"+todayMyReadyList.get(i).get("ANIMAL_NUM"));
+//		todayReadyAnimalInfoList.add((Map<String, Object>)(jinryoService.selectByAnimalNum((String)todayMyReadyList.get(i).get("ANIMAL_NUM"))));
+		
+//		if(todayReadyAnimalInfoList!=null) System.out.println("이거이거\n"+todayReadyAnimalInfoList.get(0).get("ANIMAL_NUM"));
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/jinryo/jinryoView");
+		mv.addObject("aniInfoList",aniInfoList);
+		return mv;
+	}
+	
 	@RequestMapping("/infoJinryoView.dodam")
 	public ModelAndView showjinryoView(String animal_num, HttpSession session){
 		System.out.println("고객검색하여 animal 넘"+animal_num);
@@ -50,6 +86,8 @@ public class JinryoController {
 		mv.setViewName("/jinryo/jinryoView");
 		mv.addObject("infoJinryoHistory", selectHistoryList);
 		System.out.println(selectHistoryList.size());
+		
+		
 		for(int i=0; i<selectHistoryList.size(); i++){
 			System.out.println(selectHistoryList.get(i));
 		}

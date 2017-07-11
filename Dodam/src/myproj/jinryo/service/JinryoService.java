@@ -42,4 +42,8 @@ public interface JinryoService {
 	// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
 	Map<String, Object> selectVital(String jryo_num);
 
+	List<HashMap<String,Object>> selectMyReadyList(String per_id);
+
+	HashMap selectAnimalInfoByAnimalNum(String animalNum);
+
 }

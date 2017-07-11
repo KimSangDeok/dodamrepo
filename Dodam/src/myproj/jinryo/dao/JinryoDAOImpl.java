@@ -159,5 +159,17 @@ public class JinryoDAOImpl implements JinryoDAO{
 		
 		return jinroySstp.selectOne(namespace+"selectTxListByNum", txNum);
 	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyReadyList(Map map) {
+		
+		return jinroySstp.selectList(namespace+"selectselectMyReadyList",map);
+	}
+
+	@Override
+	public HashMap selectAnimalInfoByAnimalNum(String animalNum) {
+		
+		return jinroySstp.selectOne(namespace+"selectAnimalInfoByAnimalNum", animalNum);
+	}
 }
 

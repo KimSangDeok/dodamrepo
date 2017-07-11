@@ -13,7 +13,8 @@ select ani.ANIMAL_NAME ANIMAL_NAME,
 		jry.JRYO_DISEASES JRYO_DISEASES, 
 		jry.SYMPTOM SYMPTOM, 
 		jry.JRYO_DT JRYO_DT, 
-		cus.CUS_NAME CUS_NAME
+		cus.CUS_NAME CUS_NAME,
+		ani.ANIMAL_NUM ANIMAL_NUM
 from ANIMAL ani, JINRYO jry, PERSON pers, CUSTOMER cus
 where ani.ANIMAL_NUM = #{animalNum} and jry.PER_ID = pers.PER_ID and jry.ANIMAL_NUM = ani.ANIMAL_NUM and ani.CUS_TEL = cus.CUS_TEL
 </select>
@@ -135,5 +136,14 @@ SELECT * FROM vital WHERE jryo_num = #{jryo_num}
 
 <select id="selectTxListByNum" parameterType="String" resultType="hashmap">
 select TX_NUM,TX_LARGE,TX_SMALL,TX_PRICE from TX where TX_NUM=#{txNum}
+</select>
+
+<select id="selectselectMyReadyList" parameterType="String" resultType="hashmap">
+select * from RESERVATION 
+where PER_ID=#{per_id} and to_char(COUNTER_DATE_TIME,'yyyymmdd')=to_char(#{today}) and COUNTER_STATE='o' and JINRYO_STATE='x'
+</select>
+
+<select id="selectAnimalInfoByAnimalNum" parameterType="String" resultType="hashmap">
+select * from ANIMAL where ANIMAL_NUM=#{animalNum}
 </select>
 </mapper>

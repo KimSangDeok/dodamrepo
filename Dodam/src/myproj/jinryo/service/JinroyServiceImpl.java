@@ -2,7 +2,10 @@ package myproj.jinryo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -203,6 +206,26 @@ public class JinroyServiceImpl implements JinryoService{
 	@Override
 	public Map<String, Object> selectVital(String jryo_num) {
 		return jdao.selectVital(jryo_num);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyReadyList(String per_id) {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Calendar c1 = Calendar.getInstance();
+        String strToday = sdf.format(c1.getTime());
+        System.out.println("Today=" + strToday);
+		
+		Map map = new HashMap();
+		map.put("per_id", per_id);
+		map.put("today", strToday);
+		return jdao.selectMyReadyList(map);
+	}
+
+	@Override
+	public HashMap selectAnimalInfoByAnimalNum(String animalNum) {
+		
+		return jdao.selectAnimalInfoByAnimalNum(animalNum);
 	}
 
 	

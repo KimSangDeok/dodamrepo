@@ -208,7 +208,10 @@ function goDetail(chartNum){
 			<!-- 대기환자 리스트 -->
 			<div style="width: 100%; height: 90%; " id="readyListDiv">
 				<ul class="jinryoUl">
-					<li style="height: 10%; padding: 10px;" >치즈<input type="hidden" name="animal_num" value="59"/></li>
+<!-- 					<li style="height: 10%; padding: 10px;" >치즈<input type="hidden" name="animal_num" value="59"/></li> -->
+					<c:forEach var="aniInfo" items="${aniInfoList}">
+						<li style="height: 10%; padding: 10px;" >${aniInfo.ANIMAL_NAME}<input type="hidden" name="animal_num" value="${aniInfo.ANIMAL_NUM}"/></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
