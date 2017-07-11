@@ -199,12 +199,10 @@
 		   		} 
 				
 			});
-			
-			if($(this).hasClass('btn-chase')){
-				$('#infoPopup').popitup({
+
+			$('#infoPopup').popitup({
 				chase: false
-				});
-			}				        
+			});
 		 });
 	
 		// 고객 찾는 팝업에서 적용 버튼을 누른다면!!

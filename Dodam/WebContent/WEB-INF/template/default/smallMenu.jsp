@@ -10,7 +10,6 @@
 		<ul>
 			<li><a href="/customer/customerView.dodam" style="color: #000000;text-decoration: none;"><span>고객관리</span></a></li>
 			<li><a href="/goods/goodsShow.dodam" style="color: #000000;text-decoration: none;"><span>재고관리</span></a></li>
-			<li><a href="#0" style="color: #000000;text-decoration: none;"><span>운영관리</span></a></li>
 			<li><a href="/mpay/mpayView.dodam" style="color: #000000;text-decoration: none;"><span>매출관리</span></a></li>
 		</ul>
 		<span aria-hidden="true" class="stretchy-nav-bg" style="background:#ffb700;"></span>
