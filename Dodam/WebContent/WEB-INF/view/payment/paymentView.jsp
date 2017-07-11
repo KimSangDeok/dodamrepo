@@ -144,7 +144,7 @@
 				<form id="listfrm">
 					<!-- Begin 수납대기 테이블 -->
 					<table id="listTable">
-						<tbody>
+						<tbody style="overflow:scroll">
 							<!-- Begin 수납대기 리스트 -->
 							<c:choose>
 								<c:when test="${waitinglist == null}">
@@ -190,7 +190,7 @@
 									<th>금액</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody style="overflow:scroll">
 							</tbody>
 						</table>
 						<!-- End 수납목록 테이블 -->

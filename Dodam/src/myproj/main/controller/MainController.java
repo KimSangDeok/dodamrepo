@@ -69,7 +69,7 @@ public class MainController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		List<Map<String, String>> resultNotice = mainDao.noticelist();
 		System.out.println(resultNotice);
 		ModelAndView mv = new ModelAndView();
@@ -129,43 +129,43 @@ public class MainController {
 
 		return mv;
 	}
-	
+
 	// 아이디 찾기
-		@RequestMapping("/id_find.dodam")
-		public ModelAndView findid(MainVO vo){
-			String message = "일치하는 아이디가 없습니다.";
-			int result = 0;
+	@RequestMapping("/id_find.dodam")
+	public ModelAndView findid(MainVO vo){
+		String message = "일치하는 아이디가 없습니다.";
+		int result = 0;
 
-			MainVO reVO = mainDao.findmemId(vo);
-			if( reVO != null ){
-				result = 1;
-				message = "아이디는 "+reVO.getPer_id()+" 입니다";
-			}
-
-			ModelAndView mv = new ModelAndView();
-			mv.addObject("message", message);
-			mv.addObject("result", result);
-			mv.setViewName("main/id_find_ok");
-			return mv;
+		MainVO reVO = mainDao.findmemId(vo);
+		if( reVO != null ){
+			result = 1;
+			message = "아이디는 "+reVO.getPer_id()+" 입니다";
 		}
 
-		// 비밀번호 찾기
-		@RequestMapping("/pw_find.dodam")
-		public ModelAndView findpw(MainVO vo){
-			String message = "정보가 일치하지 않습니다.";
-			int result = 0;
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("message", message);
+		mv.addObject("result", result);
+		mv.setViewName("main/id_find_ok");
+		return mv;
+	}
 
-			MainVO reVO = mainDao.findmemPw(vo);
-			if( reVO != null ){
-				result = 1;
-				message = "비밀번호는 "+reVO.getPer_pass()+" 입니다";
-			}
+	// 비밀번호 찾기
+	@RequestMapping("/pw_find.dodam")
+	public ModelAndView findpw(MainVO vo){
+		String message = "정보가 일치하지 않습니다.";
+		int result = 0;
 
-			ModelAndView mv = new ModelAndView();
-			mv.addObject("message", message);
-			mv.addObject("result", result);
-			mv.setViewName("main/pw_find_ok");
-			return mv;
+		MainVO reVO = mainDao.findmemPw(vo);
+		if( reVO != null ){
+			result = 1;
+			message = "비밀번호는 "+reVO.getPer_pass()+" 입니다";
 		}
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("message", message);
+		mv.addObject("result", result);
+		mv.setViewName("main/pw_find_ok");
+		return mv;
+	}
 
 }
