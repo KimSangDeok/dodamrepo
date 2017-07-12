@@ -117,7 +117,7 @@ $(function(){
 		<!-- Main -->
 
 		<article id="main"> 
-				<div class="container" style="width:90%">
+				<div class="container" style="width:93%">
 					<!-- <div class="row"> -->
 
 					<div class="col-md-6 news">
