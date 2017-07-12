@@ -422,21 +422,21 @@
 
 						<label for="inputName" class="col-sm-2 control-label">*생년월일</label>
 
-						<div class="col-sm-1">
+						<div class="col-sm-1 birth" style="width: 130px">
 							<input type="hidden" id="per_birth" name="per_birth"> <select
 								class="year" title="년" id="per_y">
 								<option value="0">년</option>
 
 							</select>년
 						</div>
-						<div class="col-sm-1">
+						<div class="col-sm-1 birth" style="width: 130px">
 							<select class="month" title="월" id="per_m">
 								<option value="0">월</option>
 
 
 							</select>월
 						</div>
-						<div class="col-sm-1 day">
+						<div class="col-sm-1 day birth" style="width: 130px">
 							<select class="date" title="일" id="per_d">
 								<option value="0">일</option>
 
