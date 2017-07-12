@@ -171,5 +171,21 @@ public class JinryoDAOImpl implements JinryoDAO{
 		
 		return jinroySstp.selectOne(namespace+"selectAnimalInfoByAnimalNum", animalNum);
 	}
+
+	@Override
+	public int updateReservationJrState(String rsvnum) {
+		
+		return jinroySstp.update(namespace+"updateReservationJrState", rsvnum);
+	}
+
+	@Override
+	public void insertPay(String animal_num, String jroy_num, String jryo_price) {
+		Map map = new HashMap();
+		map.put("animal_num", animal_num);
+		map.put("jroy_num", jroy_num);
+		map.put("jryo_price", jryo_price);
+		jinroySstp.insert(namespace+"insertPay",map);
+		
+	}
 }
 

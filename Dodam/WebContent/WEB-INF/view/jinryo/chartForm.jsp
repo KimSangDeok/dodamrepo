@@ -866,8 +866,12 @@ function getInputValuesSession(bigAndMid){
 	<!-- End 바이탈 팝업 -->
 	
 	<form id="jinroyForm" name="jinroyForm" method="post" action="/jinryo/chartInsert.dodam" enctype="multipart/form-data">
-		<input type="hidden" id="per_id" name="per_id" value="test">
-		<input type="hidden" id="animal_num" name="animal_num" value="59">
+	
+		<input type="hidden" id="rsvnum" name="rsvnum" value="${rsvnum}">
+		
+		
+		<input type="hidden" id="per_id" name="per_id" value="${userid}">
+		<input type="hidden" id="animal_num" name="animal_num" value="${animalnum}">
 		<input type="hidden" id="jryo_diseases" name="jryo_diseases" value="jryo_diseases">
 		<input type="hidden" id="symptom" name="symptom" value="symptom">
 		<input type="hidden" id="jryo_tx" name="jryo_tx" value="jryo_tx">
@@ -876,6 +880,7 @@ function getInputValuesSession(bigAndMid){
 		<input type="hidden" id="jryo_price" name="jryo_price" value="jryo_price">
 		<input type="hidden" id="monjinSaveMenus" name="monjinSaveMenus" value="">
 		<input id="jinryoImages" name="jinryoImages" type="file" style="display: none;" multiple="multiple">
+		
 		
 		<!-- 바이탈 -->
 							<input type="hidden" id="" name="vt_weight"/><br/><br/>

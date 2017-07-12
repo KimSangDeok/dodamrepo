@@ -14,6 +14,7 @@ select ani.ANIMAL_NAME ANIMAL_NAME,
 		jry.SYMPTOM SYMPTOM, 
 		jry.JRYO_DT JRYO_DT, 
 		cus.CUS_NAME CUS_NAME,
+		cus.CUS_NAME CUS_TEL,
 		ani.ANIMAL_NUM ANIMAL_NUM
 from ANIMAL ani, JINRYO jry, PERSON pers, CUSTOMER cus
 where ani.ANIMAL_NUM = #{animalNum} and jry.PER_ID = pers.PER_ID and jry.ANIMAL_NUM = ani.ANIMAL_NUM and ani.CUS_TEL = cus.CUS_TEL
@@ -138,12 +139,28 @@ SELECT * FROM vital WHERE jryo_num = #{jryo_num}
 select TX_NUM,TX_LARGE,TX_SMALL,TX_PRICE from TX where TX_NUM=#{txNum}
 </select>
 
-<select id="selectselectMyReadyList" parameterType="String" resultType="hashmap">
-select * from RESERVATION 
-where PER_ID=#{per_id} and to_char(COUNTER_DATE_TIME,'yyyymmdd')=to_char(#{today}) and COUNTER_STATE='o' and JINRYO_STATE='x'
+<select id="selectselectMyReadyList" parameterType="hashmap" resultType="hashmap">
+select rs.rsvt_num, rs.animal_num, a.animal_name 
+from RESERVATION rs, animal a
+where rs.PER_ID=#{per_id} and to_char(rs.COUNTER_DATE_TIME,'yyyymmdd')=to_char(#{today}) and rs.COUNTER_STATE='o' and rs.JINRYO_STATE='x'
+and rs.animal_num=a.animal_num
 </select>
 
 <select id="selectAnimalInfoByAnimalNum" parameterType="String" resultType="hashmap">
 select * from ANIMAL where ANIMAL_NUM=#{animalNum}
 </select>
+
+<update id="updateReservationJrState" parameterType="String">
+update 	RESERVATION
+set 		JINRYO_STATE='o' 
+where 	RSVT_NUM=#{rsvnum}
+</update>
+
+<insert id="insertPay" parameterType="hashmap">
+	<selectKey keyProperty="jryo_num" resultType="string" order="BEFORE">
+		SELECT SEQ_JINRYO.CURRVAL FROM DUAL
+	</selectKey>
+	insert into PAY values(SEQ_PAY_NUM.nextval,#{animal_num},#{jryo_num},'','',#{jryo_price},'false')
+</insert>
+
 </mapper>

@@ -43,6 +43,17 @@ public class JinryoController {
 		return "/jinryo/"+url;
 	}
 	
+	@RequestMapping("/chartForm.dodam")
+	public ModelAndView chartForm(String rsvnum, HttpSession session){
+		
+//		session.setAttribute("pageName", "chartForm");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/jinryo/chartForm");
+		mv.addObject("rsvnum",rsvnum);
+		
+		return mv;
+	}
+	
 	
 	@RequestMapping("/jinryoView.dodam")
 	public ModelAndView defaultJinryoView(HttpSession session){
@@ -52,34 +63,23 @@ public class JinryoController {
 
 		String per_id = (String)session.getAttribute("userid");
 		System.out.println("일단 perid 가져왔니 >>"+per_id);
+		
+		
 		List<HashMap<String, Object>> todayMyReadyList = jinryoService.selectMyReadyList(per_id);
 		
-		List todayReadyAnimalInfoList = new ArrayList();
-		
-		List<Map<String, Object>> aniInfoList = new ArrayList<Map<String, Object>>();
-		
-		System.out.println("오늘의 나의 리졸베이션 갯수\n"+todayMyReadyList.size());
-		for(int i =0; i<todayMyReadyList.size();i++){
-			
-			todayReadyAnimalInfoList.add(todayMyReadyList.get(i).get("ANIMAL_NUM"));
-			
-		}
-		
-//		System.out.println("리졸베이션 마다 ");
-		for(int i=0; i<todayReadyAnimalInfoList.size();i++){
-			
-			aniInfoList.add(jinryoService.selectAnimalInfoByAnimalNum((String) todayReadyAnimalInfoList.get(i)));
-		}
-//		System.out.println("todayMyReadyList.get(i).getANIMAL_NUM)"+todayMyReadyList.get(i).get("ANIMAL_NUM"));
-//		todayReadyAnimalInfoList.add((Map<String, Object>)(jinryoService.selectByAnimalNum((String)todayMyReadyList.get(i).get("ANIMAL_NUM"))));
-		
-//		if(todayReadyAnimalInfoList!=null) System.out.println("이거이거\n"+todayReadyAnimalInfoList.get(0).get("ANIMAL_NUM"));
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/jinryo/jinryoView");
-		mv.addObject("aniInfoList",aniInfoList);
+//		Map<String, Object> totalMap = new HashMap<String, Object>();
+//		totalMap.put("aniInfoList", aniInfoList);
+//		totalMap.put("todayReadyAnimalInfoList", todayReadyAnimalInfoList);
+		mv.addObject("todayMyReadyList",todayMyReadyList);
 		return mv;
 	}
+	
+	
+	
+	
 	
 	@RequestMapping("/infoJinryoView.dodam")
 	public ModelAndView showjinryoView(String animal_num, HttpSession session){
@@ -104,7 +104,7 @@ public class JinryoController {
 	 * 	chartForm.jsp 에서 진료작성을 하고 '차트생성' 버튼 클릭시 진료내용 insert
 	 */
 	@RequestMapping("/chartInsert.dodam")
-	public String chartInsert(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO,  HttpSession session){
+	public String chartInsert(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO,  HttpSession session, String rsvnum){
 		
 
 		
@@ -138,8 +138,8 @@ public class JinryoController {
 //		System.out.println("[1].getJr_img_name() >"+jinryoImageVO.getJr_img_name()[1]);
 //		System.out.println("[1].getJr_img_fake_name() >"+jinryoImageVO.getJr_img_fake_name()[1]);
 		
-		int result = jinryoService.insertJinryoChart(monjinSaveMenus, jinryoVO, jinryoVitalVO, jinryoImageVO, session);
-		return "/jinryo/jinryoView";
+		int result = jinryoService.insertJinryoChart(monjinSaveMenus, jinryoVO, jinryoVitalVO, jinryoImageVO, session, rsvnum);
+		return "redirect:/jinryo/jinryoView.dodam";
 		
 //		return "/jinryo/jinryoView";
 	}
@@ -216,9 +216,20 @@ public class JinryoController {
 	 */
 	@RequestMapping("/selectByAnimalNum.dodam")
 	@ResponseBody
-	public List<HashMap> selectByAnimalNum(String animal_num){
+	public List<HashMap> selectByAnimalNum(String animal_num, HttpSession session){
 		
 		List<HashMap> selectHistoryList = jinryoService.selectByAnimalNum(animal_num);
+		
+		session.setAttribute("cusname", selectHistoryList.get(0).get("CUS_NAME"));
+		session.setAttribute("doctorname",selectHistoryList.get(0).get("PER_NAME"));
+		session.setAttribute("custel",selectHistoryList.get(0).get("CUS_TEL"));
+		session.setAttribute("animalname",selectHistoryList.get(0).get("ANIMAL_NAME"));
+		session.setAttribute("animalbreed",selectHistoryList.get(0).get("ANIMAL_BREED"));
+		session.setAttribute("animalnum",selectHistoryList.get(0).get("ANIMAL_NUM"));
+//		session.setAttribute("rsvtdt",selectHistoryList.get(0).get("CUS_NAME"));
+		
+		
+		
 		return selectHistoryList;
 	}
 	

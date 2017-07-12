@@ -50,4 +50,8 @@ public interface JinryoDAO {
 
 	public HashMap selectAnimalInfoByAnimalNum(String animalNum);
 
+	public int updateReservationJrState(String rsvnum);
+
+	public void insertPay(String animal_num, String jroy_num, String jryo_price);
+
 }

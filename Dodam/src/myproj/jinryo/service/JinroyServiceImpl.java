@@ -103,7 +103,7 @@ public class JinroyServiceImpl implements JinryoService{
 	@Transactional
 	@Override
 	public int insertJinryoChart(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO,
-			JinryoImageVO jinryoImageVO, HttpSession session) {
+			JinryoImageVO jinryoImageVO, HttpSession session, String rsvnum) {
 		
 		// 진료 insert
 		jdao.insertJinryo(jinryoVO);
@@ -142,11 +142,24 @@ public class JinroyServiceImpl implements JinryoService{
 		}
 		
 		
+		//예약 테이블 jinryo state x -> o
+		jdao.updateReservationJrState(rsvnum);
+		
+		
+		//진료를 끝낸셈이니 세션 제거
+		session.removeAttribute("cusname");
+		session.removeAttribute("doctorname");
+		session.removeAttribute("custel");
+		session.removeAttribute("animalname");
+		session.removeAttribute("animalbreed");
+		session.removeAttribute("animalnum");
 		
 //		String path = JinroyServiceImpl.class.getResource("").getPath();
 //		 System.out.println(System.getProperty("user.dir"));
 		
+		jdao.insertPay(jinryoVO.getAnimal_num(), jinryoVO.getJroy_num(), jinryoVO.getJryo_price());
 		
+//		jdao.rxCntMinus(jinryoVO.get);
 		
 		// 파일 업로드 부분. 따로 만들어서 호출해야하나 일단 여기에 작성 ㄱㄱ
 //		File f = );
@@ -154,7 +167,7 @@ public class JinroyServiceImpl implements JinryoService{
 		try{
 			for(int i=0; i<jinryoImageVO.getJrImgCnt();i++){
 				
-				jinryoImageVO.getJinryoImages()[i].transferTo(new File("C:\\Users\\kosta\\git\\dodamrepo\\Dodam\\WebContent\\imageupload\\chartImages\\"+jinryoImageVO.getJr_img_fake_name()[i]));
+				jinryoImageVO.getJinryoImages()[i].transferTo(new File("C:\\Users\\user\\git\\dodamrepo\\Dodam\\WebContent\\imageupload\\chartImages\\"+jinryoImageVO.getJr_img_fake_name()[i]));
 			}
 		} catch (IllegalStateException e) {				
 			e.printStackTrace();

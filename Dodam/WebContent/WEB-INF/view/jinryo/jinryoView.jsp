@@ -31,10 +31,11 @@ table tbody tr {
 
 function goChartForm(){
 	
-	$(location).attr('href', '/jinryo/chartForm.dodam');
+	$('#chartFm').submit();
 }
 
 $(document).ready(function(){
+	
 	
 	$('#readyListDiv li').each(function(){
 		
@@ -43,12 +44,32 @@ $(document).ready(function(){
 			var cnt = 0;
 			
 			var animal_num = $(this).find('input[name=animal_num]').val();
+			
+			$('#rsvnum').val($(this).attr('rsvnum'));
+			
 			$.ajax({
 				url : "/jinryo/selectByAnimalNum.dodam",
 				type : 'get',
 				data : "animal_num=" + animal_num,
 				dataType : "json",
 				success : function(data){
+					
+// 					<input id="info_cusname" class='customerInfo' type='text' readonly="readonly" name='cust_name' value='${cusname}'/>
+// 					<input id ="info_custel" type='text' readonly="readonly" name='cus_tel' value="${custel}"/>
+// 					<input id ="info_animalname" type='text' readonly="readonly" name='animal_name' value="${animalname}"/>
+// 					<input id= "info_animalbreed" type='text' readonly="readonly" name='animal_breed' value="${animalbreed}"/>
+// 					<input id= "info_doctor_name" type='text' readonly="readonly" name='doctor_name' value="${doctorname}"/>
+// 					<input id= "info_animalnum" type='hidden' readonly="readonly" name='animal_num' value="${animalnum}"/>
+// 					<input id= "info_rsvtdt" type='hidden' readonly="readonly" name='rsvt_dt' value="${rsvtdt}"/>
+					
+					$('#info_cusname').val(data[0].CUS_NAME);
+					$('#info_custel').val(data[0].CUS_TEL);
+					$('#info_animalname').val(data[0].ANIMAL_NAME);
+					$('#info_animalbreed').val(data[0].ANIMAL_BREED);
+					$('#info_doctor_name').val(data[0].PER_NAME);
+					$('#info_animalnum').val(data[0].ANIMAL_NUM);
+// 					$('#info_rsvtdt').val(data[0].CUS_NAME);
+					
 					
 					console.log(data);
 					for(var i in data){
@@ -126,6 +147,9 @@ function goDetail(chartNum){
 
 <form id="viewForm" name="viewForm" action="/jinryo/detail.dodam" method="post">
 <input type="hidden" id="jryo_num" name="jryo_num" value="" />
+</form>
+<form id="chartFm" name="chartFm" action="/jinryo/chartForm.dodam" method="post">
+<input type="hidden" id="rsvnum" name="rsvnum" value=""/>
 </form>
 <div class="body" style="width: 100%; height: 100%; ">
 	<br/>
@@ -236,8 +260,8 @@ function goDetail(chartNum){
 			<div style="width: 100%; height: 90%; " id="readyListDiv">
 				<ul class="jinryoUl">
 <!-- 					<li style="height: 10%; padding: 10px;" >치즈<input type="hidden" name="animal_num" value="59"/></li> -->
-					<c:forEach var="aniInfo" items="${aniInfoList}">
-						<li style="height: 10%; padding: 10px;" >${aniInfo.ANIMAL_NAME}<input type="hidden" name="animal_num" value="${aniInfo.ANIMAL_NUM}"/></li>
+					<c:forEach var="totalMap" items="${todayMyReadyList}">
+						<li style="height: 10%; padding: 10px;" rsvnum="${totalMap.RSVT_NUM}" >${totalMap.ANIMAL_NAME}<input type="hidden" name="animal_num" value="${totalMap.ANIMAL_NUM}"/></li>
 					</c:forEach>
 				</ul>
 			</div>

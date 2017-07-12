@@ -26,7 +26,7 @@ public interface JinryoService {
 	
 	List<HashMap> selectJindanList(String word);
 	
-	int insertJinryoChart(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO, HttpSession session);
+	int insertJinryoChart(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO, JinryoImageVO jinryoImageVO, HttpSession session, String rsvnum);
 
 	
 
