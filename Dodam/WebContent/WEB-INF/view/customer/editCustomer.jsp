@@ -405,7 +405,7 @@ function animalUpdate(animal_num, cus_tel){
 										<input id="cus_name" style="background: none; border: none;" type="text" name="cus_name" value="${cusInfo.cus_name}" />
 									</a> 
 									<br/><br/><br/> 
-									<a> 전화번호 &nbsp; <input	id="cus_tel" name="cus_tel" style="background-color: #fda699" type="text" value="${cusInfo.cus_tel}" />
+									<a> 전화번호 &nbsp; <input	id="cus_tel" name="cus_tel" style="background-color: #fda699" type="text" value="${cusInfo.cus_tel}" readonly="readonly" />
 									</a><br />
 									 <a> 주소 &nbsp; <input id="cus_addr" name="cus_addr" style="background-color: #fda699" type="text" value="${cusInfo.cus_addr}" />
 									</a><br/> 
