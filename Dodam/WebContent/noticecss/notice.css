@@ -1,21 +1,25 @@
 @CHARSET "UTF-8";
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 /* .notice{ */
 /* 	width: 75%; */
 /* 	float: right; */
 /* } */
+#notice_tit {
+	text-align: left !important;
+}
+
 table {
 	border: 1px solid #d2d1d1;
-	border-radius : 5px;
+	border-radius: 5px;
 	position: relative;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	background-color: #fff;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	outline: 0;
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
 
 td {
@@ -23,23 +27,22 @@ td {
 }
 
 .notice {
-	width: 70% !important;
+	width: 100% !important;
 }
-
 
 .table>thead>tr:
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: arial, "나눔고딕", NanumGothic;
+	margin: 0;
+	padding: 0;
+	font-family: arial, "나눔고딕", NanumGothic;
 }
 
 tr {
 	border-bottom: 1px solid #eee;
 }
 
-th{
+th {
 	font-size: 130%;
 	text-align: center !important;
 	padding-right: 0px !important;
@@ -57,7 +60,7 @@ td {
 }
 
 .contentwrap {
-	margin:30px auto;
+	margin: 30px auto;
 	width: 65%;
 }
 
