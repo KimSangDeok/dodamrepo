@@ -36,7 +36,7 @@
 			oAppRef : oEditors,
 			elPlaceHolder : "notice_content", //textarea에서 지정한 id와 일치해야 합니다. 
 			//SmartEditor2Skin.html 파일이 존재하는 경로
-			sSkinURI : "../resources/SmartEditor2Skin.html",
+			sSkinURI : "/noticecss/resources/SmartEditor2Skin.html",
 			htParams : {
 				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseToolbar : true,
@@ -121,8 +121,8 @@
 
 						<tr>
 							<th>제목</th>
-							<td><input id="notice_title" name="notice_title" type="text"
-								style="width: 730px;" value="${model.notice_title}"></td>
+							<td id="notice_tit"><input id="notice_title" name="notice_title" type="text"
+								style="width: 1052px;" value="${model.notice_title}"></td>
 						</tr>
 
 						<tbody>
@@ -131,7 +131,7 @@
 								<th style="vertical-align: middle;">내용</th>
 								<td><textarea name="notice_content" id="notice_content"
 										rows="10" cols="100"
-										style="padding: 0px; width: 728px; height: 412px; display: none;"></textarea></td>
+										style="padding: 0px; width: 1050px; height: 412px; display: none;"></textarea></td>
 
 							</tr>
 						</tbody>
