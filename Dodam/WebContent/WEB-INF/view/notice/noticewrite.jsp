@@ -19,7 +19,7 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="../resources/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="/noticecss/resources/js/HuskyEZCreator.js" charset="utf-8"></script>
 <!-- jQuery를 사용하기위해 jQuery라이브러리 추가 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 
@@ -47,6 +47,7 @@ $(function(){
       
       //저장버튼 클릭시 form 전송
       $("#save").click(function(){
+    	  // SmartEditor의 내용을 에디터 생성시 사용했던 textarea에 삽입
     	  oEditors.getById["notice_content"].exec("UPDATE_CONTENTS_FIELD");
     	  var title = $('#notice_title').val();
     	  var content = ($('#notice_content').val());
@@ -108,14 +109,14 @@ $(function(){
 
 							<tr>
 								<th>제목</th>
-								<td><input id="notice_title" name="notice_title" type="text" style="width: 730px;"></td>
+								<td><input id="notice_title" name="notice_title" type="text" style="width: 1052px;"></td>
 							</tr>
 
 						<tbody>
 							<tr>
 								<!-- 글내용(스마트에디터) -->
 								<th style="vertical-align: middle;">내용</th>
-								<td><textarea name="notice_content" id="notice_content" rows="10" cols="100" style="padding:0px; width:728px; height:412px; display:none;"></textarea></td>
+								<td><textarea name="notice_content" id="notice_content" rows="10" cols="100" style="padding:0px; width:1050px; height:412px; display:none;"></textarea></td>
 								
 							</tr>
 						</tbody>
