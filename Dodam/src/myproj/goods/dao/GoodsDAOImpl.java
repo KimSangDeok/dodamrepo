@@ -41,12 +41,6 @@ public class GoodsDAOImpl implements GoodsDAO{
 		return result;
 	}
 	
-	//처음에 입고내역 불러오는 부분
-//	@Override
-//	public List<GoodsVO> historylist() {
-//		
-//		return goods.selectList("goods.historylist");
-//	}
 	
 	//상품 추가하는 부분
 	public void goodsInsert(GoodsVO goodsVO) {
@@ -56,7 +50,6 @@ public class GoodsDAOImpl implements GoodsDAO{
 		int goodsresult = goods.insert("goods.goodsInsert",goodsVO);
 		if(exist>0){
 			int stockresult1 = goods.insert("goods.stockUpdate",goodsVO);
-//			int stockresult2 = goods.insert("goods.stockUpdate2",goodsVO);
 		}else if(exist<1){
 			int stockresult = goods.insert("goods.stockInsert",goodsVO);
 		}
