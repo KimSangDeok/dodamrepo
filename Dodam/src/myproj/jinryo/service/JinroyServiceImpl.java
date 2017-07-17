@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -100,6 +99,17 @@ public class JinroyServiceImpl implements JinryoService{
 		return jdao.selectJindanList(word);
 	}
 
+	
+	
+	
+	/* 
+	 * @param monjinSaveMenus 저장한 문진내용
+	 * @param jinryoVO 증상, 진단, 처치,처방, 추가진료예정 내용
+	 * @param jinryoVitalVO 바이탈 내용
+	 * @param jinryoImageVO 혈액검사, X-ray, CT, 심전도 검사 이미지 여러개 
+	 * @param session 세션처리
+	 * @param rsvnum 예약 번호
+	 */
 	@Transactional
 	@Override
 	public int insertJinryoChart(String monjinSaveMenus, JinryoVO jinryoVO, JinryoVitalVO jinryoVitalVO,
@@ -154,15 +164,7 @@ public class JinroyServiceImpl implements JinryoService{
 		session.removeAttribute("animalbreed");
 		session.removeAttribute("animalnum");
 		
-//		String path = JinroyServiceImpl.class.getResource("").getPath();
-//		 System.out.println(System.getProperty("user.dir"));
-		
 		jdao.insertPay(jinryoVO.getAnimal_num(), jinryoVO.getJroy_num(), jinryoVO.getJryo_price());
-		
-//		jdao.rxCntMinus(jinryoVO.get);
-		
-		// 파일 업로드 부분. 따로 만들어서 호출해야하나 일단 여기에 작성 ㄱㄱ
-//		File f = );
 		
 		try{
 			for(int i=0; i<jinryoImageVO.getJrImgCnt();i++){
@@ -179,10 +181,8 @@ public class JinroyServiceImpl implements JinryoService{
 		return 1;
 	}
 	
-	
-
-
-	// 1. 진료테이블에 있는 내용을 모두 가져와라.
+	// Begin Detail-------------------------------------------------------------------------------------------
+	// 1. 진료테이블에 있는 내용을 모두 불러옴
 	@Override
 	public HashMap<String, Object> selectJinryoTable(String jryo_num) {
 		HashMap<String, Object> map = jdao.selectJinryoTable(jryo_num);
@@ -203,31 +203,37 @@ public class JinroyServiceImpl implements JinryoService{
 		return map;
 	}
 
-	// 2. 문진기록 내용을 모두 가져와라.
+	// 2. 문진기록 내용을 모두 불러옴
 	@Override
 	public List<Map<String, Object>> selectMoonjin(String jryo_num) {
 		return jdao.selectMoonjin(jryo_num);
 	}
 
-	// 3. 차트검사이미지 모두 불러오기
+	// 3. 차트검사이미지 모두 불러옴
 	@Override
 	public List<Map<String, Object>> selectChartImage(String jryo_num) {
 		return jdao.selectChartImage(jryo_num);
 	}
 
-	// 4. 진단내역 모두 가져와라.(바이탈 테이블 내용 모두 가져오기)
+	// 4. 진단내역 모두 불러옴.
 	@Override
 	public Map<String, Object> selectVital(String jryo_num) {
 		return jdao.selectVital(jryo_num);
 	}
+	// End Detail-------------------------------------------------------------------------------------------
 
+	
+	/* 
+	 * @param per_id 담당의사 Id
+	 * @return List<HashMap<String, Object>>
+	 *  오늘 예약된 나의(로그인시 저장된 의사 Id) 접수환자 리스트
+	 */
 	@Override
 	public List<HashMap<String, Object>> selectMyReadyList(String per_id) {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Calendar c1 = Calendar.getInstance();
         String strToday = sdf.format(c1.getTime());
-        System.out.println("Today=" + strToday);
 		
 		Map map = new HashMap();
 		map.put("per_id", per_id);
@@ -235,6 +241,11 @@ public class JinroyServiceImpl implements JinryoService{
 		return jdao.selectMyReadyList(map);
 	}
 
+	/* 
+	 * @param animalNum 동물 번호
+	 * @return HashMap
+	 * 동물 번호로 그 동물의 정보 불러옴
+	 */
 	@Override
 	public HashMap selectAnimalInfoByAnimalNum(String animalNum) {
 		
