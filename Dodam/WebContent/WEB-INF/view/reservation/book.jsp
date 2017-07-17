@@ -136,17 +136,15 @@ $(function(){
 			$('#Popup').popitup({
  				chase : false					
 			});
-// 			alert($(this).parents().children().eq(0).html());
+			//예약하려고 하는 날짜 팝업창에 지정
 			$("#popdate").val($("#singleDateRange").val());
+			//예약하려고하는 시간 팝업창에 지정
 			$("#poptime").val($(this).parents().children().eq(0).html());
 			
-// 			alert("의사"+$(".doctor").children().eq($(this).index()).html());
 			//팝업창에 의사이름 지정해주는 부분
 			$("#doctor_name").val($(".doctor").children().eq($(this).index()).html());			
-// 			alert("내가 누른 인덱스"+$(this).index());
 		}
 		
-// 		$("#poptime").val();
 		
 	});
 	//예약가능한 칸에 포인터 변경 하는 것.

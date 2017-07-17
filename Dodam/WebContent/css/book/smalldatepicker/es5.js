@@ -365,7 +365,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			  					if($(".doctor").children().eq(j).html() == (data[i]).doctor_name && $(".listCenter").eq(k).html()==(data[i]).rsvt_time){
 			  						var index1 =  $(".doctor").children().eq(j).index();	//사람 인덱스	
 			  						var index3 = $(".booktbody").children().eq(k).index();
-//			  						alert($(".doctor").children().eq(j).html()+index1);
 			  						$(".scheduleclass").eq(index3).children().eq(index1).css("background-color","pink");
 			  						$(".scheduleclass").eq(index3).children().eq(index1).html("예약완료");
 			  					}	      						

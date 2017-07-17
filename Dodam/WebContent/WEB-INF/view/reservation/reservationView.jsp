@@ -220,14 +220,13 @@ body {
 			height: 800,
 			header: {
 				left: 'prev,next today',
-				center: 'title'//,
-// 				right: 'month,agendaWeek,agendaDay'
+				center: 'title'
 			},
 			lang:"ko",
-// 			navLinks: true, // can click day/week names to navigate views
 			selectHelper: true,
-			editable: true,		//드래그 부분
-			eventLimit: true, // allow "more" link when too many events
+			editable: true,		
+			eventLimit: true, 
+			//일정 등록 부분
 			events: {
 	        	url : '/reservation/calendarlist.dodam',
 	           	dataType : 'json'	        
@@ -240,7 +239,6 @@ body {
 	        eventDrop:function( event, delta, revertFunc, jsEvent, ui, view ) {
                   var title = event.title.split("(");
                   var firsttime = title[1].split(")");
-// 				alert(event.start.toISOString());
                 //예약이 가능 한 시간 알려주는 ajax  
                 var count = 0;
 				$.ajax({
